@@ -3,8 +3,8 @@ import json
 import yahoo_fantasy_api as yfa
 from flask import Flask, request, jsonify
 import os
+from credentials import *
 
-creds = {'consumer_key': 'dj0yJmk9a0JVM2pIRXBCdXVnJmQ9WVdrOWNGazFjbWh6WldRbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTYz', 'consumer_secret': 'c20f46eec8c1d9028e621dc7d6dafb105e1ecff8'}
 with open('oauth2.json', "w") as f:
    f.write(json.dumps(creds))
 oauth = OAuth2(None, None, from_file='oauth2.json')
@@ -14,7 +14,7 @@ gm = yfa.Game(oauth, 'nba')
 lg = gm.to_league('402.l.67232')
 print(gm.league_ids(year=2020))
 
-app = Flask(__name__, static_folder='./Frontend/build', static_url_path='/')
+app = Flask(__name__)
 statMap = {"5": "FG%", "8":"FT%", "10":"3PTM", "12":"PTS", "15":"REB", "16":"AST", "17":"ST", "18":"BLK", "19":"TO"}
 @app.route('/')
 def index():
@@ -106,10 +106,7 @@ def winning():
                         
     return currentWins
 
-@app.errorhandler(404)
-def not_found(e):
-    return app.send_static_file('index.html')
    
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=os.environ.get('PORT', 80), debug=False)
+    app.run(host="localhost", port=8000, debug=False)
