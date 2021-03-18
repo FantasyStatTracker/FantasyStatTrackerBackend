@@ -20,7 +20,8 @@ export default class StatTable extends React.Component {
             Winning: [],
             showWinning: false,
             LeaderPlayer: [],
-            Available: false
+            Available: false,
+            AllLeader: []
 
         };
 
@@ -43,31 +44,33 @@ export default class StatTable extends React.Component {
                 this.setState({ Leaders: JSON.stringify(response.data) })
             })
 
+        var arr = []
+        var cat = []
         var obj = JSON.parse(this.state.Leaders)
-        var catArr = []
-        var cat = Object.keys(obj)
-
-        for (var i in cat) {
-            var entry = {}
-            console.log(cat[i])
-            entry[cat[i]] = [obj[cat[i]][0], obj[cat[i]][1]]
-            console.log(entry[cat[i]])
-            catArr.push(entry)
+        
+        for (var i in obj) {
+            cat.push(i)
+            arr.push(obj[i])
         }
 
+        console.log(arr)
 
-        await this.setState({ f: catArr })
-        console.log(catArr)
-        console.log(this.state.f)
+        await this.setState({AllLeader : arr})
+        await this.setState({Categories: cat})
+        await(this.setState({show: true}))
 
         {
-            this.state.Categories.map((item, i) => {
-                console.log(catArr[i][item][1])
-                console.log(catArr[i][item][0])
+            this.state.AllLeader.map((item, i) => {
+                console.log(this.state.Categories[i])
+                item.map((val, x) => {
+                    console.log(val)
+                })
             })
         }
 
-        this.setState({ show: true })
+        
+
+        
 
     }
 
@@ -160,7 +163,7 @@ export default class StatTable extends React.Component {
 
         await this.setState({ Winning: arr })
         await this.setState({ LeaderPlayer: g })
-        this.setState({ showWinning: true })
+        await this.setState({ showWinning: true })
 
         console.log(this.state.Winning)
 
@@ -241,35 +244,55 @@ export default class StatTable extends React.Component {
 
                         <div>
                             <CardGroup>
-                                {this.state.Categories.map((item, i) => {
+                            {
+                                this.state.AllLeader.map((item, i) => {
                                     return (
                                         <Card>
                                             <Table>
                                                 <div>
                                                     <thead>
                                                         <tr>
-                                                            <p>{item}</p>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
+                                    {this.state.Categories[i]}
+                                  
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    
+                                    {item.map((val, x) => {
+                                        return (
+                                        <tr>
+                                            <td>
+                                        {val[0]}
+                                        </td>
+                                        <td>
+                                            {val[1]}
+                                        </td>
+                                        </tr>
+                                        )
+                                    })}
 
-                                                        <td>{this.state.f[i][item][1]}</td>
-                                                        <td>{this.state.f[i][item][0]}</td>
-                                                    </tbody>
-                                                </div>
-                                            </Table>
-                                        </Card>
+                                    </tbody>
+
+                                    </div>
+                                    </Table>
+                                    </Card>
                                     )
                                 })}
-                            </CardGroup>
-
-                        </div>
-
-                }
+                                </CardGroup>
+                                </div>
 
 
-                {
-                    this.state.showWinning === false ?
+                            }
+
+                              
+
+                
+
+
+                
+                    {
+                        this.state.showWinning === false ?
                         <p></p>
 
                         :

@@ -4,15 +4,22 @@ import yahoo_fantasy_api as yfa
 from flask import Flask, request, jsonify
 import os
 from credentials import *
+from operator import itemgetter
 
 with open('oauth2.json', "w") as f:
    f.write(json.dumps(creds))
 oauth = OAuth2(None, None, from_file='oauth2.json')
 
 
+
+
+
+
+
 gm = yfa.Game(oauth, 'nba')
 lg = gm.to_league('402.l.67232')
 print(gm.league_ids(year=2020))
+
 
 app = Flask(__name__)
 statMap = {"5": "FG%", "8":"FT%", "10":"3PTM", "12":"PTS", "15":"REB", "16":"AST", "17":"ST", "18":"BLK", "19":"TO"}
@@ -30,31 +37,27 @@ def getMatchups():
 def getWins():
 
     data = json.loads(request.form.get("data"))
-    print(data)
     
-    categoryMax = {"FG%":[0, ""], "FT%":[0, ""], "3PTM":[0, ""],"PTS":[0, ""], "REB":[0, ""], "AST":[0, ""], "ST":[0, ""], "BLK":[0, ""], "TO":[10000, ""]}
+    
+    categoryMax = {"FG%":{}, "FT%":{}, "3PTM":{},"PTS":{}, "REB":{}, "AST":{}, "ST":{}, "BLK":{}, "TO":{}}
     
     for x in data:
-        print(x)
+        
         for y in list(x.keys()): #team stats
-            print(x[y])
+            
             for z in x[y].keys(): #cats
-                print(z)
-                print(x[y][z]) #cat value
-                print(categoryMax[z][0])
+                categoryMax[z][y] = float(x[y][z])
 
+    catSort = {}
+    for x in categoryMax:
+        print(categoryMax[x])
+        sortedCategory = (sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
+        catSort[x] = sortedCategory
+        print(catSort)
+        
 
-                if (z == "TO"):
-                     if (float(x[y][z]) < float(categoryMax[z][0])):
-                        categoryMax[z][0] = float(x[y][z])
-                        categoryMax[z][1] = y
-
-
-                if (float(x[y][z]) > float(categoryMax[z][0])):
-                    categoryMax[z][0] = float(x[y][z])
-                    categoryMax[z][1] = y
-    
-    return categoryMax
+                
+    return catSort
     
 @app.route('/test', methods=['GET'])
 def test():
@@ -110,4 +113,4 @@ def winning():
    
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000, debug=False)
+    app.run(host="localhost", port=8000, debug=True)
