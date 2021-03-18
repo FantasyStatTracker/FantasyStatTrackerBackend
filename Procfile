@@ -1,1 +1,1 @@
-web: gunicorn LeagueData:app
+web: gunicorn server:app
