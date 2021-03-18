@@ -57,7 +57,8 @@ export default class StatTable extends React.Component {
 
         await this.setState({AllLeader : arr})
         await this.setState({Categories: cat})
-        await(this.setState({show: true}))
+        await this.setState({show: true})
+        await this.setState({ showWinning: false })
 
         {
             this.state.AllLeader.map((item, i) => {
@@ -108,6 +109,8 @@ export default class StatTable extends React.Component {
         }
 
         this.setState({Available: true})
+        this.setState({show: false})
+        this.setState({ showWinning: false })
 
 
 
@@ -164,6 +167,7 @@ export default class StatTable extends React.Component {
         await this.setState({ Winning: arr })
         await this.setState({ LeaderPlayer: g })
         await this.setState({ showWinning: true })
+        await this.setState({show: false})
 
         console.log(this.state.Winning)
 

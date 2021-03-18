@@ -12,10 +12,6 @@ oauth = OAuth2(None, None, from_file='oauth2.json')
 
 
 
-
-
-
-
 gm = yfa.Game(oauth, 'nba')
 lg = gm.to_league('402.l.67232')
 print(gm.league_ids(year=2020))
