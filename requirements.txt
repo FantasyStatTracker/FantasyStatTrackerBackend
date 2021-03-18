@@ -1,3 +1,4 @@
 Flask==1.1.2
 yahoo_oauth==1.1
 yahoo_fantasy_api==2.4.1
+gunicorn==20.0.4
