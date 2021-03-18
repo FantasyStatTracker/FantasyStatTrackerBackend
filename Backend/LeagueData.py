@@ -1,7 +1,7 @@
 from yahoo_oauth import OAuth2
 import json
 import yahoo_fantasy_api as yfa
-from flask import Flask
+from flask import Flask, request, jsonify
 '''
 
 with open('oauth2.json', "w") as f:
@@ -25,9 +25,35 @@ def getMatchups():
     matchupInfo = lg.matchups()
     return matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
 
-@app.route('/win-calculator', methods=['GET'])
+@app.route('/win-calculator', methods=['POST'])
 def getWins():
-    return ""
+
+    data = json.loads(request.form.get("data"))
+    #print(data)
+    
+    categoryMax = {"FG%":[0, ""], "FT%":[0, ""], "3PTM":[0, ""],"PTS":[0, ""], "REB":[0, ""], "AST":[0, ""], "ST":[0, ""], "BLK":[0, ""], "TO":[10000, ""]}
+    
+    for x in data:
+        print(x)
+        for y in list(x.keys()): #team stats
+            print(x[y])
+            for z in x[y].keys(): #cats
+                print(z)
+                print(x[y][z]) #cat value
+                print(categoryMax[z][0])
+
+
+                if (z == "TO"):
+                     if (float(x[y][z]) < float(categoryMax[z][0])):
+                        categoryMax[z][0] = float(x[y][z])
+                        categoryMax[z][1] = y
+
+
+                if (float(x[y][z]) > float(categoryMax[z][0])):
+                    categoryMax[z][0] = float(x[y][z])
+                    categoryMax[z][1] = y
+    
+    return categoryMax
     
 @app.route('/test', methods=['GET'])
 def test():
@@ -51,6 +77,31 @@ def test():
                     continue
 
     return teams
+
+@app.route('/winning-matchups', methods=['POST'])
+def winning():
+    data = json.loads(request.form.get("data"))
+    currentWins = {}
+
+    for x in data:
+        for player1 in list(x.keys()): #team stats
+            currentWins[player1] = []
+            for y in data:
+                for player2 in list(y.keys()):
+                    if (player1 == player2):
+                        continue
+                    
+                    winCount = 0
+                    for z in x[player1].keys(): #cats
+                        
+                        if (winCount >= 5):
+                            currentWins[player1].append(player2) 
+                            break
+                        if (x[player1][z] > y[player2][z]):
+                            winCount+=1
+                        
+    return currentWins
+
    
 
 if __name__ == '__main__':
