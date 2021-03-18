@@ -14,7 +14,7 @@ gm = yfa.Game(oauth, 'nba')
 lg = gm.to_league('402.l.67232')
 print(gm.league_ids(year=2020))
 
-app = Flask(__name__, static_folder='../Frontend/build', static_url_path='/')
+app = Flask(__name__, static_folder='./Frontend/build', static_url_path='/')
 statMap = {"5": "FG%", "8":"FT%", "10":"3PTM", "12":"PTS", "15":"REB", "16":"AST", "17":"ST", "18":"BLK", "19":"TO"}
 @app.route('/')
 def index():

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Form, Col, Row, Card, CardGroup, Button, Alert, Spinner, Table } from 'react-bootstrap'
+import {  Card, CardGroup, Button, Table, ButtonGroup } from 'react-bootstrap'
 import axios from 'axios'
 
 export default class StatTable extends React.Component {
@@ -16,7 +16,11 @@ export default class StatTable extends React.Component {
             AllData: [],
             Leaders: [],
             f: [],
-            show: false
+            show: false,
+            Winning: [],
+            showWinning: false,
+            LeaderPlayer: [],
+            Available: false
 
         };
 
@@ -63,8 +67,7 @@ export default class StatTable extends React.Component {
             })
         }
 
-        this.setState({show: true})
-
+        this.setState({ show: true })
 
     }
 
@@ -101,7 +104,9 @@ export default class StatTable extends React.Component {
             })
         }
 
-        
+        this.setState({Available: true})
+
+
 
     }
 
@@ -127,7 +132,7 @@ export default class StatTable extends React.Component {
                 this.setState({ Leaders: JSON.stringify(response.data) })
             })
 
-            
+
 
     }
 
@@ -139,9 +144,27 @@ export default class StatTable extends React.Component {
 
             .then((response) => {
                 console.log(response.data)
+                this.setState({ Winning: JSON.stringify(response.data) })
             })
-    }
 
+
+        var arr = []
+        var obj = JSON.parse(this.state.Winning)
+        var g = Object.keys(obj)
+
+        for (var i in g) {
+            var x = {}
+            x[g[i]] = obj[g[i]]
+            arr.push(x)
+        }
+
+        await this.setState({ Winning: arr })
+        await this.setState({ LeaderPlayer: g })
+        this.setState({ showWinning: true })
+
+        console.log(this.state.Winning)
+
+    }
 
 
     render() {
@@ -196,45 +219,102 @@ export default class StatTable extends React.Component {
                     }
                 </CardGroup>
 
-                <Button onClick={this.computeLeaders}>Week Category Leaders</Button>
+                {
+                    this.state.Available === false ?
+                    <p></p>
+                    :
+                    <ButtonGroup>
+                    <Button onClick={this.computeLeaders}>Week Category Leaders</Button>
+                    <Button onClick={this.winningMatchup}>Determine winner</Button>
+                    </ButtonGroup>
+                }
+                
 
-                <Button onClick={this.winningMatchup}>Determine winner</Button>
 
 
-                    {
-                        this.state.show == false ?
+                {
+                    this.state.show === false ?
 
                         <p></p>
 
                         :
-                    
+
                         <div>
                             <CardGroup>
-                    {this.state.Categories.map((item, i) => {
-                        return (
-                            <Card>
-                            <Table>
-                            <div>
-                                <thead>
-                                    <tr>
-                                    <p>{item}</p>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                                {this.state.Categories.map((item, i) => {
+                                    return (
+                                        <Card>
+                                            <Table>
+                                                <div>
+                                                    <thead>
+                                                        <tr>
+                                                            <p>{item}</p>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
 
-                                <td>{this.state.f[i][item][1]}</td>
-                                <td>{this.state.f[i][item][0]}</td>
-                                </tbody>
-                            </div>
-                            </Table>
-                            </Card>
-                        )
-                    })}
-                    </CardGroup>
+                                                        <td>{this.state.f[i][item][1]}</td>
+                                                        <td>{this.state.f[i][item][0]}</td>
+                                                    </tbody>
+                                                </div>
+                                            </Table>
+                                        </Card>
+                                    )
+                                })}
+                            </CardGroup>
 
-                    </div>
+                        </div>
 
                 }
+
+
+                {
+                    this.state.showWinning === false ?
+                        <p></p>
+
+                        :
+
+                        <div>
+
+                            <Table>
+                                {this.state.Winning.map((item, i) => {
+                                    return (
+                                        <div>
+
+                                            <thead>
+                                                <tr>{this.state.LeaderPlayer[i]} : {item[this.state.LeaderPlayer[i]].length} Teams</tr>
+                                            </thead>
+                                            <tbody>
+                                            {item[this.state.LeaderPlayer[i]].length === 0 ? <th><strong>LOL</strong></th> : null}
+                                                <tr>
+                                                    
+                                                    
+                                                    {item[this.state.LeaderPlayer[i]].map((x, e) => {
+                                                        return (<th>{x}</th>)
+                                                        
+                                                        
+                                                    })
+                                                    }
+                                                
+                                                
+                                                </tr>
+                                            </tbody>
+
+                                        </div>
+
+                                    )
+                                })}
+                            </Table>
+
+                        </div>
+
+
+                }
+
+
+
+
+
 
 
             </div>
