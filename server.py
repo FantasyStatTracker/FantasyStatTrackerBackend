@@ -23,7 +23,8 @@ def index():
 @app.route('/matchups', methods=['GET'])
 def getMatchups():
     matchupInfo = lg.matchups()
-    return matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+    return matchupInfo
+    
 
 @app.route('/win-calculator', methods=['POST'])
 def getWins():
