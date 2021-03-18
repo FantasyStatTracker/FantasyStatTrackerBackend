@@ -225,7 +225,7 @@ export default class StatTable extends React.Component {
                     :
                     <ButtonGroup>
                     <Button onClick={this.computeLeaders}>Week Category Leaders</Button>
-                    <Button onClick={this.winningMatchup}>Determine winner</Button>
+                    <Button onClick={this.winningMatchup}>Show that Aaron is Winner</Button>
                     </ButtonGroup>
                 }
                 
