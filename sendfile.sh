@@ -16,3 +16,5 @@ git push
 wait
 
 git checkout development
+
+kill $(pgrep -f 'python server.py')
