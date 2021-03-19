@@ -1,9 +1,13 @@
 #!/bin/bash
 
-git commit output.json -m "output.json"
+git add .
+git commit -m "changes"
 git push
+
 git checkout deploymentCheese
 git checkout development output.json
+git add .
+git commit -m "update output.json" output.json
+git push
 
-git pull
 git checkout development
