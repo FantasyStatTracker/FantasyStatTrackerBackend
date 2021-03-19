@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify
 import os
 from credentials import *
 from operator import itemgetter
+import subprocess
+import _pickle as cPickle
 
 with open('oauth2.json', "w") as f:
    f.write(json.dumps(creds))
@@ -25,8 +27,13 @@ def index():
 
 @app.route('/matchups', methods=['GET'])
 def getMatchups():
+    f = open("output.json", "w")
     matchupInfo = lg.matchups()
-    return matchupInfo
+    json.dump(matchupInfo, f)
+    subprocess.call("./sendfile.sh")
+
+    return "Deployed Updated Data"
+
     
 
 @app.route('/win-calculator', methods=['POST'])
