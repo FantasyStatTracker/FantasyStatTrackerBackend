@@ -41,6 +41,7 @@ def getMatchups():
     matchupInfo = lg.matchups()
     json.dump(matchupInfo, f)
 
+    f.close()
     
     subprocess.call("./sendfile.sh")
 
