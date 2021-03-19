@@ -9,8 +9,15 @@ import os
 from operator import itemgetter
 import subprocess
 import _pickle as cPickle
+
+sys.path.append(os.path.abspath(os.path.join('../', 'cred')))
 from credentials import *
 
+cred = {}
+with open ('/Users/ajaypatel/Desktop/cred/credentials.py', "r") as r:
+    cred = r.readline()
+
+print(cred)
 with open('oauth2.json', "w") as f:
    f.write(json.dumps(creds))
 oauth = OAuth2(None, None, from_file='oauth2.json')
