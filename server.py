@@ -66,7 +66,7 @@ def test():
     
     teams = {}
 
-    matchupInfo = lg.matchups()
+    matchupInfo = lg.matchups(week=2)
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
     
                 

@@ -26,7 +26,6 @@ export default class StatTable extends React.Component {
         };
 
 
-        this.test = this.test.bind(this)
         this.getLeaders = this.getLeaders.bind(this)
         this.computeLeaders = this.computeLeaders.bind(this)
         this.winningMatchup = this.winningMatchup.bind(this)
@@ -60,35 +59,6 @@ export default class StatTable extends React.Component {
 
     }
 
-    test() {
-
-        var arr = []
-        var obj = JSON.parse(this.state.p)
-        var g = Object.keys(obj)
-
-        var catArray = []
-
-        for (var i in g) {
-            var w = {}
-            w[g[i]] = obj[g[i]]
-            arr.push(w)
-        }
-
-        this.setState({ AllData: arr })
-        for (var x in (arr[0][g[0]])) {
-            catArray.push(x)
-        }
-        this.setState({ Players: g })
-        this.setState({ dataArray: arr })
-        this.setState({ Categories: catArray })
-
-        this.setState({Available: true})
-        this.setState({show: false})
-        this.setState({ showWinning: false })
-
-
-
-    }
 
     async componentDidMount() {
 
@@ -96,6 +66,30 @@ export default class StatTable extends React.Component {
             .then(response => {
                 this.setState({ p: JSON.stringify(response.data) })
             })
+
+            var arr = []
+            var obj = JSON.parse(this.state.p)
+            var g = Object.keys(obj)
+    
+            var catArray = []
+    
+            for (var i in g) {
+                var w = {}
+                w[g[i]] = obj[g[i]]
+                arr.push(w)
+            }
+    
+            this.setState({ AllData: arr })
+            for (var x in (arr[0][g[0]])) {
+                catArray.push(x)
+            }
+            this.setState({ Players: g })
+            this.setState({ dataArray: arr })
+            this.setState({ Categories: catArray })
+    
+            this.setState({Available: true})
+            this.setState({show: false})
+            this.setState({ showWinning: false })
 
 
     }
@@ -154,8 +148,6 @@ export default class StatTable extends React.Component {
 
             <div>
 
-
-                <Button onClick={this.test}>View Updated Current Week Stats and Leaders</Button>
                 <CardGroup>
                     {this.state.dataArray.map((item, i) => {
                         return (
@@ -204,7 +196,7 @@ export default class StatTable extends React.Component {
                     :
                     <ButtonGroup>
                     <Button onClick={this.computeLeaders}>Week Category Leaders</Button>
-                    <Button onClick={this.winningMatchup}>Show that Aaron is Winner</Button>
+                    <Button onClick={this.winningMatchup}>Team vs Other Teams</Button>
                     </ButtonGroup>
                 }
                 
@@ -219,7 +211,9 @@ export default class StatTable extends React.Component {
                         :
 
                         <div>
+                            <h1>Current Week Category Ranks</h1>
                             <CardGroup>
+                            
                             {
                                 this.state.AllLeader.map((item, i) => {
                                     return (
@@ -276,6 +270,7 @@ export default class StatTable extends React.Component {
                         <div>
 
                             <Table>
+                                <h1>Wins if everyone played everyone</h1>
                                 {this.state.Winning.map((item, i) => {
                                     return (
                                         <div>
