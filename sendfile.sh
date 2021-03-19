@@ -1,8 +1,9 @@
 #!/bin/bash
 
 git commit output.json -m "output.json"
-git push origin deploymentCheese
-
+git push
 git checkout deploymentCheese
+git checkout development output.json
+
 git pull
 git checkout development
