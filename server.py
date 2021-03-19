@@ -1,12 +1,15 @@
 from yahoo_oauth import OAuth2
+import sys
+
 import json
 import yahoo_fantasy_api as yfa
 from flask import Flask, request, jsonify
 import os
-from credentials import *
+
 from operator import itemgetter
 import subprocess
 import _pickle as cPickle
+from credentials import *
 
 with open('oauth2.json', "w") as f:
    f.write(json.dumps(creds))
