@@ -36,7 +36,7 @@ export default class StatTable extends React.Component {
     async computeLeaders() {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
-        await axios.post('/win-calculator', bodyFormData)
+        await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
 
             .then((response) => {
                 this.setState({ Leaders: JSON.stringify(response.data) })
@@ -92,7 +92,7 @@ export default class StatTable extends React.Component {
 
     async componentDidMount() {
 
-        await axios.get('/test')
+        await axios.get('https://react-flask-fantasy.herokuapp.com/test')
             .then(response => {
                 this.setState({ p: JSON.stringify(response.data) })
             })
@@ -104,7 +104,7 @@ export default class StatTable extends React.Component {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
-        await axios.post('/win-calculator', bodyFormData)
+        await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
 
             .then((response) => {
                 this.setState({ Leaders: JSON.stringify(response.data) })
@@ -118,7 +118,7 @@ export default class StatTable extends React.Component {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
-        await axios.post('/winning-matchups', bodyFormData)
+        await axios.post('https://react-flask-fantasy.herokuapp.com/winning-matchups', bodyFormData)
 
             .then((response) => {
 
