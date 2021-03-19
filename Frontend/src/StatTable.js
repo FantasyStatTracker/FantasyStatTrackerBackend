@@ -36,11 +36,9 @@ export default class StatTable extends React.Component {
     async computeLeaders() {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
-        console.log(this.state.AllData)
         await axios.post('/win-calculator', bodyFormData)
 
             .then((response) => {
-                console.log(response.data)
                 this.setState({ Leaders: JSON.stringify(response.data) })
             })
 
@@ -53,25 +51,12 @@ export default class StatTable extends React.Component {
             arr.push(obj[i])
         }
 
-        console.log(arr)
-
         await this.setState({AllLeader : arr})
         await this.setState({Categories: cat})
         await this.setState({show: true})
         await this.setState({ showWinning: false })
 
-        {
-            this.state.AllLeader.map((item, i) => {
-                console.log(this.state.Categories[i])
-                item.map((val, x) => {
-                    console.log(val)
-                })
-            })
-        }
 
-        
-
-        
 
     }
 
@@ -80,7 +65,6 @@ export default class StatTable extends React.Component {
         var arr = []
         var obj = JSON.parse(this.state.p)
         var g = Object.keys(obj)
-        console.log(g)
 
         var catArray = []
 
@@ -90,23 +74,13 @@ export default class StatTable extends React.Component {
             arr.push(w)
         }
 
-        console.log(arr)
         this.setState({ AllData: arr })
         for (var x in (arr[0][g[0]])) {
             catArray.push(x)
         }
-        console.log(catArray)
         this.setState({ Players: g })
         this.setState({ dataArray: arr })
         this.setState({ Categories: catArray })
-
-        {
-            arr.map((item, i) => {
-                console.log(g[i])
-                console.log(item[g[i]].AST)
-
-            })
-        }
 
         this.setState({Available: true})
         this.setState({show: false})
@@ -123,18 +97,16 @@ export default class StatTable extends React.Component {
                 this.setState({ p: JSON.stringify(response.data) })
             })
 
-        console.log(this.state.p)
 
     }
 
     async getLeaders() {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
-        console.log(this.state.AllData)
+
         await axios.post('/win-calculator', bodyFormData)
 
             .then((response) => {
-                console.log(response.data)
                 this.setState({ Leaders: JSON.stringify(response.data) })
             })
 
@@ -145,11 +117,11 @@ export default class StatTable extends React.Component {
     async winningMatchup() {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
-        console.log(this.state.AllData)
+
         await axios.post('/winning-matchups', bodyFormData)
 
             .then((response) => {
-                console.log(response.data)
+
                 this.setState({ Winning: JSON.stringify(response.data) })
             })
 
@@ -169,7 +141,7 @@ export default class StatTable extends React.Component {
         await this.setState({ showWinning: true })
         await this.setState({show: false})
 
-        console.log(this.state.Winning)
+
 
     }
 

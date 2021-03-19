@@ -10,61 +10,29 @@ from operator import itemgetter
 import subprocess
 import _pickle as cPickle
 
-sys.path.append(os.path.abspath(os.path.join('../', 'cred')))
-from credentials import *
 
-cred = {}
-with open ('/Users/ajaypatel/Desktop/cred/credentials.py', "r") as r:
-    cred = r.readline()
-
-print(cred)
-
-'''
-with open('oauth2.json', "w") as f:
-        f.write(json.dumps(creds))
-        '''
 oauth = OAuth2(None, None, from_file='oauth2.json')
 
 if not oauth.token_is_valid():
     oauth.refresh_access_token()
 
-print(oauth)
-
-
 gm = yfa.Game(oauth, 'nba')
 lg = gm.to_league('402.l.67232')
-print(gm.league_ids(year=2020))
-    
+
 
 app = Flask(__name__)
 statMap = {"5": "FG%", "8":"FT%", "10":"3PTM", "12":"PTS", "15":"REB", "16":"AST", "17":"ST", "18":"BLK", "19":"TO"}
+
 @app.route('/')
 def index():
     return ""
 
-@app.route('/auth/yahoo', methods=['GET']) 
-def auth():
-    authorizationUrl = 'https://api.login.yahoo.com/oauth2/request_auth'
-
-    q = {
-        "client_id": 'dj0yJmk9ZG9IajI1b05PZ1hCJmQ9WVdrOWVXOHpVMk53Tm04bWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTU4',
-        "redirectUri": 'http://localhost:8000/auth/yahoo/callback',
-        "response_type": 'code'
-    }
-
-    return redirect(authorizationUrl + '?' + json.stringify(q))
-
 @app.route('/matchups', methods=['GET'])
 def getMatchups():
-    f = open("output.json", "w")
-    matchupInfo = lg.matchups()
-    json.dump(matchupInfo, f)
-
-    f.close()
     
-    subprocess.call("./sendfile.sh")
+    matchupInfo = lg.matchups()
 
-    return "Deployed Updated Data"
+    return matchupInfo
 
     
 
@@ -85,10 +53,9 @@ def getWins():
 
     catSort = {}
     for x in categoryMax:
-        print(categoryMax[x])
         sortedCategory = (sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
         catSort[x] = sortedCategory
-        print(catSort)
+
         
 
                 
@@ -124,7 +91,6 @@ def test():
 def winning():
     data = json.loads(request.form.get("data"))
     currentWins = {}
-    print(data)
 
     for x in data:
         for player1 in list(x.keys()): #team stats
