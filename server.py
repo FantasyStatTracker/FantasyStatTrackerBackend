@@ -19,8 +19,10 @@ with open ('/Users/ajaypatel/Desktop/cred/credentials.py', "r") as r:
 
 print(cred)
 
+'''
 with open('oauth2.json', "w") as f:
         f.write(json.dumps(creds))
+        '''
 oauth = OAuth2(None, None, from_file='oauth2.json')
 
 if not oauth.token_is_valid():
