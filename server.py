@@ -40,9 +40,11 @@ def getMatchups():
     f = open("output.json", "w")
     matchupInfo = lg.matchups()
     json.dump(matchupInfo, f)
-    subprocess.call("./sendfile.sh")
 
-    return "Deployed Updated Data"
+    return matchupInfo
+   # subprocess.call("./sendfile.sh")
+
+    #return "Deployed Updated Data"
 
     
 
