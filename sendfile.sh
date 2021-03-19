@@ -17,4 +17,4 @@ wait
 
 git checkout development
 
-kill $(pgrep -f 'python server.py')
+kill `$(pgrep -f 'python server.py')`
