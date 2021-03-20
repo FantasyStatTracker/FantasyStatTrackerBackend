@@ -4,6 +4,7 @@ import sys
 import json
 import yahoo_fantasy_api as yfa
 from flask import Flask, request, jsonify, redirect
+from flask_cors import CORS, cross_origin
 import os
 
 from operator import itemgetter
@@ -21,13 +22,16 @@ lg = gm.to_league('402.l.67232')
 
 
 app = Flask(__name__)
+cors = CORS(app)
 statMap = {"5": "FG%", "8":"FT%", "10":"3PTM", "12":"PTS", "15":"REB", "16":"AST", "17":"ST", "18":"BLK", "19":"TO"}
 
 @app.route('/')
+@cross_origin()
 def index():
     return ""
 
 @app.route('/matchups', methods=['GET'])
+@cross_origin()
 def getMatchups():
     
     matchupInfo = lg.matchups()
@@ -37,6 +41,7 @@ def getMatchups():
     
 
 @app.route('/win-calculator', methods=['POST'])
+@cross_origin()
 def getWins():
 
     data = json.loads(request.form.get("data"))
@@ -62,6 +67,7 @@ def getWins():
     return catSort
     
 @app.route('/test', methods=['GET'])
+@cross_origin()
 def test():
     
     teams = {}
@@ -88,6 +94,7 @@ def test():
     return teams
 
 @app.route('/winning-matchups', methods=['POST'])
+@cross_origin()
 def winning():
     data = json.loads(request.form.get("data"))
     currentWins = {}
@@ -114,4 +121,4 @@ def winning():
    
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=os.environ.get('PORT', 80), debug=True)
+    app.run(host="localhost", port=os.environ.get('PORT', 80), debug=False)
