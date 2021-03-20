@@ -1,7 +1,8 @@
 
 import React from 'react'
-import {  Card, CardGroup, Button, Table, ButtonGroup } from 'react-bootstrap'
+import {  Card, CardGroup, Button, Table, ButtonGroup, Nav, Navbar, Form, FormControl, ToggleButton} from 'react-bootstrap'
 import axios from 'axios'
+import "./PageStyle.css"
 
 export default class StatTable extends React.Component {
     constructor(props) {
@@ -16,11 +17,11 @@ export default class StatTable extends React.Component {
             AllData: [],
             Leaders: [],
             f: [],
-            show: false,
+            
             Winning: [],
-            showWinning: false,
+            
             LeaderPlayer: [],
-            Available: false,
+            AccessBoolean: [true,false,false],
             AllLeader: []
 
         };
@@ -29,10 +30,11 @@ export default class StatTable extends React.Component {
         this.getLeaders = this.getLeaders.bind(this)
         this.computeLeaders = this.computeLeaders.bind(this)
         this.winningMatchup = this.winningMatchup.bind(this)
+        this.showContent = this.showContent.bind(this)
     }
 
 
-    async computeLeaders() {
+    async computeLeaders(e) {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
         await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
@@ -52,8 +54,8 @@ export default class StatTable extends React.Component {
 
         await this.setState({AllLeader : arr})
         await this.setState({Categories: cat})
-        await this.setState({show: true})
-        await this.setState({ showWinning: false })
+
+        this.showContent(e)
 
 
 
@@ -86,10 +88,6 @@ export default class StatTable extends React.Component {
             this.setState({ Players: g })
             this.setState({ dataArray: arr })
             this.setState({ Categories: catArray })
-    
-            this.setState({Available: true})
-            this.setState({show: false})
-            this.setState({showWinning: false })
 
 
     }
@@ -108,7 +106,7 @@ export default class StatTable extends React.Component {
 
     }
 
-    async winningMatchup() {
+    async winningMatchup(e) {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
@@ -132,11 +130,24 @@ export default class StatTable extends React.Component {
 
         await this.setState({ Winning: arr })
         await this.setState({ LeaderPlayer: g })
-        await this.setState({ showWinning: true })
-        await this.setState({show: false})
 
+        this.showContent(e)
 
+    }
 
+    async showContent(e) {
+        var arr = []
+        for (var i = 0; i < this.state.AccessBoolean.length; i++) {
+            arr.push(false)
+        }
+        var value = parseInt(e.target.id)
+        arr[value] = true
+
+        await this.setState({AccessBoolean: arr})
+
+        
+
+        
     }
 
 
@@ -147,64 +158,82 @@ export default class StatTable extends React.Component {
 
 
             <div>
+                <>
+  <Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="#home">Fantasy Stat Track</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Button variant="dark" id="0" onClick={this.showContent}>Home</Button>
+      <Button variant="dark" id="1" onClick={this.computeLeaders}>Leaders</Button>
+      <Button variant="dark" id ="2" onClick={this.winningMatchup}>Team vs Other Teams</Button>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-info">Search</Button>
+    </Form>
+  </Navbar>
+  
+</>
+<br/>
 
-                <CardGroup>
+{this.state.AccessBoolean[0] === false ?
+    <p>
+    </p>
+
+    :
+
+                <Table className="StatTable" responsive>
                     {this.state.dataArray.map((item, i) => {
                         return (
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Body>
-
-                                    <Card.Title
-                                        adjustsFrontSizeToFit
-                                        style={{ textAlign: 'center', fontSize: '1rem' }}>
-                                        {this.state.Players[i]}
-                                    </Card.Title>
-                                    <Card.Text
-                                        adjustsFrontSizeToFit
-                                        style={{ textAlign: 'center', fontSize: '1rem' }}>
-                                        <Table responsive size="sm">
-
+                            
+                                        <Table bordered >
+                                            <td><strong>{this.state.Players[i]}</strong></td>
+                                        
+                                        {this.state.Categories.map((cat, x) =>
+                                        <td>
+                                        <strong>{cat}</strong>
+                                    </td>
+                                        )}
                                             <tbody>
-                                                {this.state.Categories.map((cat, x) =>
+                                                
                                                     <tr>
-                                                        <td>
-                                                            {cat}
-                                                        </td>
+                                                        
+                                                    
+                                                        <td></td>
+                                                        {this.state.Categories.map((cat, x) =>
+                                                        
+                                                        
 
                                                         <td>
                                                             {item[this.state.Players[i]][cat]}
                                                         </td>
-
+                                                        
+                                                            )}
+                                                        
+                                                
                                                     </tr>
-                                                )}
+             
+                                                
                                             </tbody>
                                         </Table>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                               
 
                         )
 
 
                     })
                     }
-                </CardGroup>
 
-                {
-                    this.state.Available === false ?
-                    <p></p>
-                    :
-                    <ButtonGroup>
-                    <Button onClick={this.computeLeaders}>Week Category Leaders</Button>
-                    <Button onClick={this.winningMatchup}>Team vs Other Teams</Button>
-                    </ButtonGroup>
+                    </Table>
+
                 }
                 
 
+        
+
 
 
                 {
-                    this.state.show === false ?
+                    this.state.AccessBoolean[1] === false ?
 
                         <p></p>
 
@@ -218,7 +247,7 @@ export default class StatTable extends React.Component {
                                 this.state.AllLeader.map((item, i) => {
                                     return (
                                         <Card>
-                                            <Table>
+                                            <Table className="CategoryRank" responsive>
                                                 <div>
                                                     <thead>
                                                         <tr>
@@ -262,7 +291,7 @@ export default class StatTable extends React.Component {
 
                 
                     {
-                        this.state.showWinning === false ?
+                        this.state.AccessBoolean[2] === false ?
                         <p></p>
 
                         :

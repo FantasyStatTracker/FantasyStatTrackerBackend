@@ -1,0 +1,11 @@
+.StatTable {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+.StatTable td:first-child { width: 15% ;}
+
+
+.CategoryRank {
+    font-size: 0.75rem;
+}
