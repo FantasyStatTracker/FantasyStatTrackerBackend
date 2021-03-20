@@ -1,8 +1,9 @@
 
 import React from 'react'
-import {  Card, CardGroup, Button, Table, ButtonGroup, Nav, Navbar, Form, FormControl, ToggleButton} from 'react-bootstrap'
+import { Card, CardGroup, Button, Table, ButtonGroup, Nav, Navbar, Form, FormControl, ToggleButton, Col, Badge, Alert, DropdownButton, Dropdown } from 'react-bootstrap'
 import axios from 'axios'
 import "./PageStyle.css"
+import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 
 export default class StatTable extends React.Component {
     constructor(props) {
@@ -17,12 +18,13 @@ export default class StatTable extends React.Component {
             AllData: [],
             Leaders: [],
             f: [],
-            
+
             Winning: [],
-            
+
             LeaderPlayer: [],
-            AccessBoolean: [true,false,false],
-            AllLeader: []
+            AccessBoolean: [true, false, false],
+            AllLeader: [],
+            keys: []
 
         };
 
@@ -37,7 +39,7 @@ export default class StatTable extends React.Component {
     async computeLeaders(e) {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
-        await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
+        await axios.post('/win-calculator', bodyFormData)
 
             .then((response) => {
                 this.setState({ Leaders: JSON.stringify(response.data) })
@@ -46,14 +48,14 @@ export default class StatTable extends React.Component {
         var arr = []
         var cat = []
         var obj = JSON.parse(this.state.Leaders)
-        
+
         for (var i in obj) {
             cat.push(i)
             arr.push(obj[i])
         }
 
-        await this.setState({AllLeader : arr})
-        await this.setState({Categories: cat})
+        await this.setState({ AllLeader: arr })
+        await this.setState({ Categories: cat })
 
         this.showContent(e)
 
@@ -64,30 +66,30 @@ export default class StatTable extends React.Component {
 
     async componentDidMount() {
 
-        await axios.get('https://react-flask-fantasy.herokuapp.com/test')
+        await axios.get('/test')
             .then(response => {
                 this.setState({ p: JSON.stringify(response.data) })
             })
 
-            var arr = []
-            var obj = JSON.parse(this.state.p)
-            var g = Object.keys(obj)
-    
-            var catArray = []
-    
-            for (var i in g) {
-                var w = {}
-                w[g[i]] = obj[g[i]]
-                arr.push(w)
-            }
-    
-            this.setState({ AllData: arr })
-            for (var x in (arr[0][g[0]])) {
-                catArray.push(x)
-            }
-            this.setState({ Players: g })
-            this.setState({ dataArray: arr })
-            this.setState({ Categories: catArray })
+        var arr = []
+        var obj = JSON.parse(this.state.p)
+        var g = Object.keys(obj)
+
+        var catArray = []
+
+        for (var i in g) {
+            var w = {}
+            w[g[i]] = obj[g[i]]
+            arr.push(w)
+        }
+
+        this.setState({ AllData: arr })
+        for (var x in (arr[0][g[0]])) {
+            catArray.push(x)
+        }
+        this.setState({ Players: g })
+        this.setState({ dataArray: arr })
+        this.setState({ Categories: catArray })
 
 
     }
@@ -96,7 +98,7 @@ export default class StatTable extends React.Component {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
-        await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
+        await axios.post('/win-calculator', bodyFormData)
 
             .then((response) => {
                 this.setState({ Leaders: JSON.stringify(response.data) })
@@ -110,7 +112,7 @@ export default class StatTable extends React.Component {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
-        await axios.post('https://react-flask-fantasy.herokuapp.com/winning-matchups', bodyFormData)
+        await axios.post('/winning-matchups', bodyFormData)
 
             .then((response) => {
 
@@ -120,16 +122,47 @@ export default class StatTable extends React.Component {
 
         var arr = []
         var obj = JSON.parse(this.state.Winning)
-        var g = Object.keys(obj)
+        var PlayerList = Object.keys(obj)
 
-        for (var i in g) {
+
+        for (var i in PlayerList) {
             var x = {}
-            x[g[i]] = obj[g[i]]
+            console.log(obj[PlayerList[i]])
+
+            x[PlayerList[i]] = obj[PlayerList[i]]
             arr.push(x)
         }
 
         await this.setState({ Winning: arr })
-        await this.setState({ LeaderPlayer: g })
+        await this.setState({ LeaderPlayer: PlayerList })
+
+        console.log(arr)
+
+
+
+        {
+            this.state.Winning.map((item, i) => {
+
+                console.log(this.state.LeaderPlayer[i])
+
+                {
+                    item[this.state.LeaderPlayer[i]].map((x, e) => {
+                        console.log(Object.keys(x)[0])
+                        {
+                            (x[Object.keys(x)].map((r, w) => {
+                                console.log(r)
+                            }))
+                        }
+
+
+                    })
+                }
+
+
+
+            })
+        }
+
 
         this.showContent(e)
 
@@ -143,11 +176,14 @@ export default class StatTable extends React.Component {
         var value = parseInt(e.target.id)
         arr[value] = true
 
-        await this.setState({AccessBoolean: arr})
+        await this.setState({ AccessBoolean: arr })
 
-        
+        /*
+                
+                */
 
-        
+
+
     }
 
 
@@ -159,76 +195,79 @@ export default class StatTable extends React.Component {
 
             <div>
                 <>
-  <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Fantasy Stat Track</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Button variant="dark" id="0" onClick={this.showContent}>Home</Button>
-      <Button variant="dark" id="1" onClick={this.computeLeaders}>Leaders</Button>
-      <Button variant="dark" id ="2" onClick={this.winningMatchup}>Team vs Other Teams</Button>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-info">Search</Button>
-    </Form>
-  </Navbar>
-  
-</>
-<br/>
+                    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                            <Navbar.Brand>Fantasy Stat Track</Navbar.Brand>
+                            <Nav className="mr-auto">
+                                <Button variant="dark" id="0" onClick={this.showContent}>Home</Button>
+                                <Button variant="dark" id="1" onClick={this.computeLeaders}>Leaders</Button>
+                                <Button variant="dark" id="2" onClick={this.winningMatchup}>Team vs Other Teams</Button>
+                            </Nav>
 
-{this.state.AccessBoolean[0] === false ?
-    <p>
-    </p>
+                        </Navbar.Collapse>
+                    </Navbar>
 
-    :
+                </>
+                <br />
 
-                <Table className="StatTable" responsive>
-                    {this.state.dataArray.map((item, i) => {
-                        return (
-                            
-                                        <Table bordered >
-                                            <td><strong>{this.state.Players[i]}</strong></td>
-                                        
+                {this.state.AccessBoolean[0] === false ?
+                    <p>
+                    </p>
+
+                    :
+                    <div>
+
+                        <h1 style={{ textAlign: 'center' }}>Current Week Stats by Team</h1>
+                        <Table className="StatTable" responsive>
+                            {this.state.dataArray.map((item, i) => {
+                                return (
+
+                                    <Table bordered >
+                                        <td><strong>{this.state.Players[i]}</strong></td>
+
                                         {this.state.Categories.map((cat, x) =>
-                                        <td>
-                                        <strong>{cat}</strong>
-                                    </td>
+                                            <td>
+                                                <strong>{cat}</strong>
+                                            </td>
                                         )}
-                                            <tbody>
-                                                
-                                                    <tr>
-                                                        
-                                                    
-                                                        <td></td>
-                                                        {this.state.Categories.map((cat, x) =>
-                                                        
-                                                        
+                                        <tbody>
 
-                                                        <td>
-                                                            {item[this.state.Players[i]][cat]}
-                                                        </td>
-                                                        
-                                                            )}
-                                                        
-                                                
-                                                    </tr>
-             
-                                                
-                                            </tbody>
-                                        </Table>
-                               
-
-                        )
+                                            <tr>
 
 
-                    })
-                    }
+                                                <td></td>
+                                                {this.state.Categories.map((cat, x) =>
 
-                    </Table>
+
+
+                                                    <td>
+                                                        {item[this.state.Players[i]][cat]}
+                                                    </td>
+
+                                                )}
+
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </Table>
+
+
+                                )
+
+
+                            })
+                            }
+
+                        </Table>
+                    </div>
 
                 }
-                
 
-        
+
+
 
 
 
@@ -238,89 +277,149 @@ export default class StatTable extends React.Component {
                         <p></p>
 
                         :
-
-                        <div>
-                            <h1>Current Week Category Ranks</h1>
-                            <CardGroup>
-                            
-                            {
-                                this.state.AllLeader.map((item, i) => {
-                                    return (
-                                        <Card>
-                                            <Table className="CategoryRank" responsive>
-                                                <div>
-                                                    <thead>
-                                                        <tr>
-                                    {this.state.Categories[i]}
-                                  
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    
-                                    {item.map((val, x) => {
-                                        return (
-                                        <tr>
-                                            <td>
-                                        {val[0]}
-                                        </td>
-                                        <td>
-                                            {val[1]}
-                                        </td>
-                                        </tr>
-                                        )
-                                    })}
-
-                                    </tbody>
-
-                                    </div>
-                                    </Table>
-                                    </Card>
-                                    )
-                                })}
-                                </CardGroup>
-                                </div>
+                        <div >
 
 
-                            }
-
-                              
-
-                
 
 
-                
-                    {
-                        this.state.AccessBoolean[2] === false ?
+                            <h1 style={{ textAlign: 'center' }}>Current Week Category Ranks</h1>
+                            <div className="tableContent">
+
+
+                                <Table className="InnerTable" style={{ width: '100%' }}>
+                                    <CardGroup>
+                                        {
+                                            this.state.AllLeader.map((item, i) => {
+
+                                                return (
+
+                                                    <Card>
+                                                        <Table style={{ width: '100%' }}>
+
+
+
+                                                            <thead>
+                                                                <th style={{ fontSize: '1.3rem' }}>
+
+                                                                    {this.state.Categories[i]} Standings
+
+
+                                                        </th>
+                                                            </thead>
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    {item.map((val, x) => {
+                                                                        return (
+
+                                                                            <p>
+                                                                                { x === 0 ?
+                                                                                    <div>
+                                                                                        <td><strong>{val[0]}</strong></td>
+                                                                                        <td>
+                                                                                            <strong>{val[1]}</strong>
+                                                                                        </td>
+                                                                                    </div>
+
+                                                                                    :
+                                                                                    <div>
+                                                                                        <td>{val[0]}</td>
+                                                                                        <td className="Value">
+                                                                                            {val[1]}
+                                                                                        </td>
+                                                                                    </div>
+                                                                                }
+
+                                                                            </p>
+
+                                                                        )
+                                                                    })}
+
+                                                                </tr>
+
+                                                            </tbody>
+
+
+
+
+                                                        </Table>
+                                                    </Card>
+
+
+                                                )
+
+                                            })}
+                                    </CardGroup>
+                                </Table>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+                }
+
+
+
+
+
+
+
+                {
+                    this.state.AccessBoolean[2] === false ?
                         <p></p>
 
                         :
 
                         <div>
 
-                            <Table>
-                                <h1>Wins if everyone played everyone</h1>
+                            <h1 style={{ textAlign: 'center' }}>Is your Team Bad?</h1>
+                            <Table bordered responsive className="OtherTeamTable">
                                 {this.state.Winning.map((item, i) => {
                                     return (
                                         <div>
 
-                                            <thead>
-                                                <tr>{this.state.LeaderPlayer[i]} : {item[this.state.LeaderPlayer[i]].length} Teams</tr>
-                                            </thead>
+
+                                            <Badge className="OtherTeam" variant="secondary" style={{ fontSize: '1.2rem' }}>{this.state.LeaderPlayer[i]} : {item[this.state.LeaderPlayer[i]].length} Teams</Badge>
+
+
                                             <tbody>
-                                            {item[this.state.LeaderPlayer[i]].length === 0 ? <th><strong>LOL</strong></th> : null}
+                                                {item[this.state.LeaderPlayer[i]].length === 0 ? <Alert variant="danger" style={{ fontSize: '2.2rem' }}>Your Team is Bad</Alert> : null}
                                                 <tr>
-                                                    
-                                                    
+
+
                                                     {item[this.state.LeaderPlayer[i]].map((x, e) => {
-                                                        return (<th>{x}</th>)
-                                                        
-                                                        
+
+                                                        return (
+                                                            <td>
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle variant="secondary">{Object.keys(x)[0]} : {x[Object.keys(x)].length}</Dropdown.Toggle>
+
+                                                            
+                                                            <Dropdown.Menu>
+                                                                {x[Object.keys(x)].map((r, w) => {
+                                                                    return (
+                                                                        <Dropdown.Item>{r}</Dropdown.Item>
+                                                                    )
+                                                                })}
+                                                                </Dropdown.Menu>
+
+
+                                                            </Dropdown>
+                                                            </td>
+                                                        )
+
+
                                                     })
                                                     }
-                                                
-                                                
+
+
                                                 </tr>
+                                                <br />
                                             </tbody>
 
                                         </div>

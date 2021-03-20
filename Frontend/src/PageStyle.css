@@ -1,11 +1,38 @@
 .StatTable {
-    width: 100%;
+
     table-layout: fixed;
+    font-size: 1.1rem;
   }
 
 .StatTable td:first-child { width: 15% ;}
 
 
 .CategoryRank {
-    font-size: 0.75rem;
+
+    table-layout: fixed;
+    font-size: 1.3rem;
+    
+}
+
+.CategoryRank td { width: 100%; }
+
+.InnerTable {
+    table-layout: fixed;
+    
+}
+
+.InnerTable th { height: 70px; }
+.InnerTable td {width: 100%;}
+
+
+
+.tableContent {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.OtherTeamTable {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 1.1rem;
 }

@@ -104,21 +104,43 @@ def winning():
             currentWins[player1] = []
             for y in data:
                 for player2 in list(y.keys()):
+                    
                     if (player1 == player2):
                         continue
                     
                     winCount = 0
+                    catWins = []
+                    
+                    if (float(x[player1]['TO']) < float(y[player2]['TO'])):
+                        winCount+=1
+                        catWins.append('TO')
                     for z in x[player1].keys(): #cats
                         
-                        if (winCount >= 5):
-                            currentWins[player1].append(player2) 
-                            break
-                        if (x[player1][z] > y[player2][z]):
+                        if (float(x[player1][z]) > float(y[player2][z]) and z != 'TO'):
                             winCount+=1
+                            catWins.append(z)
+
+
+                    if (winCount >= 5):
+                                print(catWins)
+                                currentWins[player1].append({player2: catWins}) 
+
+                                
+                            
+
                         
+                        
+                        
+    
     return currentWins
 
    
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=os.environ.get('PORT', 80), debug=False)
+    dev = False
+    portVar = ""
+    if (dev):
+        portVar = 8000
+    else:
+        portVar = os.environ.get('PORT', 80)
+    app.run(host="localhost", port=portVar, debug=dev)
