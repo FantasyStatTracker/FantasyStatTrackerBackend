@@ -6,6 +6,7 @@ import yahoo_fantasy_api as yfa
 from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS, cross_origin
 import os
+from collections import OrderedDict
 
 from operator import itemgetter
 import subprocess
@@ -31,11 +32,9 @@ def index():
     return ""
 
 @app.route('/matchups', methods=['GET'])
-@cross_origin()
 def getMatchups():
     
     matchupInfo = lg.matchups()
-
     return matchupInfo
 
     
@@ -45,8 +44,6 @@ def getMatchups():
 def getWins():
 
     data = json.loads(request.form.get("data"))
-    
-    
     categoryMax = {"FG%":{}, "FT%":{}, "3PTM":{},"PTS":{}, "REB":{}, "AST":{}, "ST":{}, "BLK":{}, "TO":{}}
     
     for x in data:
@@ -60,9 +57,6 @@ def getWins():
     for x in categoryMax:
         sortedCategory = (sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
         catSort[x] = sortedCategory
-
-        
-
                 
     return catSort
     
@@ -70,24 +64,26 @@ def getWins():
 @cross_origin()
 def test():
     
-    teams = {}
+    teams = OrderedDict()
 
     matchupInfo = lg.matchups()
+
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
     
-                
-    matchupKey = data.keys()
+    matchupKey = list(data.keys())
+    matchupKey = matchupKey[:-1]
 
     current = ""
-    for y in range(0,6):
-        for z in range(0,2):
-            for q in data[str(y)]["matchup"]["0"]["teams"][str(z)]["team"]:
-                if (isinstance(q, list)):
-                    teams[q[2]["name"]] = {}
-                    current = q[2]["name"]
-            for x in data[str(y)]["matchup"]["0"]["teams"][str(z)]["team"][1]["team_stats"]["stats"]:
+    for matchupIndex in matchupKey:
+        print(matchupIndex)
+        for matchupIndividualTeam in range(0,2): #matchup will always have two people
+            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
+                if (isinstance(TeamData, list)):
+                    teams[TeamData[2]["name"]] = {}
+                    current = TeamData[2]["name"]
+            for statInformation in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"][1]["team_stats"]["stats"]:
                 try:
-                    teams[current][(statMap[x["stat"]["stat_id"]])] = x["stat"]["value"]
+                    teams[current][(statMap[statInformation["stat"]["stat_id"]])] = statInformation["stat"]["value"]
                 except:
                     continue
 
@@ -107,37 +103,28 @@ def winning():
                     
                     if (player1 == player2):
                         continue
-                    
+    
                     winCount = 0
                     catWins = []
-                    
-                    if (float(x[player1]['TO']) < float(y[player2]['TO'])):
+
+                    if (float(x[player1]['TO']) < float(y[player2]['TO'])): #different condition for Turnovers
                         winCount+=1
                         catWins.append('TO')
                     for z in x[player1].keys(): #cats
                         
-                        if (float(x[player1][z]) > float(y[player2][z]) and z != 'TO'):
+                        if (float(x[player1][z]) > float(y[player2][z]) and z != 'TO'): #check how many wins
                             winCount+=1
                             catWins.append(z)
 
+                    if (winCount >= 5): 
+                        currentWins[player1].append({player2: catWins}) #
 
-                    if (winCount >= 5):
-                                print(catWins)
-                                currentWins[player1].append({player2: catWins}) 
-
-                                
-                            
-
-                        
-                        
-                        
-    
-    return currentWins
+    return currentWins #json object with Team { Wins { Categorieswon
 
    
 
 if __name__ == '__main__':
-    dev = False
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000
