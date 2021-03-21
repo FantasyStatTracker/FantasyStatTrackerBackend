@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Card, CardGroup, Button, Table, ButtonGroup, Nav, Navbar, Form, FormControl, ToggleButton, Col, Badge, Alert, DropdownButton, Dropdown } from 'react-bootstrap'
+import { Card, CardGroup, Container, Button, Table, ButtonGroup, Nav, Navbar, Form, FormControl, ToggleButton, Col, Row, Badge, Alert, DropdownButton, Dropdown } from 'react-bootstrap'
 import axios from 'axios'
 import "./PageStyle.css"
 import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
@@ -39,7 +39,7 @@ export default class StatTable extends React.Component {
     async computeLeaders(e) {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
-        await axios.post('/win-calculator', bodyFormData)
+        await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
 
             .then((response) => {
                 this.setState({ Leaders: JSON.stringify(response.data) })
@@ -66,7 +66,7 @@ export default class StatTable extends React.Component {
 
     async componentDidMount() {
 
-        await axios.get('/test')
+        await axios.get('https://react-flask-fantasy.herokuapp.com/test')
             .then(response => {
                 this.setState({ p: JSON.stringify(response.data) })
             })
@@ -98,7 +98,7 @@ export default class StatTable extends React.Component {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
-        await axios.post('/win-calculator', bodyFormData)
+        await axios.post('https://react-flask-fantasy.herokuapp.com/win-calculator', bodyFormData)
 
             .then((response) => {
                 this.setState({ Leaders: JSON.stringify(response.data) })
@@ -112,7 +112,7 @@ export default class StatTable extends React.Component {
         var bodyFormData = new FormData();
         bodyFormData.append("data", JSON.stringify(this.state.AllData))
 
-        await axios.post('/winning-matchups', bodyFormData)
+        await axios.post('https://react-flask-fantasy.herokuapp.com/winning-matchups', bodyFormData)
 
             .then((response) => {
 
@@ -211,12 +211,15 @@ export default class StatTable extends React.Component {
                 </>
                 <br />
 
+            <Container fluid>
+                <Col>
+                <Row>
                 {this.state.AccessBoolean[0] === false ?
                     <p>
                     </p>
 
                     :
-                    <div>
+                    <Container fluid>
 
                         <h1 style={{ textAlign: 'center' }}>Current Week Stats by Team</h1>
                         <Table className="StatTable" responsive>
@@ -262,7 +265,7 @@ export default class StatTable extends React.Component {
                             }
 
                         </Table>
-                    </div>
+                        </Container>
 
                 }
 
@@ -392,18 +395,20 @@ export default class StatTable extends React.Component {
                                                 <tr>
 
 
+
                                                     {item[this.state.LeaderPlayer[i]].map((x, e) => {
 
                                                         return (
+                                                            
                                                             <td>
                                                             <Dropdown>
                                                                 <Dropdown.Toggle variant="secondary">{Object.keys(x)[0]} : {x[Object.keys(x)].length}</Dropdown.Toggle>
 
                                                             
                                                             <Dropdown.Menu>
-                                                                {x[Object.keys(x)].map((r, w) => {
+                                                                {x[Object.keys(x)].map((categoryWon, w) => {
                                                                     return (
-                                                                        <Dropdown.Item>{r}</Dropdown.Item>
+                                                                        <Dropdown.Item>{categoryWon}</Dropdown.Item>
                                                                     )
                                                                 })}
                                                                 </Dropdown.Menu>
@@ -411,11 +416,13 @@ export default class StatTable extends React.Component {
 
                                                             </Dropdown>
                                                             </td>
+                                                            
                                                         )
 
 
                                                     })
                                                     }
+                                                   
 
 
                                                 </tr>
@@ -432,8 +439,9 @@ export default class StatTable extends React.Component {
 
 
                 }
-
-
+                </Row>
+</Col>
+</Container>
 
 
 
