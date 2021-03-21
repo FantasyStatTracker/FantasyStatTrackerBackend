@@ -63,7 +63,10 @@ def getWins():
 @app.route('/test', methods=['GET'])
 @cross_origin()
 def test():
-    
+
+    if not oauth.token_is_valid(): #just run this to keep everything working
+        oauth.refresh_access_token()
+
     teams = OrderedDict()
 
     matchupInfo = lg.matchups()
