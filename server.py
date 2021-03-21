@@ -124,7 +124,7 @@ def winning():
    
 
 if __name__ == '__main__':
-    dev = True
+    dev = False
     portVar = ""
     if (dev):
         portVar = 8000
