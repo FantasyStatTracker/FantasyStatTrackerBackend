@@ -51,7 +51,10 @@ def getWins():
         for y in list(x.keys()): #team stats
             
             for z in x[y].keys(): #cats
-                categoryMax[z][y] = float(x[y][z])
+                try:
+                    categoryMax[z][y] = float(x[y][z])
+                except:
+                    categoryMax[z][y] = 0
 
     catSort = {}
     for x in categoryMax:
@@ -110,24 +113,37 @@ def winning():
                     winCount = 0
                     catWins = []
 
-                    if (float(x[player1]['TO']) < float(y[player2]['TO'])): #different condition for Turnovers
-                        winCount+=1
-                        catWins.append('TO')
-                    for z in x[player1].keys(): #cats
+                    try:
                         
-                        if (float(x[player1][z]) > float(y[player2][z]) and z != 'TO'): #check how many wins
+                        toComp = float(x[player1]['TO']) < float(x[player1]['TO'])
+                        if (toComp): #different condition for Turnovers
                             winCount+=1
-                            catWins.append(z)
+                            catWins.append('TO')
+                        for z in x[player1].keys(): #cats
+                            
+                            try:
+                                comp = float(x[player1][z]) > float(y[player2][z])
+                                if (comp and z != 'TO'): #check how many wins
+                                    winCount+=1
+                                    catWins.append(z)
+                            except:
+                                x[player][z] = 0
+                                y[player][z] = 0
+                                
 
-                    if (winCount >= 5): 
-                        currentWins[player1].append({player2: catWins}) #
+                        if (winCount >= 5): 
+                            currentWins[player1].append({player2: catWins}) #
+
+                    except:
+                        x[player1]['TO'] = 0
+                        x[player1]['TO'] = 0
 
     return currentWins #json object with Team { Wins { Categorieswon
 
    
 
 if __name__ == '__main__':
-    dev = False
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000
