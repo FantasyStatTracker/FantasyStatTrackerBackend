@@ -115,7 +115,7 @@ def winning():
 
                     try:
                         
-                        toComp = float(x[player1]['TO']) < float(x[player1]['TO'])
+                        toComp = float(x[player1]['TO']) < float(x[player2]['TO'])
                         if (toComp): #different condition for Turnovers
                             winCount+=1
                             catWins.append('TO')
@@ -136,7 +136,7 @@ def winning():
 
                     except:
                         x[player1]['TO'] = 0
-                        x[player1]['TO'] = 0
+                        x[player2]['TO'] = 0
 
     return currentWins #json object with Team { Wins { Categorieswon
 
