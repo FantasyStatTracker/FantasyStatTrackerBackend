@@ -67,7 +67,9 @@ def getWins():
 @cross_origin()
 def test():
 
-    if not oauth.token_is_valid(): #just run this to keep everything working
+    oauth = OAuth2(None, None, from_file='oauth2.json')
+
+    if not oauth.token_is_valid():
         oauth.refresh_access_token()
 
     teams = OrderedDict()
