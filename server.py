@@ -107,6 +107,7 @@ def winning():
     currentWins = {}
 
     for x in data:
+        print(x)
         for player1 in list(x.keys()): #team stats
             currentWins[player1] = []
             for y in data:
@@ -118,19 +119,19 @@ def winning():
                     winCount = 0
                     catWins = []
 
-                    
+
                         
-                    toComp = float(x[player1]['TO']) < float(x[player2]['TO'])
-                    if (toComp): #different condition for Turnovers
+                    print(player1, player2)
+                    if (float(x[player1]['TO']) < float(y[player2]['TO'])): #different condition for Turnovers
                         winCount+=1
                         catWins.append('TO')
                     for z in x[player1].keys(): #cats
                             
                             
-                            comp = float(x[player1][z]) > float(y[player2][z])
-                            if (comp and z != 'TO'): #check how many wins
-                                winCount+=1
-                                catWins.append(z)
+                        comp = float(x[player1][z]) > float(y[player2][z])
+                        if (comp and z != 'TO'): #check how many wins
+                            winCount+=1
+                            catWins.append(z)
                            
                                 
 
@@ -139,6 +140,7 @@ def winning():
 
                     
 
+    print(currentWins)
     return currentWins #json object with Team { Wins { Categorieswon
 
    
