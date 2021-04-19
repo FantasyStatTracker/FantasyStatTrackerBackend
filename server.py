@@ -7,10 +7,12 @@ from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS, cross_origin
 import os
 from collections import OrderedDict
-
+import requests
 from operator import itemgetter
 import subprocess
 import _pickle as cPickle
+from TeamPlayer import Q
+from Schedule2021 import *
 
 
 oauth = OAuth2(None, None, from_file='oauth2.json')
@@ -20,6 +22,7 @@ if not oauth.token_is_valid():
 
 gm = yfa.Game(oauth, 'nba')
 lg = gm.to_league('402.l.67232')
+
 
 
 app = Flask(__name__)
@@ -37,6 +40,50 @@ def getMatchups():
     matchupInfo = lg.matchups()
     return matchupInfo
 
+
+@app.route('/predict', methods=['GET'])
+def predict():
+
+    print(lg.week_date_range(lg.current_week()))
+    L = []
+    for x in Q.keys():
+        L.append(x)
+
+    print(L)
+
+    
+
+
+       
+
+    return Q
+    
+
+
+
+
+
+@app.route("/schedule", methods=['GET'])
+def getSchedule():
+    r = requests.get('https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2020/league/00_full_schedule.json')
+
+    Game = {}
+    data = r.json()
+
+    for x in data['lscd']:
+        Game[x["mscd"]["mon"]] = {}
+        
+        
+        for y in x["mscd"]["g"]:
+            Game[x["mscd"]["mon"]][y["gdte"]] = []
+        for y in x["mscd"]["g"]:
+            Game[x["mscd"]["mon"]][y["gdte"]].append((y["v"]["ta"], y["h"]["ta"]))
+
+    print(Game["April"])
+
+
+
+    return Game
     
 
 @app.route('/win-calculator', methods=['POST'])
@@ -62,6 +109,41 @@ def getWins():
         catSort[x] = sortedCategory
                 
     return catSort
+
+@app.route('/playoff', methods=['GET'])
+@cross_origin()
+def playoff():
+    oauth = OAuth2(None, None, from_file='oauth2.json')
+
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
+    teams = OrderedDict()
+
+
+    matchupInfo = lg.matchups()
+    
+
+
+    #roster
+    info = {}
+    roster = {}
+    league = {}
+
+    
+    for x in lg.teams():
+        
+        
+        roster[x] = []
+
+        for y in lg.to_team(x).roster():
+           
+            print(y)
+            roster[x].append(lg.player_stats(y["player_id"], 'season').append(lg.player_details(y["player_id"])[0]["editorial_team_abbr"])) 
+            #roster[x].append()
+ 
+    
+    return roster 
     
 @app.route('/test', methods=['GET'])
 @cross_origin()
@@ -146,7 +228,7 @@ def winning():
    
 
 if __name__ == '__main__':
-    dev = False
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000
