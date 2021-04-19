@@ -40,19 +40,49 @@ def getMatchups():
     matchupInfo = lg.matchups()
     return matchupInfo
 
+@app.route('/last', methods=['GET'])
+def getLastWeek():
+
+    print(lg.player_stats(5667, 'lastweek'))
+
+    return ""
 
 @app.route('/predict', methods=['GET'])
 def predict():
 
-    print(lg.week_date_range(lg.current_week()))
+    count = 0
+    weekRange = (lg.week_date_range(lg.current_week()))
     L = []
-    for x in Q.keys():
-        L.append(x)
+    Schedule = []
+    GameCounter = {}
+    for x in Sched["April"].keys():
+        if (str(weekRange[0]) <= x <= str(weekRange[1])):
+            L.append(x)
+            for z in Sched["April"][x]:
+                Schedule.append(z[0])
+                Schedule.append(z[1])
 
-    print(L)
+
+    for x in Schedule:
+        if (x in GameCounter):
+            GameCounter[x] += 1
+
+        else:
+            GameCounter[x] = 1
+
+    for player in Q['402.l.67232.t.10']:
+
+        if (player[0]["team"].upper() in GameCounter.keys()):
+            print(player[0]["PTS"])
+            count += player[0]["PTS"] * GameCounter[player[0]["team"].upper()]
+            print(player[0]["name"])
+
+
+
+    print(count)
 
     
-
+    #print(Schedule)
 
        
 
@@ -139,7 +169,7 @@ def playoff():
         for y in lg.to_team(x).roster():
            
             print(y)
-            roster[x].append(lg.player_stats(y["player_id"], 'season').append(lg.player_details(y["player_id"])[0]["editorial_team_abbr"])) 
+            roster[x].append(lg.player_stats(y["player_id"], 'lastweek').append(lg.player_details(y["player_id"])[0]["editorial_team_abbr"])) 
             #roster[x].append()
  
     
