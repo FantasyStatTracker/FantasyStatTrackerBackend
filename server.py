@@ -226,9 +226,11 @@ def predict():
                     except:
                         continue
             
-             
-            a["FG%"] = float(FGFT[team][0])
-            a["FT%"] = float(FGFT[team][1])
+            try: 
+                a["FG%"] = float(FGFT[team][0])
+                a["FT%"] = float(FGFT[team][1])
+            except:
+                pass
             
             
 
@@ -412,7 +414,7 @@ def test():
                     current = TeamData[2]["name"]
             for statInformation in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"][1]["team_stats"]["stats"]:
                 try:
-                    if (statInformation["stat"]["value"] == None):
+                    if (statInformation["stat"]["value"] == ""):
                         teams[current][(statMap[statInformation["stat"]["stat_id"]])] = 0
                     else:
                         teams[current][(statMap[statInformation["stat"]["stat_id"]])] = statInformation["stat"]["value"]
