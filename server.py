@@ -68,14 +68,11 @@ def getTeamMap():
 
                     teamMap[TeamData[0]['team_key']] = TeamData[2]['name']
                 except:
-                    try:
-                        print(teamMap.keys())
-                        print(TeamData["team_stats"]["stats"][0]['stat']['value'], TeamData["team_stats"]["stats"][2]['stat']['value'])
-                    except:
+                   
                          continue
     
                     
-    print(teamMap)
+    
     return teamMap 
 
 def convert_to_float(frac_str):
@@ -101,7 +98,7 @@ def getFGFT():
     matchupKey = matchupKey[:-1]
 
 
-    print(data)
+  
 
     teamFGFT = {}
     current = ""
@@ -126,9 +123,6 @@ def getFGFT():
 
                 
                         
-                    
-                    
-    print(teamFGFT)
     return teamFGFT
 
 def getMatchups():
@@ -155,10 +149,7 @@ def getMatchups():
                         Matchup[P1] = TeamData[0]['team_key']
                 except:
                     continue
-                    
-                
-    print(Matchup)
-                
+     
 
     return Matchup
     
@@ -172,20 +163,7 @@ def getLastWeek():
 
     return jsonify(lg.player_stats(6030, 'lastweek'))
 
-'''    
-ketuck
-"FG%": 0.48747591522157996,
-"FT%": 0.8518518518518519,
-donut
-"FG%": 0.5085836909871244,
-"FT%": 0.6791044776119403,
-Emv 
- "FG%": 0.4581673306772908,
-"FT%": 0.8629032258064516,
-davids
- "FG%": 0.44288577154308617,
-"FT%": 0.8415841584158416,
-'''
+
 @app.route('/predict', methods=['GET'])
 def predict():
     if not oauth.token_is_valid():
@@ -199,7 +177,7 @@ def predict():
     L = []
     Schedule = []
     teams = lg.teams()
-    print("teams", teams)
+
     GameCounter = {}
     StatPrediction = {}
     for x in Sched["April"].keys():
@@ -297,9 +275,9 @@ def predict():
             
         PredictionArray.append(Prediction)
         
-        print("\n")
         
-    print(StatPrediction)
+        
+ 
 
     for x in StatPrediction:
         StatPrediction[x]['FG%'] = round(StatPrediction[x]['FG%'], 3)
@@ -438,7 +416,7 @@ def test():
 
     current = ""
     for matchupIndex in matchupKey:
-        print(matchupIndex)
+      
         for matchupIndividualTeam in range(0,2): #matchup will always have two people
             for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
                 if (isinstance(TeamData, list)):
@@ -462,7 +440,7 @@ def winning():
     currentWins = {}
 
     for x in data:
-        print(x)
+       
         for player1 in list(x.keys()): #team stats
             currentWins[player1] = []
             for y in data:
@@ -476,7 +454,7 @@ def winning():
 
 
                         
-                    print(player1, player2)
+                    
                     if (float(x[player1]['TO']) < float(y[player2]['TO'])): #different condition for Turnovers
                         winCount+=1
                         catWins.append('TO')
@@ -495,13 +473,13 @@ def winning():
 
                     
 
-    print(currentWins)
+  
     return currentWins #json object with Team { Wins { Categorieswon
 
    
 
 if __name__ == '__main__':
-    dev = True
+    dev = False
     portVar = ""
     if (dev):
         portVar = 8000
