@@ -100,6 +100,9 @@ def getFGFT():
     matchupKey = list(data.keys())
     matchupKey = matchupKey[:-1]
 
+
+    print(data)
+
     teamFGFT = {}
     current = ""
     tempVar = ""
@@ -169,8 +172,20 @@ def getLastWeek():
 
     return jsonify(lg.player_stats(6030, 'lastweek'))
 
-     
-
+'''    
+ketuck
+"FG%": 0.48747591522157996,
+"FT%": 0.8518518518518519,
+donut
+"FG%": 0.5085836909871244,
+"FT%": 0.6791044776119403,
+Emv 
+ "FG%": 0.4581673306772908,
+"FT%": 0.8629032258064516,
+davids
+ "FG%": 0.44288577154308617,
+"FT%": 0.8415841584158416,
+'''
 @app.route('/predict', methods=['GET'])
 def predict():
     if not oauth.token_is_valid():
@@ -230,12 +245,24 @@ def predict():
                 a["FG%"] = float(FGFT[team][0])
                 a["FT%"] = float(FGFT[team][1])
             except:
-                pass
-            
-            
+                if (team == "402.l.67232.t.2"):
+                    a["FG%"] = 0.5085836909871244
+                    a["FT%"] = 0.6791044776119403
+                elif (team == "402.l.67232.t.4"):
+                    a["FG%"] = 0.4581673306772908
+                    a["FT%"] = 0.8629032258064516
 
+                elif (team == "402.l.67232.t.5"):
+                    a["FG%"] = 0.48747591522157996
+                    a["FT%"] = 0.8518518518518519
+                elif (team == "402.l.67232.t.7"):
+                    a["FG%"] = 0.44288577154308617
+                    a["FT%"] = 0.8415841584158416
+                pass
+        
 
         StatPrediction[team] = a
+
 
   
 
@@ -272,13 +299,18 @@ def predict():
         
         print("\n")
         
+    print(StatPrediction)
+
+    for x in StatPrediction:
+        StatPrediction[x]['FG%'] = round(StatPrediction[x]['FG%'], 3)
+        StatPrediction[x]['FT%'] = round(StatPrediction[x]['FT%'], 3)
 
     ReturnPrediction = []
 
     for x in PredictionArray:
         newDict = {}
         for h in x.keys():
-            newDict[TeamMap[h]] = x[h]
+            newDict[TeamMap[h]] = [x[h], StatPrediction[h]]
         ReturnPrediction.append(newDict)
     
 
