@@ -183,6 +183,7 @@ def predict():
     L = []
     Schedule = []
     teams = lg.teams()
+    print("teams", teams)
     GameCounter = {}
     StatPrediction = {}
     for x in Sched["April"].keys():
@@ -216,7 +217,7 @@ def predict():
         for player in WeeklyStat[team]:
 
             if (player[0]["team"].upper() in GameCounter.keys()):
-                print(player[0]["PTS"])
+                
                 gamePlayer = GameCounter[player[0]["team"].upper()]
                 for x in a.keys():
                     try:
@@ -269,11 +270,18 @@ def predict():
         print("\n")
         
 
+    ReturnPrediction = []
+
+    for x in PredictionArray:
+        newDict = {}
+        for h in x.keys():
+            newDict[TeamMap[h]] = x[h]
+        ReturnPrediction.append(newDict)
     
 
     
-
-    return jsonify(PredictionArray)
+    return jsonify(ReturnPrediction)
+    
     
 
 
