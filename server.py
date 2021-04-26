@@ -11,7 +11,7 @@ import requests
 from operator import itemgetter
 import subprocess
 import _pickle as cPickle
-from TeamPlayer import Q
+from TeamPlayer import Q, WeeklyStat
 from Schedule2021 import *
 
 
@@ -28,33 +28,163 @@ lg = gm.to_league('402.l.67232')
 app = Flask(__name__)
 cors = CORS(app)
 statMap = {"5": "FG%", "8":"FT%", "10":"3PTM", "12":"PTS", "15":"REB", "16":"AST", "17":"ST", "18":"BLK", "19":"TO"}
+TeamMap = {
+    "402.l.67232.t.1": "Feng's Unreal Team",
+    "402.l.67232.t.10": "Liam's Team",
+    "402.l.67232.t.11": "Team Goon Cena",
+    "402.l.67232.t.12": "what time? Dame time",
+    "402.l.67232.t.2": "Donutcic",
+    "402.l.67232.t.3": "Coomers Assemble",
+    "402.l.67232.t.4": "EMVBiid",
+    "402.l.67232.t.5": "Kentuckyy",
+    "402.l.67232.t.6": "I stan curry uwu",
+    "402.l.67232.t.7": "David's Team",
+    "402.l.67232.t.8": "Sufyan's Super Team",
+    "402.l.67232.t.9": "Joseph Ingles"
+}
 
 @app.route('/')
 @cross_origin()
 def index():
     return ""
 
-@app.route('/matchups', methods=['GET'])
+@app.route('/teammap', methods=['GET'])
+
+def getTeamMap():
+
+    matchupInfo = lg.matchups()
+    teams = OrderedDict()
+    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+    matchupKey = list(data.keys())
+    matchupKey = matchupKey[:-1]
+
+    teamMap = {}
+    teamFGFT = {}
+    current = ""
+    for matchupIndex in matchupKey:
+        for matchupIndividualTeam in range(0,2): #matchup will always have two people
+            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
+                try:
+
+                    teamMap[TeamData[0]['team_key']] = TeamData[2]['name']
+                except:
+                    try:
+                        print(teamMap.keys())
+                        print(TeamData["team_stats"]["stats"][0]['stat']['value'], TeamData["team_stats"]["stats"][2]['stat']['value'])
+                    except:
+                         continue
+    
+                    
+    print(teamMap)
+    return teamMap 
+
+def convert_to_float(frac_str):
+    try:
+        return float(frac_str)
+    except ValueError:
+        num, denom = frac_str.split('/')
+        try:
+            leading, num = num.split(' ')
+            whole = float(leading)
+        except ValueError:
+            whole = 0
+        frac = float(num) / float(denom)
+        return whole - frac if whole < 0 else whole + frac
+
+@app.route('/FG', methods=['GET'])
+def getFGFT():
+
+    matchupInfo = lg.matchups(lg.current_week()-1)
+    teams = OrderedDict()
+    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+    matchupKey = list(data.keys())
+    matchupKey = matchupKey[:-1]
+
+    teamFGFT = {}
+    current = ""
+    tempVar = ""
+    for matchupIndex in matchupKey:
+        for matchupIndividualTeam in range(0,2): #matchup will always have two people
+            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
+                try:
+
+                    tempVar = TeamData[0]['team_key']
+                except:
+                    try:
+                        teamFGFT[tempVar] = [
+                            convert_to_float(TeamData["team_stats"]["stats"][0]['stat']['value']), 
+                            convert_to_float(TeamData["team_stats"]["stats"][2]['stat']['value'])
+                        ]
+                        
+
+                       
+                    except:
+                         continue
+
+                
+                        
+                    
+                    
+    print(teamFGFT)
+    return teamFGFT
+
 def getMatchups():
     
     matchupInfo = lg.matchups()
-    return matchupInfo
+    teams = OrderedDict()
+    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+    matchupKey = list(data.keys())
+    matchupKey = matchupKey[:-1]
+
+
+    P1 = ""
+    Matchup = {}
+    current = ""
+    for matchupIndex in matchupKey:
+        for matchupIndividualTeam in range(0,2): #matchup will always have two people
+            for index, TeamData in enumerate(data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]):
+  
+                try:
+
+                    if (matchupIndividualTeam == 0):
+                        P1 = TeamData[0]['team_key']
+                    else:
+                        Matchup[P1] = TeamData[0]['team_key']
+                except:
+                    continue
+                    
+                
+    print(Matchup)
+                
+
+    return Matchup
+    
+@app.route('/full', methods=['GET'])
+def getAll():
+    return lg.matchups()
+
 
 @app.route('/last', methods=['GET'])
 def getLastWeek():
 
-    print(lg.player_stats(5667, 'lastweek'))
+    return jsonify(lg.player_stats(6030, 'lastweek'))
 
-    return ""
+     
 
 @app.route('/predict', methods=['GET'])
 def predict():
 
     count = 0
     weekRange = (lg.week_date_range(lg.current_week()))
+
+
+    a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0, "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
+
     L = []
     Schedule = []
+    teams = lg.teams()
     GameCounter = {}
+    StatPrediction = {}
     for x in Sched["April"].keys():
         if (str(weekRange[0]) <= x <= str(weekRange[1])):
             L.append(x)
@@ -70,23 +200,80 @@ def predict():
         else:
             GameCounter[x] = 1
 
-    for player in Q['402.l.67232.t.10']:
-
-        if (player[0]["team"].upper() in GameCounter.keys()):
-            print(player[0]["PTS"])
-            count += player[0]["PTS"] * GameCounter[player[0]["team"].upper()]
-            print(player[0]["name"])
 
 
 
-    print(count)
+    matchupInfo = lg.matchups(lg.current_week()-1)
+
+    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+
+    FGFT = getFGFT()
+
+
+    for team in teams:
+        a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0, "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
+
+        for player in WeeklyStat[team]:
+
+            if (player[0]["team"].upper() in GameCounter.keys()):
+                print(player[0]["PTS"])
+                gamePlayer = GameCounter[player[0]["team"].upper()]
+                for x in a.keys():
+                    try:
+                        a[x] += player[0][x]
+                    except:
+                        continue
+            
+             
+            a["FG%"] = float(FGFT[team][0])
+            a["FT%"] = float(FGFT[team][1])
+            
+            
+
+
+        StatPrediction[team] = a
+
+  
+
+    matchUp = getMatchups()
+
+    h = matchUp
+
+    cats = len(statMap)
+    PredictionArray = []
 
     
-    #print(Schedule)
 
-       
+    for team in h:
+        opponent = h[team]
+        Prediction = {team: 0, opponent: 0}
+        for cat1 in StatPrediction[team]:
+            if (cat1 == 'TO'):
+                if (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
+                    Prediction[team] += 1
+                elif (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
+                    Prediction[opponent] += 1
+                else:
+                    continue
+                continue
 
-    return Q
+            if (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
+                Prediction[team] += 1
+            elif (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
+                Prediction[opponent] += 1
+            else:
+                continue
+            
+        PredictionArray.append(Prediction)
+        
+        print("\n")
+        
+
+    
+
+    
+
+    return jsonify(PredictionArray)
     
 
 
@@ -108,10 +295,6 @@ def getSchedule():
             Game[x["mscd"]["mon"]][y["gdte"]] = []
         for y in x["mscd"]["g"]:
             Game[x["mscd"]["mon"]][y["gdte"]].append((y["v"]["ta"], y["h"]["ta"]))
-
-    print(Game["April"])
-
-
 
     return Game
     
@@ -139,6 +322,18 @@ def getWins():
         catSort[x] = sortedCategory
                 
     return catSort
+
+
+@app.route('/fix', methods=['GET'])
+def fix():
+    Fix = WeeklyStat
+
+    for team in Fix:
+        for player in Fix[team]:
+            player[0]["team"] = player[1]
+            del(player[1])
+    
+    return Fix
 
 @app.route('/playoff', methods=['GET'])
 @cross_origin()
@@ -168,9 +363,10 @@ def playoff():
 
         for y in lg.to_team(x).roster():
            
-            print(y)
-            roster[x].append(lg.player_stats(y["player_id"], 'lastweek').append(lg.player_details(y["player_id"])[0]["editorial_team_abbr"])) 
-            #roster[x].append()
+            item = lg.player_stats(y["player_id"], 'lastweek')
+            item.append(lg.player_details(y["player_id"])[0]["editorial_team_abbr"])
+            roster[x].append(item)
+
  
     
     return roster 
