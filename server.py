@@ -173,7 +173,8 @@ def getLastWeek():
 
 @app.route('/predict', methods=['GET'])
 def predict():
-
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
     count = 0
     weekRange = (lg.week_date_range(lg.current_week()))
 
@@ -311,6 +312,10 @@ def getSchedule():
 @cross_origin()
 def getWins():
 
+
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
     data = json.loads(request.form.get("data"))
     categoryMax = {"FG%":{}, "FT%":{}, "3PTM":{},"PTS":{}, "REB":{}, "AST":{}, "ST":{}, "BLK":{}, "TO":{}}
     
@@ -383,7 +388,7 @@ def playoff():
 @cross_origin()
 def test():
 
-    oauth = OAuth2(None, None, from_file='oauth2.json')
+   
 
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
@@ -462,7 +467,7 @@ def winning():
    
 
 if __name__ == '__main__':
-    dev = False
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000
