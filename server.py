@@ -13,6 +13,7 @@ import subprocess
 import _pickle as cPickle
 from TeamPlayer import Q, WeeklyStat
 from Schedule2021 import *
+from CurrentPrediction import Prediction
 
 
 oauth = OAuth2(None, None, from_file='oauth2.json')
@@ -163,6 +164,10 @@ def getLastWeek():
 
     return jsonify(lg.player_stats(6030, 'lastweek'))
 
+
+@app.route('/prediction-fast', methods=['GET'])
+def predictionFast():
+    return jsonify(Prediction)
 
 @app.route('/predict', methods=['GET'])
 def predict():
@@ -479,7 +484,7 @@ def winning():
    
 
 if __name__ == '__main__':
-    dev = False
+    dev = True 
     portVar = ""
     if (dev):
         portVar = 8000
