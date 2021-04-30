@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, Blueprint, render_template
 from flask_cors import CORS, cross_origin
 
@@ -19,7 +20,7 @@ app.register_blueprint(WinningMatchup_Blueprint)
 
 
 if __name__ == '__main__':
-    dev = False
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000
