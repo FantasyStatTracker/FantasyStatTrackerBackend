@@ -27,6 +27,3 @@ if __name__ == '__main__':
     else:
         portVar = os.environ.get('PORT', 80)
     app.run(host="localhost", port=portVar, debug=dev)
-
-
-
