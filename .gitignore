@@ -166,12 +166,8 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/python,react
 
-<<<<<<< HEAD
 credentials.py
 
 ./FantasyFrontend
 
 oauth2.json
-=======
-./FantasyFrontend
->>>>>>> 4f5062149b30bf27dae5825d20eee342731b2e16
