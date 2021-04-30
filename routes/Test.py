@@ -1,14 +1,10 @@
 from flask import Blueprint, render_template, jsonify
 import yahoo_fantasy_api as yfa
 from yahoo_oauth import OAuth2
-from Variables.TokenRefresh import token
+from Variables.TokenRefresh import oauth, gm, lg
 
 
-data = token()
 
-oauth = data["oauth"]
-gm = data["gm"]
-lg = data["lg"]
 
 #Nothing
 test_blueprint = Blueprint('test', __name__)
@@ -17,12 +13,12 @@ def index():
     return ""
 
 #Sample full output
-@test_blueprint.route('/full', methods=['GET']) 
+@test_blueprint.route('/full', methods=['POST']) 
 def getAll():
     return lg.matchups()
 
 #Sample player stats
-@test_blueprint.route('/last', methods=['GET']) #test
+@test_blueprint.route('/last', methods=['POST']) #test
 def getLastWeek():
     return jsonify(lg.player_stats(6030, 'lastweek'))
 

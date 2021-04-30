@@ -3,16 +3,8 @@ import yahoo_fantasy_api as yfa
 
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
-from Variables.TokenRefresh import token
+from Variables.TokenRefresh import oauth, gm, lg
 from Variables.LeagueInformation import statMap
-
-
-
-data = token()
-
-oauth = data["oauth"]
-gm = data["gm"]
-lg = data["lg"]
 
 
 

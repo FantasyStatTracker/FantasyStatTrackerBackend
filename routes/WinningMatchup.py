@@ -5,14 +5,7 @@ from collections import OrderedDict
 from flask_cors import CORS, cross_origin
 from operator import itemgetter
 import json
-from Variables.TokenRefresh import token
-
-
-data = token()
-
-oauth = data["oauth"]
-gm = data["gm"]
-lg = data["lg"]
+from Variables.TokenRefresh import oauth, gm, lg
 
 WinningMatchup_Blueprint = Blueprint('WinningMatchup', __name__)
 
@@ -45,7 +38,6 @@ def getWins():
         catSort[x] = sortedCategory
 
     return catSort
-
 
 
 @WinningMatchup_Blueprint.route('/winning-matchups', methods=['POST']) #winning 

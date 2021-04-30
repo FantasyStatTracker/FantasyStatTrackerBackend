@@ -3,14 +3,10 @@ import yahoo_fantasy_api as yfa
 from yahoo_oauth import OAuth2
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
-from Variables.TokenRefresh import token
+from Variables.TokenRefresh import oauth, gm, lg
 
 
-data = token()
 
-oauth = data["oauth"]
-gm = data["gm"]
-lg = data["lg"]
 
 RelevantData = Blueprint('RelevantData', __name__)
 @RelevantData.route('/teammap', methods=['GET']) #data

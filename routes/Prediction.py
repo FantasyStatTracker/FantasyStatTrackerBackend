@@ -7,17 +7,15 @@ from Variables.Schedule2021 import *
 from flask_cors import CORS, cross_origin
 from Variables.TeamPlayer import WeeklyStat
 from Variables.LeagueInformation import *
-from Variables.TokenRefresh import token
+from Variables.TokenRefresh import oauth, gm, lg
 
 
-data = token()
 
-oauth = data["oauth"]
-gm = data["gm"]
-lg = data["lg"]
 
 Prediction = Blueprint('Prediction', __name__)
 cors = CORS(Prediction)
+
+
 def getMatchups(): #predict
 
     matchupInfo = lg.matchups()
@@ -68,17 +66,17 @@ def predict():
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
     count = 0
+
     weekRange = (lg.week_date_range(lg.current_week()))
 
-    a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
-         "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
 
-    L = []
-    Schedule = []
     teams = lg.teams()
 
-    GameCounter = {}
     StatPrediction = {}
+    '''
+    L = []
+    Schedule = []
+    GameCounter = {}
     for x in Sched["April"].keys():
         if (str(weekRange[0]) <= x <= str(weekRange[1])):
             L.append(x)
@@ -92,11 +90,10 @@ def predict():
 
         else:
             GameCounter[x] = 1
+    '''
 
     matchupInfo = lg.matchups(lg.current_week()-1)
-
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-
     FGFT = getFGFT()
 
     for team in teams:
@@ -105,22 +102,21 @@ def predict():
 
         for player in WeeklyStat[team]:
 
-            if (player[0]["team"].upper() in GameCounter.keys()):
-
-                gamePlayer = GameCounter[player[0]["team"].upper()]
-                for x in a.keys():
-                    try:
-                        a[x] += player[0][x]
-                    except:
-                        continue
+            for x in a.keys():
+                try:
+                    a[x] += player[0][x]
+                except:
+                    continue
 
             try:
                 a["FG%"] = float(FGFT[team][0])
                 a["FT%"] = float(FGFT[team][1])
             except:
+                #only for this week
                 if (team == "402.l.67232.t.2"):
                     a["FG%"] = 0.5085836909871244
                     a["FT%"] = 0.6791044776119403
+
                 elif (team == "402.l.67232.t.4"):
                     a["FG%"] = 0.4581673306772908
                     a["FT%"] = 0.8629032258064516
@@ -128,6 +124,7 @@ def predict():
                 elif (team == "402.l.67232.t.5"):
                     a["FG%"] = 0.48747591522157996
                     a["FT%"] = 0.8518518518518519
+
                 elif (team == "402.l.67232.t.7"):
                     a["FG%"] = 0.44288577154308617
                     a["FT%"] = 0.8415841584158416
@@ -137,13 +134,11 @@ def predict():
 
     matchUp = getMatchups()
 
-    h = matchUp
-
-    cats = len(statMap)
+    
     PredictionArray = []
 
-    for team in h:
-        opponent = h[team]
+    for team in matchUp:
+        opponent = matchUp[team]
         Prediction = {team: 0, opponent: 0}
         for cat1 in StatPrediction[team]:
             if (cat1 == 'TO'):
@@ -172,8 +167,8 @@ def predict():
 
     for x in PredictionArray:
         newDict = {}
-        for h in x.keys():
-            newDict[TeamMap[h]] = [x[h], StatPrediction[h]]
+        for match in x.keys():
+            newDict[TeamMap[match]] = [x[match], StatPrediction[match]]
         ReturnPrediction.append(newDict)
 
     return jsonify(ReturnPrediction)
