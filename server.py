@@ -13,7 +13,7 @@ cors = CORS(app)
 
 app.register_blueprint(test_blueprint)
 app.register_blueprint(RelevantData)
-app.register_blueprint(Prediction)
+app.register_blueprint(Prediction_Blueprint)
 app.register_blueprint(FullData)
 app.register_blueprint(WinningMatchup_Blueprint)
 

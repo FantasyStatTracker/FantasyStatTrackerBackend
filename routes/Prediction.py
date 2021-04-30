@@ -12,8 +12,8 @@ from Variables.TokenRefresh import oauth, gm, lg
 
 
 
-Prediction = Blueprint('Prediction', __name__)
-cors = CORS(Prediction)
+Prediction_Blueprint = Blueprint('Prediction', __name__)
+cors = CORS(Prediction_Blueprint)
 
 
 def getMatchups(): #predict
@@ -44,7 +44,7 @@ def getMatchups(): #predict
     return Matchup
 
 
-@Prediction.route('/fix', methods=['GET']) #fix data
+@Prediction_Blueprint.route('/fix', methods=['GET']) #fix data
 def fix():
     Fix = WeeklyStat
 
@@ -56,12 +56,12 @@ def fix():
     return Fix
 
 
-@Prediction.route('/prediction-fast', methods=['GET']) #prediction
+@Prediction_Blueprint.route('/prediction-fast', methods=['GET']) #prediction
 def predictionFast():
     return jsonify(Prediction)
 
 
-@Prediction.route('/predict', methods=['GET']) #prediction
+@Prediction_Blueprint.route('/predict', methods=['GET']) #prediction
 def predict():
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
@@ -174,7 +174,7 @@ def predict():
     return jsonify(ReturnPrediction)
 
 
-@Prediction.route('/FG', methods=['GET']) #data
+@Prediction_Blueprint.route('/FG', methods=['GET']) #data
 def getFGFT():
 
     matchupInfo = lg.matchups(lg.current_week()-1)
