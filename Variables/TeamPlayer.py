@@ -2971,49 +2971,15 @@ WeeklyStat = {
   "402.l.67232.t.1": [
     [
       {
-        "3PTM": 3.0, 
-        "AST": 19.0, 
+        "3PTM": 4.0, 
+        "AST": 15.0, 
         "BLK": 0.0, 
-        "FG%": 0.364, 
-        "FT%": "-", 
-        "PTS": 19.0, 
-        "REB": 9.0, 
-        "ST": 3.0, 
-        "TO": 4.0, 
-        "name": "Ricky Rubio", 
-        "player_id": 4610, 
-        "position_type": "P", 
-        "team": "Min"
-      }
-    ], 
-    [
-      {
-        "3PTM": 12.0, 
-        "AST": 21.0, 
-        "BLK": 3.0, 
-        "FG%": 0.538, 
-        "FT%": 1.0, 
-        "PTS": 82.0, 
-        "REB": 13.0, 
-        "ST": 4.0, 
-        "TO": 8.0, 
-        "name": "Coby White", 
-        "player_id": 6169, 
-        "position_type": "P", 
-        "team": "Chi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 6.0, 
-        "AST": 12.0, 
-        "BLK": 0.0, 
-        "FG%": 0.362, 
-        "FT%": 0.556, 
-        "PTS": 45.0, 
+        "FG%": 0.467, 
+        "FT%": 0.833, 
+        "PTS": 42.0, 
         "REB": 9.0, 
         "ST": 2.0, 
-        "TO": 11.0, 
+        "TO": 3.0, 
         "name": "Shake Milton", 
         "player_id": 6065, 
         "position_type": "P", 
@@ -3022,168 +2988,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 11.0, 
-        "AST": 12.0, 
-        "BLK": 3.0, 
-        "FG%": 0.5, 
-        "FT%": 0.923, 
-        "PTS": 125.0, 
-        "REB": 23.0, 
-        "ST": 7.0, 
-        "TO": 11.0, 
-        "name": "Bradley Beal", 
-        "player_id": 5009, 
-        "position_type": "P", 
-        "team": "Was"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 3.0, 
-        "BLK": 0.0, 
-        "FG%": 0.421, 
-        "FT%": 1.0, 
-        "PTS": 32.0, 
-        "REB": 8.0, 
-        "ST": 0.0, 
-        "TO": 0.0, 
-        "name": "Danilo Gallinari", 
-        "player_id": 4468, 
-        "position_type": "P", 
-        "team": "Atl"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 11.0, 
-        "BLK": 1.0, 
-        "FG%": 0.5, 
-        "FT%": 0.75, 
-        "PTS": 23.0, 
-        "REB": 9.0, 
-        "ST": 4.0, 
-        "TO": 0.0, 
-        "name": "Delon Wright", 
-        "player_id": 5480, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 1.0, 
-        "BLK": 1.0, 
-        "FG%": 0.556, 
-        "FT%": 0.625, 
-        "PTS": 27.0, 
-        "REB": 22.0, 
-        "ST": 3.0, 
-        "TO": 2.0, 
-        "name": "Wendell Carter Jr.", 
-        "player_id": 6018, 
-        "position_type": "P", 
-        "team": "Orl"
-      }
-    ], 
-    [
-      {
-        "3PTM": 7.0, 
-        "AST": 16.0, 
-        "BLK": 1.0, 
-        "FG%": 0.545, 
-        "FT%": 0.75, 
-        "PTS": 82.0, 
-        "REB": 44.0, 
-        "ST": 3.0, 
-        "TO": 11.0, 
-        "name": "Nikola Vucevic", 
-        "player_id": 4897, 
-        "position_type": "P", 
-        "team": "Chi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 3.0, 
-        "BLK": 2.0, 
-        "FG%": 0.45, 
-        "FT%": 0.833, 
-        "PTS": 25.0, 
-        "REB": 5.0, 
-        "ST": 1.0, 
-        "TO": 2.0, 
-        "name": "Josh Richardson", 
-        "player_id": 5500, 
-        "position_type": "P", 
-        "team": "Dal"
-      }
-    ], 
-    [
-      {
-        "3PTM": 9.0, 
-        "AST": 14.0, 
-        "BLK": 5.0, 
-        "FG%": 0.481, 
-        "FT%": 0.81, 
-        "PTS": 76.0, 
-        "REB": 35.0, 
-        "ST": 1.0, 
-        "TO": 9.0, 
-        "name": "Karl-Anthony Towns", 
-        "player_id": 5432, 
-        "position_type": "P", 
-        "team": "Min"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
+        "3PTM": 0.0, 
         "AST": 2.0, 
-        "BLK": 3.0, 
-        "FG%": 0.44, 
-        "FT%": 0.563, 
-        "PTS": 58.0, 
-        "REB": 34.0, 
-        "ST": 3.0, 
-        "TO": 6.0, 
-        "name": "Christian Wood", 
-        "player_id": 5583, 
-        "position_type": "P", 
-        "team": "Hou"
-      }
-    ], 
-    [
-      {
-        "3PTM": 1.0, 
-        "AST": 16.0, 
-        "BLK": 3.0, 
-        "FG%": 0.513, 
-        "FT%": 0.818, 
-        "PTS": 50.0, 
-        "REB": 43.0, 
-        "ST": 3.0, 
-        "TO": 5.0, 
-        "name": "Jusuf Nurkic", 
-        "player_id": 5327, 
-        "position_type": "P", 
-        "team": "Por"
-      }
-    ], 
-    [
-      {
-        "3PTM": 10.0, 
-        "AST": 25.0, 
-        "BLK": 4.0, 
-        "FG%": 0.432, 
-        "FT%": 0.895, 
-        "PTS": 97.0, 
-        "REB": 37.0, 
-        "ST": 2.0, 
-        "TO": 9.0, 
+        "BLK": 0.0, 
+        "FG%": 0.0, 
+        "FT%": 0.5, 
+        "PTS": 1.0, 
+        "REB": 4.0, 
+        "ST": 0.0, 
+        "TO": 1.0, 
         "name": "Malcolm Brogdon", 
         "player_id": 5667, 
         "position_type": "P", 
@@ -3192,38 +3005,378 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 3.0, 
-        "AST": 3.0, 
+        "3PTM": 6.0, 
+        "AST": 13.0, 
         "BLK": 0.0, 
-        "FG%": 0.429, 
+        "FG%": 0.524, 
         "FT%": 1.0, 
-        "PTS": 18.0, 
-        "REB": 2.0, 
-        "ST": 0.0, 
+        "PTS": 37.0, 
+        "REB": 9.0, 
+        "ST": 8.0, 
         "TO": 1.0, 
+        "name": "Ricky Rubio", 
+        "player_id": 4610, 
+        "position_type": "P", 
+        "team": "Min"
+      }
+    ], 
+    [
+      {
+        "3PTM": 4.0, 
+        "AST": 20.0, 
+        "BLK": 6.0, 
+        "FG%": 0.455, 
+        "FT%": 0.5, 
+        "PTS": 46.0, 
+        "REB": 20.0, 
+        "ST": 9.0, 
+        "TO": 8.0, 
+        "name": "Delon Wright", 
+        "player_id": 5480, 
+        "position_type": "P", 
+        "team": "Sac"
+      }
+    ], 
+    [
+      {
+        "3PTM": 12.0, 
+        "AST": 6.0, 
+        "BLK": 1.0, 
+        "FG%": 0.45, 
+        "FT%": 0.9, 
+        "PTS": 57.0, 
+        "REB": 19.0, 
+        "ST": 3.0, 
+        "TO": 2.0, 
+        "name": "Danilo Gallinari", 
+        "player_id": 4468, 
+        "position_type": "P", 
+        "team": "Atl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 6.0, 
+        "AST": 15.0, 
+        "BLK": 1.0, 
+        "FG%": 0.453, 
+        "FT%": 0.85, 
+        "PTS": 101.0, 
+        "REB": 13.0, 
+        "ST": 5.0, 
+        "TO": 13.0, 
+        "name": "Bradley Beal", 
+        "player_id": 5009, 
+        "position_type": "P", 
+        "team": "Was"
+      }
+    ], 
+    [
+      {
+        "3PTM": 1.0, 
+        "AST": 7.0, 
+        "BLK": 2.0, 
+        "FG%": 0.579, 
+        "FT%": 0.733, 
+        "PTS": 56.0, 
+        "REB": 40.0, 
+        "ST": 3.0, 
+        "TO": 8.0, 
+        "name": "Jusuf Nurkic", 
+        "player_id": 5327, 
+        "position_type": "P", 
+        "team": "Por"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 10.0, 
+        "BLK": 2.0, 
+        "FG%": 0.4, 
+        "FT%": 0.632, 
+        "PTS": 60.0, 
+        "REB": 24.0, 
+        "ST": 2.0, 
+        "TO": 9.0, 
+        "name": "Christian Wood", 
+        "player_id": 5583, 
+        "position_type": "P", 
+        "team": "Hou"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 10.0, 
+        "BLK": 0.0, 
+        "FG%": 0.378, 
+        "FT%": 0.833, 
+        "PTS": 50.0, 
+        "REB": 25.0, 
+        "ST": 3.0, 
+        "TO": 6.0, 
+        "name": "Karl-Anthony Towns", 
+        "player_id": 5432, 
+        "position_type": "P", 
+        "team": "Min"
+      }
+    ], 
+    [
+      {
+        "3PTM": 1.0, 
+        "AST": 6.0, 
+        "BLK": 2.0, 
+        "FG%": 0.4, 
+        "FT%": 0.714, 
+        "PTS": 30.0, 
+        "REB": 24.0, 
+        "ST": 1.0, 
+        "TO": 5.0, 
+        "name": "Wendell Carter Jr.", 
+        "player_id": 6018, 
+        "position_type": "P", 
+        "team": "Orl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 12.0, 
+        "AST": 24.0, 
+        "BLK": 2.0, 
+        "FG%": 0.381, 
+        "FT%": 0.889, 
+        "PTS": 68.0, 
+        "REB": 9.0, 
+        "ST": 2.0, 
+        "TO": 11.0, 
+        "name": "Coby White", 
+        "player_id": 6169, 
+        "position_type": "P", 
+        "team": "Chi"
+      }
+    ], 
+    [
+      {
+        "3PTM": 4.0, 
+        "AST": 7.0, 
+        "BLK": 3.0, 
+        "FG%": 0.347, 
+        "FT%": 0.833, 
+        "PTS": 43.0, 
+        "REB": 33.0, 
+        "ST": 1.0, 
+        "TO": 3.0, 
+        "name": "Nikola Vucevic", 
+        "player_id": 4897, 
+        "position_type": "P", 
+        "team": "Chi"
+      }
+    ], 
+    [
+      {
+        "3PTM": 11.0, 
+        "AST": 23.0, 
+        "BLK": 1.0, 
+        "FG%": 0.491, 
+        "FT%": 0.684, 
+        "PTS": 80.0, 
+        "REB": 14.0, 
+        "ST": 1.0, 
+        "TO": 12.0, 
         "name": "Kevin Porter Jr.", 
         "player_id": 6218, 
         "position_type": "P", 
         "team": "Hou"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 8.0, 
+        "BLK": 1.0, 
+        "FG%": 0.364, 
+        "FT%": 1.0, 
+        "PTS": 46.0, 
+        "REB": 11.0, 
+        "ST": 6.0, 
+        "TO": 7.0, 
+        "name": "Josh Richardson", 
+        "player_id": 5500, 
+        "position_type": "P", 
+        "team": "Dal"
       }
     ]
   ], 
   "402.l.67232.t.10": [
     [
       {
-        "3PTM": 7.0, 
-        "AST": 4.0, 
+        "3PTM": 1.0, 
+        "AST": 17.0, 
         "BLK": 0.0, 
-        "FG%": 0.565, 
-        "FT%": 0.5, 
-        "PTS": 34.0, 
-        "REB": 8.0, 
+        "FG%": 0.458, 
+        "FT%": "-", 
+        "PTS": 23.0, 
+        "REB": 12.0, 
+        "ST": 8.0, 
+        "TO": 8.0, 
+        "name": "T.J. McConnell", 
+        "player_id": 5582, 
+        "position_type": "P", 
+        "team": "Ind"
+      }
+    ], 
+    [
+      {
+        "3PTM": 1.0, 
+        "AST": 5.0, 
+        "BLK": 1.0, 
+        "FG%": 0.3, 
+        "FT%": 0.0, 
+        "PTS": 13.0, 
+        "REB": 28.0, 
         "ST": 0.0, 
         "TO": 1.0, 
-        "name": "Tyler Herro", 
-        "player_id": 6175, 
+        "name": "Donte DiVincenzo", 
+        "player_id": 6028, 
+        "position_type": "P", 
+        "team": "Mil"
+      }
+    ], 
+    [
+      {
+        "3PTM": 2.0, 
+        "AST": 6.0, 
+        "BLK": 1.0, 
+        "FG%": 0.235, 
+        "FT%": "-", 
+        "PTS": 10.0, 
+        "REB": 7.0, 
+        "ST": 2.0, 
+        "TO": 1.0, 
+        "name": "Kevin Huerter", 
+        "player_id": 6030, 
+        "position_type": "P", 
+        "team": "Atl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 12.0, 
+        "AST": 7.0, 
+        "BLK": 4.0, 
+        "FG%": 0.535, 
+        "FT%": 0.778, 
+        "PTS": 95.0, 
+        "REB": 28.0, 
+        "ST": 2.0, 
+        "TO": 9.0, 
+        "name": "Michael Porter Jr.", 
+        "player_id": 6025, 
+        "position_type": "P", 
+        "team": "Den"
+      }
+    ], 
+    [
+      {
+        "3PTM": 1.0, 
+        "AST": 4.0, 
+        "BLK": 2.0, 
+        "FG%": 0.542, 
+        "FT%": 0.667, 
+        "PTS": 31.0, 
+        "REB": 29.0, 
+        "ST": 7.0, 
+        "TO": 3.0, 
+        "name": "Bobby Portis", 
+        "player_id": 5482, 
+        "position_type": "P", 
+        "team": "Mil"
+      }
+    ], 
+    [
+      {
+        "3PTM": 11.0, 
+        "AST": 10.0, 
+        "BLK": 1.0, 
+        "FG%": 0.53, 
+        "FT%": 0.889, 
+        "PTS": 105.0, 
+        "REB": 14.0, 
+        "ST": 2.0, 
+        "TO": 10.0, 
+        "name": "Bojan Bogdanovic", 
+        "player_id": 4913, 
+        "position_type": "P", 
+        "team": "Uta"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 8.0, 
+        "BLK": 5.0, 
+        "FG%": 0.364, 
+        "FT%": 0.75, 
+        "PTS": 26.0, 
+        "REB": 24.0, 
+        "ST": 5.0, 
+        "TO": 2.0, 
+        "name": "Robert Covington", 
+        "player_id": 5253, 
+        "position_type": "P", 
+        "team": "Por"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 8.0, 
+        "BLK": 2.0, 
+        "FG%": 0.468, 
+        "FT%": 0.727, 
+        "PTS": 89.0, 
+        "REB": 32.0, 
+        "ST": 9.0, 
+        "TO": 14.0, 
+        "name": "Pascal Siakam", 
+        "player_id": 5658, 
+        "position_type": "P", 
+        "team": "Tor"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 19.0, 
+        "BLK": 1.0, 
+        "FG%": 0.407, 
+        "FT%": 0.923, 
+        "PTS": 64.0, 
+        "REB": 12.0, 
+        "ST": 3.0, 
+        "TO": 9.0, 
+        "name": "Goran Dragic", 
+        "player_id": 4507, 
         "position_type": "P", 
         "team": "Mia"
+      }
+    ], 
+    [
+      {
+        "3PTM": 13.0, 
+        "AST": 18.0, 
+        "BLK": 2.0, 
+        "FG%": 0.544, 
+        "FT%": 0.906, 
+        "PTS": 128.0, 
+        "REB": 18.0, 
+        "ST": 1.0, 
+        "TO": 9.0, 
+        "name": "Jayson Tatum", 
+        "player_id": 5765, 
+        "position_type": "P", 
+        "team": "Bos"
       }
     ], 
     [
@@ -3237,6 +3390,23 @@ WeeklyStat = {
         "REB": 0.0, 
         "ST": 0.0, 
         "TO": 0.0, 
+        "name": "Tyler Herro", 
+        "player_id": 6175, 
+        "position_type": "P", 
+        "team": "Mia"
+      }
+    ], 
+    [
+      {
+        "3PTM": 3.0, 
+        "AST": 11.0, 
+        "BLK": 0.0, 
+        "FG%": 0.556, 
+        "FT%": 1.0, 
+        "PTS": 29.0, 
+        "REB": 8.0, 
+        "ST": 0.0, 
+        "TO": 4.0, 
         "name": "Kawhi Leonard", 
         "player_id": 4896, 
         "position_type": "P", 
@@ -3245,221 +3415,34 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 9.0, 
-        "AST": 15.0, 
-        "BLK": 1.0, 
-        "FG%": 0.5, 
-        "FT%": 0.4, 
-        "PTS": 63.0, 
-        "REB": 11.0, 
-        "ST": 9.0, 
-        "TO": 5.0, 
-        "name": "Kevin Huerter", 
-        "player_id": 6030, 
-        "position_type": "P", 
-        "team": "Atl"
-      }
-    ], 
-    [
-      {
-        "3PTM": 21.0, 
-        "AST": 6.0, 
-        "BLK": 6.0, 
-        "FG%": 0.563, 
-        "FT%": 0.833, 
-        "PTS": 103.0, 
-        "REB": 23.0, 
-        "ST": 1.0, 
-        "TO": 5.0, 
-        "name": "Michael Porter Jr.", 
-        "player_id": 6025, 
-        "position_type": "P", 
-        "team": "Den"
-      }
-    ], 
-    [
-      {
-        "3PTM": 12.0, 
-        "AST": 10.0, 
-        "BLK": 0.0, 
-        "FG%": 0.489, 
-        "FT%": 0.778, 
-        "PTS": 63.0, 
-        "REB": 7.0, 
-        "ST": 3.0, 
-        "TO": 10.0, 
-        "name": "Bojan Bogdanovic", 
-        "player_id": 4913, 
-        "position_type": "P", 
-        "team": "Uta"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 9.0, 
-        "BLK": 1.0, 
-        "FG%": 0.31, 
-        "FT%": 0.917, 
-        "PTS": 41.0, 
-        "REB": 16.0, 
-        "ST": 4.0, 
-        "TO": 6.0, 
-        "name": "Grayson Allen", 
-        "player_id": 6032, 
-        "position_type": "P", 
-        "team": "Mem"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 7.0, 
+        "3PTM": 3.0, 
+        "AST": 2.0, 
         "BLK": 2.0, 
-        "FG%": 0.296, 
+        "FG%": 0.455, 
         "FT%": 1.0, 
-        "PTS": 26.0, 
-        "REB": 29.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Robert Covington", 
-        "player_id": 5253, 
-        "position_type": "P", 
-        "team": "Por"
-      }
-    ], 
-    [
-      {
-        "3PTM": 7.0, 
-        "AST": 11.0, 
-        "BLK": 0.0, 
-        "FG%": 0.474, 
-        "FT%": 0.833, 
-        "PTS": 53.0, 
-        "REB": 16.0, 
-        "ST": 3.0, 
-        "TO": 5.0, 
-        "name": "Pascal Siakam", 
-        "player_id": 5658, 
-        "position_type": "P", 
-        "team": "Tor"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 32.0, 
-        "BLK": 2.0, 
-        "FG%": 0.379, 
-        "FT%": 1.0, 
-        "PTS": 28.0, 
-        "REB": 15.0, 
-        "ST": 7.0, 
-        "TO": 5.0, 
-        "name": "T.J. McConnell", 
-        "player_id": 5582, 
-        "position_type": "P", 
-        "team": "Ind"
-      }
-    ], 
-    [
-      {
-        "3PTM": 1.0, 
-        "AST": 10.0, 
-        "BLK": 4.0, 
-        "FG%": 0.467, 
-        "FT%": "-", 
         "PTS": 15.0, 
-        "REB": 15.0, 
+        "REB": 4.0, 
         "ST": 2.0, 
-        "TO": 5.0, 
+        "TO": 1.0, 
         "name": "Nicolas Batum", 
         "player_id": 4487, 
         "position_type": "P", 
         "team": "LAC"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 11.0, 
-        "BLK": 2.0, 
-        "FG%": 0.379, 
-        "FT%": 1.0, 
-        "PTS": 28.0, 
-        "REB": 22.0, 
-        "ST": 2.0, 
-        "TO": 7.0, 
-        "name": "Donte DiVincenzo", 
-        "player_id": 6028, 
-        "position_type": "P", 
-        "team": "Mil"
-      }
-    ], 
-    [
-      {
-        "3PTM": 9.0, 
-        "AST": 22.0, 
-        "BLK": 0.0, 
-        "FG%": 0.338, 
-        "FT%": 0.833, 
-        "PTS": 86.0, 
-        "REB": 45.0, 
-        "ST": 2.0, 
-        "TO": 19.0, 
-        "name": "Jayson Tatum", 
-        "player_id": 5765, 
-        "position_type": "P", 
-        "team": "Bos"
-      }
-    ], 
-    [
-      {
-        "3PTM": 8.0, 
-        "AST": 1.0, 
-        "BLK": 3.0, 
-        "FG%": 0.595, 
-        "FT%": 1.0, 
-        "PTS": 56.0, 
-        "REB": 20.0, 
-        "ST": 1.0, 
-        "TO": 4.0, 
-        "name": "Bobby Portis", 
-        "player_id": 5482, 
-        "position_type": "P", 
-        "team": "Mil"
       }
     ]
   ], 
   "402.l.67232.t.11": [
     [
       {
-        "3PTM": 13.0, 
-        "AST": 20.0, 
-        "BLK": 0.0, 
-        "FG%": 0.461, 
-        "FT%": 0.889, 
-        "PTS": 91.0, 
-        "REB": 25.0, 
-        "ST": 5.0, 
-        "TO": 9.0, 
-        "name": "CJ McCollum", 
-        "player_id": 5161, 
-        "position_type": "P", 
-        "team": "Por"
-      }
-    ], 
-    [
-      {
         "3PTM": 7.0, 
-        "AST": 13.0, 
+        "AST": 17.0, 
         "BLK": 2.0, 
-        "FG%": 0.607, 
-        "FT%": 0.786, 
-        "PTS": 86.0, 
-        "REB": 17.0, 
+        "FG%": 0.413, 
+        "FT%": 0.773, 
+        "PTS": 76.0, 
+        "REB": 18.0, 
         "ST": 3.0, 
-        "TO": 8.0, 
+        "TO": 15.0, 
         "name": "Collin Sexton", 
         "player_id": 6019, 
         "position_type": "P", 
@@ -3468,32 +3451,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 8.0, 
-        "AST": 23.0, 
-        "BLK": 0.0, 
-        "FG%": 0.462, 
-        "FT%": 1.0, 
-        "PTS": 47.0, 
-        "REB": 7.0, 
-        "ST": 3.0, 
-        "TO": 4.0, 
-        "name": "Tyrese Haliburton", 
-        "player_id": 6404, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 11.0, 
-        "AST": 9.0, 
+        "3PTM": 7.0, 
+        "AST": 14.0, 
         "BLK": 1.0, 
-        "FG%": 0.431, 
-        "FT%": 0.909, 
-        "PTS": 65.0, 
-        "REB": 19.0, 
-        "ST": 0.0, 
-        "TO": 7.0, 
+        "FG%": 0.488, 
+        "FT%": 0.692, 
+        "PTS": 58.0, 
+        "REB": 21.0, 
+        "ST": 4.0, 
+        "TO": 4.0, 
         "name": "RJ Barrett", 
         "player_id": 6165, 
         "position_type": "P", 
@@ -3502,66 +3468,49 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 0.0, 
-        "AST": 26.0, 
+        "3PTM": 7.0, 
+        "AST": 23.0, 
         "BLK": 1.0, 
-        "FG%": 0.459, 
-        "FT%": 0.92, 
-        "PTS": 57.0, 
-        "REB": 14.0, 
-        "ST": 8.0, 
-        "TO": 13.0, 
-        "name": "Jimmy Butler", 
-        "player_id": 4912, 
+        "FG%": 0.5, 
+        "FT%": 1.0, 
+        "PTS": 47.0, 
+        "REB": 6.0, 
+        "ST": 4.0, 
+        "TO": 9.0, 
+        "name": "Tyrese Haliburton", 
+        "player_id": 6404, 
         "position_type": "P", 
-        "team": "Mia"
+        "team": "Sac"
       }
     ], 
     [
       {
-        "3PTM": 0.0, 
+        "3PTM": 7.0, 
         "AST": 4.0, 
-        "BLK": 1.0, 
-        "FG%": 0.241, 
-        "FT%": 0.7, 
-        "PTS": 21.0, 
-        "REB": 7.0, 
-        "ST": 1.0, 
-        "TO": 2.0, 
-        "name": "Anthony Davis", 
-        "player_id": 5007, 
-        "position_type": "P", 
-        "team": "LAL"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 2.0, 
-        "BLK": 3.0, 
-        "FG%": 0.6, 
-        "FT%": 0.429, 
-        "PTS": 45.0, 
-        "REB": 55.0, 
+        "BLK": 7.0, 
+        "FG%": 0.429, 
+        "FT%": 0.818, 
+        "PTS": 40.0, 
+        "REB": 26.0, 
         "ST": 3.0, 
-        "TO": 0.0, 
-        "name": "Clint Capela", 
-        "player_id": 5336, 
+        "TO": 2.0, 
+        "name": "Oshae Brissett", 
+        "player_id": 6290, 
         "position_type": "P", 
-        "team": "Atl"
+        "team": "Ind"
       }
     ], 
     [
       {
-        "3PTM": 4.0, 
+        "3PTM": 8.0, 
         "AST": 5.0, 
         "BLK": 3.0, 
-        "FG%": 0.587, 
+        "FG%": 0.575, 
         "FT%": 0.75, 
-        "PTS": 67.0, 
-        "REB": 31.0, 
-        "ST": 1.0, 
-        "TO": 7.0, 
+        "PTS": 60.0, 
+        "REB": 26.0, 
+        "ST": 4.0, 
+        "TO": 9.0, 
         "name": "John Collins", 
         "player_id": 5832, 
         "position_type": "P", 
@@ -3570,48 +3519,14 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 11.0, 
-        "AST": 9.0, 
-        "BLK": 1.0, 
-        "FG%": 0.48, 
-        "FT%": 0.667, 
-        "PTS": 67.0, 
-        "REB": 14.0, 
-        "ST": 8.0, 
-        "TO": 7.0, 
-        "name": "Anthony Edwards", 
-        "player_id": 6355, 
-        "position_type": "P", 
-        "team": "Min"
-      }
-    ], 
-    [
-      {
-        "3PTM": 10.0, 
+        "3PTM": 7.0, 
         "AST": 5.0, 
-        "BLK": 1.0, 
-        "FG%": 0.325, 
-        "FT%": 0.8, 
-        "PTS": 48.0, 
-        "REB": 20.0, 
+        "BLK": 0.0, 
+        "FG%": 0.522, 
+        "FT%": "-", 
+        "PTS": 31.0, 
+        "REB": 11.0, 
         "ST": 3.0, 
-        "TO": 3.0, 
-        "name": "Saddiq Bey", 
-        "player_id": 6411, 
-        "position_type": "P", 
-        "team": "Det"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 6.0, 
-        "BLK": 1.0, 
-        "FG%": 0.0, 
-        "FT%": 1.0, 
-        "PTS": 2.0, 
-        "REB": 5.0, 
-        "ST": 1.0, 
         "TO": 3.0, 
         "name": "Evan Fournier", 
         "player_id": 5054, 
@@ -3621,36 +3536,121 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 9.0, 
-        "AST": 4.0, 
-        "BLK": 4.0, 
-        "FG%": 0.487, 
-        "FT%": 0.722, 
-        "PTS": 60.0, 
-        "REB": 37.0, 
-        "ST": 3.0, 
-        "TO": 1.0, 
-        "name": "Oshae Brissett", 
-        "player_id": 6290, 
+        "3PTM": 4.0, 
+        "AST": 13.0, 
+        "BLK": 11.0, 
+        "FG%": 0.446, 
+        "FT%": 0.789, 
+        "PTS": 85.0, 
+        "REB": 32.0, 
+        "ST": 6.0, 
+        "TO": 10.0, 
+        "name": "Anthony Davis", 
+        "player_id": 5007, 
         "position_type": "P", 
-        "team": "Ind"
+        "team": "LAL"
       }
     ], 
     [
       {
         "3PTM": 0.0, 
-        "AST": 46.0, 
+        "AST": 3.0, 
+        "BLK": 6.0, 
+        "FG%": 0.553, 
+        "FT%": 0.45, 
+        "PTS": 51.0, 
+        "REB": 44.0, 
+        "ST": 2.0, 
+        "TO": 3.0, 
+        "name": "Clint Capela", 
+        "player_id": 5336, 
+        "position_type": "P", 
+        "team": "Atl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 11.0, 
+        "AST": 19.0, 
+        "BLK": 2.0, 
+        "FG%": 0.523, 
+        "FT%": 0.833, 
+        "PTS": 89.0, 
+        "REB": 18.0, 
+        "ST": 1.0, 
+        "TO": 4.0, 
+        "name": "CJ McCollum", 
+        "player_id": 5161, 
+        "position_type": "P", 
+        "team": "Por"
+      }
+    ], 
+    [
+      {
+        "3PTM": 5.0, 
+        "AST": 9.0, 
+        "BLK": 2.0, 
+        "FG%": 0.475, 
+        "FT%": 0.786, 
+        "PTS": 54.0, 
+        "REB": 14.0, 
+        "ST": 0.0, 
+        "TO": 8.0, 
+        "name": "Anthony Edwards", 
+        "player_id": 6355, 
+        "position_type": "P", 
+        "team": "Min"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 18.0, 
         "BLK": 1.0, 
-        "FG%": 0.522, 
-        "FT%": 1.0, 
-        "PTS": 26.0, 
-        "REB": 36.0, 
-        "ST": 6.0, 
+        "FG%": 0.488, 
+        "FT%": 0.917, 
+        "PTS": 62.0, 
+        "REB": 20.0, 
+        "ST": 4.0, 
+        "TO": 2.0, 
+        "name": "Jimmy Butler", 
+        "player_id": 4912, 
+        "position_type": "P", 
+        "team": "Mia"
+      }
+    ], 
+    [
+      {
+        "3PTM": 2.0, 
+        "AST": 37.0, 
+        "BLK": 7.0, 
+        "FG%": 0.682, 
+        "FT%": 0.714, 
+        "PTS": 37.0, 
+        "REB": 41.0, 
+        "ST": 8.0, 
         "TO": 13.0, 
         "name": "Draymond Green", 
         "player_id": 5069, 
         "position_type": "P", 
         "team": "GS"
+      }
+    ], 
+    [
+      {
+        "3PTM": 16.0, 
+        "AST": 12.0, 
+        "BLK": 2.0, 
+        "FG%": 0.4, 
+        "FT%": 0.75, 
+        "PTS": 73.0, 
+        "REB": 33.0, 
+        "ST": 5.0, 
+        "TO": 4.0, 
+        "name": "Saddiq Bey", 
+        "player_id": 6411, 
+        "position_type": "P", 
+        "team": "Det"
       }
     ], 
     [
@@ -3675,10 +3675,10 @@ WeeklyStat = {
         "3PTM": 0.0, 
         "AST": 0.0, 
         "BLK": 0.0, 
-        "FG%": 0.4, 
+        "FG%": "-", 
         "FT%": "-", 
-        "PTS": 4.0, 
-        "REB": 7.0, 
+        "PTS": 0.0, 
+        "REB": 0.0, 
         "ST": 0.0, 
         "TO": 0.0, 
         "name": "Chris Boucher", 
@@ -3691,14 +3691,31 @@ WeeklyStat = {
   "402.l.67232.t.12": [
     [
       {
-        "3PTM": 0.0, 
-        "AST": 10.0, 
-        "BLK": 0.0, 
-        "FG%": 0.3, 
-        "FT%": 0.5, 
-        "PTS": 7.0, 
+        "3PTM": 6.0, 
+        "AST": 12.0, 
+        "BLK": 2.0, 
+        "FG%": 0.36, 
+        "FT%": 0.769, 
+        "PTS": 34.0, 
         "REB": 7.0, 
         "ST": 1.0, 
+        "TO": 6.0, 
+        "name": "Devonte' Graham", 
+        "player_id": 6045, 
+        "position_type": "P", 
+        "team": "Cha"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 6.0, 
+        "BLK": 0.0, 
+        "FG%": 0.545, 
+        "FT%": 1.0, 
+        "PTS": 19.0, 
+        "REB": 3.0, 
+        "ST": 0.0, 
         "TO": 4.0, 
         "name": "Jeff Teague", 
         "player_id": 4624, 
@@ -3708,32 +3725,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 14.0, 
-        "AST": 29.0, 
-        "BLK": 0.0, 
-        "FG%": 0.352, 
-        "FT%": 0.833, 
-        "PTS": 57.0, 
-        "REB": 10.0, 
-        "ST": 0.0, 
-        "TO": 4.0, 
-        "name": "Devonte' Graham", 
-        "player_id": 6045, 
-        "position_type": "P", 
-        "team": "Cha"
-      }
-    ], 
-    [
-      {
-        "3PTM": 9.0, 
-        "AST": 15.0, 
+        "3PTM": 19.0, 
+        "AST": 35.0, 
         "BLK": 1.0, 
-        "FG%": 0.347, 
-        "FT%": 0.867, 
-        "PTS": 72.0, 
-        "REB": 13.0, 
-        "ST": 4.0, 
-        "TO": 7.0, 
+        "FG%": 0.5, 
+        "FT%": 0.955, 
+        "PTS": 114.0, 
+        "REB": 18.0, 
+        "ST": 6.0, 
+        "TO": 12.0, 
         "name": "Damian Lillard", 
         "player_id": 5012, 
         "position_type": "P", 
@@ -3742,15 +3742,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 16.0, 
-        "AST": 7.0, 
-        "BLK": 0.0, 
-        "FG%": 0.453, 
-        "FT%": 0.5, 
-        "PTS": 65.0, 
-        "REB": 18.0, 
-        "ST": 2.0, 
-        "TO": 3.0, 
+        "3PTM": 15.0, 
+        "AST": 6.0, 
+        "BLK": 1.0, 
+        "FG%": 0.452, 
+        "FT%": 0.667, 
+        "PTS": 57.0, 
+        "REB": 17.0, 
+        "ST": 3.0, 
+        "TO": 1.0, 
         "name": "Duncan Robinson", 
         "player_id": 6073, 
         "position_type": "P", 
@@ -3759,32 +3759,32 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 5.0, 
-        "AST": 9.0, 
-        "BLK": 2.0, 
-        "FG%": 0.389, 
-        "FT%": 0.833, 
-        "PTS": 38.0, 
-        "REB": 22.0, 
-        "ST": 3.0, 
-        "TO": 8.0, 
-        "name": "Aaron Gordon", 
-        "player_id": 5295, 
+        "3PTM": 3.0, 
+        "AST": 15.0, 
+        "BLK": 3.0, 
+        "FG%": 0.542, 
+        "FT%": 1.0, 
+        "PTS": 62.0, 
+        "REB": 24.0, 
+        "ST": 2.0, 
+        "TO": 5.0, 
+        "name": "Tobias Harris", 
+        "player_id": 4901, 
         "position_type": "P", 
-        "team": "Den"
+        "team": "Phi"
       }
     ], 
     [
       {
-        "3PTM": 10.0, 
+        "3PTM": 6.0, 
         "AST": 7.0, 
         "BLK": 4.0, 
-        "FG%": 0.306, 
-        "FT%": 0.667, 
-        "PTS": 34.0, 
-        "REB": 20.0, 
-        "ST": 4.0, 
-        "TO": 5.0, 
+        "FG%": 0.409, 
+        "FT%": 0.8, 
+        "PTS": 28.0, 
+        "REB": 4.0, 
+        "ST": 0.0, 
+        "TO": 1.0, 
         "name": "Justin Holiday", 
         "player_id": 5142, 
         "position_type": "P", 
@@ -3795,13 +3795,13 @@ WeeklyStat = {
       {
         "3PTM": 0.0, 
         "AST": 2.0, 
-        "BLK": 5.0, 
-        "FG%": 0.68, 
-        "FT%": 0.8, 
-        "PTS": 42.0, 
-        "REB": 45.0, 
-        "ST": 1.0, 
-        "TO": 5.0, 
+        "BLK": 12.0, 
+        "FG%": 0.727, 
+        "FT%": 0.692, 
+        "PTS": 57.0, 
+        "REB": 51.0, 
+        "ST": 4.0, 
+        "TO": 8.0, 
         "name": "Rudy Gobert", 
         "player_id": 5197, 
         "position_type": "P", 
@@ -3811,14 +3811,14 @@ WeeklyStat = {
     [
       {
         "3PTM": 0.0, 
-        "AST": 7.0, 
-        "BLK": 5.0, 
-        "FG%": 0.75, 
-        "FT%": 0.556, 
-        "PTS": 29.0, 
-        "REB": 41.0, 
-        "ST": 2.0, 
-        "TO": 8.0, 
+        "AST": 3.0, 
+        "BLK": 1.0, 
+        "FG%": 0.5, 
+        "FT%": 0.455, 
+        "PTS": 19.0, 
+        "REB": 26.0, 
+        "ST": 1.0, 
+        "TO": 4.0, 
         "name": "DeAndre Jordan", 
         "player_id": 4497, 
         "position_type": "P", 
@@ -3827,15 +3827,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 8.0, 
-        "AST": 8.0, 
-        "BLK": 1.0, 
-        "FG%": 0.529, 
-        "FT%": 0.727, 
-        "PTS": 52.0, 
-        "REB": 10.0, 
-        "ST": 2.0, 
-        "TO": 4.0, 
+        "3PTM": 0.0, 
+        "AST": 0.0, 
+        "BLK": 0.0, 
+        "FG%": "-", 
+        "FT%": "-", 
+        "PTS": 0.0, 
+        "REB": 0.0, 
+        "ST": 0.0, 
+        "TO": 0.0, 
         "name": "Kemba Walker", 
         "player_id": 4890, 
         "position_type": "P", 
@@ -3844,15 +3844,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 3.0, 
-        "AST": 13.0, 
-        "BLK": 1.0, 
-        "FG%": 0.351, 
-        "FT%": 0.882, 
-        "PTS": 44.0, 
-        "REB": 9.0, 
-        "ST": 4.0, 
-        "TO": 5.0, 
+        "3PTM": 0.0, 
+        "AST": 0.0, 
+        "BLK": 0.0, 
+        "FG%": "-", 
+        "FT%": "-", 
+        "PTS": 0.0, 
+        "REB": 0.0, 
+        "ST": 0.0, 
+        "TO": 0.0, 
         "name": "De'Aaron Fox", 
         "player_id": 5767, 
         "position_type": "P", 
@@ -3861,15 +3861,32 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 12.0, 
-        "AST": 16.0, 
+        "3PTM": 1.0, 
+        "AST": 15.0, 
         "BLK": 1.0, 
-        "FG%": 0.516, 
-        "FT%": 0.5, 
-        "PTS": 45.0, 
-        "REB": 12.0, 
+        "FG%": 0.192, 
+        "FT%": 0.769, 
+        "PTS": 21.0, 
+        "REB": 15.0, 
         "ST": 1.0, 
-        "TO": 6.0, 
+        "TO": 7.0, 
+        "name": "Lou Williams", 
+        "player_id": 3971, 
+        "position_type": "P", 
+        "team": "Atl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 29.0, 
+        "BLK": 0.0, 
+        "FG%": 0.45, 
+        "FT%": 0.778, 
+        "PTS": 53.0, 
+        "REB": 10.0, 
+        "ST": 2.0, 
+        "TO": 12.0, 
         "name": "Joe Ingles", 
         "player_id": 5393, 
         "position_type": "P", 
@@ -3878,36 +3895,19 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 1.0, 
+        "3PTM": 0.0, 
         "AST": 8.0, 
-        "BLK": 2.0, 
-        "FG%": 0.462, 
-        "FT%": 1.0, 
-        "PTS": 27.0, 
-        "REB": 11.0, 
-        "ST": 1.0, 
-        "TO": 5.0, 
-        "name": "Tobias Harris", 
-        "player_id": 4901, 
+        "BLK": 5.0, 
+        "FG%": 0.429, 
+        "FT%": 0.7, 
+        "PTS": 31.0, 
+        "REB": 19.0, 
+        "ST": 0.0, 
+        "TO": 6.0, 
+        "name": "Aaron Gordon", 
+        "player_id": 5295, 
         "position_type": "P", 
-        "team": "Phi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 7.0, 
-        "AST": 14.0, 
-        "BLK": 0.0, 
-        "FG%": 0.404, 
-        "FT%": 0.889, 
-        "PTS": 61.0, 
-        "REB": 8.0, 
-        "ST": 2.0, 
-        "TO": 11.0, 
-        "name": "Lou Williams", 
-        "player_id": 3971, 
-        "position_type": "P", 
-        "team": "Atl"
+        "team": "Den"
       }
     ], 
     [
@@ -3931,49 +3931,15 @@ WeeklyStat = {
   "402.l.67232.t.2": [
     [
       {
-        "3PTM": 5.0, 
-        "AST": 9.0, 
+        "3PTM": 4.0, 
+        "AST": 58.0, 
         "BLK": 1.0, 
-        "FG%": 0.583, 
-        "FT%": 0.75, 
-        "PTS": 36.0, 
-        "REB": 7.0, 
-        "ST": 1.0, 
-        "TO": 4.0, 
-        "name": "Cory Joseph", 
-        "player_id": 4911, 
-        "position_type": "P", 
-        "team": "Det"
-      }
-    ], 
-    [
-      {
-        "3PTM": 11.0, 
-        "AST": 13.0, 
-        "BLK": 3.0, 
-        "FG%": 0.421, 
-        "FT%": 0.833, 
-        "PTS": 48.0, 
-        "REB": 11.0, 
-        "ST": 5.0, 
-        "TO": 5.0, 
-        "name": "De'Anthony Melton", 
-        "player_id": 6057, 
-        "position_type": "P", 
-        "team": "Mem"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 49.0, 
-        "BLK": 0.0, 
-        "FG%": 0.408, 
-        "FT%": 0.625, 
-        "PTS": 78.0, 
-        "REB": 47.0, 
-        "ST": 8.0, 
-        "TO": 24.0, 
+        "FG%": 0.515, 
+        "FT%": 0.85, 
+        "PTS": 89.0, 
+        "REB": 61.0, 
+        "ST": 6.0, 
+        "TO": 13.0, 
         "name": "Russell Westbrook", 
         "player_id": 4390, 
         "position_type": "P", 
@@ -3982,116 +3948,31 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 0.0, 
-        "AST": 9.0, 
-        "BLK": 2.0, 
-        "FG%": 0.571, 
-        "FT%": 1.0, 
-        "PTS": 26.0, 
-        "REB": 16.0, 
-        "ST": 3.0, 
-        "TO": 3.0, 
-        "name": "Brandon Clarke", 
-        "player_id": 6209, 
-        "position_type": "P", 
-        "team": "Mem"
-      }
-    ], 
-    [
-      {
-        "3PTM": 1.0, 
-        "AST": 2.0, 
-        "BLK": 7.0, 
-        "FG%": 0.576, 
-        "FT%": 0.875, 
-        "PTS": 46.0, 
-        "REB": 40.0, 
-        "ST": 4.0, 
-        "TO": 6.0, 
-        "name": "Isaiah Stewart", 
-        "player_id": 6408, 
-        "position_type": "P", 
-        "team": "Det"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 13.0, 
-        "BLK": 2.0, 
-        "FG%": 0.611, 
-        "FT%": 0.833, 
-        "PTS": 51.0, 
-        "REB": 16.0, 
-        "ST": 6.0, 
-        "TO": 9.0, 
-        "name": "Thaddeus Young", 
-        "player_id": 4290, 
-        "position_type": "P", 
-        "team": "Chi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 2.0, 
-        "BLK": 2.0, 
-        "FG%": 0.625, 
-        "FT%": 0.5, 
-        "PTS": 23.0, 
-        "REB": 24.0, 
-        "ST": 3.0, 
-        "TO": 3.0, 
-        "name": "Steven Adams", 
-        "player_id": 5163, 
-        "position_type": "P", 
-        "team": "NO"
-      }
-    ], 
-    [
-      {
-        "3PTM": 3.0, 
-        "AST": 8.0, 
-        "BLK": 0.0, 
-        "FG%": 0.364, 
-        "FT%": 0.25, 
-        "PTS": 20.0, 
-        "REB": 19.0, 
-        "ST": 2.0, 
-        "TO": 6.0, 
-        "name": "Larry Nance Jr.", 
-        "player_id": 5487, 
-        "position_type": "P", 
-        "team": "Cle"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 6.0, 
-        "BLK": 4.0, 
-        "FG%": 0.667, 
-        "FT%": 0.8, 
-        "PTS": 60.0, 
-        "REB": 40.0, 
-        "ST": 5.0, 
-        "TO": 1.0, 
-        "name": "Deandre Ayton", 
-        "player_id": 5958, 
-        "position_type": "P", 
-        "team": "Pho"
-      }
-    ], 
-    [
-      {
         "3PTM": 9.0, 
-        "AST": 30.0, 
+        "AST": 7.0, 
+        "BLK": 3.0, 
+        "FG%": 0.361, 
+        "FT%": "-", 
+        "PTS": 35.0, 
+        "REB": 16.0, 
+        "ST": 8.0, 
+        "TO": 2.0, 
+        "name": "Danny Green", 
+        "player_id": 4651, 
+        "position_type": "P", 
+        "team": "Phi"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 34.0, 
         "BLK": 0.0, 
-        "FG%": 0.431, 
-        "FT%": 0.731, 
-        "PTS": 78.0, 
-        "REB": 27.0, 
-        "ST": 5.0, 
+        "FG%": 0.517, 
+        "FT%": 0.625, 
+        "PTS": 84.0, 
+        "REB": 30.0, 
+        "ST": 2.0, 
         "TO": 14.0, 
         "name": "Luka Doncic", 
         "player_id": 6014, 
@@ -4101,15 +3982,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 9.0, 
-        "AST": 13.0, 
+        "3PTM": 12.0, 
+        "AST": 24.0, 
         "BLK": 0.0, 
-        "FG%": 0.468, 
+        "FG%": 0.44, 
         "FT%": 1.0, 
-        "PTS": 77.0, 
-        "REB": 16.0, 
-        "ST": 4.0, 
-        "TO": 7.0, 
+        "PTS": 104.0, 
+        "REB": 30.0, 
+        "ST": 5.0, 
+        "TO": 8.0, 
         "name": "Khris Middleton", 
         "player_id": 5073, 
         "position_type": "P", 
@@ -4118,15 +3999,117 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 5.0, 
-        "AST": 10.0, 
-        "BLK": 4.0, 
-        "FG%": 0.4, 
-        "FT%": 0.692, 
-        "PTS": 62.0, 
+        "3PTM": 2.0, 
+        "AST": 1.0, 
+        "BLK": 10.0, 
+        "FG%": 0.486, 
+        "FT%": 0.857, 
+        "PTS": 42.0, 
         "REB": 27.0, 
+        "ST": 3.0, 
+        "TO": 4.0, 
+        "name": "Isaiah Stewart", 
+        "player_id": 6408, 
+        "position_type": "P", 
+        "team": "Det"
+      }
+    ], 
+    [
+      {
+        "3PTM": 2.0, 
+        "AST": 6.0, 
+        "BLK": 1.0, 
+        "FG%": 0.355, 
+        "FT%": 1.0, 
+        "PTS": 32.0, 
+        "REB": 24.0, 
         "ST": 6.0, 
-        "TO": 5.0, 
+        "TO": 7.0, 
+        "name": "Isaiah Roby", 
+        "player_id": 6233, 
+        "position_type": "P", 
+        "team": "OKC"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 6.0, 
+        "BLK": 8.0, 
+        "FG%": 0.517, 
+        "FT%": 0.75, 
+        "PTS": 36.0, 
+        "REB": 35.0, 
+        "ST": 4.0, 
+        "TO": 4.0, 
+        "name": "Deandre Ayton", 
+        "player_id": 5958, 
+        "position_type": "P", 
+        "team": "Pho"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 8.0, 
+        "BLK": 5.0, 
+        "FG%": 0.667, 
+        "FT%": 0.5, 
+        "PTS": 19.0, 
+        "REB": 23.0, 
+        "ST": 3.0, 
+        "TO": 3.0, 
+        "name": "Robert Williams", 
+        "player_id": 6038, 
+        "position_type": "P", 
+        "team": "Bos"
+      }
+    ], 
+    [
+      {
+        "3PTM": 4.0, 
+        "AST": 12.0, 
+        "BLK": 0.0, 
+        "FG%": 0.333, 
+        "FT%": 0.75, 
+        "PTS": 27.0, 
+        "REB": 14.0, 
+        "ST": 2.0, 
+        "TO": 9.0, 
+        "name": "Malachi Flynn", 
+        "player_id": 6421, 
+        "position_type": "P", 
+        "team": "Tor"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 9.0, 
+        "BLK": 3.0, 
+        "FG%": 0.529, 
+        "FT%": 0.625, 
+        "PTS": 49.0, 
+        "REB": 19.0, 
+        "ST": 6.0, 
+        "TO": 7.0, 
+        "name": "Trevor Ariza", 
+        "player_id": 3860, 
+        "position_type": "P", 
+        "team": "Mia"
+      }
+    ], 
+    [
+      {
+        "3PTM": 12.0, 
+        "AST": 8.0, 
+        "BLK": 8.0, 
+        "FG%": 0.527, 
+        "FT%": 0.9, 
+        "PTS": 99.0, 
+        "REB": 16.0, 
+        "ST": 1.0, 
+        "TO": 6.0, 
         "name": "Andrew Wiggins", 
         "player_id": 5292, 
         "position_type": "P", 
@@ -4136,35 +4119,35 @@ WeeklyStat = {
     [
       {
         "3PTM": 0.0, 
-        "AST": 3.0, 
-        "BLK": 3.0, 
-        "FG%": 0.5, 
-        "FT%": 0.7, 
-        "PTS": 33.0, 
-        "REB": 30.0, 
-        "ST": 2.0, 
-        "TO": 9.0, 
-        "name": "Tristan Thompson", 
-        "player_id": 4884, 
+        "AST": 2.0, 
+        "BLK": 2.0, 
+        "FG%": 0.64, 
+        "FT%": 0.833, 
+        "PTS": 42.0, 
+        "REB": 34.0, 
+        "ST": 3.0, 
+        "TO": 3.0, 
+        "name": "Guillermo Hernang\u00f3mez", 
+        "player_id": 5495, 
         "position_type": "P", 
-        "team": "Bos"
+        "team": "NO"
       }
     ], 
     [
       {
         "3PTM": 0.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": "-", 
-        "FT%": "-", 
-        "PTS": 0.0, 
-        "REB": 0.0, 
-        "ST": 0.0, 
-        "TO": 0.0, 
-        "name": "Robert Williams", 
-        "player_id": 6038, 
+        "AST": 22.0, 
+        "BLK": 1.0, 
+        "FG%": 0.5, 
+        "FT%": 0.625, 
+        "PTS": 51.0, 
+        "REB": 22.0, 
+        "ST": 5.0, 
+        "TO": 7.0, 
+        "name": "Thaddeus Young", 
+        "player_id": 4290, 
         "position_type": "P", 
-        "team": "Bos"
+        "team": "Chi"
       }
     ], 
     [
@@ -4205,15 +4188,15 @@ WeeklyStat = {
   "402.l.67232.t.3": [
     [
       {
-        "3PTM": 5.0, 
-        "AST": 16.0, 
+        "3PTM": 3.0, 
+        "AST": 24.0, 
         "BLK": 0.0, 
-        "FG%": 0.324, 
-        "FT%": 0.667, 
-        "PTS": 33.0, 
-        "REB": 19.0, 
+        "FG%": 0.521, 
+        "FT%": 1.0, 
+        "PTS": 61.0, 
+        "REB": 24.0, 
         "ST": 3.0, 
-        "TO": 4.0, 
+        "TO": 9.0, 
         "name": "Dejounte Murray", 
         "player_id": 5660, 
         "position_type": "P", 
@@ -4223,14 +4206,14 @@ WeeklyStat = {
     [
       {
         "3PTM": 0.0, 
-        "AST": 18.0, 
+        "AST": 28.0, 
         "BLK": 1.0, 
-        "FG%": 0.447, 
-        "FT%": 0.92, 
-        "PTS": 65.0, 
-        "REB": 20.0, 
-        "ST": 1.0, 
-        "TO": 7.0, 
+        "FG%": 0.471, 
+        "FT%": 0.857, 
+        "PTS": 72.0, 
+        "REB": 10.0, 
+        "ST": 6.0, 
+        "TO": 4.0, 
         "name": "DeMar DeRozan", 
         "player_id": 4614, 
         "position_type": "P", 
@@ -4239,136 +4222,17 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 6.0, 
-        "AST": 29.0, 
+        "3PTM": 1.0, 
+        "AST": 15.0, 
         "BLK": 0.0, 
-        "FG%": 0.524, 
-        "FT%": 0.75, 
-        "PTS": 56.0, 
+        "FG%": 0.36, 
+        "FT%": 1.0, 
+        "PTS": 21.0, 
         "REB": 10.0, 
-        "ST": 5.0, 
-        "TO": 7.0, 
+        "ST": 2.0, 
+        "TO": 5.0, 
         "name": "Dennis Schroder", 
         "player_id": 5187, 
-        "position_type": "P", 
-        "team": "LAL"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 8.0, 
-        "BLK": 2.0, 
-        "FG%": 0.6, 
-        "FT%": "-", 
-        "PTS": 23.0, 
-        "REB": 29.0, 
-        "ST": 3.0, 
-        "TO": 2.0, 
-        "name": "Royce O'Neale", 
-        "player_id": 5905, 
-        "position_type": "P", 
-        "team": "Uta"
-      }
-    ], 
-    [
-      {
-        "3PTM": 11.0, 
-        "AST": 14.0, 
-        "BLK": 1.0, 
-        "FG%": 0.512, 
-        "FT%": 0.857, 
-        "PTS": 65.0, 
-        "REB": 21.0, 
-        "ST": 0.0, 
-        "TO": 8.0, 
-        "name": "Harrison Barnes", 
-        "player_id": 5013, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 1.0, 
-        "AST": 2.0, 
-        "BLK": 5.0, 
-        "FG%": 0.56, 
-        "FT%": 0.9, 
-        "PTS": 38.0, 
-        "REB": 11.0, 
-        "ST": 1.0, 
-        "TO": 1.0, 
-        "name": "Jaren Jackson Jr.", 
-        "player_id": 6015, 
-        "position_type": "P", 
-        "team": "Mem"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 3.0, 
-        "BLK": 5.0, 
-        "FG%": 0.786, 
-        "FT%": 0.786, 
-        "PTS": 55.0, 
-        "REB": 35.0, 
-        "ST": 3.0, 
-        "TO": 8.0, 
-        "name": "Jarrett Allen", 
-        "player_id": 5835, 
-        "position_type": "P", 
-        "team": "Cle"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 9.0, 
-        "BLK": 15.0, 
-        "FG%": 0.679, 
-        "FT%": 0.917, 
-        "PTS": 49.0, 
-        "REB": 34.0, 
-        "ST": 4.0, 
-        "TO": 7.0, 
-        "name": "Jakob Poeltl", 
-        "player_id": 5640, 
-        "position_type": "P", 
-        "team": "SA"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 6.0, 
-        "BLK": 0.0, 
-        "FG%": 0.45, 
-        "FT%": 0.667, 
-        "PTS": 51.0, 
-        "REB": 7.0, 
-        "ST": 0.0, 
-        "TO": 3.0, 
-        "name": "Jerami Grant", 
-        "player_id": 5350, 
-        "position_type": "P", 
-        "team": "Det"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 8.0, 
-        "BLK": 3.0, 
-        "FG%": 0.407, 
-        "FT%": 0.667, 
-        "PTS": 28.0, 
-        "REB": 39.0, 
-        "ST": 6.0, 
-        "TO": 7.0, 
-        "name": "Andre Drummond", 
-        "player_id": 5015, 
         "position_type": "P", 
         "team": "LAL"
       }
@@ -4384,6 +4248,91 @@ WeeklyStat = {
         "REB": 0.0, 
         "ST": 0.0, 
         "TO": 0.0, 
+        "name": "Harrison Barnes", 
+        "player_id": 5013, 
+        "position_type": "P", 
+        "team": "Sac"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 9.0, 
+        "BLK": 3.0, 
+        "FG%": 0.485, 
+        "FT%": 0.7, 
+        "PTS": 86.0, 
+        "REB": 20.0, 
+        "ST": 3.0, 
+        "TO": 6.0, 
+        "name": "Giannis Antetokounmpo", 
+        "player_id": 5185, 
+        "position_type": "P", 
+        "team": "Mil"
+      }
+    ], 
+    [
+      {
+        "3PTM": 4.0, 
+        "AST": 2.0, 
+        "BLK": 4.0, 
+        "FG%": 0.379, 
+        "FT%": 0.818, 
+        "PTS": 35.0, 
+        "REB": 15.0, 
+        "ST": 0.0, 
+        "TO": 3.0, 
+        "name": "Jaren Jackson Jr.", 
+        "player_id": 6015, 
+        "position_type": "P", 
+        "team": "Mem"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 7.0, 
+        "BLK": 3.0, 
+        "FG%": 0.611, 
+        "FT%": 0.714, 
+        "PTS": 27.0, 
+        "REB": 20.0, 
+        "ST": 3.0, 
+        "TO": 5.0, 
+        "name": "Jakob Poeltl", 
+        "player_id": 5640, 
+        "position_type": "P", 
+        "team": "SA"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 4.0, 
+        "BLK": 3.0, 
+        "FG%": 0.595, 
+        "FT%": 0.538, 
+        "PTS": 57.0, 
+        "REB": 29.0, 
+        "ST": 4.0, 
+        "TO": 7.0, 
+        "name": "Andre Drummond", 
+        "player_id": 5015, 
+        "position_type": "P", 
+        "team": "LAL"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 21.0, 
+        "BLK": 1.0, 
+        "FG%": 0.714, 
+        "FT%": 0.429, 
+        "PTS": 46.0, 
+        "REB": 22.0, 
+        "ST": 8.0, 
+        "TO": 4.0, 
         "name": "Ben Simmons", 
         "player_id": 5600, 
         "position_type": "P", 
@@ -4392,19 +4341,53 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 3.0, 
-        "AST": 19.0, 
+        "3PTM": 0.0, 
+        "AST": 10.0, 
         "BLK": 5.0, 
-        "FG%": 0.606, 
-        "FT%": 0.667, 
-        "PTS": 115.0, 
-        "REB": 52.0, 
-        "ST": 6.0, 
-        "TO": 12.0, 
-        "name": "Giannis Antetokounmpo", 
-        "player_id": 5185, 
+        "FG%": 0.629, 
+        "FT%": 0.563, 
+        "PTS": 53.0, 
+        "REB": 46.0, 
+        "ST": 2.0, 
+        "TO": 7.0, 
+        "name": "Jarrett Allen", 
+        "player_id": 5835, 
         "position_type": "P", 
-        "team": "Mil"
+        "team": "Cle"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 11.0, 
+        "BLK": 1.0, 
+        "FG%": 0.647, 
+        "FT%": "-", 
+        "PTS": 29.0, 
+        "REB": 23.0, 
+        "ST": 5.0, 
+        "TO": 6.0, 
+        "name": "Royce O'Neale", 
+        "player_id": 5905, 
+        "position_type": "P", 
+        "team": "Uta"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 0.0, 
+        "BLK": 0.0, 
+        "FG%": "-", 
+        "FT%": "-", 
+        "PTS": 0.0, 
+        "REB": 0.0, 
+        "ST": 0.0, 
+        "TO": 0.0, 
+        "name": "Jerami Grant", 
+        "player_id": 5350, 
+        "position_type": "P", 
+        "team": "Det"
       }
     ], 
     [
@@ -4432,7 +4415,7 @@ WeeklyStat = {
         "FG%": "-", 
         "FT%": "-", 
         "PTS": 0.0, 
-        "REB": 0.0, 
+        "REB": 2.0, 
         "ST": 0.0, 
         "TO": 0.0, 
         "name": "Nicolas Claxton", 
@@ -4462,100 +4445,32 @@ WeeklyStat = {
   "402.l.67232.t.4": [
     [
       {
-        "3PTM": 10.0, 
-        "AST": 32.0, 
-        "BLK": 1.0, 
-        "FG%": 0.577, 
-        "FT%": 0.692, 
-        "PTS": 119.0, 
-        "REB": 27.0, 
+        "3PTM": 4.0, 
+        "AST": 19.0, 
+        "BLK": 3.0, 
+        "FG%": 0.425, 
+        "FT%": 0.769, 
+        "PTS": 48.0, 
+        "REB": 20.0, 
         "ST": 7.0, 
         "TO": 12.0, 
-        "name": "Ja Morant", 
-        "player_id": 6164, 
+        "name": "LaMelo Ball", 
+        "player_id": 6395, 
         "position_type": "P", 
-        "team": "Mem"
+        "team": "Cha"
       }
     ], 
     [
       {
-        "3PTM": 11.0, 
-        "AST": 19.0, 
+        "3PTM": 10.0, 
+        "AST": 8.0, 
         "BLK": 1.0, 
-        "FG%": 0.486, 
+        "FG%": 0.469, 
         "FT%": "-", 
-        "PTS": 45.0, 
-        "REB": 10.0, 
-        "ST": 4.0, 
-        "TO": 10.0, 
-        "name": "Lonzo Ball", 
-        "player_id": 5764, 
-        "position_type": "P", 
-        "team": "NO"
-      }
-    ], 
-    [
-      {
-        "3PTM": 6.0, 
-        "AST": 11.0, 
-        "BLK": 0.0, 
-        "FG%": 0.385, 
-        "FT%": 1.0, 
-        "PTS": 28.0, 
-        "REB": 10.0, 
-        "ST": 2.0, 
+        "PTS": 40.0, 
+        "REB": 9.0, 
+        "ST": 3.0, 
         "TO": 1.0, 
-        "name": "Reggie Jackson", 
-        "player_id": 4906, 
-        "position_type": "P", 
-        "team": "LAC"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 17.0, 
-        "BLK": 0.0, 
-        "FG%": 0.545, 
-        "FT%": 0.882, 
-        "PTS": 80.0, 
-        "REB": 13.0, 
-        "ST": 0.0, 
-        "TO": 8.0, 
-        "name": "Brandon Ingram", 
-        "player_id": 5601, 
-        "position_type": "P", 
-        "team": "NO"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 15.0, 
-        "BLK": 3.0, 
-        "FG%": 0.477, 
-        "FT%": 0.8, 
-        "PTS": 90.0, 
-        "REB": 33.0, 
-        "ST": 2.0, 
-        "TO": 13.0, 
-        "name": "Joel Embiid", 
-        "player_id": 5294, 
-        "position_type": "P", 
-        "team": "Phi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 17.0, 
-        "AST": 17.0, 
-        "BLK": 0.0, 
-        "FG%": 0.478, 
-        "FT%": 0.8, 
-        "PTS": 87.0, 
-        "REB": 14.0, 
-        "ST": 7.0, 
-        "TO": 9.0, 
         "name": "Bogdan Bogdanovic", 
         "player_id": 5338, 
         "position_type": "P", 
@@ -4564,15 +4479,100 @@ WeeklyStat = {
     ], 
     [
       {
+        "3PTM": 5.0, 
+        "AST": 27.0, 
+        "BLK": 2.0, 
+        "FG%": 0.291, 
+        "FT%": 0.917, 
+        "PTS": 48.0, 
+        "REB": 16.0, 
+        "ST": 4.0, 
+        "TO": 14.0, 
+        "name": "Ja Morant", 
+        "player_id": 6164, 
+        "position_type": "P", 
+        "team": "Mem"
+      }
+    ], 
+    [
+      {
+        "3PTM": 2.0, 
+        "AST": 8.0, 
+        "BLK": 0.0, 
+        "FG%": 0.467, 
+        "FT%": 0.75, 
+        "PTS": 53.0, 
+        "REB": 24.0, 
+        "ST": 4.0, 
+        "TO": 5.0, 
+        "name": "Keldon Johnson", 
+        "player_id": 6217, 
+        "position_type": "P", 
+        "team": "SA"
+      }
+    ], 
+    [
+      {
+        "3PTM": 11.0, 
+        "AST": 23.0, 
+        "BLK": 0.0, 
+        "FG%": 0.412, 
+        "FT%": 0.762, 
+        "PTS": 97.0, 
+        "REB": 21.0, 
+        "ST": 4.0, 
+        "TO": 14.0, 
+        "name": "Brandon Ingram", 
+        "player_id": 5601, 
+        "position_type": "P", 
+        "team": "NO"
+      }
+    ], 
+    [
+      {
+        "3PTM": 9.0, 
+        "AST": 20.0, 
+        "BLK": 0.0, 
+        "FG%": 0.412, 
+        "FT%": 1.0, 
+        "PTS": 64.0, 
+        "REB": 18.0, 
+        "ST": 2.0, 
+        "TO": 12.0, 
+        "name": "Cedi Osman", 
+        "player_id": 5491, 
+        "position_type": "P", 
+        "team": "Cle"
+      }
+    ], 
+    [
+      {
+        "3PTM": 3.0, 
+        "AST": 6.0, 
+        "BLK": 7.0, 
+        "FG%": 0.455, 
+        "FT%": 0.95, 
+        "PTS": 82.0, 
+        "REB": 35.0, 
+        "ST": 2.0, 
+        "TO": 12.0, 
+        "name": "Joel Embiid", 
+        "player_id": 5294, 
+        "position_type": "P", 
+        "team": "Phi"
+      }
+    ], 
+    [
+      {
         "3PTM": 0.0, 
-        "AST": 3.0, 
-        "BLK": 9.0, 
-        "FG%": 0.704, 
-        "FT%": 0.571, 
-        "PTS": 46.0, 
-        "REB": 27.0, 
-        "ST": 5.0, 
-        "TO": 2.0, 
+        "AST": 0.0, 
+        "BLK": 6.0, 
+        "FG%": 0.875, 
+        "FT%": 0.5, 
+        "PTS": 45.0, 
+        "REB": 22.0, 
+        "ST": 2.0, 
+        "TO": 4.0, 
         "name": "Daniel Gafford", 
         "player_id": 6226, 
         "position_type": "P", 
@@ -4581,100 +4581,66 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 1.0, 
-        "AST": 4.0, 
-        "BLK": 3.0, 
-        "FG%": 0.7, 
-        "FT%": 0.25, 
-        "PTS": 16.0, 
-        "REB": 14.0, 
-        "ST": 1.0, 
-        "TO": 1.0, 
-        "name": "Khem Birch", 
-        "player_id": 5390, 
-        "position_type": "P", 
-        "team": "Tor"
-      }
-    ], 
-    [
-      {
-        "3PTM": 12.0, 
-        "AST": 25.0, 
+        "3PTM": 3.0, 
+        "AST": 17.0, 
         "BLK": 1.0, 
-        "FG%": 0.528, 
-        "FT%": 0.833, 
-        "PTS": 103.0, 
-        "REB": 11.0, 
+        "FG%": 0.5, 
+        "FT%": "-", 
+        "PTS": 27.0, 
+        "REB": 12.0, 
         "ST": 7.0, 
-        "TO": 14.0, 
-        "name": "Darius Garland", 
-        "player_id": 6167, 
+        "TO": 10.0, 
+        "name": "Rajon Rondo", 
+        "player_id": 4149, 
         "position_type": "P", 
-        "team": "Cle"
+        "team": "LAC"
       }
     ], 
     [
       {
-        "3PTM": 7.0, 
-        "AST": 30.0, 
-        "BLK": 0.0, 
-        "FG%": 0.368, 
-        "FT%": 1.0, 
-        "PTS": 43.0, 
-        "REB": 9.0, 
-        "ST": 7.0, 
-        "TO": 8.0, 
-        "name": "Mike Conley", 
-        "player_id": 4246, 
-        "position_type": "P", 
-        "team": "Uta"
-      }
-    ], 
-    [
-      {
-        "3PTM": 17.0, 
-        "AST": 3.0, 
-        "BLK": 0.0, 
-        "FG%": 0.419, 
-        "FT%": 1.0, 
-        "PTS": 61.0, 
-        "REB": 15.0, 
-        "ST": 1.0, 
-        "TO": 0.0, 
-        "name": "Davis Bertans", 
-        "player_id": 4926, 
-        "position_type": "P", 
-        "team": "Was"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
+        "3PTM": 11.0, 
         "AST": 5.0, 
-        "BLK": 1.0, 
-        "FG%": 0.278, 
-        "FT%": 0.667, 
-        "PTS": 31.0, 
-        "REB": 9.0, 
-        "ST": 0.0, 
-        "TO": 5.0, 
-        "name": "Tim Hardaway Jr.", 
-        "player_id": 5194, 
+        "BLK": 2.0, 
+        "FG%": 0.5, 
+        "FT%": 0.6, 
+        "PTS": 64.0, 
+        "REB": 20.0, 
+        "ST": 4.0, 
+        "TO": 10.0, 
+        "name": "Rudy Gay", 
+        "player_id": 4136, 
         "position_type": "P", 
-        "team": "Dal"
+        "team": "SA"
       }
     ], 
     [
       {
-        "3PTM": 12.0, 
-        "AST": 7.0, 
-        "BLK": 2.0, 
-        "FG%": 0.521, 
-        "FT%": 0.857, 
-        "PTS": 68.0, 
-        "REB": 14.0, 
-        "ST": 1.0, 
-        "TO": 4.0, 
+        "3PTM": 20.0, 
+        "AST": 38.0, 
+        "BLK": 3.0, 
+        "FG%": 0.375, 
+        "FT%": 0.9, 
+        "PTS": 95.0, 
+        "REB": 46.0, 
+        "ST": 13.0, 
+        "TO": 17.0, 
+        "name": "Lonzo Ball", 
+        "player_id": 5764, 
+        "position_type": "P", 
+        "team": "NO"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 4.0, 
+        "BLK": 1.0, 
+        "FG%": 0.457, 
+        "FT%": 0.5, 
+        "PTS": 43.0, 
+        "REB": 11.0, 
+        "ST": 3.0, 
+        "TO": 6.0, 
         "name": "Joe Harris", 
         "player_id": 5344, 
         "position_type": "P", 
@@ -4683,19 +4649,19 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 0.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": "-", 
-        "FT%": "-", 
-        "PTS": 0.0, 
-        "REB": 0.0, 
-        "ST": 0.0, 
-        "TO": 0.0, 
-        "name": "LeBron James", 
-        "player_id": 3704, 
+        "3PTM": 3.0, 
+        "AST": 11.0, 
+        "BLK": 1.0, 
+        "FG%": 0.59, 
+        "FT%": 0.5, 
+        "PTS": 54.0, 
+        "REB": 35.0, 
+        "ST": 4.0, 
+        "TO": 6.0, 
+        "name": "Khem Birch", 
+        "player_id": 5390, 
         "position_type": "P", 
-        "team": "LAL"
+        "team": "Tor"
       }
     ], 
     [
@@ -4709,59 +4675,42 @@ WeeklyStat = {
         "REB": 0.0, 
         "ST": 0.0, 
         "TO": 0.0, 
-        "name": "LaMelo Ball", 
-        "player_id": 6395, 
+        "name": "Mike Conley", 
+        "player_id": 4246, 
         "position_type": "P", 
-        "team": "Cha"
+        "team": "Uta"
+      }
+    ], 
+    [
+      {
+        "3PTM": 3.0, 
+        "AST": 13.0, 
+        "BLK": 1.0, 
+        "FG%": 0.522, 
+        "FT%": 0.667, 
+        "PTS": 35.0, 
+        "REB": 15.0, 
+        "ST": 2.0, 
+        "TO": 10.0, 
+        "name": "LeBron James", 
+        "player_id": 3704, 
+        "position_type": "P", 
+        "team": "LAL"
       }
     ]
   ], 
   "402.l.67232.t.5": [
     [
       {
-        "3PTM": 14.0, 
-        "AST": 21.0, 
-        "BLK": 4.0, 
-        "FG%": 0.468, 
-        "FT%": 0.875, 
-        "PTS": 86.0, 
-        "REB": 20.0, 
-        "ST": 4.0, 
-        "TO": 3.0, 
-        "name": "Derrick White", 
-        "player_id": 5842, 
-        "position_type": "P", 
-        "team": "SA"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
+        "3PTM": 7.0, 
         "AST": 15.0, 
-        "BLK": 4.0, 
-        "FG%": 0.465, 
-        "FT%": 1.0, 
-        "PTS": 49.0, 
-        "REB": 21.0, 
-        "ST": 6.0, 
-        "TO": 5.0, 
-        "name": "PJ Dozier", 
-        "player_id": 5886, 
-        "position_type": "P", 
-        "team": "Den"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 18.0, 
-        "BLK": 1.0, 
-        "FG%": 0.405, 
-        "FT%": 0.636, 
-        "PTS": 45.0, 
-        "REB": 14.0, 
+        "BLK": 0.0, 
+        "FG%": 0.458, 
+        "FT%": 0.889, 
+        "PTS": 67.0, 
+        "REB": 22.0, 
         "ST": 3.0, 
-        "TO": 3.0, 
+        "TO": 16.0, 
         "name": "Cole Anthony", 
         "player_id": 6407, 
         "position_type": "P", 
@@ -4770,100 +4719,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 3.0, 
-        "AST": 17.0, 
-        "BLK": 2.0, 
-        "FG%": 0.455, 
-        "FT%": 0.667, 
-        "PTS": 89.0, 
-        "REB": 19.0, 
-        "ST": 7.0, 
-        "TO": 5.0, 
-        "name": "Caris LeVert", 
-        "player_id": 5651, 
-        "position_type": "P", 
-        "team": "Ind"
-      }
-    ], 
-    [
-      {
-        "3PTM": 12.0, 
-        "AST": 14.0, 
-        "BLK": 0.0, 
-        "FG%": 0.481, 
-        "FT%": 0.852, 
-        "PTS": 87.0, 
-        "REB": 31.0, 
-        "ST": 3.0, 
-        "TO": 10.0, 
-        "name": "Julius Randle", 
-        "player_id": 5318, 
-        "position_type": "P", 
-        "team": "NY"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 7.0, 
-        "BLK": 0.0, 
-        "FG%": 0.265, 
+        "3PTM": 7.0, 
+        "AST": 12.0, 
+        "BLK": 1.0, 
+        "FG%": 0.568, 
         "FT%": 1.0, 
-        "PTS": 22.0, 
-        "REB": 13.0, 
-        "ST": 6.0, 
-        "TO": 1.0, 
-        "name": "Chuma Okeke", 
-        "player_id": 6204, 
-        "position_type": "P", 
-        "team": "Orl"
-      }
-    ], 
-    [
-      {
-        "3PTM": 3.0, 
-        "AST": 2.0, 
-        "BLK": 0.0, 
-        "FG%": 0.529, 
-        "FT%": "-", 
-        "PTS": 21.0, 
-        "REB": 10.0, 
-        "ST": 2.0, 
-        "TO": 0.0, 
-        "name": "Jonas Valanciunas", 
-        "player_id": 4886, 
-        "position_type": "P", 
-        "team": "Mem"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 5.0, 
-        "BLK": 9.0, 
-        "FG%": 0.75, 
-        "FT%": 0.667, 
-        "PTS": 14.0, 
-        "REB": 28.0, 
-        "ST": 3.0, 
-        "TO": 0.0, 
-        "name": "Nerlens Noel", 
-        "player_id": 5157, 
-        "position_type": "P", 
-        "team": "NY"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 15.0, 
-        "BLK": 0.0, 
-        "FG%": 0.676, 
-        "FT%": 0.8, 
-        "PTS": 56.0, 
+        "PTS": 55.0, 
         "REB": 9.0, 
         "ST": 3.0, 
-        "TO": 3.0, 
+        "TO": 2.0, 
         "name": "Derrick Rose", 
         "player_id": 4387, 
         "position_type": "P", 
@@ -4872,15 +4736,151 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 10.0, 
-        "AST": 16.0, 
-        "BLK": 0.0, 
-        "FG%": 0.455, 
-        "FT%": 1.0, 
-        "PTS": 44.0, 
+        "3PTM": 18.0, 
+        "AST": 8.0, 
+        "BLK": 1.0, 
+        "FG%": 0.559, 
+        "FT%": 0.833, 
+        "PTS": 94.0, 
         "REB": 8.0, 
-        "ST": 3.0, 
+        "ST": 2.0, 
+        "TO": 4.0, 
+        "name": "Tim Hardaway Jr.", 
+        "player_id": 5194, 
+        "position_type": "P", 
+        "team": "Dal"
+      }
+    ], 
+    [
+      {
+        "3PTM": 11.0, 
+        "AST": 16.0, 
+        "BLK": 4.0, 
+        "FG%": 0.507, 
+        "FT%": 0.938, 
+        "PTS": 94.0, 
+        "REB": 12.0, 
+        "ST": 1.0, 
+        "TO": 8.0, 
+        "name": "Caris LeVert", 
+        "player_id": 5651, 
+        "position_type": "P", 
+        "team": "Ind"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 3.0, 
+        "BLK": 5.0, 
+        "FG%": 0.444, 
+        "FT%": 1.0, 
+        "PTS": 10.0, 
+        "REB": 10.0, 
+        "ST": 4.0, 
         "TO": 1.0, 
+        "name": "Nerlens Noel", 
+        "player_id": 5157, 
+        "position_type": "P", 
+        "team": "NY"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 4.0, 
+        "BLK": 1.0, 
+        "FG%": 0.51, 
+        "FT%": 1.0, 
+        "PTS": 67.0, 
+        "REB": 8.0, 
+        "ST": 1.0, 
+        "TO": 3.0, 
+        "name": "Lonnie Walker IV", 
+        "player_id": 6029, 
+        "position_type": "P", 
+        "team": "SA"
+      }
+    ], 
+    [
+      {
+        "3PTM": 2.0, 
+        "AST": 7.0, 
+        "BLK": 8.0, 
+        "FG%": 0.564, 
+        "FT%": 0.692, 
+        "PTS": 55.0, 
+        "REB": 53.0, 
+        "ST": 2.0, 
+        "TO": 6.0, 
+        "name": "Jonas Valanciunas", 
+        "player_id": 4886, 
+        "position_type": "P", 
+        "team": "Mem"
+      }
+    ], 
+    [
+      {
+        "3PTM": 13.0, 
+        "AST": 15.0, 
+        "BLK": 1.0, 
+        "FG%": 0.5, 
+        "FT%": 1.0, 
+        "PTS": 93.0, 
+        "REB": 20.0, 
+        "ST": 2.0, 
+        "TO": 4.0, 
+        "name": "Julius Randle", 
+        "player_id": 5318, 
+        "position_type": "P", 
+        "team": "NY"
+      }
+    ], 
+    [
+      {
+        "3PTM": 6.0, 
+        "AST": 25.0, 
+        "BLK": 1.0, 
+        "FG%": 0.583, 
+        "FT%": 0.882, 
+        "PTS": 49.0, 
+        "REB": 15.0, 
+        "ST": 8.0, 
+        "TO": 10.0, 
+        "name": "Facundo Campazzo", 
+        "player_id": 6468, 
+        "position_type": "P", 
+        "team": "Den"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 22.0, 
+        "BLK": 0.0, 
+        "FG%": 0.51, 
+        "FT%": 0.967, 
+        "PTS": 86.0, 
+        "REB": 10.0, 
+        "ST": 2.0, 
+        "TO": 14.0, 
+        "name": "Trae Young", 
+        "player_id": 6016, 
+        "position_type": "P", 
+        "team": "Atl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 9.0, 
+        "AST": 20.0, 
+        "BLK": 1.0, 
+        "FG%": 0.429, 
+        "FT%": 0.857, 
+        "PTS": 57.0, 
+        "REB": 8.0, 
+        "ST": 4.0, 
+        "TO": 3.0, 
         "name": "Fred VanVleet", 
         "player_id": 5727, 
         "position_type": "P", 
@@ -4889,32 +4889,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 8.0, 
-        "AST": 6.0, 
-        "BLK": 0.0, 
-        "FG%": 0.469, 
-        "FT%": 1.0, 
-        "PTS": 39.0, 
-        "REB": 4.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Seth Curry", 
-        "player_id": 5245, 
-        "position_type": "P", 
-        "team": "Phi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 4.0, 
-        "BLK": 1.0, 
-        "FG%": 0.571, 
-        "FT%": 0.875, 
-        "PTS": 33.0, 
-        "REB": 6.0, 
-        "ST": 2.0, 
-        "TO": 1.0, 
+        "3PTM": 13.0, 
+        "AST": 18.0, 
+        "BLK": 2.0, 
+        "FG%": 0.544, 
+        "FT%": 0.895, 
+        "PTS": 116.0, 
+        "REB": 22.0, 
+        "ST": 3.0, 
+        "TO": 10.0, 
         "name": "Kevin Durant", 
         "player_id": 4244, 
         "position_type": "P", 
@@ -4923,221 +4906,34 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 15.0, 
-        "AST": 9.0, 
-        "BLK": 3.0, 
-        "FG%": 0.538, 
+        "3PTM": 7.0, 
+        "AST": 4.0, 
+        "BLK": 4.0, 
+        "FG%": 0.522, 
         "FT%": 0.5, 
-        "PTS": 75.0, 
-        "REB": 22.0, 
-        "ST": 3.0, 
+        "PTS": 56.0, 
+        "REB": 17.0, 
+        "ST": 4.0, 
         "TO": 5.0, 
         "name": "PJ Washington", 
         "player_id": 6174, 
         "position_type": "P", 
         "team": "Cha"
       }
-    ], 
-    [
-      {
-        "3PTM": 7.0, 
-        "AST": 12.0, 
-        "BLK": 1.0, 
-        "FG%": 0.406, 
-        "FT%": 0.818, 
-        "PTS": 42.0, 
-        "REB": 12.0, 
-        "ST": 2.0, 
-        "TO": 5.0, 
-        "name": "Will Barton", 
-        "player_id": 5074, 
-        "position_type": "P", 
-        "team": "Den"
-      }
-    ], 
-    [
-      {
-        "3PTM": 3.0, 
-        "AST": 21.0, 
-        "BLK": 0.0, 
-        "FG%": 0.394, 
-        "FT%": 0.941, 
-        "PTS": 45.0, 
-        "REB": 7.0, 
-        "ST": 5.0, 
-        "TO": 6.0, 
-        "name": "Trae Young", 
-        "player_id": 6016, 
-        "position_type": "P", 
-        "team": "Atl"
-      }
     ]
   ], 
   "402.l.67232.t.6": [
     [
       {
-        "3PTM": 3.0, 
-        "AST": 14.0, 
-        "BLK": 1.0, 
-        "FG%": 0.227, 
-        "FT%": 0.833, 
-        "PTS": 18.0, 
-        "REB": 14.0, 
-        "ST": 0.0, 
-        "TO": 2.0, 
-        "name": "Kyle Lowry", 
-        "player_id": 4152, 
-        "position_type": "P", 
-        "team": "Tor"
-      }
-    ], 
-    [
-      {
-        "3PTM": 8.0, 
-        "AST": 10.0, 
-        "BLK": 3.0, 
-        "FG%": 0.533, 
-        "FT%": 0.833, 
-        "PTS": 61.0, 
-        "REB": 10.0, 
-        "ST": 3.0, 
-        "TO": 0.0, 
-        "name": "Mikal Bridges", 
-        "player_id": 6021, 
-        "position_type": "P", 
-        "team": "Pho"
-      }
-    ], 
-    [
-      {
-        "3PTM": 11.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": 0.56, 
-        "FT%": 1.0, 
-        "PTS": 44.0, 
-        "REB": 1.0, 
-        "ST": 2.0, 
-        "TO": 0.0, 
-        "name": "Kentavious Caldwell-Pope", 
-        "player_id": 5159, 
-        "position_type": "P", 
-        "team": "LAL"
-      }
-    ], 
-    [
-      {
-        "3PTM": 16.0, 
-        "AST": 10.0, 
-        "BLK": 2.0, 
-        "FG%": 0.575, 
-        "FT%": 1.0, 
-        "PTS": 65.0, 
-        "REB": 16.0, 
-        "ST": 2.0, 
-        "TO": 4.0, 
-        "name": "Buddy Hield", 
-        "player_id": 5637, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 10.0, 
-        "AST": 4.0, 
-        "BLK": 2.0, 
-        "FG%": 0.567, 
-        "FT%": 0.889, 
-        "PTS": 52.0, 
-        "REB": 8.0, 
-        "ST": 2.0, 
-        "TO": 5.0, 
-        "name": "OG Anunoby", 
-        "player_id": 5836, 
-        "position_type": "P", 
-        "team": "Tor"
-      }
-    ], 
-    [
-      {
-        "3PTM": 6.0, 
-        "AST": 3.0, 
-        "BLK": 2.0, 
-        "FG%": 0.413, 
-        "FT%": 0.875, 
-        "PTS": 51.0, 
-        "REB": 12.0, 
-        "ST": 3.0, 
-        "TO": 5.0, 
-        "name": "Dillon Brooks", 
-        "player_id": 5858, 
-        "position_type": "P", 
-        "team": "Mem"
-      }
-    ], 
-    [
-      {
-        "3PTM": 6.0, 
-        "AST": 2.0, 
-        "BLK": 1.0, 
-        "FG%": 0.455, 
-        "FT%": 0.714, 
-        "PTS": 41.0, 
-        "REB": 10.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Marcus Morris Sr.", 
-        "player_id": 4895, 
-        "position_type": "P", 
-        "team": "LAC"
-      }
-    ], 
-    [
-      {
-        "3PTM": 3.0, 
-        "AST": 5.0, 
-        "BLK": 0.0, 
-        "FG%": 0.5, 
-        "FT%": 0.846, 
-        "PTS": 38.0, 
-        "REB": 13.0, 
-        "ST": 4.0, 
-        "TO": 0.0, 
-        "name": "Kristaps Porzingis", 
-        "player_id": 5464, 
-        "position_type": "P", 
-        "team": "Dal"
-      }
-    ], 
-    [
-      {
-        "3PTM": 16.0, 
-        "AST": 15.0, 
-        "BLK": 1.0, 
-        "FG%": 0.526, 
-        "FT%": 1.0, 
-        "PTS": 82.0, 
-        "REB": 19.0, 
-        "ST": 2.0, 
-        "TO": 3.0, 
-        "name": "Kendrick Nunn", 
-        "player_id": 6114, 
-        "position_type": "P", 
-        "team": "Mia"
-      }
-    ], 
-    [
-      {
         "3PTM": 9.0, 
-        "AST": 7.0, 
-        "BLK": 1.0, 
-        "FG%": 0.438, 
-        "FT%": 0.727, 
-        "PTS": 59.0, 
-        "REB": 13.0, 
-        "ST": 2.0, 
-        "TO": 5.0, 
+        "AST": 12.0, 
+        "BLK": 0.0, 
+        "FG%": 0.358, 
+        "FT%": 0.9, 
+        "PTS": 66.0, 
+        "REB": 16.0, 
+        "ST": 5.0, 
+        "TO": 9.0, 
         "name": "Jordan Clarkson", 
         "player_id": 5357, 
         "position_type": "P", 
@@ -5146,49 +4942,117 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 10.0, 
-        "AST": 39.0, 
-        "BLK": 2.0, 
-        "FG%": 0.462, 
-        "FT%": 0.964, 
-        "PTS": 109.0, 
-        "REB": 28.0, 
-        "ST": 8.0, 
-        "TO": 16.0, 
-        "name": "Kyrie Irving", 
-        "player_id": 4840, 
+        "3PTM": 3.0, 
+        "AST": 5.0, 
+        "BLK": 8.0, 
+        "FG%": 0.478, 
+        "FT%": 0.0, 
+        "PTS": 25.0, 
+        "REB": 3.0, 
+        "ST": 6.0, 
+        "TO": 2.0, 
+        "name": "Matisse Thybulle", 
+        "player_id": 6208, 
         "position_type": "P", 
-        "team": "Bkn"
+        "team": "Phi"
       }
     ], 
     [
       {
-        "3PTM": 23.0, 
-        "AST": 20.0, 
-        "BLK": 1.0, 
-        "FG%": 0.467, 
-        "FT%": 0.871, 
-        "PTS": 136.0, 
-        "REB": 25.0, 
-        "ST": 2.0, 
-        "TO": 22.0, 
-        "name": "Stephen Curry", 
-        "player_id": 4612, 
+        "3PTM": 11.0, 
+        "AST": 5.0, 
+        "BLK": 0.0, 
+        "FG%": 0.448, 
+        "FT%": 0.789, 
+        "PTS": 86.0, 
+        "REB": 6.0, 
+        "ST": 4.0, 
+        "TO": 6.0, 
+        "name": "Dillon Brooks", 
+        "player_id": 5858, 
         "position_type": "P", 
-        "team": "GS"
+        "team": "Mem"
+      }
+    ], 
+    [
+      {
+        "3PTM": 14.0, 
+        "AST": 21.0, 
+        "BLK": 5.0, 
+        "FG%": 0.362, 
+        "FT%": 0.9, 
+        "PTS": 65.0, 
+        "REB": 28.0, 
+        "ST": 5.0, 
+        "TO": 8.0, 
+        "name": "Buddy Hield", 
+        "player_id": 5637, 
+        "position_type": "P", 
+        "team": "Sac"
+      }
+    ], 
+    [
+      {
+        "3PTM": 13.0, 
+        "AST": 9.0, 
+        "BLK": 7.0, 
+        "FG%": 0.605, 
+        "FT%": 0.714, 
+        "PTS": 70.0, 
+        "REB": 14.0, 
+        "ST": 10.0, 
+        "TO": 2.0, 
+        "name": "Mikal Bridges", 
+        "player_id": 6021, 
+        "position_type": "P", 
+        "team": "Pho"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 3.0, 
+        "BLK": 6.0, 
+        "FG%": 0.667, 
+        "FT%": "-", 
+        "PTS": 16.0, 
+        "REB": 25.0, 
+        "ST": 1.0, 
+        "TO": 1.0, 
+        "name": "Taj Gibson", 
+        "player_id": 4631, 
+        "position_type": "P", 
+        "team": "NY"
       }
     ], 
     [
       {
         "3PTM": 8.0, 
-        "AST": 14.0, 
-        "BLK": 0.0, 
-        "FG%": 0.559, 
-        "FT%": 1.0, 
-        "PTS": 53.0, 
-        "REB": 12.0, 
-        "ST": 7.0, 
-        "TO": 7.0, 
+        "AST": 1.0, 
+        "BLK": 3.0, 
+        "FG%": 0.679, 
+        "FT%": 0.5, 
+        "PTS": 47.0, 
+        "REB": 19.0, 
+        "ST": 4.0, 
+        "TO": 2.0, 
+        "name": "Aaron Nesmith", 
+        "player_id": 6406, 
+        "position_type": "P", 
+        "team": "Bos"
+      }
+    ], 
+    [
+      {
+        "3PTM": 4.0, 
+        "AST": 17.0, 
+        "BLK": 1.0, 
+        "FG%": 0.609, 
+        "FT%": 0.875, 
+        "PTS": 39.0, 
+        "REB": 16.0, 
+        "ST": 3.0, 
+        "TO": 3.0, 
         "name": "Raul Neto", 
         "player_id": 5217, 
         "position_type": "P", 
@@ -5197,51 +5061,102 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 0.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": "-", 
-        "FT%": "-", 
-        "PTS": 0.0, 
-        "REB": 0.0, 
-        "ST": 0.0, 
-        "TO": 0.0, 
-        "name": "Myles Turner", 
-        "player_id": 5471, 
+        "3PTM": 6.0, 
+        "AST": 9.0, 
+        "BLK": 5.0, 
+        "FG%": 0.306, 
+        "FT%": 0.5, 
+        "PTS": 30.0, 
+        "REB": 30.0, 
+        "ST": 8.0, 
+        "TO": 8.0, 
+        "name": "Kent Bazemore", 
+        "player_id": 5102, 
         "position_type": "P", 
-        "team": "Ind"
+        "team": "GS"
       }
     ], 
     [
       {
-        "3PTM": 0.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": "-", 
-        "FT%": "-", 
-        "PTS": 0.0, 
-        "REB": 0.0, 
-        "ST": 0.0, 
-        "TO": 0.0, 
-        "name": "Malik Monk", 
-        "player_id": 5824, 
+        "3PTM": 10.0, 
+        "AST": 14.0, 
+        "BLK": 2.0, 
+        "FG%": 0.472, 
+        "FT%": 0.889, 
+        "PTS": 86.0, 
+        "REB": 12.0, 
+        "ST": 6.0, 
+        "TO": 8.0, 
+        "name": "Kyrie Irving", 
+        "player_id": 4840, 
         "position_type": "P", 
-        "team": "Cha"
+        "team": "Bkn"
+      }
+    ], 
+    [
+      {
+        "3PTM": 29.0, 
+        "AST": 23.0, 
+        "BLK": 0.0, 
+        "FG%": 0.439, 
+        "FT%": 0.88, 
+        "PTS": 145.0, 
+        "REB": 25.0, 
+        "ST": 7.0, 
+        "TO": 15.0, 
+        "name": "Stephen Curry", 
+        "player_id": 4612, 
+        "position_type": "P", 
+        "team": "GS"
+      }
+    ], 
+    [
+      {
+        "3PTM": 11.0, 
+        "AST": 10.0, 
+        "BLK": 0.0, 
+        "FG%": 0.526, 
+        "FT%": 1.0, 
+        "PTS": 73.0, 
+        "REB": 8.0, 
+        "ST": 4.0, 
+        "TO": 8.0, 
+        "name": "Kendrick Nunn", 
+        "player_id": 6114, 
+        "position_type": "P", 
+        "team": "Mia"
+      }
+    ], 
+    [
+      {
+        "3PTM": 5.0, 
+        "AST": 11.0, 
+        "BLK": 3.0, 
+        "FG%": 0.296, 
+        "FT%": 0.818, 
+        "PTS": 30.0, 
+        "REB": 8.0, 
+        "ST": 7.0, 
+        "TO": 4.0, 
+        "name": "Kentavious Caldwell-Pope", 
+        "player_id": 5159, 
+        "position_type": "P", 
+        "team": "LAL"
       }
     ]
   ], 
   "402.l.67232.t.7": [
     [
       {
-        "3PTM": 5.0, 
-        "AST": 35.0, 
-        "BLK": 2.0, 
-        "FG%": 0.519, 
-        "FT%": 0.636, 
-        "PTS": 68.0, 
-        "REB": 16.0, 
-        "ST": 9.0, 
-        "TO": 6.0, 
+        "3PTM": 9.0, 
+        "AST": 31.0, 
+        "BLK": 6.0, 
+        "FG%": 0.523, 
+        "FT%": 0.563, 
+        "PTS": 86.0, 
+        "REB": 19.0, 
+        "ST": 5.0, 
+        "TO": 11.0, 
         "name": "Jrue Holiday", 
         "player_id": 4622, 
         "position_type": "P", 
@@ -5251,14 +5166,14 @@ WeeklyStat = {
     [
       {
         "3PTM": 5.0, 
-        "AST": 17.0, 
-        "BLK": 2.0, 
-        "FG%": 0.44, 
-        "FT%": 0.852, 
-        "PTS": 94.0, 
-        "REB": 17.0, 
-        "ST": 4.0, 
-        "TO": 12.0, 
+        "AST": 16.0, 
+        "BLK": 0.0, 
+        "FG%": 0.54, 
+        "FT%": 0.889, 
+        "PTS": 115.0, 
+        "REB": 18.0, 
+        "ST": 3.0, 
+        "TO": 8.0, 
         "name": "Devin Booker", 
         "player_id": 5473, 
         "position_type": "P", 
@@ -5267,14 +5182,14 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 6.0, 
-        "AST": 12.0, 
+        "3PTM": 4.0, 
+        "AST": 20.0, 
         "BLK": 1.0, 
-        "FG%": 0.41, 
-        "FT%": 0.9, 
-        "PTS": 47.0, 
-        "REB": 13.0, 
-        "ST": 4.0, 
+        "FG%": 0.3, 
+        "FT%": 0.833, 
+        "PTS": 21.0, 
+        "REB": 12.0, 
+        "ST": 2.0, 
         "TO": 6.0, 
         "name": "Marcus Smart", 
         "player_id": 5317, 
@@ -5284,100 +5199,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 1.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": 0.235, 
-        "FT%": "-", 
-        "PTS": 9.0, 
-        "REB": 5.0, 
-        "ST": 2.0, 
-        "TO": 0.0, 
-        "name": "Gary Trent Jr.", 
-        "player_id": 6048, 
-        "position_type": "P", 
-        "team": "Tor"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 7.0, 
-        "BLK": 0.0, 
-        "FG%": 0.469, 
-        "FT%": 0.938, 
-        "PTS": 66.0, 
-        "REB": 25.0, 
-        "ST": 4.0, 
-        "TO": 10.0, 
-        "name": "Paul George", 
-        "player_id": 4725, 
-        "position_type": "P", 
-        "team": "LAC"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 2.0, 
-        "BLK": 0.0, 
-        "FG%": 0.542, 
-        "FT%": 0.8, 
-        "PTS": 34.0, 
-        "REB": 10.0, 
-        "ST": 5.0, 
-        "TO": 3.0, 
-        "name": "Moe Harkless", 
-        "player_id": 5021, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 1.0, 
-        "BLK": 0.0, 
-        "FG%": 0.667, 
-        "FT%": "-", 
-        "PTS": 16.0, 
-        "REB": 8.0, 
-        "ST": 1.0, 
-        "TO": 1.0, 
-        "name": "Montrezl Harrell", 
-        "player_id": 5492, 
-        "position_type": "P", 
-        "team": "LAL"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 0.0, 
-        "BLK": 1.0, 
-        "FG%": 0.667, 
-        "FT%": 0.5, 
-        "PTS": 11.0, 
-        "REB": 5.0, 
-        "ST": 0.0, 
-        "TO": 0.0, 
-        "name": "Richaun Holmes", 
-        "player_id": 5497, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 6.0, 
-        "AST": 10.0, 
+        "3PTM": 7.0, 
+        "AST": 14.0, 
         "BLK": 4.0, 
-        "FG%": 0.487, 
-        "FT%": 0.818, 
+        "FG%": 0.432, 
+        "FT%": 0.727, 
         "PTS": 53.0, 
-        "REB": 23.0, 
-        "ST": 4.0, 
-        "TO": 4.0, 
+        "REB": 20.0, 
+        "ST": 7.0, 
+        "TO": 5.0, 
         "name": "Kyle Anderson", 
         "player_id": 5341, 
         "position_type": "P", 
@@ -5386,32 +5216,32 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 6.0, 
-        "AST": 4.0, 
-        "BLK": 4.0, 
-        "FG%": 0.482, 
-        "FT%": 0.75, 
-        "PTS": 75.0, 
-        "REB": 24.0, 
-        "ST": 3.0, 
-        "TO": 8.0, 
-        "name": "Kelly Oubre Jr.", 
-        "player_id": 5475, 
+        "3PTM": 4.0, 
+        "AST": 13.0, 
+        "BLK": 7.0, 
+        "FG%": 0.647, 
+        "FT%": 0.5, 
+        "PTS": 29.0, 
+        "REB": 21.0, 
+        "ST": 7.0, 
+        "TO": 6.0, 
+        "name": "Juan Toscano-Anderson", 
+        "player_id": 6329, 
         "position_type": "P", 
         "team": "GS"
       }
     ], 
     [
       {
-        "3PTM": 5.0, 
-        "AST": 3.0, 
-        "BLK": 0.0, 
-        "FG%": 0.486, 
-        "FT%": 1.0, 
-        "PTS": 43.0, 
-        "REB": 12.0, 
-        "ST": 3.0, 
-        "TO": 5.0, 
+        "3PTM": 12.0, 
+        "AST": 10.0, 
+        "BLK": 3.0, 
+        "FG%": 0.348, 
+        "FT%": 0.733, 
+        "PTS": 71.0, 
+        "REB": 23.0, 
+        "ST": 2.0, 
+        "TO": 8.0, 
         "name": "Jaylen Brown", 
         "player_id": 5602, 
         "position_type": "P", 
@@ -5420,15 +5250,32 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 2.0, 
-        "AST": 11.0, 
+        "3PTM": 0.0, 
+        "AST": 8.0, 
         "BLK": 2.0, 
-        "FG%": 0.324, 
-        "FT%": 0.5, 
-        "PTS": 28.0, 
-        "REB": 16.0, 
+        "FG%": 0.608, 
+        "FT%": 0.727, 
+        "PTS": 70.0, 
+        "REB": 25.0, 
+        "ST": 0.0, 
+        "TO": 8.0, 
+        "name": "Richaun Holmes", 
+        "player_id": 5497, 
+        "position_type": "P", 
+        "team": "Sac"
+      }
+    ], 
+    [
+      {
+        "3PTM": 5.0, 
+        "AST": 3.0, 
+        "BLK": 3.0, 
+        "FG%": 0.583, 
+        "FT%": 0.6, 
+        "PTS": 36.0, 
+        "REB": 32.0, 
         "ST": 4.0, 
-        "TO": 4.0, 
+        "TO": 3.0, 
         "name": "Jalen McDaniels", 
         "player_id": 6240, 
         "position_type": "P", 
@@ -5437,19 +5284,70 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 7.0, 
-        "AST": 11.0, 
-        "BLK": 2.0, 
-        "FG%": 0.561, 
-        "FT%": 0.778, 
-        "PTS": 60.0, 
-        "REB": 15.0, 
-        "ST": 4.0, 
+        "3PTM": 0.0, 
+        "AST": 3.0, 
+        "BLK": 6.0, 
+        "FG%": 0.813, 
+        "FT%": 0.6, 
+        "PTS": 35.0, 
+        "REB": 14.0, 
+        "ST": 2.0, 
         "TO": 4.0, 
-        "name": "Edmond Sumner", 
-        "player_id": 5865, 
+        "name": "Montrezl Harrell", 
+        "player_id": 5492, 
+        "position_type": "P", 
+        "team": "LAL"
+      }
+    ], 
+    [
+      {
+        "3PTM": 3.0, 
+        "AST": 23.0, 
+        "BLK": 0.0, 
+        "FG%": 0.686, 
+        "FT%": 0.7, 
+        "PTS": 58.0, 
+        "REB": 38.0, 
+        "ST": 4.0, 
+        "TO": 11.0, 
+        "name": "Domantas Sabonis", 
+        "player_id": 5642, 
         "position_type": "P", 
         "team": "Ind"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 10.0, 
+        "BLK": 1.0, 
+        "FG%": 0.379, 
+        "FT%": 0.682, 
+        "PTS": 67.0, 
+        "REB": 26.0, 
+        "ST": 4.0, 
+        "TO": 7.0, 
+        "name": "Paul George", 
+        "player_id": 4725, 
+        "position_type": "P", 
+        "team": "LAC"
+      }
+    ], 
+    [
+      {
+        "3PTM": 2.0, 
+        "AST": 3.0, 
+        "BLK": 0.0, 
+        "FG%": 0.472, 
+        "FT%": 0.571, 
+        "PTS": 40.0, 
+        "REB": 29.0, 
+        "ST": 5.0, 
+        "TO": 4.0, 
+        "name": "Daniel Theis", 
+        "player_id": 5880, 
+        "position_type": "P", 
+        "team": "Chi"
       }
     ], 
     [
@@ -5463,25 +5361,42 @@ WeeklyStat = {
         "REB": 0.0, 
         "ST": 0.0, 
         "TO": 0.0, 
-        "name": "Domantas Sabonis", 
-        "player_id": 5642, 
+        "name": "Gary Trent Jr.", 
+        "player_id": 6048, 
         "position_type": "P", 
-        "team": "Ind"
+        "team": "Tor"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 0.0, 
+        "BLK": 0.0, 
+        "FG%": "-", 
+        "FT%": "-", 
+        "PTS": 0.0, 
+        "REB": 0.0, 
+        "ST": 0.0, 
+        "TO": 0.0, 
+        "name": "Kelly Oubre Jr.", 
+        "player_id": 5475, 
+        "position_type": "P", 
+        "team": "GS"
       }
     ]
   ], 
   "402.l.67232.t.8": [
     [
       {
-        "3PTM": 11.0, 
-        "AST": 16.0, 
-        "BLK": 1.0, 
-        "FG%": 0.558, 
-        "FT%": 0.778, 
-        "PTS": 66.0, 
-        "REB": 9.0, 
-        "ST": 4.0, 
-        "TO": 6.0, 
+        "3PTM": 2.0, 
+        "AST": 19.0, 
+        "BLK": 0.0, 
+        "FG%": 0.333, 
+        "FT%": 0.0, 
+        "PTS": 24.0, 
+        "REB": 4.0, 
+        "ST": 3.0, 
+        "TO": 7.0, 
         "name": "D'Angelo Russell", 
         "player_id": 5433, 
         "position_type": "P", 
@@ -5490,83 +5405,15 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 5.0, 
-        "AST": 11.0, 
+        "3PTM": 8.0, 
+        "AST": 9.0, 
         "BLK": 0.0, 
-        "FG%": 0.456, 
-        "FT%": 0.867, 
-        "PTS": 70.0, 
-        "REB": 10.0, 
-        "ST": 7.0, 
-        "TO": 8.0, 
-        "name": "Norman Powell", 
-        "player_id": 5506, 
-        "position_type": "P", 
-        "team": "Por"
-      }
-    ], 
-    [
-      {
-        "3PTM": 12.0, 
-        "AST": 33.0, 
-        "BLK": 2.0, 
-        "FG%": 0.429, 
-        "FT%": 0.857, 
-        "PTS": 78.0, 
-        "REB": 16.0, 
-        "ST": 2.0, 
-        "TO": 7.0, 
-        "name": "Terry Rozier", 
-        "player_id": 5476, 
-        "position_type": "P", 
-        "team": "Cha"
-      }
-    ], 
-    [
-      {
-        "3PTM": 2.0, 
-        "AST": 3.0, 
-        "BLK": 1.0, 
-        "FG%": 0.345, 
-        "FT%": 1.0, 
-        "PTS": 28.0, 
-        "REB": 12.0, 
-        "ST": 1.0, 
-        "TO": 2.0, 
-        "name": "Rudy Gay", 
-        "player_id": 4136, 
-        "position_type": "P", 
-        "team": "SA"
-      }
-    ], 
-    [
-      {
-        "3PTM": 9.0, 
-        "AST": 4.0, 
-        "BLK": 0.0, 
-        "FG%": 0.64, 
-        "FT%": 1.0, 
-        "PTS": 42.0, 
-        "REB": 13.0, 
-        "ST": 4.0, 
-        "TO": 3.0, 
-        "name": "Dorian Finney-Smith", 
-        "player_id": 5693, 
-        "position_type": "P", 
-        "team": "Dal"
-      }
-    ], 
-    [
-      {
-        "3PTM": 1.0, 
-        "AST": 1.0, 
-        "BLK": 1.0, 
-        "FG%": 0.333, 
-        "FT%": 1.0, 
-        "PTS": 18.0, 
+        "FG%": 0.255, 
+        "FT%": 0.625, 
+        "PTS": 37.0, 
         "REB": 8.0, 
         "ST": 0.0, 
-        "TO": 1.0, 
+        "TO": 6.0, 
         "name": "Luguentz Dort", 
         "player_id": 6254, 
         "position_type": "P", 
@@ -5575,82 +5422,31 @@ WeeklyStat = {
     ], 
     [
       {
+        "3PTM": 13.0, 
+        "AST": 20.0, 
+        "BLK": 1.0, 
+        "FG%": 0.365, 
+        "FT%": 0.818, 
+        "PTS": 76.0, 
+        "REB": 15.0, 
+        "ST": 2.0, 
+        "TO": 2.0, 
+        "name": "Terry Rozier", 
+        "player_id": 5476, 
+        "position_type": "P", 
+        "team": "Cha"
+      }
+    ], 
+    [
+      {
         "3PTM": 11.0, 
         "AST": 3.0, 
         "BLK": 0.0, 
-        "FG%": 0.5, 
-        "FT%": 0.667, 
-        "PTS": 45.0, 
-        "REB": 16.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Lauri Markkanen", 
-        "player_id": 5769, 
-        "position_type": "P", 
-        "team": "Chi"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 4.0, 
-        "BLK": 2.0, 
-        "FG%": 0.708, 
-        "FT%": 0.714, 
-        "PTS": 39.0, 
-        "REB": 25.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Enes Kanter", 
-        "player_id": 4899, 
-        "position_type": "P", 
-        "team": "Por"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 8.0, 
-        "BLK": 0.0, 
-        "FG%": 0.667, 
-        "FT%": 0.708, 
-        "PTS": 89.0, 
-        "REB": 28.0, 
+        "FG%": 0.524, 
+        "FT%": 1.0, 
+        "PTS": 60.0, 
+        "REB": 11.0, 
         "ST": 1.0, 
-        "TO": 7.0, 
-        "name": "Zion Williamson", 
-        "player_id": 6163, 
-        "position_type": "P", 
-        "team": "NO"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 7.0, 
-        "BLK": 1.0, 
-        "FG%": 0.5, 
-        "FT%": "-", 
-        "PTS": 39.0, 
-        "REB": 10.0, 
-        "ST": 4.0, 
-        "TO": 6.0, 
-        "name": "Kyle Kuzma", 
-        "player_id": 5840, 
-        "position_type": "P", 
-        "team": "LAL"
-      }
-    ], 
-    [
-      {
-        "3PTM": 12.0, 
-        "AST": 5.0, 
-        "BLK": 1.0, 
-        "FG%": 0.383, 
-        "FT%": 0.875, 
-        "PTS": 55.0, 
-        "REB": 13.0, 
-        "ST": 3.0, 
         "TO": 2.0, 
         "name": "Carmelo Anthony", 
         "player_id": 3706, 
@@ -5660,15 +5456,134 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 14.0, 
-        "AST": 11.0, 
-        "BLK": 3.0, 
-        "FG%": 0.466, 
-        "FT%": 0.625, 
-        "PTS": 73.0, 
-        "REB": 35.0, 
+        "3PTM": 4.0, 
+        "AST": 14.0, 
+        "BLK": 2.0, 
+        "FG%": 0.472, 
+        "FT%": 0.786, 
+        "PTS": 49.0, 
+        "REB": 32.0, 
+        "ST": 8.0, 
+        "TO": 10.0, 
+        "name": "Kelly Olynyk", 
+        "player_id": 5164, 
+        "position_type": "P", 
+        "team": "Hou"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 10.0, 
+        "BLK": 2.0, 
+        "FG%": 0.5, 
+        "FT%": 0.938, 
+        "PTS": 81.0, 
+        "REB": 13.0, 
+        "ST": 4.0, 
+        "TO": 3.0, 
+        "name": "Norman Powell", 
+        "player_id": 5506, 
+        "position_type": "P", 
+        "team": "Por"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 14.0, 
+        "BLK": 0.0, 
+        "FG%": 0.371, 
+        "FT%": 1.0, 
+        "PTS": 38.0, 
+        "REB": 37.0, 
         "ST": 3.0, 
-        "TO": 6.0, 
+        "TO": 9.0, 
+        "name": "Kevin Love", 
+        "player_id": 4391, 
+        "position_type": "P", 
+        "team": "Cle"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 2.0, 
+        "BLK": 1.0, 
+        "FG%": 0.533, 
+        "FT%": 0.75, 
+        "PTS": 19.0, 
+        "REB": 27.0, 
+        "ST": 2.0, 
+        "TO": 3.0, 
+        "name": "Enes Kanter", 
+        "player_id": 4899, 
+        "position_type": "P", 
+        "team": "Por"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 12.0, 
+        "BLK": 7.0, 
+        "FG%": 0.455, 
+        "FT%": 1.0, 
+        "PTS": 43.0, 
+        "REB": 16.0, 
+        "ST": 1.0, 
+        "TO": 3.0, 
+        "name": "Kyle Kuzma", 
+        "player_id": 5840, 
+        "position_type": "P", 
+        "team": "LAL"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 22.0, 
+        "BLK": 3.0, 
+        "FG%": 0.545, 
+        "FT%": 0.711, 
+        "PTS": 140.0, 
+        "REB": 39.0, 
+        "ST": 8.0, 
+        "TO": 20.0, 
+        "name": "Zion Williamson", 
+        "player_id": 6163, 
+        "position_type": "P", 
+        "team": "NO"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 9.0, 
+        "BLK": 1.0, 
+        "FG%": 0.56, 
+        "FT%": 0.5, 
+        "PTS": 37.0, 
+        "REB": 14.0, 
+        "ST": 3.0, 
+        "TO": 9.0, 
+        "name": "Dorian Finney-Smith", 
+        "player_id": 5693, 
+        "position_type": "P", 
+        "team": "Dal"
+      }
+    ], 
+    [
+      {
+        "3PTM": 5.0, 
+        "AST": 13.0, 
+        "BLK": 2.0, 
+        "FG%": 0.5, 
+        "FT%": 0.933, 
+        "PTS": 61.0, 
+        "REB": 15.0, 
+        "ST": 3.0, 
+        "TO": 5.0, 
         "name": "Miles Bridges", 
         "player_id": 6023, 
         "position_type": "P", 
@@ -5677,19 +5592,19 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 6.0, 
-        "AST": 13.0, 
+        "3PTM": 4.0, 
+        "AST": 1.0, 
         "BLK": 0.0, 
-        "FG%": 0.487, 
-        "FT%": 0.952, 
-        "PTS": 64.0, 
-        "REB": 33.0, 
-        "ST": 5.0, 
-        "TO": 12.0, 
-        "name": "Kelly Olynyk", 
-        "player_id": 5164, 
+        "FG%": 0.37, 
+        "FT%": 1.0, 
+        "PTS": 26.0, 
+        "REB": 21.0, 
+        "ST": 1.0, 
+        "TO": 3.0, 
+        "name": "Lauri Markkanen", 
+        "player_id": 5769, 
         "position_type": "P", 
-        "team": "Hou"
+        "team": "Chi"
       }
     ], 
     [
@@ -5730,15 +5645,15 @@ WeeklyStat = {
   "402.l.67232.t.9": [
     [
       {
-        "3PTM": 12.0, 
-        "AST": 37.0, 
-        "BLK": 1.0, 
-        "FG%": 0.516, 
-        "FT%": 0.889, 
-        "PTS": 86.0, 
-        "REB": 22.0, 
-        "ST": 3.0, 
-        "TO": 12.0, 
+        "3PTM": 8.0, 
+        "AST": 46.0, 
+        "BLK": 3.0, 
+        "FG%": 0.566, 
+        "FT%": 1.0, 
+        "PTS": 81.0, 
+        "REB": 13.0, 
+        "ST": 8.0, 
+        "TO": 11.0, 
         "name": "Chris Paul", 
         "player_id": 3930, 
         "position_type": "P", 
@@ -5747,168 +5662,32 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 3.0, 
-        "AST": 15.0, 
-        "BLK": 4.0, 
-        "FG%": 0.417, 
-        "FT%": 0.762, 
-        "PTS": 69.0, 
-        "REB": 12.0, 
-        "ST": 2.0, 
-        "TO": 9.0, 
-        "name": "Josh Jackson", 
-        "player_id": 5766, 
-        "position_type": "P", 
-        "team": "Det"
-      }
-    ], 
-    [
-      {
         "3PTM": 14.0, 
-        "AST": 10.0, 
-        "BLK": 1.0, 
-        "FG%": 0.515, 
+        "AST": 9.0, 
+        "BLK": 0.0, 
+        "FG%": 0.615, 
         "FT%": 1.0, 
-        "PTS": 50.0, 
-        "REB": 10.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Reggie Bullock", 
-        "player_id": 5195, 
-        "position_type": "P", 
-        "team": "NY"
-      }
-    ], 
-    [
-      {
-        "3PTM": 9.0, 
-        "AST": 10.0, 
-        "BLK": 2.0, 
-        "FG%": 0.429, 
-        "FT%": 1.0, 
-        "PTS": 35.0, 
-        "REB": 16.0, 
-        "ST": 6.0, 
-        "TO": 2.0, 
-        "name": "Danny Green", 
-        "player_id": 4651, 
+        "PTS": 69.0, 
+        "REB": 18.0, 
+        "ST": 3.0, 
+        "TO": 4.0, 
+        "name": "Seth Curry", 
+        "player_id": 5245, 
         "position_type": "P", 
         "team": "Phi"
       }
     ], 
     [
       {
-        "3PTM": 0.0, 
-        "AST": 0.0, 
-        "BLK": 0.0, 
-        "FG%": 0.667, 
-        "FT%": 0.0, 
-        "PTS": 16.0, 
-        "REB": 9.0, 
-        "ST": 0.0, 
-        "TO": 4.0, 
-        "name": "Hassan Whiteside", 
-        "player_id": 4764, 
-        "position_type": "P", 
-        "team": "Sac"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 20.0, 
-        "BLK": 2.0, 
-        "FG%": 0.568, 
-        "FT%": 0.81, 
-        "PTS": 59.0, 
-        "REB": 17.0, 
-        "ST": 8.0, 
-        "TO": 7.0, 
-        "name": "Bam Adebayo", 
-        "player_id": 5827, 
-        "position_type": "P", 
-        "team": "Mia"
-      }
-    ], 
-    [
-      {
-        "3PTM": 4.0, 
-        "AST": 3.0, 
-        "BLK": 4.0, 
-        "FG%": 0.448, 
-        "FT%": 0.857, 
-        "PTS": 36.0, 
-        "REB": 27.0, 
-        "ST": 2.0, 
-        "TO": 2.0, 
-        "name": "Mo Bamba", 
-        "player_id": 6017, 
-        "position_type": "P", 
-        "team": "Orl"
-      }
-    ], 
-    [
-      {
         "3PTM": 3.0, 
-        "AST": 31.0, 
-        "BLK": 3.0, 
-        "FG%": 0.582, 
-        "FT%": 0.833, 
-        "PTS": 115.0, 
-        "REB": 38.0, 
-        "ST": 1.0, 
-        "TO": 16.0, 
-        "name": "Nikola Jokic", 
-        "player_id": 5352, 
-        "position_type": "P", 
-        "team": "Den"
-      }
-    ], 
-    [
-      {
-        "3PTM": 0.0, 
-        "AST": 12.0, 
-        "BLK": 2.0, 
-        "FG%": 0.846, 
-        "FT%": 0.889, 
-        "PTS": 30.0, 
-        "REB": 37.0, 
-        "ST": 0.0, 
-        "TO": 4.0, 
-        "name": "Mason Plumlee", 
-        "player_id": 5192, 
-        "position_type": "P", 
-        "team": "Det"
-      }
-    ], 
-    [
-      {
-        "3PTM": 5.0, 
-        "AST": 5.0, 
+        "AST": 7.0, 
         "BLK": 0.0, 
-        "FG%": 0.393, 
-        "FT%": 0.767, 
-        "PTS": 72.0, 
-        "REB": 22.0, 
-        "ST": 6.0, 
-        "TO": 4.0, 
-        "name": "Darius Bazley", 
-        "player_id": 6211, 
-        "position_type": "P", 
-        "team": "OKC"
-      }
-    ], 
-    [
-      {
-        "3PTM": 3.0, 
-        "AST": 17.0, 
-        "BLK": 0.0, 
-        "FG%": 0.378, 
+        "FG%": 0.406, 
         "FT%": 0.5, 
-        "PTS": 40.0, 
-        "REB": 15.0, 
-        "ST": 10.0, 
-        "TO": 6.0, 
+        "PTS": 34.0, 
+        "REB": 17.0, 
+        "ST": 4.0, 
+        "TO": 12.0, 
         "name": "Jae'Sean Tate", 
         "player_id": 6463, 
         "position_type": "P", 
@@ -5917,15 +5696,66 @@ WeeklyStat = {
     ], 
     [
       {
-        "3PTM": 7.0, 
-        "AST": 2.0, 
-        "BLK": 8.0, 
-        "FG%": 0.441, 
-        "FT%": 0.667, 
-        "PTS": 39.0, 
-        "REB": 12.0, 
+        "3PTM": 1.0, 
+        "AST": 0.0, 
+        "BLK": 3.0, 
+        "FG%": 0.542, 
+        "FT%": 0.875, 
+        "PTS": 34.0, 
+        "REB": 20.0, 
         "ST": 1.0, 
+        "TO": 2.0, 
+        "name": "KJ Martin Jr.", 
+        "player_id": 6444, 
+        "position_type": "P", 
+        "team": "Hou"
+      }
+    ], 
+    [
+      {
+        "3PTM": 7.0, 
+        "AST": 22.0, 
+        "BLK": 5.0, 
+        "FG%": 0.526, 
+        "FT%": 0.889, 
+        "PTS": 113.0, 
+        "REB": 41.0, 
+        "ST": 6.0, 
+        "TO": 9.0, 
+        "name": "Nikola Jokic", 
+        "player_id": 5352, 
+        "position_type": "P", 
+        "team": "Den"
+      }
+    ], 
+    [
+      {
+        "3PTM": 8.0, 
+        "AST": 4.0, 
+        "BLK": 0.0, 
+        "FG%": 0.5, 
+        "FT%": 0.833, 
+        "PTS": 37.0, 
+        "REB": 12.0, 
+        "ST": 2.0, 
         "TO": 1.0, 
+        "name": "Reggie Bullock", 
+        "player_id": 5195, 
+        "position_type": "P", 
+        "team": "NY"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 4.0, 
+        "BLK": 11.0, 
+        "FG%": 0.512, 
+        "FT%": 0.875, 
+        "PTS": 49.0, 
+        "REB": 14.0, 
+        "ST": 2.0, 
+        "TO": 6.0, 
         "name": "Brook Lopez", 
         "player_id": 4472, 
         "position_type": "P", 
@@ -5935,18 +5765,103 @@ WeeklyStat = {
     [
       {
         "3PTM": 3.0, 
-        "AST": 25.0, 
-        "BLK": 2.0, 
-        "FG%": 0.382, 
-        "FT%": 0.895, 
-        "PTS": 62.0, 
-        "REB": 10.0, 
+        "AST": 6.0, 
+        "BLK": 9.0, 
+        "FG%": 0.538, 
+        "FT%": 0.714, 
+        "PTS": 50.0, 
+        "REB": 37.0, 
         "ST": 2.0, 
-        "TO": 11.0, 
-        "name": "John Wall", 
-        "player_id": 4716, 
+        "TO": 7.0, 
+        "name": "Mo Bamba", 
+        "player_id": 6017, 
         "position_type": "P", 
-        "team": "Hou"
+        "team": "Orl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 3.0, 
+        "AST": 5.0, 
+        "BLK": 1.0, 
+        "FG%": 0.475, 
+        "FT%": 0.857, 
+        "PTS": 47.0, 
+        "REB": 20.0, 
+        "ST": 3.0, 
+        "TO": 7.0, 
+        "name": "Marvin Bagley III", 
+        "player_id": 5959, 
+        "position_type": "P", 
+        "team": "Sac"
+      }
+    ], 
+    [
+      {
+        "3PTM": 4.0, 
+        "AST": 18.0, 
+        "BLK": 3.0, 
+        "FG%": 0.447, 
+        "FT%": 0.786, 
+        "PTS": 49.0, 
+        "REB": 25.0, 
+        "ST": 4.0, 
+        "TO": 6.0, 
+        "name": "R.J. Hampton", 
+        "player_id": 6416, 
+        "position_type": "P", 
+        "team": "Orl"
+      }
+    ], 
+    [
+      {
+        "3PTM": 0.0, 
+        "AST": 29.0, 
+        "BLK": 0.0, 
+        "FG%": 0.553, 
+        "FT%": 0.684, 
+        "PTS": 65.0, 
+        "REB": 37.0, 
+        "ST": 8.0, 
+        "TO": 8.0, 
+        "name": "Bam Adebayo", 
+        "player_id": 5827, 
+        "position_type": "P", 
+        "team": "Mia"
+      }
+    ], 
+    [
+      {
+        "3PTM": 10.0, 
+        "AST": 10.0, 
+        "BLK": 0.0, 
+        "FG%": 0.443, 
+        "FT%": 0.875, 
+        "PTS": 78.0, 
+        "REB": 15.0, 
+        "ST": 3.0, 
+        "TO": 4.0, 
+        "name": "Frank Jackson", 
+        "player_id": 5844, 
+        "position_type": "P", 
+        "team": "Det"
+      }
+    ], 
+    [
+      {
+        "3PTM": 3.0, 
+        "AST": 2.0, 
+        "BLK": 2.0, 
+        "FG%": 0.692, 
+        "FT%": 1.0, 
+        "PTS": 23.0, 
+        "REB": 9.0, 
+        "ST": 1.0, 
+        "TO": 2.0, 
+        "name": "DeMarcus Cousins", 
+        "player_id": 4720, 
+        "position_type": "P", 
+        "team": "LAC"
       }
     ], 
     [
@@ -5977,13 +5892,11 @@ WeeklyStat = {
         "REB": 0.0, 
         "ST": 0.0, 
         "TO": 0.0, 
-        "name": "Marvin Bagley III", 
-        "player_id": 5959, 
+        "name": "Mason Plumlee", 
+        "player_id": 5192, 
         "position_type": "P", 
-        "team": "Sac"
+        "team": "Det"
       }
     ]
   ]
 }
-
-  

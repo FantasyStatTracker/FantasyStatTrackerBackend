@@ -3,7 +3,7 @@ import yahoo_fantasy_api as yfa
 from yahoo_oauth import OAuth2
 from Variables.TokenRefresh import oauth, gm, lg
 
-
+from collections import OrderedDict
 
 
 #Nothing
@@ -22,9 +22,8 @@ def getAll():
 def getLastWeek():
     return jsonify(lg.player_stats(6030, 'lastweek'))
 
-    '''
+    
 @test_blueprint.route('/playoff', methods=['GET']) #what?
-@cross_origin()
 def playoff():
     oauth = OAuth2(None, None, from_file='oauth2.json')
 
@@ -52,4 +51,4 @@ def playoff():
             roster[x].append(item)
 
     return roster
-'''
+
