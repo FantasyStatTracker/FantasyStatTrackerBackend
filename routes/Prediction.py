@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request
 import yahoo_fantasy_api as yfa
 from yahoo_oauth import OAuth2
 from collections import OrderedDict
@@ -6,8 +6,10 @@ from Variables.CurrentPrediction import Prediction
 from Variables.Schedule2021 import *
 from flask_cors import CORS, cross_origin
 from Variables.TeamPlayer import WeeklyStat
+from Variables.TeamPlayer import Q
 from Variables.LeagueInformation import *
 from Variables.TokenRefresh import oauth, gm, lg
+import json
 
 
 
@@ -206,3 +208,75 @@ def getFGFT():
                         continue
 
     return teamFGFT
+
+@Prediction_Blueprint.route('/TopPerformers', methods=['POST'])
+def getTopPerformers():
+
+    data = json.loads(request.form.get("team"))
+    TeamToFetch = ""
+    for x in TeamMap:
+        if (TeamMap[x] == data):
+            TeamToFetch = x
+            break
+
+    print(data)
+    print(TeamToFetch)
+    PlayerList = Q
+    MaxCat = {}
+    catKeys = {}
+    
+    for category in PlayerList[TeamToFetch]:
+        catKeys = category.keys()
+    
+    
+    
+    
+    
+
+    
+    MaxCat = dict.fromkeys(catKeys, {"Value": 0, "PlayerFirst": "", "PlayerLast": ""})
+    for category in PlayerList[TeamToFetch]:
+        for individualCategory in category:
+               
+                
+            if (isinstance(category[individualCategory], float)):
+                    
+                if (MaxCat[individualCategory]["Value"] < float(category[individualCategory])):
+                    Name = category["name"].split()
+                        
+                    MaxCat[individualCategory] = {"Value": float(category[individualCategory]), 
+                                                      "PlayerFirst": Name[0],
+                                                      "PlayerLast": Name[1]
+                                                    }
+
+
+
+    delete = []
+    for key in MaxCat:
+        if (MaxCat[key]["PlayerFirst"] == ""):
+            delete.append(key)
+
+
+    for deletionKey in delete:
+        del MaxCat[deletionKey]
+
+   
+
+                    
+
+    print(MaxCat)
+
+    return jsonify(MaxCat)
+
+def convert_to_float(frac_str):
+    try:
+        return float(frac_str)
+    except ValueError:
+        num, denom = frac_str.split('/')
+        try:
+            leading, num = num.split(' ')
+            whole = float(leading)
+        except ValueError:
+            whole = 0
+        frac = float(num) / float(denom)
+        return whole - frac if whole < 0 else whole + frac
