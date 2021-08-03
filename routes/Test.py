@@ -6,11 +6,22 @@ from Variables.TokenRefresh import oauth, gm, lg
 from collections import OrderedDict
 
 
+
+
+
+
 #Nothing
 test_blueprint = Blueprint('test', __name__)
+
 @test_blueprint.route('/')
 def index():
     return ""
+
+@test_blueprint.route('/roster', methods=['GET'])
+def roster():
+    tm = lg.to_team('402.l.67232.t.2')
+    return jsonify(tm.roster())
+
 
 #Sample full output
 @test_blueprint.route('/full', methods=['POST']) 
@@ -23,7 +34,7 @@ def getLastWeek():
     return jsonify(lg.player_stats(6030, 'lastweek'))
 
     
-@test_blueprint.route('/playoff', methods=['GET']) #what?
+@test_blueprint.route('/playoff', methods=['GET']) #get team player stats
 def playoff():
     oauth = OAuth2(None, None, from_file='oauth2.json')
 
@@ -45,10 +56,12 @@ def playoff():
 
         for y in lg.to_team(x).roster():
 
-            item = lg.player_stats(y["player_id"], 'lastweek')
-            item.append(lg.player_details(y["player_id"])[
-                        0]["editorial_team_abbr"])
+            item = lg.player_stats(y["player_id"], 'season')[0]
+            item["team"] = lg.player_details(y["player_id"])[0]["editorial_team_abbr"]
+            item["status"] = y["status"]
             roster[x].append(item)
 
+
+        
     return roster
 

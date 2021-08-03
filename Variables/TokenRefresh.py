@@ -5,6 +5,7 @@ import json
 global oauth 
 global gm
 global lg
+global tm
 
 oauth = OAuth2(None, None, from_file='oauth2.json')
 gm = yfa.Game(oauth, 'nba')
