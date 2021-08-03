@@ -2835,7 +2835,7 @@ WeeklyStat = {
         "name": "Christian Wood", 
         "player_id": 5583, 
         "position_type": "P", 
-        "team": "Hou"
+        "team": "Min"
       }
     ], 
     [
