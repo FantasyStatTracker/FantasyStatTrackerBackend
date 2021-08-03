@@ -11,7 +11,7 @@ from Variables.LeagueInformation import statMap
 FullData = Blueprint('FullData', __name__)
 cors = CORS(FullData)
 
-
+teamPhoto = {}
 @FullData.route('/test', methods=['GET']) #all data
 @cross_origin()
 def test():
@@ -36,6 +36,7 @@ def test():
                 if (isinstance(TeamData, list)):
                     teams[TeamData[2]["name"]] = {}
                     current = TeamData[2]["name"]
+                    teamPhoto[TeamData[2]["name"]] = TeamData[5]["team_logos"][0]["team_logo"]["url"]
             for statInformation in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"][1]["team_stats"]["stats"]:
                 try:
                     if (statInformation["stat"]["value"] == ""):
@@ -47,4 +48,30 @@ def test():
                 except:
                     continue
 
+    print(teamPhoto)
     return teams
+
+#Team photos
+@FullData.route('/team-photo', methods=['GET'])
+@cross_origin()
+def getTeamPhoto():
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
+    teams = OrderedDict()
+    matchupInfo = lg.matchups()
+    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+
+    matchupKey = list(data.keys())
+    matchupKey = matchupKey[:-1]
+    
+    for matchupIndex in matchupKey:
+        # matchup will always have two people
+        for matchupIndividualTeam in range(0, 2):
+
+            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
+                if (isinstance(TeamData, list)):
+                    teamPhoto[TeamData[2]["name"]] = TeamData[5]["team_logos"][0]["team_logo"]["url"]
+
+    print(teamPhoto)
+    return jsonify(teamPhoto)
