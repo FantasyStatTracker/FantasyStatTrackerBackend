@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, jsonify
+import requests
 import yahoo_fantasy_api as yfa
 from yahoo_oauth import OAuth2
 from collections import OrderedDict
@@ -9,6 +10,8 @@ from Variables.TokenRefresh import oauth, gm, lg
 
 
 RelevantData = Blueprint('RelevantData', __name__)
+
+#Maps unique team ID to team name
 @RelevantData.route('/teammap', methods=['GET']) #data
 def getTeamMap():
 
@@ -33,6 +36,27 @@ def getTeamMap():
                     continue
 
     return teamMap
+
+
+@RelevantData.route("/schedule", methods=['GET']) #schedule (not needed anymore really)
+def getSchedule():
+    year = "2021"
+    r = requests.get(
+        'https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/' + year + '/league/00_full_schedule.json')
+
+    Game = {}
+    data = r.json()
+
+    for x in data['lscd']:
+        Game[x["mscd"]["mon"]] = {}
+
+        for y in x["mscd"]["g"]:
+            Game[x["mscd"]["mon"]][y["gdte"]] = []
+        for y in x["mscd"]["g"]:
+            Game[x["mscd"]["mon"]][y["gdte"]].append(
+                (y["v"]["ta"], y["h"]["ta"]))
+
+    return Game
 
 
 def convert_to_float(frac_str):

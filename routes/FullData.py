@@ -12,7 +12,8 @@ FullData = Blueprint('FullData', __name__)
 cors = CORS(FullData)
 
 teamPhoto = {}
-@FullData.route('/test', methods=['GET']) #all data
+#Returns current week team stats by category 
+@FullData.route('/test', methods=['GET']) 
 @cross_origin()
 def test():
 
@@ -48,10 +49,10 @@ def test():
                 except:
                     continue
 
-    print(teamPhoto)
+    
     return teams
 
-#Team photos
+#Returns each teams Yahoo profile picture
 @FullData.route('/team-photo', methods=['GET'])
 @cross_origin()
 def getTeamPhoto():

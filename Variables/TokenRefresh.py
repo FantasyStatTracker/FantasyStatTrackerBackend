@@ -9,7 +9,8 @@ global tm
 
 oauth = OAuth2(None, None, from_file='oauth2.json')
 gm = yfa.Game(oauth, 'nba')
-lg = gm.to_league('402.l.67232') 
+#lg = gm.to_league('402.l.67232') 
+lg = gm.to_league('410.l.136341')
 
 if not oauth.token_is_valid():
     oauth.refresh_access_token()

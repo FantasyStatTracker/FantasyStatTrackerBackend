@@ -15,11 +15,13 @@ test_blueprint = Blueprint('test', __name__)
 
 @test_blueprint.route('/')
 def index():
-    return ""
+    return jsonify(gm.league_ids(year=2021))
+    
 
 @test_blueprint.route('/roster', methods=['GET'])
 def roster():
-    tm = lg.to_team('402.l.67232.t.2')
+    tm = lg.to_team('410.l.136431.t.2')
+    
     return jsonify(tm.roster())
 
 
@@ -56,7 +58,7 @@ def playoff():
 
         for y in lg.to_team(x).roster():
 
-            item = lg.player_stats(y["player_id"], 'season')[0]
+            item = lg.player_stats(y["player_id"], 'season', 2021)[0]
             item["team"] = lg.player_details(y["player_id"])[0]["editorial_team_abbr"]
             item["status"] = y["status"]
             roster[x].append(item)
