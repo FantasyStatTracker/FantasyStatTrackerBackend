@@ -74,5 +74,4 @@ def getTeamPhoto():
                 if (isinstance(TeamData, list)):
                     teamPhoto[TeamData[2]["name"]] = TeamData[5]["team_logos"][0]["team_logo"]["url"]
 
-    print(teamPhoto)
     return jsonify(teamPhoto)

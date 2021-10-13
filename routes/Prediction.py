@@ -24,7 +24,7 @@ def fix():
 
     for team in Fix:
         for player in Fix[team]:
-            print(player, team)
+
             
             player[0]["team"] = player[1]
             del(player[1])
@@ -199,10 +199,7 @@ def getTopPerformers():
             TeamToFetch = x
             break
 
-    '''
-    print(data)
-    print(TeamToFetch)
-    '''
+
     PlayerList = Q
     MaxCat = {}
     catKeys = {}
@@ -244,11 +241,7 @@ def getTopPerformers():
     for deletionKey in delete:
         del MaxCat[deletionKey]
 
-   
 
-                    
-
-    print(MaxCat)
 
     return jsonify(MaxCat)
 
