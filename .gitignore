@@ -171,5 +171,6 @@ credentials.py
 ./FantasyFrontend
 
 oauth2.json
+apiKey.json
 
 ./react-flask-fantasy

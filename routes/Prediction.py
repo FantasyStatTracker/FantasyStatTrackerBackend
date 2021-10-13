@@ -8,8 +8,11 @@ from flask_cors import CORS, cross_origin
 from Variables.WeeklyStats import WeeklyStat
 from Variables.TeamPlayer import Q
 from Variables.LeagueInformation import TeamMap, statMap
-from Variables.TokenRefresh import oauth, gm, lg
-from Variables.CurrentMatchup import Week1Matchup as currentWeekMatchup
+from Variables.TokenRefresh import oauth, gm, lg, apiKey
+from Variables.CurrentMatchup import WeekMatchup as currentWeekMatchup
+from routes.RelevantData import getTeamMap
+from Variables.TeamMap import *
+import os, time, stat
 import json
 
 
@@ -39,118 +42,129 @@ def predictionFast():
 
 @Prediction_Blueprint.route('/predict', methods=['GET']) #prediction
 def predict():
-    if not oauth.token_is_valid():
-        oauth.refresh_access_token()
-    count = 0
+    
+    headers = request.headers
+    auth = headers.get("X-Api-Key")
 
-    weekRange = (lg.week_date_range(lg.current_week()))
+    if (auth == apiKey):
+        if not oauth.token_is_valid():
+            oauth.refresh_access_token()
+        count = 0
+
+        weekRange = (lg.week_date_range(lg.current_week()))
 
 
-    teams = lg.teams()
+        teams = lg.teams()
 
-    StatPrediction = {}
-    '''
-    L = []
-    Schedule = []
-    GameCounter = {}
-    for x in Sched["April"].keys():
-        if (str(weekRange[0]) <= x <= str(weekRange[1])):
-            L.append(x)
-            for z in Sched["April"][x]:
-                Schedule.append(z[0])
-                Schedule.append(z[1])
+        StatPrediction = {}
+        '''
+        L = []
+        Schedule = []
+        GameCounter = {}
+        for x in Sched["April"].keys():
+            if (str(weekRange[0]) <= x <= str(weekRange[1])):
+                L.append(x)
+                for z in Sched["April"][x]:
+                    Schedule.append(z[0])
+                    Schedule.append(z[1])
 
-    for x in Schedule:
-        if (x in GameCounter):
-            GameCounter[x] += 1
+        for x in Schedule:
+            if (x in GameCounter):
+                GameCounter[x] += 1
 
-        else:
-            GameCounter[x] = 1
-    '''
+            else:
+                GameCounter[x] = 1
+        '''
 
-    matchupInfo = lg.matchups(lg.current_week()-1)
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-    FGFT = getFGFT()
+        matchupInfo = lg.matchups(lg.current_week()-1)
+        data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+        FGFT = getFGFT()
 
-    for team in teams:
-        a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
-             "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
+        for team in teams:
+            a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
+                "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
 
-        for player in WeeklyStat[team]:
+            for player in WeeklyStat[team]:
 
-            for x in a.keys():
+                for x in a.keys():
+                    try:
+                        a[x] += player[0][x]
+                    except:
+                        continue
+
                 try:
-                    a[x] += player[0][x]
+                    a["FG%"] = float(FGFT[team][0])
+                    a["FT%"] = float(FGFT[team][1])
                 except:
                     continue
+                '''
+                except:
+                    #only for this week
+                    if (team == "402.l.67232.t.2"):
+                        a["FG%"] = 0.5085836909871244
+                        a["FT%"] = 0.6791044776119403
 
-            try:
-                a["FG%"] = float(FGFT[team][0])
-                a["FT%"] = float(FGFT[team][1])
-            except:
-                continue
-            '''
-            except:
-                #only for this week
-                if (team == "402.l.67232.t.2"):
-                    a["FG%"] = 0.5085836909871244
-                    a["FT%"] = 0.6791044776119403
+                    elif (team == "402.l.67232.t.4"):
+                        a["FG%"] = 0.4581673306772908
+                        a["FT%"] = 0.8629032258064516
 
-                elif (team == "402.l.67232.t.4"):
-                    a["FG%"] = 0.4581673306772908
-                    a["FT%"] = 0.8629032258064516
+                    elif (team == "402.l.67232.t.5"):
+                        a["FG%"] = 0.48747591522157996
+                        a["FT%"] = 0.8518518518518519
 
-                elif (team == "402.l.67232.t.5"):
-                    a["FG%"] = 0.48747591522157996
-                    a["FT%"] = 0.8518518518518519
+                    elif (team == "402.l.67232.t.7"):
+                        a["FG%"] = 0.44288577154308617
+                        a["FT%"] = 0.8415841584158416
+                    pass
+                '''
 
-                elif (team == "402.l.67232.t.7"):
-                    a["FG%"] = 0.44288577154308617
-                    a["FT%"] = 0.8415841584158416
-                pass
-            '''
+            StatPrediction[team] = a
 
-        StatPrediction[team] = a
+        matchUp = currentWeekMatchup
 
-    matchUp = currentWeekMatchup
+        
+        PredictionArray = []
 
-    
-    PredictionArray = []
+        for team in matchUp:
+            opponent = matchUp[team]
+            Prediction = {team: 0, opponent: 0}
+            for cat1 in StatPrediction[team]:
+                if (cat1 == 'TO'):
+                    if (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
+                        Prediction[team] += 1
+                    elif (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
+                        Prediction[opponent] += 1
+                    else:
+                        continue
+                    continue
 
-    for team in matchUp:
-        opponent = matchUp[team]
-        Prediction = {team: 0, opponent: 0}
-        for cat1 in StatPrediction[team]:
-            if (cat1 == 'TO'):
-                if (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
+                if (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
                     Prediction[team] += 1
-                elif (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
+                elif (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
                     Prediction[opponent] += 1
                 else:
                     continue
-                continue
 
-            if (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
-                Prediction[team] += 1
-            elif (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
-                Prediction[opponent] += 1
-            else:
-                continue
+            PredictionArray.append(Prediction)
 
-        PredictionArray.append(Prediction)
+        for x in StatPrediction:
+            StatPrediction[x]['FG%'] = round(StatPrediction[x]['FG%'], 3)
+            StatPrediction[x]['FT%'] = round(StatPrediction[x]['FT%'], 3)
 
-    for x in StatPrediction:
-        StatPrediction[x]['FG%'] = round(StatPrediction[x]['FG%'], 3)
-        StatPrediction[x]['FT%'] = round(StatPrediction[x]['FT%'], 3)
+        ReturnPrediction = []
 
-    ReturnPrediction = []
+        for x in PredictionArray:
+            newDict = {}
+            for match in x.keys():
+                newDict[TeamMap[match]] = [x[match], StatPrediction[match]]
+            ReturnPrediction.append(newDict)
 
-    for x in PredictionArray:
-        newDict = {}
-        for match in x.keys():
-            newDict[TeamMap[match]] = [x[match], StatPrediction[match]]
-        ReturnPrediction.append(newDict)
+    else:
+        return jsonify({"message":"ERROR: unauthorized"}), 401
 
+    with open('./Variables/Prediction.py', 'w') as fo:
+        fo.write("Prediction =" + json.dumps(jsonify(ReturnPrediction)))
+        fo.close
     return jsonify(ReturnPrediction)
 
 
@@ -158,33 +172,39 @@ def predict():
 @Prediction_Blueprint.route('/FG', methods=['GET']) #data
 def getFGFT():
 
-    matchupInfo = lg.matchups(lg.current_week()-1)
-    teams = OrderedDict()
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-    matchupKey = list(data.keys())
-    matchupKey = matchupKey[:-1]
+    headers = request.headers
+    auth = headers.get("X-Api-Key")
 
-    teamFGFT = {}
-    current = ""
-    tempVar = ""
-    for matchupIndex in matchupKey:
-        # matchup will always have two people
-        for matchupIndividualTeam in range(0, 2):
-            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
-                try:
+    if (auth == apiKey):
+        matchupInfo = lg.matchups(lg.current_week()-1)
+        teams = OrderedDict()
+        data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
+        matchupKey = list(data.keys())
+        matchupKey = matchupKey[:-1]
 
-                    tempVar = TeamData[0]['team_key']
-                except:
+        teamFGFT = {}
+        current = ""
+        tempVar = ""
+        for matchupIndex in matchupKey:
+            # matchup will always have two people
+            for matchupIndividualTeam in range(0, 2):
+                for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
                     try:
-                        teamFGFT[tempVar] = [
-                            convert_to_float(
-                                TeamData["team_stats"]["stats"][0]['stat']['value']),
-                            convert_to_float(
-                                TeamData["team_stats"]["stats"][2]['stat']['value'])
-                        ]
 
+                        tempVar = TeamData[0]['team_key']
                     except:
-                        continue
+                        try:
+                            teamFGFT[tempVar] = [
+                                convert_to_float(
+                                    TeamData["team_stats"]["stats"][0]['stat']['value']),
+                                convert_to_float(
+                                    TeamData["team_stats"]["stats"][2]['stat']['value'])
+                            ]
+
+                        except:
+                            continue
+    else:
+        return jsonify({"message":"ERROR: unauthorized"}), 401
 
     return teamFGFT
 
@@ -194,11 +214,18 @@ def getTopPerformers():
 
     data = json.loads(request.form.get("team"))
     TeamToFetch = ""
+
+    if (data not in TeamMap.values()): #update team mapping iff there was a change (10x faster)
+        newTeamMap = getTeamMap()
+
+        with open('./Variables/TeamMap.py', 'w') as fo:
+            fo.write("TeamMap =" + json.dumps(newTeamMap))
+
+    
     for x in TeamMap:
         if (TeamMap[x] == data):
             TeamToFetch = x
             break
-
 
     PlayerList = Q
     MaxCat = {}
@@ -206,12 +233,6 @@ def getTopPerformers():
     
     for category in PlayerList[TeamToFetch]:
         catKeys = category.keys()
-    
-    
-    
-    
-    
-
     
     MaxCat = dict.fromkeys(catKeys, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""})
     for category in PlayerList[TeamToFetch]:
@@ -228,7 +249,7 @@ def getTopPerformers():
                     MaxCat[individualCategory] = {"Value": float(category[individualCategory]), 
                                                       "PlayerFirst": Name[0],
                                                       "PlayerLast": Name[1]
-                                                    }
+                                                 }
 
 
 
