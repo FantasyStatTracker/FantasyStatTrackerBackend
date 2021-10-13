@@ -5,10 +5,11 @@ from collections import OrderedDict
 from Variables.CurrentPrediction import Prediction
 from Variables.Schedule2021 import *
 from flask_cors import CORS, cross_origin
-from Variables.TeamPlayer import WeeklyStat
+from Variables.WeeklyStats import WeeklyStat
 from Variables.TeamPlayer import Q
-from Variables.LeagueInformation import *
+from Variables.LeagueInformation import TeamMap, statMap
 from Variables.TokenRefresh import oauth, gm, lg
+from Variables.CurrentMatchup import Week1Matchup as currentWeekMatchup
 import json
 
 
@@ -17,41 +18,14 @@ import json
 Prediction_Blueprint = Blueprint('Prediction', __name__)
 cors = CORS(Prediction_Blueprint)
 
-
-def getMatchups(): #predict
-
-    matchupInfo = lg.matchups()
-    teams = OrderedDict()
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-    matchupKey = list(data.keys())
-    matchupKey = matchupKey[:-1]
-
-    P1 = ""
-    Matchup = {}
-    current = ""
-    for matchupIndex in matchupKey:
-        # matchup will always have two people
-        for matchupIndividualTeam in range(0, 2):
-            for index, TeamData in enumerate(data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]):
-
-                try:
-
-                    if (matchupIndividualTeam == 0):
-                        P1 = TeamData[0]['team_key']
-                    else:
-                        Matchup[P1] = TeamData[0]['team_key']
-                except:
-                    continue
-
-    return Matchup
-
-
-@Prediction_Blueprint.route('/fix', methods=['GET']) #fix data
+@Prediction_Blueprint.route('/fix', methods=['GET']) #fix data, not needed anymore
 def fix():
     Fix = WeeklyStat
 
     for team in Fix:
         for player in Fix[team]:
+            print(player, team)
+            
             player[0]["team"] = player[1]
             del(player[1])
 
@@ -114,6 +88,9 @@ def predict():
                 a["FG%"] = float(FGFT[team][0])
                 a["FT%"] = float(FGFT[team][1])
             except:
+                continue
+            '''
+            except:
                 #only for this week
                 if (team == "402.l.67232.t.2"):
                     a["FG%"] = 0.5085836909871244
@@ -131,10 +108,11 @@ def predict():
                     a["FG%"] = 0.44288577154308617
                     a["FT%"] = 0.8415841584158416
                 pass
+            '''
 
         StatPrediction[team] = a
 
-    matchUp = getMatchups()
+    matchUp = currentWeekMatchup
 
     
     PredictionArray = []
@@ -176,6 +154,7 @@ def predict():
     return jsonify(ReturnPrediction)
 
 
+#Returns Team FG% and FT% for the week
 @Prediction_Blueprint.route('/FG', methods=['GET']) #data
 def getFGFT():
 
@@ -209,6 +188,7 @@ def getFGFT():
 
     return teamFGFT
 
+#returns top performers per team by category lead
 @Prediction_Blueprint.route('/TopPerformers', methods=['POST'])
 def getTopPerformers():
 
@@ -219,8 +199,10 @@ def getTopPerformers():
             TeamToFetch = x
             break
 
+    '''
     print(data)
     print(TeamToFetch)
+    '''
     PlayerList = Q
     MaxCat = {}
     catKeys = {}
@@ -234,14 +216,16 @@ def getTopPerformers():
     
 
     
-    MaxCat = dict.fromkeys(catKeys, {"Value": 0, "PlayerFirst": "", "PlayerLast": ""})
+    MaxCat = dict.fromkeys(catKeys, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""})
     for category in PlayerList[TeamToFetch]:
+        
         for individualCategory in category:
-               
-                
+        
+            
             if (isinstance(category[individualCategory], float)):
-                    
-                if (MaxCat[individualCategory]["Value"] < float(category[individualCategory])):
+                
+                
+                if (MaxCat[individualCategory]["Value"] <= float(category[individualCategory])):
                     Name = category["name"].split()
                         
                     MaxCat[individualCategory] = {"Value": float(category[individualCategory]), 
