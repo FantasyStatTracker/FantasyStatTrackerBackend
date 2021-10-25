@@ -40,7 +40,7 @@ def test():
                     teamPhoto[TeamData[2]["name"]] = TeamData[5]["team_logos"][0]["team_logo"]["url"]
             for statInformation in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"][1]["team_stats"]["stats"]:
                 try:
-                    if (statInformation["stat"]["value"] == ""):
+                    if (statInformation["stat"]["value"] == "" or statInformation["stat"]["value"] == None):
                         teams[current][(
                             statMap[statInformation["stat"]["stat_id"]])] = 0
                     else:
