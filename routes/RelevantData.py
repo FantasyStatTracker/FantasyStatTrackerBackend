@@ -15,9 +15,6 @@ year = "2021"
 
 def getTeamMap():
 
-    
-
-    
     matchupInfo = lg.matchups()
     teams = OrderedDict()
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
@@ -152,9 +149,6 @@ def playoff():
                 item["team"] = lg.player_details(y["player_id"])[0]["editorial_team_abbr"]
                 item["status"] = y["status"]
                 roster[x].append(item)
-                break
-
-            break
                 
             
 
@@ -162,7 +156,7 @@ def playoff():
         return jsonify({"message":"ERROR: unauthorized"}), 401
 
         
-    with open('./Variables/test.py', 'w') as fo:
+    with open('./Variables/TeamPlayer.py', 'w') as fo:
         fo.write("Q =" + json.dumps(roster))
         fo.close
     return roster
@@ -183,6 +177,57 @@ def convert_to_float(frac_str):
 
 
 
+def currentRoster(): #Over 10x faster because of list comprehension
+    
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
+    # roster
+    info = {}
+    roster = {}
+    league = {}
+
+    for team in lg.teams():
+
+        roster[team] = []
+        
+        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'season', 2021)
+        status = [y["status"] for y in lg.to_team(team).roster()]
+
+        for x, y in zip(item, status):
+            x["status"] = y
+
+        roster[team]=item
+        
+    return roster
 
 
+@RelevantData.route('/timetrial1', methods=['GET']) #Mega slow
+def oster():
+    
+
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
+    teams = OrderedDict()
+
+    matchupInfo = lg.matchups()
+
+    # roster
+    info = {}
+    roster = {}
+    league = {}
+
+    for x in lg.teams():
+
+        roster[x] = []
+
+        for y in lg.to_team(x).roster():
+
+            item = lg.player_stats(y["player_id"], 'season', 2021)[0]
+            item["team"] = lg.player_details(y["player_id"])[0]["editorial_team_abbr"]
+            item["status"] = y["status"]
+            roster[x].append(item)
+                
+    return roster
 

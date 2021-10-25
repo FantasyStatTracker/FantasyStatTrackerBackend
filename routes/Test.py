@@ -6,17 +6,10 @@ from Variables.TokenRefresh import oauth, gm, lg
 from collections import OrderedDict
 
 
-
-
-
-
 #Nothing
 test_blueprint = Blueprint('test', __name__)
 
-@test_blueprint.route('/')
-def index():
-    return jsonify(gm.league_ids(year=2021))
-    
+
 
 @test_blueprint.route('/roster', methods=['GET'])
 def roster():

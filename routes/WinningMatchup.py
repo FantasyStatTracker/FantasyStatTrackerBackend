@@ -33,8 +33,12 @@ def getWins():
 
     catSort = {}
     for x in categoryMax:
-        sortedCategory = (
-            sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
+        if (x == "TO"):
+            sortedCategory = (
+                sorted(categoryMax[x].items(), key=itemgetter(1), reverse=False))
+        else :
+            sortedCategory = (
+                sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
         catSort[x] = sortedCategory
 
     return catSort

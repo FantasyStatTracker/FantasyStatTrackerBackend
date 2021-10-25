@@ -5,34 +5,20 @@ from collections import OrderedDict
 from Variables.CurrentPrediction import Prediction
 from Variables.Schedule2021 import *
 from flask_cors import CORS, cross_origin
-from Variables.WeeklyStats import WeeklyStat
-from Variables.TeamPlayer import Q
-from Variables.LeagueInformation import TeamMap, statMap
+from Variables.LeagueInformation import statMap
 from Variables.TokenRefresh import oauth, gm, lg, apiKey
 from Variables.CurrentMatchup import WeekMatchup as currentWeekMatchup
-from routes.RelevantData import getTeamMap
-from Variables.TeamMap import *
-import os, time, stat
+from routes.RelevantData import getTeamMap, currentRoster
+import os, time, stat, datetime
 import json
-
-
-
 
 Prediction_Blueprint = Blueprint('Prediction', __name__)
 cors = CORS(Prediction_Blueprint)
 
-@Prediction_Blueprint.route('/fix', methods=['GET']) #fix data, not needed anymore
-def fix():
-    Fix = WeeklyStat
+from Model.variable import Variable, db
 
-    for team in Fix:
-        for player in Fix[team]:
-
-            
-            player[0]["team"] = player[1]
-            del(player[1])
-
-    return Fix
+TeamMap = []
+PlayerList = []
 
 
 @Prediction_Blueprint.route('/prediction-fast', methods=['GET']) #prediction
@@ -42,7 +28,8 @@ def predictionFast():
 
 @Prediction_Blueprint.route('/predict', methods=['GET']) #prediction
 def predict():
-    
+    global TeamMap
+    global PlayerList
     headers = request.headers
     auth = headers.get("X-Api-Key")
 
@@ -76,6 +63,20 @@ def predict():
                 GameCounter[x] = 1
         '''
 
+        if (isinstance(TeamMap, list)): #update team mapping iff there was a change (10x faster)
+            TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
+
+        
+
+        if (isinstance(PlayerList, list)):
+            PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
+
+        if ((PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 3600:
+            newRoster = currentRoster()
+            PlayerList.variable_data = json.dumps(newRoster)
+            PlayerList.updated_at = datetime.datetime.now()
+            db.session.commit()
+
         matchupInfo = lg.matchups(lg.current_week()-1)
         data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
         FGFT = getFGFT()
@@ -84,11 +85,14 @@ def predict():
             a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
                 "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
 
-            for player in WeeklyStat[team]:
+            for player in PlayerList.variable_data[team]:
 
+                
                 for x in a.keys():
                     try:
-                        a[x] += player[0][x]
+                        if (player['status'] == 'INJ'):
+                            continue
+                        a[x] += player[x]
                     except:
                         continue
 
@@ -156,15 +160,13 @@ def predict():
         for x in PredictionArray:
             newDict = {}
             for match in x.keys():
-                newDict[TeamMap[match]] = [x[match], StatPrediction[match]]
+                newDict[TeamMap.variable_data[match]] = [x[match], StatPrediction[match]]
             ReturnPrediction.append(newDict)
 
     else:
         return jsonify({"message":"ERROR: unauthorized"}), 401
 
-    with open('./Variables/Prediction.py', 'w') as fo:
-        fo.write("Prediction =" + json.dumps(jsonify(ReturnPrediction)))
-        fo.close
+    
     return jsonify(ReturnPrediction)
 
 
@@ -212,47 +214,74 @@ def getFGFT():
 @Prediction_Blueprint.route('/TopPerformers', methods=['POST'])
 def getTopPerformers():
 
-    data = json.loads(request.form.get("team"))
-    TeamToFetch = ""
-
-    if (data not in TeamMap.values()): #update team mapping iff there was a change (10x faster)
-        newTeamMap = getTeamMap()
-
-        with open('./Variables/TeamMap.py', 'w') as fo:
-            fo.write("TeamMap =" + json.dumps(newTeamMap))
+    
+    global TeamMap
+    global PlayerList
 
     
-    for x in TeamMap:
-        if (TeamMap[x] == data):
+    data = json.loads(request.form.get("team"))
+    categoryRanking = json.loads(request.form.get("categoryRanking"))
+    TeamToFetch = ""
+
+    
+    if (isinstance(TeamMap, list)): #update team mapping iff there was a change (10x faster)
+        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
+
+    if (data not in TeamMap.variable_data.values()):
+        newTeamMap = getTeamMap()
+        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
+        TeamMap.variable_data = json.dumps(newTeamMap)
+        db.session.commit()        
+
+    
+    if (isinstance(PlayerList, list)):
+        
+        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
+
+    if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
+
+        newRoster = currentRoster()
+        PlayerList.variable_data = json.dumps(newRoster)
+        PlayerList.updated_at = datetime.datetime.now()
+        db.session.commit()
+
+        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
+        
+    
+    
+    for x in TeamMap.variable_data:
+        if (TeamMap.variable_data[x] == data):
             TeamToFetch = x
             break
 
-    PlayerList = Q
+    
     MaxCat = {}
     catKeys = {}
     
-    for category in PlayerList[TeamToFetch]:
+    for category in PlayerList.variable_data[TeamToFetch]:
         catKeys = category.keys()
     
-    MaxCat = dict.fromkeys(catKeys, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""})
-    for category in PlayerList[TeamToFetch]:
-        
-        for individualCategory in category:
-        
+    MaxCat = dict.fromkeys(categoryRanking, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""})
+    for Player in PlayerList.variable_data[TeamToFetch]:
+
             
-            if (isinstance(category[individualCategory], float)):
+            for individualCategory in categoryRanking:
                 
+                if (Player[individualCategory] == '-'):
+                    Player[individualCategory] = 0.0
+                    
+                if (MaxCat[individualCategory]["Value"] <= float(Player[individualCategory])):
+                    Name = Player["name"].split()
+                    if (Name[0] == "Robert" and Name[1] == "Williams"):
+                        Name[1] = "Williams III"
+                    
+                    MaxCat[individualCategory] = {"Value": float(Player[individualCategory]), 
+                                                        "PlayerFirst": Name[0],
+                                                        "PlayerLast": ' '.join(Name[x] for x in range(1,len(Name)))
+                                                }
                 
-                if (MaxCat[individualCategory]["Value"] <= float(category[individualCategory])):
-                    Name = category["name"].split()
-                        
-                    MaxCat[individualCategory] = {"Value": float(category[individualCategory]), 
-                                                      "PlayerFirst": Name[0],
-                                                      "PlayerLast": Name[1]
-                                                 }
 
-
-
+                    
     delete = []
     for key in MaxCat:
         if (MaxCat[key]["PlayerFirst"] == ""):
@@ -263,8 +292,17 @@ def getTopPerformers():
         del MaxCat[deletionKey]
 
 
-
     return jsonify(MaxCat)
+
+@Prediction_Blueprint.route('/time-to-update', methods=['GET'])
+def timeToUpdate():
+    global PlayerList
+
+    if (isinstance(PlayerList, list)):
+        
+        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
+    return str(int((1800 - abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds())/60))
+
 
 def convert_to_float(frac_str):
     try:
@@ -278,3 +316,4 @@ def convert_to_float(frac_str):
             whole = 0
         frac = float(num) / float(denom)
         return whole - frac if whole < 0 else whole + frac
+
