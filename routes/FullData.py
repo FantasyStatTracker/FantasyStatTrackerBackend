@@ -106,12 +106,12 @@ def getStatAverage():
 
     for team in data:
         for category in data[team]:
-            print(category)
+            
             average[category] += float(data[team][category])
 
     average = {cat: round(average[cat]/(len(data)), 3) for cat in average}
 
-    print(average)
+    
 
     return jsonify(average)
 
