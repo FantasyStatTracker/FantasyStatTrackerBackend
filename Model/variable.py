@@ -14,3 +14,11 @@ class PredictionHistory(db.Model):
     prediction_week = db.Column(db.Integer, primary_key=True)
     prediction_data = db.Column(db.String(400))
     prediction_correct = db.Column(db.Integer)
+
+
+class MatchupHistory(db.Model):
+    __table_args__ = {'extend_existing': True}
+    matchup_week = db.Column(db.Integer, primary_key=True)
+    all_data = db.Column(db.String(400))
+    winning_matchup = db.Column(db.String(400))
+    leader = db.Column(db.String(400))
