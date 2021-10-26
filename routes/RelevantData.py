@@ -5,11 +5,14 @@ from yahoo_oauth import OAuth2
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
 from Variables.TokenRefresh import oauth, gm, lg, apiKey
+from pytz import timezone
+from datetime import datetime
 import json
 
 
 RelevantData = Blueprint('RelevantData', __name__)
 
+from Model.variable import Variable, db
 year = "2021"
 #Maps unique team ID to team name
 
@@ -99,9 +102,10 @@ def getMatchups(): #predict
     else:
         return jsonify({"message":"ERROR: unauthorized"}), 401
 
-    with open('./Variables/CurrentMatchup.py', 'w') as fo:
-        fo.write("WeekMatchup =" + json.dumps(Matchup))
-        fo.close
+    Prediction = Variable.query.filter_by(variable_name="WeekMatchup").first()
+    Prediction.variable_data= json.dumps(Matchup)
+    db.session.commit()
+        
     return Matchup
 
 #Get all data for current season
@@ -175,8 +179,6 @@ def convert_to_float(frac_str):
         frac = float(num) / float(denom)
         return whole - frac if whole < 0 else whole + frac
 
-
-
 def currentRoster(): #Over 10x faster because of list comprehension
     
     if not oauth.token_is_valid():
@@ -191,7 +193,8 @@ def currentRoster(): #Over 10x faster because of list comprehension
 
         roster[team] = []
         
-        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'season', 2021)
+        est = timezone('EST')
+        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'date', datetime.now(est), 2021)
         status = [y["status"] for y in lg.to_team(team).roster()]
 
         for x, y in zip(item, status):
@@ -200,34 +203,3 @@ def currentRoster(): #Over 10x faster because of list comprehension
         roster[team]=item
         
     return roster
-
-
-@RelevantData.route('/timetrial1', methods=['GET']) #Mega slow
-def oster():
-    
-
-    if not oauth.token_is_valid():
-        oauth.refresh_access_token()
-
-    teams = OrderedDict()
-
-    matchupInfo = lg.matchups()
-
-    # roster
-    info = {}
-    roster = {}
-    league = {}
-
-    for x in lg.teams():
-
-        roster[x] = []
-
-        for y in lg.to_team(x).roster():
-
-            item = lg.player_stats(y["player_id"], 'season', 2021)[0]
-            item["team"] = lg.player_details(y["player_id"])[0]["editorial_team_abbr"]
-            item["status"] = y["status"]
-            roster[x].append(item)
-                
-    return roster
-

@@ -5,7 +5,6 @@ import json
 global oauth 
 global gm
 global lg
-global tm
 global apiKey
 
 
