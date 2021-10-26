@@ -31,7 +31,7 @@ app.register_blueprint(WinningMatchup_Blueprint)
 
 
 if __name__ == '__main__':
-    dev =  True
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000

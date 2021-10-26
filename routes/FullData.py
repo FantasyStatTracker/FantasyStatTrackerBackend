@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request
 import yahoo_fantasy_api as yfa
-
+import json
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
 from Variables.TokenRefresh import oauth, gm, lg
@@ -75,3 +75,26 @@ def getTeamPhoto():
                     teamPhoto[TeamData[2]["name"]] = TeamData[5]["team_logos"][0]["team_logo"]["url"]
 
     return jsonify(teamPhoto)
+
+
+@FullData.route('/average', methods=['POST'])
+@cross_origin()
+def getStatAverage():
+
+    
+    average = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
+            "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
+    data = json.loads(request.form.get("data"))
+
+    for team in data:
+        for category in data[team]:
+            print(category)
+            average[category] += float(data[team][category])
+    
+    average = {cat : round(average[cat]/(len(data)), 3) for cat in average}
+
+    print(average)
+
+
+
+    return jsonify(average)
