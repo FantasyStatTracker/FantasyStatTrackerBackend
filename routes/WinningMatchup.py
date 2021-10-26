@@ -9,6 +9,7 @@ from Variables.TokenRefresh import oauth, gm, lg
 
 WinningMatchup_Blueprint = Blueprint('WinningMatchup', __name__)
 
+from Model.variable import MatchupHistory, db
 
 @WinningMatchup_Blueprint.route('/win-calculator', methods=['POST']) #win calc
 @cross_origin()
@@ -41,6 +42,9 @@ def getWins():
                 sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
         catSort[x] = sortedCategory
 
+    #P = MatchupHistory.query.filter_by(matchup_week=1).first()
+    #P.leader = json.dumps(catSort)
+    #db.session.commit()
     return catSort
 
 
@@ -76,4 +80,7 @@ def winning():
                     if (winCount >= 5):
                         currentWins[player1].append({player2: catWins})
 
+    #P = MatchupHistory.query.filter_by(matchup_week=1).first()
+    #P.winning_matchup = json.dumps(currentWins)
+    #db.session.commit()
     return currentWins  # json object with Team { Wins { Categorieswon
