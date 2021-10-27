@@ -203,3 +203,33 @@ def currentRoster(): #Over 10x faster because of list comprehension
         roster[team]=item
         
     return roster
+
+
+def lastWeekRoster(): #Over 10x faster because of list comprehension
+    
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
+    # roster
+    info = {}
+    roster = {}
+    league = {}
+
+    for team in lg.teams():
+
+        roster[team] = []
+        
+        est = timezone('EST')
+        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'lastweek', 2021)
+        status = [y["status"] for y in lg.to_team(team).roster()]
+
+        for x, y in zip(item, status):
+            x["status"] = y
+
+        roster[team]=item
+    
+    item = Variable(variable_name='PredictionStats', variable_data=json.dumps(roster))
+    db.session.add(item)
+    db.session.commit()
+    return roster
+

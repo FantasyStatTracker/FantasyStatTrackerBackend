@@ -2,12 +2,12 @@ from flask import Blueprint, render_template, jsonify, request
 import yahoo_fantasy_api as yfa
 from yahoo_oauth import OAuth2
 from collections import OrderedDict
-from routes.RelevantData import currentRoster, getTeamMap
+from routes.RelevantData import currentRoster, getTeamMap, lastWeekRoster
 from Variables.Schedule2021 import *
 from flask_cors import CORS, cross_origin
 from Variables.LeagueInformation import statMap
 from Variables.TokenRefresh import oauth, gm, lg, apiKey
-
+from pytz import timezone
 import os, time, stat, datetime
 import json
 from sqlalchemy import text
@@ -33,7 +33,8 @@ def predictionFast():
             break
         break
 
-    if (z == 1.0 and (abs(Prediction.updated_at - datetime.datetime.now()).total_seconds()/60) > 1500):
+    est = timezone('EST')
+    if (z == 1.0 and (abs(Prediction.updated_at - datetime.now(est)).total_seconds()/60) > 1500):
         predict()
         Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
     
@@ -58,13 +59,8 @@ def predict():
         TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
 
     if (isinstance(PlayerList, list)):
-        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
-
-    if ((PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 3600:
-        newRoster = currentRoster()
-        PlayerList.variable_data = json.dumps(newRoster)
-        PlayerList.updated_at = datetime.datetime.now()
-        db.session.commit()
+        lastWeekRoster()
+        PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first()
 
     matchupInfo = lg.matchups(lg.current_week()-1)
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
@@ -132,19 +128,22 @@ def predict():
             newDict[TeamMap.variable_data[match]] = [x[match], StatPrediction[match]]
         ReturnPrediction.append(newDict)
 
-
-    item = Variable.query.filter_by(variable_name="CurrentPrediction").first()
-    item.variable_data=json.dumps(ReturnPrediction)
-    item.updated_at=datetime.datetime.now()
-    db.session.commit()
-
+    try:
+        item = Variable.query.filter_by(variable_name="CurrentPrediction").first()
+        item.variable_data=json.dumps(ReturnPrediction)
+        item.updated_at=datetime.datetime.now()
+        db.session.commit()
+    except:
+        print("Entry already exists")
+    
+    
     predictionItem = PredictionHistory(prediction_week=lg.current_week(), prediction_data=json.dumps(ReturnPrediction), prediction_correct=0)
     try:
         db.session.add(predictionItem)
         db.session.commit()
     except:
         print("Entry already Exists")
-
+        
 
     return jsonify(ReturnPrediction)
 

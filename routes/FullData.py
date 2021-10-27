@@ -105,17 +105,24 @@ def getStatAverage():
     data = json.loads(request.form.get("data"))
 
     for team in data:
-        for category in data[team]:
-            
-            average[category] += float(data[team][category])
+        for teamName in team.keys():
+            for category in team[teamName]:
+                
+                average[category] += float(team[teamName][category])
 
     average = {cat: round(average[cat]/(len(data)), 3) for cat in average}
 
     
 
+    
     return jsonify(average)
 
+@FullData.route('/category', methods=['GET'])
+def getCategory():
+    average = ["PTS", "FG%", "AST", "FT%",
+               "3PTM", "ST", "BLK", "TO", "REB"]
 
+    return jsonify(average)
 @FullData.route('/week', methods=['GET'])
 def getWeekTotal():
     return str(lg.current_week())
