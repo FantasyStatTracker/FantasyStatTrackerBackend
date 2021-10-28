@@ -5,6 +5,7 @@ from yahoo_oauth import OAuth2
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
 from Variables.TokenRefresh import oauth, gm, lg, apiKey
+
 from pytz import timezone
 from datetime import datetime
 import json
@@ -122,7 +123,7 @@ def getFullPlayerData():
     return r.json()
 
 
-
+'''
 @RelevantData.route('/team-player-data', methods=['GET']) #run once per week maybe more
 def playoff():
     headers = request.headers
@@ -164,7 +165,7 @@ def playoff():
         fo.write("Q =" + json.dumps(roster))
         fo.close
     return roster
-
+'''
 
 def convert_to_float(frac_str):
     try:
@@ -194,7 +195,7 @@ def currentRoster(): #Over 10x faster because of list comprehension
         roster[team] = []
         
         est = timezone('EST')
-        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'date', datetime.now(est), 2021)
+        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'lastweek', 2021)
         status = [y["status"] for y in lg.to_team(team).roster()]
 
         for x, y in zip(item, status):
@@ -204,7 +205,7 @@ def currentRoster(): #Over 10x faster because of list comprehension
         
     return roster
 
-
+@RelevantData.route('/gg', methods=['GET']) #run once per year
 def lastWeekRoster(): #Over 10x faster because of list comprehension
     
     if not oauth.token_is_valid():
@@ -220,7 +221,7 @@ def lastWeekRoster(): #Over 10x faster because of list comprehension
         roster[team] = []
         
         est = timezone('EST')
-        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'lastweek', 2021)
+        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'season', 2021)
         status = [y["status"] for y in lg.to_team(team).roster()]
 
         for x, y in zip(item, status):
@@ -228,8 +229,26 @@ def lastWeekRoster(): #Over 10x faster because of list comprehension
 
         roster[team]=item
     
-    item = Variable(variable_name='PredictionStats', variable_data=json.dumps(roster))
-    db.session.add(item)
-    db.session.commit()
+    
+    CumulativeStatWithoutCurrentWeek = currentRoster()
+    categoryArray = ["PTS", "FG%", "AST", "FT%",
+               "3PTM", "ST", "BLK", "TO", "REB"]
+    for team in CumulativeStatWithoutCurrentWeek:
+        for player in range(0, len(CumulativeStatWithoutCurrentWeek[team])):
+            for category in categoryArray:
+                if (not (category == "FG%" or category == "FT%")):
+                    try:
+                        val = int(roster[team][player][category]) - int(CumulativeStatWithoutCurrentWeek[team][player][category])
+                        roster[team][player][category] = val
+                    except:
+                        continue
+                        
+    
+    #item = Variable(variable_name='StatCumulative', variable_data=json.dumps(roster))
+    
+    #db.session.add(item)
+    #db.session.commit()
     return roster
+
+
 

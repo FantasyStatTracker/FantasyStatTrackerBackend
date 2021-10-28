@@ -12,6 +12,7 @@ import os, time, stat, datetime
 import json
 from sqlalchemy import text
 
+
 Prediction_Blueprint = Blueprint('Prediction', __name__)
 cors = CORS(Prediction_Blueprint)
 
@@ -195,7 +196,7 @@ def getTopPerformers():
     
     global TeamMap
     global PlayerList
-
+    est = timezone("EST")
     
     data = json.loads(request.form.get("team"))
     categoryRanking = json.loads(request.form.get("categoryRanking"))
@@ -216,7 +217,8 @@ def getTopPerformers():
         
         PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
 
-    if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
+    
+    if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 21600:
 
         newRoster = currentRoster()
         PlayerList.variable_data = json.dumps(newRoster)
@@ -279,7 +281,7 @@ def timeToUpdate():
     if (isinstance(PlayerList, list)):
         
         PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
-    return str(int((1800 - abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds())/60))
+    return str(int((21600 - abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds())/3600))
 
 
 def convert_to_float(frac_str):

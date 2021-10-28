@@ -126,3 +126,5 @@ def getCategory():
 @FullData.route('/week', methods=['GET'])
 def getWeekTotal():
     return str(lg.current_week())
+
+
