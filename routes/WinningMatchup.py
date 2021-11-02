@@ -1,60 +1,66 @@
-from flask import Blueprint, render_template, jsonify, request
-import yahoo_fantasy_api as yfa
-from yahoo_oauth import OAuth2
-from collections import OrderedDict
-from flask_cors import CORS, cross_origin
-from operator import itemgetter
+
+from flask import Blueprint, request
+from flask_cors import  cross_origin
 import json
-from Variables.TokenRefresh import oauth, gm, lg
+from Variables.TokenRefresh import oauth, lg
+from .FullData import getCategory, test
 
 WinningMatchup_Blueprint = Blueprint('WinningMatchup', __name__)
 
 from Model.variable import MatchupHistory, db
 
-@WinningMatchup_Blueprint.route('/win-calculator', methods=['POST']) #win calc
+@WinningMatchup_Blueprint.route('/category-leader', methods=['POST']) #Category Leaders
 @cross_origin()
-def getWins():
+def getWins(*args):
+
+    dataset = None
+    try:
+        dataset = args[0]
+    except:
+        pass
 
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
 
-    data = json.loads(request.form.get("data"))
-    categoryMax = {"FG%": {}, "FT%": {}, "3PTM": {}, "PTS": {},
-                   "REB": {}, "AST": {}, "ST": {}, "BLK": {}, "TO": {}}
+    if (dataset == None):
+        data = json.loads(request.form.get("data"))
+    else:
+        data = [json.loads(dataset)["TeamData"]]
 
-    for x in data:
 
-        for y in list(x.keys()):  # team stats
+    categoryArray = json.loads(getCategory().data)
+    categoryMax = {category: {} for category in categoryArray}
 
-            for z in x[y].keys():  # cats
+    for teamStat in data:
+        for team in list(teamStat.keys()):  # team stats
+            for category in categoryArray:  # cats
                 try:
-                    categoryMax[z][y] = float(x[y][z])
+                    categoryMax[category][team] = float(teamStat[team][category])
                 except:
-                    categoryMax[z][y] = 0
-
-    catSort = {}
-    for x in categoryMax:
-        if (x == "TO"):
-            sortedCategory = (
-                sorted(categoryMax[x].items(), key=itemgetter(1), reverse=False))
-        else :
-            sortedCategory = (
-                sorted(categoryMax[x].items(), key=itemgetter(1), reverse=True))
-        catSort[x] = sortedCategory
-
-    #P = MatchupHistory.query.filter_by(matchup_week=1).first()
-    #P.leader = json.dumps(catSort)
-    #db.session.commit()
-    return catSort
+                    categoryMax[category][team] = 0.0
+    
+    return categoryMax
 
 
-@WinningMatchup_Blueprint.route('/winning-matchups', methods=['POST']) #winning 
+@WinningMatchup_Blueprint.route('/winning-matchups', methods=['POST']) #Team vs. Other Teams
 @cross_origin()
-def winning():
-    data = json.loads(request.form.get("data"))
+def winning(*args):
+
+    dataset = None
+    try:
+        dataset = args[0]
+    except:
+        pass
+    if (dataset == None):
+        data = json.loads(request.form.get("data"))
+    else:
+        data = [json.loads(dataset)["TeamData"]]
+
+    print(type(data))
     currentWins = {}
 
     for x in data:
+        print(x)
         for player1 in list(x.keys()):  # team stats
             currentWins[player1] = []
             for y in data:
@@ -80,7 +86,29 @@ def winning():
                     if (winCount >= 5):
                         currentWins[player1].append({player2: catWins})
 
-    #P = MatchupHistory.query.filter_by(matchup_week=1).first()
-    #P.winning_matchup = json.dumps(currentWins)
-    #db.session.commit()
     return currentWins  # json object with Team { Wins { Categorieswon
+
+
+@WinningMatchup_Blueprint.route('/updatePreviousWeek', methods=['GET']) #winning 
+@cross_origin()
+def te():
+
+    previousWeek = lg.current_week()-2
+
+    previousWeekData = test(previousWeek).get_data()
+    
+    previousWinningMatchups = winning(previousWeekData).get_data().decode('utf-8')
+    previousLeaders = getWins(previousWeekData).get_data().decode('utf-8')
+    previousWeekData = previousWeekData.decode('utf-8')
+    previousWeekData = json.loads(previousWeekData)["TeamData"]
+
+    matchupRecord = MatchupHistory(
+        matchup_week=previousWeek, 
+        all_data=json.dumps(previousWeekData), 
+        winning_matchup=previousWinningMatchups, 
+        leader=previousLeaders
+    )
+    db.session.add(matchupRecord)
+    db.session.commit()
+    
+    return "Update Complete"
