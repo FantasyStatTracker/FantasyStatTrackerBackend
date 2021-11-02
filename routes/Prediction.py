@@ -59,8 +59,8 @@ def predict():
         TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
 
     if (isinstance(PlayerList, list)):
-        lastWeekRoster()
-        PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first()
+        PlayerList = lastWeekRoster()
+        #PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first()
 
     matchupInfo = lg.matchups(lg.current_week()-1)
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
@@ -70,7 +70,7 @@ def predict():
         a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
             "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
 
-        for player in PlayerList.variable_data[team]:
+        for player in PlayerList[team]:
 
             
             for x in a.keys():
