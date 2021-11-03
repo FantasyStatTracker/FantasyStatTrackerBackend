@@ -2,12 +2,10 @@
 from flask import Blueprint, request
 from flask_cors import  cross_origin
 import json
-from Variables.TokenRefresh import oauth, lg
-from .FullData import getCategory, test
+from Variables.TokenRefresh import oauth
+from .FullData import getCategory
 
 WinningMatchup_Blueprint = Blueprint('WinningMatchup', __name__)
-
-from Model.variable import MatchupHistory, db
 
 @WinningMatchup_Blueprint.route('/category-leader', methods=['POST']) #Category Leaders
 @cross_origin()
@@ -56,11 +54,9 @@ def winning(*args):
     else:
         data = [json.loads(dataset)["TeamData"]]
 
-    print(type(data))
     currentWins = {}
 
     for x in data:
-        print(x)
         for player1 in list(x.keys()):  # team stats
             currentWins[player1] = []
             for y in data:
@@ -87,28 +83,3 @@ def winning(*args):
                         currentWins[player1].append({player2: catWins})
 
     return currentWins  # json object with Team { Wins { Categorieswon
-
-
-@WinningMatchup_Blueprint.route('/updatePreviousWeek', methods=['GET']) #winning 
-@cross_origin()
-def te():
-
-    previousWeek = lg.current_week()-2
-
-    previousWeekData = test(previousWeek).get_data()
-    
-    previousWinningMatchups = winning(previousWeekData).get_data().decode('utf-8')
-    previousLeaders = getWins(previousWeekData).get_data().decode('utf-8')
-    previousWeekData = previousWeekData.decode('utf-8')
-    previousWeekData = json.loads(previousWeekData)["TeamData"]
-
-    matchupRecord = MatchupHistory(
-        matchup_week=previousWeek, 
-        all_data=json.dumps(previousWeekData), 
-        winning_matchup=previousWinningMatchups, 
-        leader=previousLeaders
-    )
-    db.session.add(matchupRecord)
-    db.session.commit()
-    
-    return "Update Complete"

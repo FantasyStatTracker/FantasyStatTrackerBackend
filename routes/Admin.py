@@ -2,9 +2,11 @@
 from flask import Blueprint, request, jsonify
 from flask_cors import  cross_origin
 import json
-from Variables.TokenRefresh import oauth, lg, apiKey
+from Variables.TokenRefresh import lg, apiKey
 from .FullData import test
 from .WinningMatchup import winning, getWins
+from  HelperMethods.helper import getMatchups
+from .Prediction import predict
 
 Admin_Blueprint = Blueprint('Admin', __name__)
 
@@ -35,6 +37,12 @@ def updateRosterStats():
         )
         db.session.add(matchupRecord)
         db.session.commit()
+
+        getMatchups()
+
+        predict()
+
+
 
     else:
         return jsonify({"message":"ERROR: unauthorized"}), 401
