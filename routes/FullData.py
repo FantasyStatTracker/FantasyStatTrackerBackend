@@ -1,23 +1,20 @@
-from Model.variable import MatchupHistory, db
-from flask import Blueprint, render_template, jsonify, request
+from Model.variable import MatchupHistory
+from flask import Blueprint, jsonify, request
 import flask
-import yahoo_fantasy_api as yfa
 import json
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
-from Variables.TokenRefresh import oauth, gm, lg
+from Variables.TokenRefresh import oauth, lg
 from Variables.LeagueInformation import statMap
-
+import statistics
 
 FullData = Blueprint('FullData', __name__)
 
 cors = CORS(FullData)
 
-
-
 # GET Returns current week team stats by category
 # POST Returns week by week number passed
-@FullData.route('/test', methods=['GET', 'POST'])
+@FullData.route('/Full-Data', methods=['GET', 'POST'])
 @cross_origin()
 def test(*args):
     teamPhoto = {}
@@ -91,6 +88,23 @@ def getStatAverage():
     average = {cat: round(average[cat]/(numberOfTeams), 3) for cat in average}
 
     return jsonify(average)
+
+@FullData.route('/standard-deviation', methods=['POST'])
+@cross_origin()
+def getStandardDeviation():
+    categoryArray = json.loads(getCategory().data)
+    stdev = {category: 0.0 for category in categoryArray}
+    data = json.loads(request.form.get("data"))
+    for team in data:
+        for category in categoryArray:
+            catArray = []
+            for teamName in team.keys():
+                catArray.append(float(team[teamName][category]))
+
+            stdev[category] = round(statistics.stdev(catArray), 3)
+                
+    return jsonify(stdev)
+
 
 # Get All Categories in League
 

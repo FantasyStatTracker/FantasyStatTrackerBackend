@@ -1,16 +1,13 @@
-from flask import Blueprint, render_template, jsonify, request
-import yahoo_fantasy_api as yfa
-from yahoo_oauth import OAuth2
-from collections import OrderedDict
-from routes.RelevantData import currentRoster, getTeamMap, lastWeekRoster
+from flask import Blueprint, jsonify, request
+from routes.RelevantData import lastWeekRoster
 from Variables.Schedule2021 import *
-from flask_cors import CORS, cross_origin
-from Variables.LeagueInformation import statMap
-from Variables.TokenRefresh import oauth, gm, lg, apiKey
+from flask_cors import CORS
+from Variables.TokenRefresh import oauth, lg
 from pytz import timezone
-import os, time, stat, datetime
+import datetime
 import json
 from sqlalchemy import text
+from HelperMethods.helper import getFGFT, getTeamMap
 
 Prediction_Blueprint = Blueprint('Prediction', __name__)
 cors = CORS(Prediction_Blueprint)
@@ -23,6 +20,7 @@ PlayerList = []
 
 @Prediction_Blueprint.route('/prediction-fast', methods=['GET']) #prediction
 def predictionFast():
+    
     Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
     sqlQuery = text("select extract(dow from (SELECT updated_at from variable where variable_name='CurrentPrediction'))")
     res = db.engine.execute(sqlQuery)
@@ -32,23 +30,26 @@ def predictionFast():
             day = z
             break
         break
+    
 
     est = timezone('EST')
-    if (z == 1.0 and (abs(Prediction.updated_at - datetime.now(est)).total_seconds()/60) > 1500):
-        predict()
+    if (day == 1.0 and (abs(Prediction.updated_at - datetime.now(est)).total_seconds()/60) > 1500):
+        x = predict()
         Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
+        Prediction.variable_data = x
+
+        db.session.commit()
     
 
     return jsonify(Prediction.variable_data)
 
-
+#Prediction Function
 def predict():
     global TeamMap
     global PlayerList
 
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
-    count = 0
 
     teams = lg.teams()
 
@@ -59,41 +60,40 @@ def predict():
         TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
 
     if (isinstance(PlayerList, list)):
-        PlayerList = lastWeekRoster()
-        #PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first()
+        PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first()
 
-    matchupInfo = lg.matchups(lg.current_week()-1)
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
     FGFT = getFGFT()
 
+    #Populate Data
     for team in teams:
-        a = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
+        predictionData = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
             "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
 
         for player in PlayerList[team]:
 
             
-            for x in a.keys():
+            for x in predictionData.keys():
                 try:
                     if (player['status'] == 'INJ'):
                         continue
-                    a[x] += player[x]
+                    predictionData[x] += player[x]
                 except:
                     continue
 
             try:
-                a["FG%"] = float(FGFT[team][0])
-                a["FT%"] = float(FGFT[team][1])
+                predictionData["FG%"] = float(FGFT[team][0])
+                predictionData["FT%"] = float(FGFT[team][1])
             except:
                 continue
 
-        StatPrediction[team] = a
+        StatPrediction[team] = predictionData
 
     matchUp = Variable.query.filter_by(variable_name="WeekMatchup").first().variable_data
 
     
     PredictionArray = []
 
+    #Compare Populated Data to Find Winner
     for team in matchUp:
         opponent = matchUp[team]
         Prediction = {team: 0, opponent: 0}
@@ -128,6 +128,7 @@ def predict():
             newDict[TeamMap.variable_data[match]] = [x[match], StatPrediction[match]]
         ReturnPrediction.append(newDict)
 
+    
     try:
         item = Variable.query.filter_by(variable_name="CurrentPrediction").first()
         item.variable_data=json.dumps(ReturnPrediction)
@@ -143,50 +144,14 @@ def predict():
         db.session.commit()
     except:
         print("Entry already Exists")
+    
         
 
     return jsonify(ReturnPrediction)
 
 
 #Returns Team FG% and FT% for the week
-@Prediction_Blueprint.route('/FG', methods=['GET']) #data
-def getFGFT():
 
-    headers = request.headers
-    auth = headers.get("X-Api-Key")
-
-    if (auth == apiKey):
-        matchupInfo = lg.matchups(lg.current_week()-1)
-        teams = OrderedDict()
-        data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-        matchupKey = list(data.keys())
-        matchupKey = matchupKey[:-1]
-
-        teamFGFT = {}
-        current = ""
-        tempVar = ""
-        for matchupIndex in matchupKey:
-            # matchup will always have two people
-            for matchupIndividualTeam in range(0, 2):
-                for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
-                    try:
-
-                        tempVar = TeamData[0]['team_key']
-                    except:
-                        try:
-                            teamFGFT[tempVar] = [
-                                convert_to_float(
-                                    TeamData["team_stats"]["stats"][0]['stat']['value']),
-                                convert_to_float(
-                                    TeamData["team_stats"]["stats"][2]['stat']['value'])
-                            ]
-
-                        except:
-                            continue
-    else:
-        return jsonify({"message":"ERROR: unauthorized"}), 401
-
-    return teamFGFT
 
 #returns top performers per team by category lead
 @Prediction_Blueprint.route('/TopPerformers', methods=['POST'])
@@ -218,7 +183,7 @@ def getTopPerformers():
 
     if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
 
-        newRoster = currentRoster()
+        newRoster = lastWeekRoster()
         PlayerList.variable_data = json.dumps(newRoster)
         PlayerList.updated_at = datetime.datetime.now()
         db.session.commit()
@@ -234,10 +199,7 @@ def getTopPerformers():
 
     
     MaxCat = {}
-    catKeys = {}
-    
-    for category in PlayerList.variable_data[TeamToFetch]:
-        catKeys = category.keys()
+
     
     MaxCat = dict.fromkeys(categoryRanking, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""})
     for Player in PlayerList.variable_data[TeamToFetch]:
@@ -257,8 +219,6 @@ def getTopPerformers():
                                                         "PlayerFirst": Name[0],
                                                         "PlayerLast": ' '.join(Name[x] for x in range(1,len(Name)))
                                                 }
-                
-
                     
     delete = []
     for key in MaxCat:
@@ -272,26 +232,8 @@ def getTopPerformers():
 
     return jsonify(MaxCat)
 
-@Prediction_Blueprint.route('/time-to-update', methods=['GET'])
-def timeToUpdate():
-    global PlayerList
-
-    if (isinstance(PlayerList, list)):
-        
-        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
-    return str(int((1800 - abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds())/60))
 
 
-def convert_to_float(frac_str):
-    try:
-        return float(frac_str)
-    except ValueError:
-        num, denom = frac_str.split('/')
-        try:
-            leading, num = num.split(' ')
-            whole = float(leading)
-        except ValueError:
-            whole = 0
-        frac = float(num) / float(denom)
-        return whole - frac if whole < 0 else whole + frac
+
+
 
