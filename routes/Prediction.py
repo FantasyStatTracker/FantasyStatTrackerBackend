@@ -17,10 +17,9 @@ from Model.variable import Variable, PredictionHistory, db
 TeamMap = []
 PlayerList = []
 
-
 @Prediction_Blueprint.route('/prediction-fast', methods=['GET']) #prediction
 def predictionFast():
-    
+    '''
     Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
     sqlQuery = text("select extract(dow from (SELECT updated_at from variable where variable_name='CurrentPrediction'))")
     res = db.engine.execute(sqlQuery)
@@ -30,15 +29,12 @@ def predictionFast():
             day = z
             break
         break
+    '''
     
+    Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
+        
 
-    est = timezone('EST')
-    if (day == 1.0 and (abs(Prediction.updated_at - datetime.now(est)).total_seconds()/60) > 1500):
-        x = predict()
-        Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
-        Prediction.variable_data = x
-
-        db.session.commit()
+        
     
 
     return jsonify(Prediction.variable_data)
@@ -57,10 +53,10 @@ def predict():
     
 
     if (isinstance(TeamMap, list)): #update team mapping iff there was a change (10x faster)
-        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
+        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first().variable_data
 
     if (isinstance(PlayerList, list)):
-        PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first()
+        PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first().variable_data
 
     FGFT = getFGFT()
 
@@ -125,7 +121,7 @@ def predict():
     for x in PredictionArray:
         newDict = {}
         for match in x.keys():
-            newDict[TeamMap.variable_data[match]] = [x[match], StatPrediction[match]]
+            newDict[TeamMap[match]] = [x[match], StatPrediction[match]]
         ReturnPrediction.append(newDict)
 
     
@@ -145,7 +141,6 @@ def predict():
     except:
         print("Entry already Exists")
     
-        
 
     return jsonify(ReturnPrediction)
 

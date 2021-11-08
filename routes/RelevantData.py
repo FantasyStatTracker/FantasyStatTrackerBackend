@@ -43,9 +43,7 @@ def lastWeekRoster(): #Over 10x faster because of list comprehension
         oauth.refresh_access_token()
 
     # roster
-    info = {}
     roster = {}
-    league = {}
 
     for team in lg.teams():
 
@@ -60,8 +58,14 @@ def lastWeekRoster(): #Over 10x faster because of list comprehension
 
         roster[team]=item
     
+
+    PredictionRoster = Variable.query.filter_by(variable_name="PredictionStats").first()
+    PredictionRoster.variable_data = json.dumps(roster)
+    db.session.commit()
+
     return roster
 
+'''
 @RelevantData.route('/tcum', methods=['GET']) #run once per week maybe more
 def lastWeekRosterrr(): #Over 10x faster because of list comprehension
     average = ["PTS", "AST",
@@ -92,4 +96,4 @@ def lastWeekRosterrr(): #Over 10x faster because of list comprehension
                     continue
                 
     return Week1
-
+'''
