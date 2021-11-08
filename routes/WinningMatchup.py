@@ -56,30 +56,29 @@ def winning(*args):
 
     currentWins = {}
 
-    for x in data:
-        for player1 in list(x.keys()):  # team stats
+    for allData in data:
+        for player1 in list(allData.keys()):  # team stats
             currentWins[player1] = []
-            for y in data:
-                for player2 in list(y.keys()):
+            for player2 in list(allData.keys()):
 
-                    if (player1 == player2):
-                        continue
+                if (player1 == player2):
+                    continue
 
-                    winCount = 0
-                    catWins = []
+                winCount = 0
+                catWins = []
 
-                    # different condition for Turnovers
-                    if (float(x[player1]['TO']) < float(y[player2]['TO'])):
+                # different condition for Turnovers
+                if (float(allData[player1]['TO']) < float(allData[player2]['TO'])):
+                    winCount += 1
+                    catWins.append('TO')
+                for category in allData[player1].keys():  # cats
+
+                    comparisonResult = float(allData[player1][category]) > float(allData[player2][category])
+                    if (comparisonResult and (category != 'TO')):  # check how many wins
                         winCount += 1
-                        catWins.append('TO')
-                    for z in x[player1].keys():  # cats
+                        catWins.append(category)
 
-                        comp = float(x[player1][z]) > float(y[player2][z])
-                        if (comp and z != 'TO'):  # check how many wins
-                            winCount += 1
-                            catWins.append(z)
-
-                    if (winCount >= 5):
-                        currentWins[player1].append({player2: catWins})
+                if (winCount >= 5):
+                    currentWins[player1].append({player2: catWins})
 
     return currentWins  # json object with Team { Wins { Categorieswon

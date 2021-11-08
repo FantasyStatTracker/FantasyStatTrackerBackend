@@ -5,6 +5,7 @@ import json
 from Variables.TokenRefresh import lg, apiKey
 from .FullData import test
 from .WinningMatchup import winning, getWins
+from .RelevantData import lastWeekRoster
 from  HelperMethods.helper import getMatchups
 from .Prediction import predict
 
@@ -13,13 +14,14 @@ Admin_Blueprint = Blueprint('Admin', __name__)
 from Model.variable import MatchupHistory, db
 
 
-@Admin_Blueprint.route('/updatePreviousWeek', methods=['GET']) #winning 
+@Admin_Blueprint.route('/update-previous-week', methods=['GET']) #winning 
 @cross_origin()
 def updateRosterStats():
     headers = request.headers
     auth = headers.get("X-Api-Key")
 
     if (auth == apiKey):
+        
         previousWeek = lg.current_week()-1
 
         previousWeekData = test(previousWeek).get_data()
@@ -39,7 +41,8 @@ def updateRosterStats():
         db.session.commit()
 
         getMatchups()
-
+        lastWeekRoster()
+        
         predict()
 
 

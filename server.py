@@ -1,17 +1,14 @@
 import os
-from flask import Flask, request, Blueprint, render_template
-from flask_cors import CORS, cross_origin
+from flask import Flask
+from flask_cors import CORS
 
-from Model.variable import db, Variable
+from Model.variable import db
 from dbkey import key
-#from routes.Test import *
 from routes.RelevantData import *
 from routes.Prediction import *
 from routes.FullData import *
 from routes.WinningMatchup import *
 from routes.Admin import *
-#from routes.Test import *
-from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
