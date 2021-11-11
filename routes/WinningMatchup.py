@@ -54,11 +54,69 @@ def winning(*args):
     else:
         data = [json.loads(dataset)["TeamData"]]
 
+    print(data)
+    currentWins = {}
+
+    for x in data:
+        print(x)
+        for player1 in list(x.keys()):  # team stats
+            currentWins[player1] = []
+            for y in data:
+                for player2 in list(y.keys()):
+
+                    if (player1 == player2):
+                        continue
+
+                    winCount = 0
+                    loseCount = 0
+                    catWins = []
+
+                    # different condition for Turnovers
+                    if (float(x[player1]['TO']) < float(y[player2]['TO'])):
+                        winCount += 1
+                        catWins.append('TO')
+                    elif (float(x[player1]['TO']) == float(y[player2]['TO'])):
+                        None
+                    else:
+                        loseCount += 1
+                    for z in x[player1].keys():  # cats
+                        if (z == 'TO'):
+                            continue
+                        comp = float(x[player1][z]) > float(y[player2][z])
+                        if (comp):  # check how many wins
+                            winCount += 1
+                            catWins.append(z)
+                        elif ((float(x[player1][z]) == float(y[player2][z]))):
+                            continue
+                        else:
+                            loseCount += 1
+
+                    if (winCount > loseCount):
+                        currentWins[player1].append({player2: catWins})
+
+    return currentWins  # json object with Team { Wins { Categorieswon
+
+'''
+@WinningMatchup_Blueprint.route('/winning-matchups', methods=['POST']) #Team vs. Other Teams
+@cross_origin()
+def winnings(*args):
+
+    dataset = None
+    try:
+        dataset = args[0]
+    except:
+        pass
+    if (dataset == None):
+        data = json.loads(request.form.get("data"))
+    else:
+        data = [json.loads(dataset)["TeamData"]]
+
     currentWins = {}
 
     for allData in data:
         for player1 in list(allData.keys()):  # team stats
             currentWins[player1] = []
+
             for player2 in list(allData.keys()):
 
                 if (player1 == player2):
@@ -74,7 +132,7 @@ def winning(*args):
                 for category in allData[player1].keys():  # cats
 
                     comparisonResult = float(allData[player1][category]) > float(allData[player2][category])
-                    if (comparisonResult and (category != 'TO')):  # check how many wins
+                    if (comparisonResult and category != 'TO'):  # check how many wins
                         winCount += 1
                         catWins.append(category)
 
@@ -82,3 +140,5 @@ def winning(*args):
                     currentWins[player1].append({player2: catWins})
 
     return currentWins  # json object with Team { Wins { Categorieswon
+
+'''

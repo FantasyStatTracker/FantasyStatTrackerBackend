@@ -9,7 +9,7 @@ from routes.Prediction import *
 from routes.FullData import *
 from routes.WinningMatchup import *
 from routes.Admin import *
-
+from routes.NewApi import *
 
 app = Flask(__name__)
 
@@ -26,12 +26,13 @@ app.register_blueprint(Prediction_Blueprint)
 app.register_blueprint(FullData)
 app.register_blueprint(WinningMatchup_Blueprint)
 app.register_blueprint(Admin_Blueprint)
+app.register_blueprint(Api_Blueprint)
 
 
 
 
 if __name__ == '__main__':
-    dev = False
+    dev = True
     portVar = ""
     if (dev):
         portVar = 8000
