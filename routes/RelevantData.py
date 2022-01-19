@@ -65,6 +65,32 @@ def lastWeekRoster(): #Over 10x faster because of list comprehension
 
     return roster
 
+@RelevantData.route('/team-player-data-season', methods=['GET']) #run once per week maybe more
+def lastWeekRoster2(): #Over 10x faster because of list comprehension
+    
+    if not oauth.token_is_valid():
+        oauth.refresh_access_token()
+
+    # roster
+    roster = {}
+
+    for team in lg.teams():
+
+        roster[team] = []
+        
+        est = timezone('EST')
+        item = lg.player_stats([x["player_id"] for x in lg.to_team(team).roster()], 'lastweek', 2021)
+        status = [y["status"] for y in lg.to_team(team).roster()]
+
+        for x, y in zip(item, status):
+            x["status"] = y
+
+        roster[team]=item
+    
+
+   
+
+    return roster
 '''
 @RelevantData.route('/tcum', methods=['GET']) #run once per week maybe more
 def lastWeekRosterrr(): #Over 10x faster because of list comprehension

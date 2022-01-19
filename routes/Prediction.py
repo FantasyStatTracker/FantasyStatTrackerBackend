@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from routes.RelevantData import lastWeekRoster
+from routes.RelevantData import lastWeekRoster, lastWeekRoster2
 from Variables.Schedule2021 import *
 from flask_cors import CORS
 from Variables.TokenRefresh import oauth, lg
@@ -158,7 +158,8 @@ def getTopPerformers():
 
     
     data = json.loads(request.form.get("team"))
-    categoryRanking = json.loads(request.form.get("categoryRanking"))
+    #categoryRanking = json.loads(request.form.get("categoryRanking"))
+    categoryRanking = ["FG%", "FT%", "PTS"]
     TeamToFetch = ""
 
     
@@ -176,9 +177,9 @@ def getTopPerformers():
         
         PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
 
-    if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
+    if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 4:
 
-        newRoster = lastWeekRoster()
+        newRoster = lastWeekRoster2()
         PlayerList.variable_data = json.dumps(newRoster)
         PlayerList.updated_at = datetime.datetime.now()
         db.session.commit()
