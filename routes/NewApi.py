@@ -23,7 +23,7 @@ Api_Blueprint = Blueprint('Api', __name__)
 from Model.variable import MatchupHistory, db
 
 
-@Api_Blueprint.route('/tester', methods=['GET']) #winning 
+@Api_Blueprint.route('/streak', methods=['GET']) #winning 
 @cross_origin()
 def updateRosterStats():
 
