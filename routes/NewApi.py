@@ -14,7 +14,6 @@ from .WinningMatchup import winning, getWins
 from .RelevantData import lastWeekRoster
 from  HelperMethods.helper import getMatchups
 from .Prediction import TeamMap, predict
-from basketball_reference_scraper.players import get_stats, get_game_logs, get_player_headshot
 
 
 
