@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
+
 from Model.variable import db
 from dbkey import key
 from routes.RelevantData import *
@@ -10,6 +11,7 @@ from routes.FullData import *
 from routes.WinningMatchup import *
 from routes.Admin import *
 from routes.NewApi import *
+from routes.PlayerStatistics import *
 
 app = Flask(__name__)
 
@@ -27,6 +29,7 @@ app.register_blueprint(FullData)
 app.register_blueprint(WinningMatchup_Blueprint)
 app.register_blueprint(Admin_Blueprint)
 app.register_blueprint(Api_Blueprint)
+app.register_blueprint(PlayerStatisticsBlueprint)
 
 
 

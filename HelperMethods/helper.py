@@ -128,3 +128,37 @@ def getMatchups(): #predict
     db.session.commit()
         
     return Matchup
+
+def dataCatReset():
+    dataCats = {
+    'Rk': None, 
+    'Player':None,
+    'Pos': None, 
+    'Age': None, 
+    'Tm': None, 
+    'G': None, 
+    'GS': None, 
+    'MP': None, 
+    'FG': None, 
+    'FGA': None, 
+    'FG%': None, 
+    '3P': None, 
+    '3PA': None, 
+    '3P%': None, 
+    '2P': None, 
+    '2PA': None, 
+    '2P%': None, 
+    'eFG%': None, 
+    'FT': None, 
+    'FTA': None, 
+    'FT%': None, 
+    'ORB': None, 
+    'DRB': None, 
+    'TRB': None, 
+    'AST': None, 
+    'STL': None, 
+    'BLK': None, 
+    'TOV': None, 
+    'PF': None, 
+    'PTS': None}
+    return dataCats
