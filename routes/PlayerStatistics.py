@@ -104,4 +104,6 @@ def player_zscore():
                     league_average[y]), float(standard_dev[y]))
             except:
                 continue
+
+    z_score_data["league_average"] = league_average
     return z_score_data
