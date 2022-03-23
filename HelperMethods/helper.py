@@ -4,6 +4,7 @@ import json
 import requests
 from Model.variable import Variable, db
 
+
 def getFGFT():
 
     matchupInfo = lg.matchups(lg.current_week()-1)
@@ -31,9 +32,9 @@ def getFGFT():
 
                     except:
                         continue
-    
 
     return teamFGFT
+
 
 def convert_to_float(frac_str):
     try:
@@ -47,7 +48,6 @@ def convert_to_float(frac_str):
             whole = 0
         frac = float(num) / float(denom)
         return whole - frac if whole < 0 else whole + frac
-
 
 
 def getTeamMap():
@@ -71,9 +71,9 @@ def getTeamMap():
                 except:
 
                     continue
- 
 
     return teamMap
+
 
 def getSchedule():
     r = requests.get(
@@ -91,13 +91,13 @@ def getSchedule():
             Game[x["mscd"]["mon"]][y["gdte"]].append(
                 (y["v"]["ta"], y["h"]["ta"]))
 
-
     with open('./Variables/Schedule2021.py', 'w') as fo:
         fo.write("Sched =" + json.dumps(Game))
         fo.close
     return Game
 
-def getMatchups(): #predict
+
+def getMatchups():  # predict
 
     matchupInfo = lg.matchups()
     teams = OrderedDict()
@@ -122,43 +122,43 @@ def getMatchups(): #predict
                 except:
                     continue
 
-
     Prediction = Variable.query.filter_by(variable_name="WeekMatchup").first()
-    Prediction.variable_data=json.dumps(Matchup)
+    Prediction.variable_data = json.dumps(Matchup)
     db.session.commit()
-        
+
     return Matchup
+
 
 def dataCatReset():
     dataCats = {
-    'Rk': None, 
-    'Player':None,
-    'Pos': None, 
-    'Age': None, 
-    'Tm': None, 
-    'G': None, 
-    'GS': None, 
-    'MP': None, 
-    'FG': None, 
-    'FGA': None, 
-    'FG%': None, 
-    '3P': None, 
-    '3PA': None, 
-    '3P%': None, 
-    '2P': None, 
-    '2PA': None, 
-    '2P%': None, 
-    'eFG%': None, 
-    'FT': None, 
-    'FTA': None, 
-    'FT%': None, 
-    'ORB': None, 
-    'DRB': None, 
-    'TRB': None, 
-    'AST': None, 
-    'STL': None, 
-    'BLK': None, 
-    'TOV': None, 
-    'PF': None, 
-    'PTS': None}
+        'Rk': None,
+        'Player': None,
+        'Pos': None,
+        'Age': None,
+        'Tm': None,
+        'G': None,
+        'GS': None,
+        'MP': None,
+        'FG': None,
+        'FGA': None,
+        'FG%': None,
+        '3P': None,
+        '3PA': None,
+        '3P%': None,
+        '2P': None,
+        '2PA': None,
+        '2P%': None,
+        'eFG%': None,
+        'FT': None,
+        'FTA': None,
+        'FT%': None,
+        'ORB': None,
+        'DRB': None,
+        'TRB': None,
+        'AST': None,
+        'STL': None,
+        'BLK': None,
+        'TOV': None,
+        'PF': None,
+        'PTS': None}
     return dataCats
