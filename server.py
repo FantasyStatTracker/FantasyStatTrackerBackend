@@ -22,7 +22,7 @@ cors = CORS(app)
 
 db.init_app(app)
 
-#app.register_blueprint(test_blueprint)
+# app.register_blueprint(test_blueprint)
 app.register_blueprint(RelevantData)
 app.register_blueprint(Prediction_Blueprint)
 app.register_blueprint(FullData)
@@ -32,10 +32,8 @@ app.register_blueprint(Api_Blueprint)
 app.register_blueprint(PlayerStatisticsBlueprint)
 
 
-
-
 if __name__ == '__main__':
-    dev = True
+    dev = False
     portVar = ""
     if (dev):
         portVar = 8000
