@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from routes.RelevantData import lastWeekRoster
+from routes.RelevantData import get_last_week_roster
 from Variables.Schedule2021 import *
 from flask_cors import CORS
 from Variables.TokenRefresh import oauth, lg
@@ -9,17 +9,18 @@ import json
 from sqlalchemy import text
 from HelperMethods.helper import getFGFT, getTeamMap
 
-Prediction_Blueprint = Blueprint('Prediction', __name__)
+Prediction_Blueprint = Blueprint("Prediction", __name__)
 cors = CORS(Prediction_Blueprint)
 
 from Model.variable import Variable, PredictionHistory, db
 
-TeamMap = []
-PlayerList = []
+TEAM_MAP = []
+PLAYER_LIST = []
 
-@Prediction_Blueprint.route('/prediction-fast', methods=['GET']) #prediction
-def predictionFast():
-    '''
+
+@Prediction_Blueprint.route("/prediction-fast", methods=["GET"])  # prediction
+def get_prediction_fast():
+    """
     Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
     sqlQuery = text("select extract(dow from (SELECT updated_at from variable where variable_name='CurrentPrediction'))")
     res = db.engine.execute(sqlQuery)
@@ -29,206 +30,211 @@ def predictionFast():
             day = z
             break
         break
-    '''
-    
-    Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
-        
+    """
 
-        
-    
+    Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
 
     return jsonify(Prediction.variable_data)
 
-#Prediction Function
+
+# Prediction Function
 def predict():
-    global TeamMap
-    global PlayerList
+    global TEAM_MAP
+    global PLAYER_LIST
 
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
 
     teams = lg.teams()
 
-    StatPrediction = {}
-    
+    stat_prediction = {}
 
-    if (isinstance(TeamMap, list)): #update team mapping iff there was a change (10x faster)
-        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first().variable_data
+    if isinstance(
+        TEAM_MAP, list
+    ):  # update team mapping iff there was a change (10x faster)
+        TEAM_MAP = (
+            Variable.query.filter_by(variable_name="TeamMap").first().variable_data
+        )
 
-    if (isinstance(PlayerList, list)):
-        PlayerList = Variable.query.filter_by(variable_name="PredictionStats").first().variable_data
+    if isinstance(PLAYER_LIST, list):
+        PLAYER_LIST = (
+            Variable.query.filter_by(variable_name="PredictionStats")
+            .first()
+            .variable_data
+        )
 
     FGFT = getFGFT()
 
-    #Populate Data
+    # Populate Data
     for team in teams:
-        predictionData = {"PTS": 0.0, "FG%": 0.0, "AST": 0.0, "FT%": 0.0,
-            "3PTM": 0.0, "ST": 0.0, "BLK": 0.0, "TO": 0.0, "REB": 0.0}
+        prediction_data = {
+            "PTS": 0.0,
+            "FG%": 0.0,
+            "AST": 0.0,
+            "FT%": 0.0,
+            "3PTM": 0.0,
+            "ST": 0.0,
+            "BLK": 0.0,
+            "TO": 0.0,
+            "REB": 0.0,
+        }
 
-        for player in PlayerList[team]:
+        for player in PLAYER_LIST[team]:
 
-            
-            for x in predictionData.keys():
+            for x in prediction_data.keys():
                 try:
-                    if (player['status'] == 'INJ'):
+                    if player["status"] == "INJ":
                         continue
-                    predictionData[x] += player[x]
+                    prediction_data[x] += player[x]
                 except:
                     continue
 
             try:
-                predictionData["FG%"] = float(FGFT[team][0])
-                predictionData["FT%"] = float(FGFT[team][1])
+                prediction_data["FG%"] = float(FGFT[team][0])
+                prediction_data["FT%"] = float(FGFT[team][1])
             except:
                 continue
 
-        StatPrediction[team] = predictionData
+        stat_prediction[team] = prediction_data
 
-    matchUp = Variable.query.filter_by(variable_name="WeekMatchup").first().variable_data
+    matchup = (
+        Variable.query.filter_by(variable_name="WeekMatchup").first().variable_data
+    )
 
-    
-    PredictionArray = []
+    prediction_array = []
 
-    #Compare Populated Data to Find Winner
-    for team in matchUp:
-        opponent = matchUp[team]
+    # Compare Populated Data to Find Winner
+    for team in matchup:
+        opponent = matchup[team]
         Prediction = {team: 0, opponent: 0}
-        for cat1 in StatPrediction[team]:
-            if (cat1 == 'TO'):
-                if (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
+        for cat1 in stat_prediction[team]:
+            if cat1 == "TO":
+                if stat_prediction[team][cat1] < stat_prediction[opponent][cat1]:
                     Prediction[team] += 1
-                elif (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
+                elif stat_prediction[team][cat1] > stat_prediction[opponent][cat1]:
                     Prediction[opponent] += 1
                 else:
                     continue
                 continue
 
-            if (StatPrediction[team][cat1] > StatPrediction[opponent][cat1]):
+            if stat_prediction[team][cat1] > stat_prediction[opponent][cat1]:
                 Prediction[team] += 1
-            elif (StatPrediction[team][cat1] < StatPrediction[opponent][cat1]):
+            elif stat_prediction[team][cat1] < stat_prediction[opponent][cat1]:
                 Prediction[opponent] += 1
             else:
                 continue
 
-        PredictionArray.append(Prediction)
+        prediction_array.append(Prediction)
 
-    for x in StatPrediction:
-        StatPrediction[x]['FG%'] = round(StatPrediction[x]['FG%'], 3)
-        StatPrediction[x]['FT%'] = round(StatPrediction[x]['FT%'], 3)
+    for x in stat_prediction:
+        stat_prediction[x]["FG%"] = round(stat_prediction[x]["FG%"], 3)
+        stat_prediction[x]["FT%"] = round(stat_prediction[x]["FT%"], 3)
 
-    ReturnPrediction = []
+    return_prediction = []
 
-    for x in PredictionArray:
-        newDict = {}
+    for x in prediction_array:
+        new_dict = {}
         for match in x.keys():
-            newDict[TeamMap[match]] = [x[match], StatPrediction[match]]
-        ReturnPrediction.append(newDict)
+            new_dict[TEAM_MAP[match]] = [x[match], stat_prediction[match]]
+        return_prediction.append(new_dict)
 
-    
     try:
         item = Variable.query.filter_by(variable_name="CurrentPrediction").first()
-        item.variable_data=json.dumps(ReturnPrediction)
-        item.updated_at=datetime.datetime.now()
+        item.variable_data = json.dumps(return_prediction)
+        item.updated_at = datetime.datetime.now()
         db.session.commit()
     except:
         print("Entry already exists")
-    
-    
-    predictionItem = PredictionHistory(prediction_week=lg.current_week(), prediction_data=json.dumps(ReturnPrediction), prediction_correct=0)
+
+    prediction_item = PredictionHistory(
+        prediction_week=lg.current_week(),
+        prediction_data=json.dumps(return_prediction),
+        prediction_correct=0,
+    )
     try:
-        db.session.add(predictionItem)
+        db.session.add(prediction_item)
         db.session.commit()
     except:
         print("Entry already Exists")
-    
 
-    return jsonify(ReturnPrediction)
-
-
-#Returns Team FG% and FT% for the week
+    return jsonify(return_prediction)
 
 
-#returns top performers per team by category lead
-@Prediction_Blueprint.route('/TopPerformers', methods=['POST'])
-def getTopPerformers():
+# Returns Team FG% and FT% for the week
 
-    
-    global TeamMap
-    global PlayerList
 
-    
+# returns top performers per team by category lead
+@Prediction_Blueprint.route("/TopPerformers", methods=["POST"])
+def get_top_performers():
+
+    global TEAM_MAP
+    global PLAYER_LIST
+
     data = json.loads(request.form.get("team"))
-    categoryRanking = json.loads(request.form.get("categoryRanking"))
-    TeamToFetch = ""
+    category_ranking = json.loads(request.form.get("categoryRanking"))
+    team_to_fetch = ""
 
-    
-    if (isinstance(TeamMap, list)): #update team mapping iff there was a change (10x faster)
-        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
+    if isinstance(
+        TEAM_MAP, list
+    ):  # update team mapping iff there was a change (10x faster)
+        TEAM_MAP = Variable.query.filter_by(variable_name="TeamMap").first()
 
-    if (data not in TeamMap.variable_data.values()):
-        newTeamMap = getTeamMap()
-        TeamMap = Variable.query.filter_by(variable_name="TeamMap").first()
-        TeamMap.variable_data = json.dumps(newTeamMap)
-        db.session.commit()        
-
-    
-    if (isinstance(PlayerList, list)):
-        
-        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
-
-    if (abs(PlayerList.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
-
-        newRoster = lastWeekRoster()
-        PlayerList.variable_data = json.dumps(newRoster)
-        PlayerList.updated_at = datetime.datetime.now()
+    if data not in TEAM_MAP.variable_data.values():
+        new_team_map = getTeamMap()
+        TEAM_MAP = Variable.query.filter_by(variable_name="TeamMap").first()
+        TEAM_MAP.variable_data = json.dumps(new_team_map)
         db.session.commit()
 
-        PlayerList = Variable.query.filter_by(variable_name="CurrentRoster").first()
-        
-    
-    
-    for x in TeamMap.variable_data:
-        if (TeamMap.variable_data[x] == data):
-            TeamToFetch = x
+    if isinstance(PLAYER_LIST, list):
+
+        PLAYER_LIST = Variable.query.filter_by(variable_name="CurrentRoster").first()
+
+    if (abs(PLAYER_LIST.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
+
+        new_roster = get_last_week_roster()
+        PLAYER_LIST.variable_data = json.dumps(new_roster)
+        PLAYER_LIST.updated_at = datetime.datetime.now()
+        db.session.commit()
+
+        PLAYER_LIST = Variable.query.filter_by(variable_name="CurrentRoster").first()
+
+    for x in TEAM_MAP.variable_data:
+        if TEAM_MAP.variable_data[x] == data:
+            team_to_fetch = x
             break
 
-    
-    MaxCat = {}
+    maximum_category = {}
 
-    
-    MaxCat = dict.fromkeys(categoryRanking, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""})
-    for Player in PlayerList.variable_data[TeamToFetch]:
+    maximum_category = dict.fromkeys(
+        category_ranking, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""}
+    )
+    for Player in PLAYER_LIST.variable_data[team_to_fetch]:
 
-            
-            for individualCategory in categoryRanking:
-                
-                if (Player[individualCategory] == '-'):
-                    Player[individualCategory] = 0.0
-                    
-                if (MaxCat[individualCategory]["Value"] <= float(Player[individualCategory])):
-                    Name = Player["name"].split()
-                    if (Name[0] == "Robert" and Name[1] == "Williams"):
-                        Name[1] = "Williams III"
-                    
-                    MaxCat[individualCategory] = {"Value": float(Player[individualCategory]), 
-                                                        "PlayerFirst": Name[0],
-                                                        "PlayerLast": ' '.join(Name[x] for x in range(1,len(Name)))
-                                                }
-                    
+        for individual_category in category_ranking:
+
+            if Player[individual_category] == "-":
+                Player[individual_category] = 0.0
+
+            if maximum_category[individual_category]["Value"] <= float(
+                Player[individual_category]
+            ):
+                Name = Player["name"].split()
+                if Name[0] == "Robert" and Name[1] == "Williams":
+                    Name[1] = "Williams III"
+
+                maximum_category[individual_category] = {
+                    "Value": float(Player[individual_category]),
+                    "PlayerFirst": Name[0],
+                    "PlayerLast": " ".join(Name[x] for x in range(1, len(Name))),
+                }
+
     delete = []
-    for key in MaxCat:
-        if (MaxCat[key]["PlayerFirst"] == ""):
+    for key in maximum_category:
+        if maximum_category[key]["PlayerFirst"] == "":
             delete.append(key)
 
+    for deletion_key in delete:
+        del maximum_category[deletion_key]
 
-    for deletionKey in delete:
-        del MaxCat[deletionKey]
-
-
-    return jsonify(MaxCat)
-
-
-
-
-
+    return jsonify(maximum_category)
 

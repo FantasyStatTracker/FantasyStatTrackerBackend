@@ -1,3 +1,4 @@
+from numpy import average
 from Model.variable import MatchupHistory
 from flask import Blueprint, jsonify, request
 import flask
@@ -5,118 +6,145 @@ import json
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
 from Variables.TokenRefresh import oauth, lg
-from Variables.LeagueInformation import statMap
+from Variables.LeagueInformation import stat_map
 import statistics
 
-FullData = Blueprint('FullData', __name__)
+FullData = Blueprint("FullData", __name__)
 
 cors = CORS(FullData)
 
 # GET Returns current week team stats by category
 # POST Returns week by week number passed
-@FullData.route('/Full-Data', methods=['GET', 'POST'])
+
+
+@FullData.route("/full-team-data", methods=["GET", "POST"])
 @cross_origin()
 def test(*args):
-    teamPhoto = {}
-    matchupInfo = None
-    if (flask.request.method == 'POST'):  # if requesting a previous week
+    team_photo_url = {}
+    full_matchup_information = None
+    if flask.request.method == "POST":  # if requesting a previous week
 
         week = json.loads(request.form.get("week"))
-        PlayerList = MatchupHistory.query.filter_by(matchup_week=week).first()
+        player_list = MatchupHistory.query.filter_by(matchup_week=week).first()
 
-        return {"AllData": PlayerList.all_data, "Leader": PlayerList.leader, "WinningMatchup": PlayerList.winning_matchup, "WeekNumber": week}
+        return {
+            "all_data": player_list.all_data,
+            "leader": player_list.leader,
+            "winning_matchup": player_list.winning_matchup,
+            "week_number": week,
+        }
 
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
 
-    
-    #when updating database, optional argument
-    weekNumber = None
+    # when updating database, optional argument, if None fetches most recent week
+    week_number = None
     try:
-        weekNumber = args[0]
+        week_number = args[0]
     except:
         pass
 
-
-    matchupInfo = lg.matchups(week=weekNumber)
+    full_matchup_information = lg.matchups(week=week_number)["fantasy_content"][
+        "league"
+    ][1]["scoreboard"]["0"]["matchups"]
 
     teams = OrderedDict()
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
 
-    matchupKey = list(data.keys())[:-1]
+    matchup_key = list(full_matchup_information.keys())[:-1]
 
-    current = ""
-    for matchupIndex in matchupKey:  # O(n)
+    currently_selected_team = ""
+    for matchup_index in matchup_key:  # O(n)
         # matchup will always have two people
-        for matchupIndividualTeam in range(0, 2):  # O(2)
+        for matchup_individual_team in range(0, 2):
 
-            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
-                if (isinstance(TeamData, list)):
-                    teams[TeamData[2]["name"]] = {}
-                    current = TeamData[2]["name"]
-                    teamPhoto[TeamData[2]["name"]
-                              ] = TeamData[5]["team_logos"][0]["team_logo"]["url"]
+            for team_data in full_matchup_information[matchup_index]["matchup"]["0"][
+                "teams"
+            ][str(matchup_individual_team)]["team"]:
+                if isinstance(team_data, list):
+                    teams[team_data[2]["name"]] = {}
+                    currently_selected_team = team_data[2]["name"]
+                    team_photo_url[team_data[2]["name"]] = team_data[5]["team_logos"][
+                        0
+                    ]["team_logo"]["url"]
 
-            for statInformation in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"][1]["team_stats"]["stats"]:
+            for stat_information in full_matchup_information[matchup_index]["matchup"][
+                "0"
+            ]["teams"][str(matchup_individual_team)]["team"][1]["team_stats"]["stats"]:
                 try:
-                    if (statInformation["stat"]["value"] == "" or statInformation["stat"]["value"] == None):
-                        teams[current][(
-                            statMap[statInformation["stat"]["stat_id"]])] = 0
+                    if (
+                        stat_information["stat"]["value"] == ""
+                        or stat_information["stat"]["value"] == None
+                    ):
+                        teams[currently_selected_team][
+                            (stat_map[stat_information["stat"]["stat_id"]])
+                        ] = 0
                     else:
-                        teams[current][(
-                            statMap[statInformation["stat"]["stat_id"]])] = statInformation["stat"]["value"]
+                        teams[currently_selected_team][
+                            (stat_map[stat_information["stat"]["stat_id"]])
+                        ] = stat_information["stat"]["value"]
                 except:
                     continue
 
-    return {"TeamData": teams, "TeamPhoto": teamPhoto}
+    return {"team_data": teams, "team_photo": team_photo_url}
 
 
 # Returns League Average Stats
-@FullData.route('/average', methods=['POST'])
+@FullData.route("/average", methods=["POST"])
 @cross_origin()
-def getStatAverage():
-    categoryArray = json.loads(getCategory().data)
-    average = {category: 0.0 for category in categoryArray}
+def get_stat_average():
+    category_array = json.loads(get_category().data)
+    average_per_category = {category: 0.0 for category in category_array}
     data = json.loads(request.form.get("data"))
-    numberOfTeams = len(data)
+    number_of_teams = len(data)
 
-    for team in data:  # O(n)
-        for teamName in team.keys():  # O(1)
-            for category in average.keys():  # O(m)
-                average[category] += float(team[teamName][category])
+    for league_team_data in data:  # O(n)
+        for team_name in league_team_data.keys():  # O(1)
+            for category in average_per_category.keys():  # O(m)
+                average_per_category[category] += float(
+                    league_team_data[team_name][category]
+                )
 
-    average = {cat: round(average[cat]/(numberOfTeams), 3) for cat in average}
+    print(number_of_teams)
 
-    return jsonify(average)
+    average_per_category = {
+        category: round(average_per_category[category] / (number_of_teams), 3)
+        for category in average_per_category
+    }
 
-@FullData.route('/standard-deviation', methods=['POST'])
+    print(average_per_category)
+
+    return jsonify(average_per_category)
+
+
+@FullData.route("/standard-deviation", methods=["POST"])
 @cross_origin()
-def getStandardDeviation():
-    categoryArray = json.loads(getCategory().data)
-    stdev = {category: 0.0 for category in categoryArray}
+def get_standard_deviation():
+    category_array = json.loads(get_category().data)
+    stdev = {category: 0.0 for category in category_array}
     data = json.loads(request.form.get("data"))
     for team in data:
-        for category in categoryArray:
-            catArray = []
-            for teamName in team.keys():
-                catArray.append(float(team[teamName][category]))
+        for category in category_array:
+            stdev_category_array = []
+            for team_name in team.keys():
+                stdev_category_array.append(float(team[team_name][category]))
 
-            stdev[category] = round(statistics.stdev(catArray), 3)
-                
+            stdev[category] = round(statistics.stdev(stdev_category_array), 3)
+
     return jsonify(stdev)
 
 
 # Get All Categories in League
 
 
-@FullData.route('/category', methods=['GET'])
-def getCategory():
-    categoryArray = [x for x in statMap.values()]
-    return jsonify(categoryArray)
+@FullData.route("/category", methods=["GET"])
+def get_category():
+    category_array = [x for x in stat_map.values()]
+    return jsonify(category_array)
+
 
 # Get Current Week
 
 
-@FullData.route('/week', methods=['GET'])
-def getWeekTotal():
+@FullData.route("/week", methods=["GET"])
+def get_week_total():
     return str(lg.current_week())

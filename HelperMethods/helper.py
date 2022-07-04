@@ -7,7 +7,7 @@ from Model.variable import Variable, db
 
 def getFGFT():
 
-    matchupInfo = lg.matchups(lg.current_week()-1)
+    matchupInfo = lg.matchups(lg.current_week() - 1)
     data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
     matchupKey = list(data.keys())
     matchupKey = matchupKey[:-1]
@@ -17,17 +17,21 @@ def getFGFT():
     for matchupIndex in matchupKey:
         # matchup will always have two people
         for matchupIndividualTeam in range(0, 2):
-            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
+            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][
+                str(matchupIndividualTeam)
+            ]["team"]:
                 try:
 
-                    tempVar = TeamData[0]['team_key']
+                    tempVar = TeamData[0]["team_key"]
                 except:
                     try:
                         teamFGFT[tempVar] = [
                             convert_to_float(
-                                TeamData["team_stats"]["stats"][0]['stat']['value']),
+                                TeamData["team_stats"]["stats"][0]["stat"]["value"]
+                            ),
                             convert_to_float(
-                                TeamData["team_stats"]["stats"][2]['stat']['value'])
+                                TeamData["team_stats"]["stats"][2]["stat"]["value"]
+                            ),
                         ]
 
                     except:
@@ -40,9 +44,9 @@ def convert_to_float(frac_str):
     try:
         return float(frac_str)
     except ValueError:
-        num, denom = frac_str.split('/')
+        num, denom = frac_str.split("/")
         try:
-            leading, num = num.split(' ')
+            leading, num = num.split(" ")
             whole = float(leading)
         except ValueError:
             whole = 0
@@ -64,10 +68,12 @@ def getTeamMap():
     for matchupIndex in matchupKey:
         # matchup will always have two people
         for matchupIndividualTeam in range(0, 2):
-            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]:
+            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][
+                str(matchupIndividualTeam)
+            ]["team"]:
                 try:
 
-                    teamMap[TeamData[0]['team_key']] = TeamData[2]['name']
+                    teamMap[TeamData[0]["team_key"]] = TeamData[2]["name"]
                 except:
 
                     continue
@@ -77,21 +83,23 @@ def getTeamMap():
 
 def getSchedule():
     r = requests.get(
-        'https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/' + year + '/league/00_full_schedule.json')
+        "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/"
+        + year
+        + "/league/00_full_schedule.json"
+    )
 
     Game = {}
     data = r.json()
 
-    for x in data['lscd']:
+    for x in data["lscd"]:
         Game[x["mscd"]["mon"]] = {}
 
         for y in x["mscd"]["g"]:
             Game[x["mscd"]["mon"]][y["gdte"]] = []
         for y in x["mscd"]["g"]:
-            Game[x["mscd"]["mon"]][y["gdte"]].append(
-                (y["v"]["ta"], y["h"]["ta"]))
+            Game[x["mscd"]["mon"]][y["gdte"]].append((y["v"]["ta"], y["h"]["ta"]))
 
-    with open('./Variables/Schedule2021.py', 'w') as fo:
+    with open("./Variables/Schedule2021.py", "w") as fo:
         fo.write("Sched =" + json.dumps(Game))
         fo.close
     return Game
@@ -111,14 +119,18 @@ def getMatchups():  # predict
     for matchupIndex in matchupKey:
         # matchup will always have two people
         for matchupIndividualTeam in range(0, 2):
-            for index, TeamData in enumerate(data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)]["team"]):
+            for index, TeamData in enumerate(
+                data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)][
+                    "team"
+                ]
+            ):
 
                 try:
 
-                    if (matchupIndividualTeam == 0):
-                        P1 = TeamData[0]['team_key']
+                    if matchupIndividualTeam == 0:
+                        P1 = TeamData[0]["team_key"]
                     else:
-                        Matchup[P1] = TeamData[0]['team_key']
+                        Matchup[P1] = TeamData[0]["team_key"]
                 except:
                     continue
 
@@ -131,34 +143,35 @@ def getMatchups():  # predict
 
 def dataCatReset():
     dataCats = {
-        'Rk': None,
-        'Player': None,
-        'Pos': None,
-        'Age': None,
-        'Tm': None,
-        'G': None,
-        'GS': None,
-        'MP': None,
-        'FG': None,
-        'FGA': None,
-        'FG%': None,
-        '3P': None,
-        '3PA': None,
-        '3P%': None,
-        '2P': None,
-        '2PA': None,
-        '2P%': None,
-        'eFG%': None,
-        'FT': None,
-        'FTA': None,
-        'FT%': None,
-        'ORB': None,
-        'DRB': None,
-        'TRB': None,
-        'AST': None,
-        'STL': None,
-        'BLK': None,
-        'TOV': None,
-        'PF': None,
-        'PTS': None}
+        "Rk": None,
+        "Player": None,
+        "Pos": None,
+        "Age": None,
+        "Tm": None,
+        "G": None,
+        "GS": None,
+        "MP": None,
+        "FG": None,
+        "FGA": None,
+        "FG%": None,
+        "3P": None,
+        "3PA": None,
+        "3P%": None,
+        "2P": None,
+        "2PA": None,
+        "2P%": None,
+        "eFG%": None,
+        "FT": None,
+        "FTA": None,
+        "FT%": None,
+        "ORB": None,
+        "DRB": None,
+        "TRB": None,
+        "AST": None,
+        "STL": None,
+        "BLK": None,
+        "TOV": None,
+        "PF": None,
+        "PTS": None,
+    }
     return dataCats

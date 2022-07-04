@@ -1,15 +1,17 @@
-
 from flask import Blueprint, request
-from flask_cors import  cross_origin
+from flask_cors import cross_origin
 import json
 from Variables.TokenRefresh import oauth
-from .FullData import getCategory
+from .FullData import get_category
 
-WinningMatchup_Blueprint = Blueprint('WinningMatchup', __name__)
+WinningMatchup_Blueprint = Blueprint("WinningMatchup", __name__)
 
-@WinningMatchup_Blueprint.route('/category-leader', methods=['POST']) #Category Leaders
+
+@WinningMatchup_Blueprint.route(
+    "/category-leader", methods=["POST"]
+)  # Category Leaders
 @cross_origin()
-def getWins(*args):
+def get_wins(*args):
 
     dataset = None
     try:
@@ -20,27 +22,30 @@ def getWins(*args):
     if not oauth.token_is_valid():
         oauth.refresh_access_token()
 
-    if (dataset == None):
+    if dataset == None:
         data = json.loads(request.form.get("data"))
     else:
         data = [json.loads(dataset)["TeamData"]]
 
+    category_array = json.loads(get_category().data)
+    category_max = {category: {} for category in category_array}
 
-    categoryArray = json.loads(getCategory().data)
-    categoryMax = {category: {} for category in categoryArray}
-
-    for teamStat in data:
-        for team in list(teamStat.keys()):  # team stats
-            for category in categoryArray:  # cats
+    for team_statistics in data:
+        for team in list(team_statistics.keys()):  # team stats
+            for category in category_array:  # cats
                 try:
-                    categoryMax[category][team] = float(teamStat[team][category])
+                    category_max[category][team] = float(
+                        team_statistics[team][category]
+                    )
                 except:
-                    categoryMax[category][team] = 0.0
-    
-    return categoryMax
+                    category_max[category][team] = 0.0
+
+    return category_max
 
 
-@WinningMatchup_Blueprint.route('/winning-matchups', methods=['POST']) #Team vs. Other Teams
+@WinningMatchup_Blueprint.route(
+    "/winning-matchups", methods=["POST"]
+)  # Team vs. Other Teams
 @cross_origin()
 def winning(*args):
 
@@ -49,54 +54,55 @@ def winning(*args):
         dataset = args[0]
     except:
         pass
-    if (dataset == None):
+    if dataset == None:
         data = json.loads(request.form.get("data"))
     else:
         data = [json.loads(dataset)["TeamData"]]
 
     print(data)
-    currentWins = {}
+    current_wins = {}
 
     for x in data:
         print(x)
         for player1 in list(x.keys()):  # team stats
-            currentWins[player1] = []
+            current_wins[player1] = []
             for y in data:
                 for player2 in list(y.keys()):
 
-                    if (player1 == player2):
+                    if player1 == player2:
                         continue
 
-                    winCount = 0
-                    loseCount = 0
-                    catWins = []
+                    win_count = 0
+                    loss_count = 0
+                    category_wins = []
 
                     # different condition for Turnovers
-                    if (float(x[player1]['TO']) < float(y[player2]['TO'])):
-                        winCount += 1
-                        catWins.append('TO')
-                    elif (float(x[player1]['TO']) == float(y[player2]['TO'])):
+                    if float(x[player1]["TO"]) < float(y[player2]["TO"]):
+                        win_count += 1
+                        category_wins.append("TO")
+                    elif float(x[player1]["TO"]) == float(y[player2]["TO"]):
                         None
                     else:
-                        loseCount += 1
+                        loss_count += 1
                     for z in x[player1].keys():  # cats
-                        if (z == 'TO'):
+                        if z == "TO":
                             continue
                         comp = float(x[player1][z]) > float(y[player2][z])
-                        if (comp):  # check how many wins
-                            winCount += 1
-                            catWins.append(z)
-                        elif ((float(x[player1][z]) == float(y[player2][z]))):
+                        if comp:  # check how many wins
+                            win_count += 1
+                            category_wins.append(z)
+                        elif float(x[player1][z]) == float(y[player2][z]):
                             continue
                         else:
-                            loseCount += 1
+                            loss_count += 1
 
-                    if (winCount > loseCount):
-                        currentWins[player1].append({player2: catWins})
+                    if win_count > loss_count:
+                        current_wins[player1].append({player2: category_wins})
 
-    return currentWins  # json object with Team { Wins { Categorieswon
+    return current_wins  # json object with Team { Wins { Categorieswon
 
-'''
+
+"""
 @WinningMatchup_Blueprint.route('/winning-matchups', methods=['POST']) #Team vs. Other Teams
 @cross_origin()
 def winnings(*args):
@@ -111,34 +117,35 @@ def winnings(*args):
     else:
         data = [json.loads(dataset)["TeamData"]]
 
-    currentWins = {}
+    current_wins = {}
 
     for allData in data:
         for player1 in list(allData.keys()):  # team stats
-            currentWins[player1] = []
+            current_wins[player1] = []
 
             for player2 in list(allData.keys()):
 
                 if (player1 == player2):
                     continue
 
-                winCount = 0
-                catWins = []
+                win_count = 0
+                category_wins = []
 
                 # different condition for Turnovers
                 if (float(allData[player1]['TO']) < float(allData[player2]['TO'])):
-                    winCount += 1
-                    catWins.append('TO')
+                    win_count += 1
+                    category_wins.append('TO')
                 for category in allData[player1].keys():  # cats
 
                     comparisonResult = float(allData[player1][category]) > float(allData[player2][category])
                     if (comparisonResult and category != 'TO'):  # check how many wins
-                        winCount += 1
-                        catWins.append(category)
+                        win_count += 1
+                        category_wins.append(category)
 
-                if (winCount >= 5):
-                    currentWins[player1].append({player2: catWins})
+                if (win_count >= 5):
+                    current_wins[player1].append({player2: category_wins})
 
-    return currentWins  # json object with Team { Wins { Categorieswon
+    return current_wins  # json object with Team { Wins { Categorieswon
 
-'''
+"""
+
