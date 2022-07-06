@@ -1,43 +1,49 @@
+import logging
 from Variables.TokenRefresh import lg
-from collections import OrderedDict
 import json
 import requests
 from Model.variable import Variable, db
 
 
-def getFGFT():
+def get_FG_FT():
 
-    matchupInfo = lg.matchups(lg.current_week() - 1)
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-    matchupKey = list(data.keys())
-    matchupKey = matchupKey[:-1]
+    matchup_information = lg.matchups(lg.current_week() - 1)
+    data = matchup_information["fantasy_content"]["league"][1]["scoreboard"]["0"][
+        "matchups"
+    ]
+    matchup_key = list(data.keys())
+    matchup_key = matchup_key[:-1]
 
-    teamFGFT = {}
-    tempVar = ""
-    for matchupIndex in matchupKey:
+    team_FG_FT = {}
+    team_key = ""
+    for matchup_index in matchup_key:
         # matchup will always have two people
-        for matchupIndividualTeam in range(0, 2):
-            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][
-                str(matchupIndividualTeam)
+        for matchup_team in range(0, 2):
+            for team_data in data[matchup_index]["matchup"]["0"]["teams"][
+                str(matchup_team)
             ]["team"]:
                 try:
 
-                    tempVar = TeamData[0]["team_key"]
-                except:
+                    team_key = team_data[0]["team_key"]
+                except Exception as e:
+                    logging.info(
+                        "Alternate Calculation, {e}".format(e=e.__class__.__name__)
+                    )
                     try:
-                        teamFGFT[tempVar] = [
+                        team_FG_FT[team_key] = [
                             convert_to_float(
-                                TeamData["team_stats"]["stats"][0]["stat"]["value"]
+                                team_data["team_stats"]["stats"][0]["stat"]["value"]
                             ),
                             convert_to_float(
-                                TeamData["team_stats"]["stats"][2]["stat"]["value"]
+                                team_data["team_stats"]["stats"][2]["stat"]["value"]
                             ),
                         ]
 
-                    except:
+                    except Exception as e:
+                        logging.exception(e.__class__.__name__)
                         continue
 
-    return teamFGFT
+    return team_FG_FT
 
 
 def convert_to_float(frac_str):
@@ -54,40 +60,36 @@ def convert_to_float(frac_str):
         return whole - frac if whole < 0 else whole + frac
 
 
-def getTeamMap():
+def get_team_map():
 
-    matchupInfo = lg.matchups()
-    teams = OrderedDict()
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-    matchupKey = list(data.keys())
-    matchupKey = matchupKey[:-1]
+    matchup_information = lg.matchups()
+    data = matchup_information["fantasy_content"]["league"][1]["scoreboard"]["0"][
+        "matchups"
+    ]
+    matchup_key = list(data.keys())
+    matchup_key = matchup_key[:-1]
 
-    teamMap = {}
-    teamFGFT = {}
-    current = ""
-    for matchupIndex in matchupKey:
+    team_map = {}
+    for matchup_index in matchup_key:
         # matchup will always have two people
-        for matchupIndividualTeam in range(0, 2):
-            for TeamData in data[matchupIndex]["matchup"]["0"]["teams"][
-                str(matchupIndividualTeam)
+        for matchup_team in range(0, 2):
+            for team_data in data[matchup_index]["matchup"]["0"]["teams"][
+                str(matchup_team)
             ]["team"]:
                 try:
-
-                    teamMap[TeamData[0]["team_key"]] = TeamData[2]["name"]
-                except:
-
+                    team_map[team_data[0]["team_key"]] = team_data[2]["name"]
+                except Exception as e:
+                    logging.exception(e.__class__.__name__)
                     continue
 
-    return teamMap
+    return team_map
 
 
-def getSchedule():
+def get_schedule():
+    year = "2021"
     r = requests.get(
-        "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/"
-        + year
-        + "/league/00_full_schedule.json"
+        f"https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/{year}/league/00_full_schedule.json"
     )
-
     Game = {}
     data = r.json()
 
@@ -105,33 +107,32 @@ def getSchedule():
     return Game
 
 
-def getMatchups():  # predict
+def get_league_matchups():  # predict
 
-    matchupInfo = lg.matchups()
-    teams = OrderedDict()
-    data = matchupInfo["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
-    matchupKey = list(data.keys())
-    matchupKey = matchupKey[:-1]
+    matchup_information = lg.matchups()
+    data = matchup_information["fantasy_content"]["league"][1]["scoreboard"]["0"][
+        "matchups"
+    ]
+    matchup_key = list(data.keys())
+    matchup_key = matchup_key[:-1]
 
     P1 = ""
     Matchup = {}
-    current = ""
-    for matchupIndex in matchupKey:
+    for matchup_index in matchup_key:
         # matchup will always have two people
-        for matchupIndividualTeam in range(0, 2):
-            for index, TeamData in enumerate(
-                data[matchupIndex]["matchup"]["0"]["teams"][str(matchupIndividualTeam)][
-                    "team"
-                ]
+        for matchup_team in range(0, 2):
+            for _, team_data in enumerate(
+                data[matchup_index]["matchup"]["0"]["teams"][str(matchup_team)]["team"]
             ):
 
                 try:
 
-                    if matchupIndividualTeam == 0:
-                        P1 = TeamData[0]["team_key"]
+                    if matchup_team == 0:
+                        P1 = team_data[0]["team_key"]
                     else:
-                        Matchup[P1] = TeamData[0]["team_key"]
-                except:
+                        Matchup[P1] = team_data[0]["team_key"]
+                except Exception as e:
+                    logging.info(e.__class__.__name__)
                     continue
 
     Prediction = Variable.query.filter_by(variable_name="WeekMatchup").first()
@@ -141,8 +142,8 @@ def getMatchups():  # predict
     return Matchup
 
 
-def dataCatReset():
-    dataCats = {
+def get_data_category_map():
+    data_category_map = {
         "Rk": None,
         "Player": None,
         "Pos": None,
@@ -174,4 +175,4 @@ def dataCatReset():
         "PF": None,
         "PTS": None,
     }
-    return dataCats
+    return data_category_map

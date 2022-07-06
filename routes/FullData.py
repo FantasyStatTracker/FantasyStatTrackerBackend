@@ -1,4 +1,4 @@
-from numpy import average
+import logging
 from Model.variable import MatchupHistory
 from flask import Blueprint, jsonify, request
 import flask
@@ -20,6 +20,7 @@ cors = CORS(FullData)
 @FullData.route("/full-team-data", methods=["GET", "POST"])
 @cross_origin()
 def test(*args):
+
     team_photo_url = {}
     full_matchup_information = None
     if flask.request.method == "POST":  # if requesting a previous week
@@ -41,7 +42,8 @@ def test(*args):
     week_number = None
     try:
         week_number = args[0]
-    except:
+    except Exception as e:
+        logging.exception(e.__class__.__name__)
         pass
 
     full_matchup_information = lg.matchups(week=week_number)["fantasy_content"][
@@ -73,7 +75,7 @@ def test(*args):
                 try:
                     if (
                         stat_information["stat"]["value"] == ""
-                        or stat_information["stat"]["value"] == None
+                        or stat_information["stat"]["value"] is None
                     ):
                         teams[currently_selected_team][
                             (stat_map[stat_information["stat"]["stat_id"]])
@@ -82,7 +84,8 @@ def test(*args):
                         teams[currently_selected_team][
                             (stat_map[stat_information["stat"]["stat_id"]])
                         ] = stat_information["stat"]["value"]
-                except:
+                except Exception as e:
+                    logging.exception(e.__class__.__name__)
                     continue
 
     return {"team_data": teams, "team_photo": team_photo_url}
@@ -94,24 +97,20 @@ def test(*args):
 def get_stat_average():
     category_array = json.loads(get_category().data)
     average_per_category = {category: 0.0 for category in category_array}
-    data = json.loads(request.form.get("data"))
-    number_of_teams = len(data)
+    team_statistics = json.loads(request.form.get("data"))
+    number_of_teams = len(team_statistics)
 
-    for league_team_data in data:  # O(n)
+    for league_team_data in team_statistics:  # O(n)
         for team_name in league_team_data.keys():  # O(1)
-            for category in average_per_category.keys():  # O(m)
+            for category in category_array:  # O(m)
                 average_per_category[category] += float(
                     league_team_data[team_name][category]
                 )
-
-    print(number_of_teams)
 
     average_per_category = {
         category: round(average_per_category[category] / (number_of_teams), 3)
         for category in average_per_category
     }
-
-    print(average_per_category)
 
     return jsonify(average_per_category)
 
@@ -121,14 +120,17 @@ def get_stat_average():
 def get_standard_deviation():
     category_array = json.loads(get_category().data)
     stdev = {category: 0.0 for category in category_array}
-    data = json.loads(request.form.get("data"))
-    for team in data:
-        for category in category_array:
-            stdev_category_array = []
-            for team_name in team.keys():
-                stdev_category_array.append(float(team[team_name][category]))
+    team_statistics = json.loads(request.form.get("data"))
 
-            stdev[category] = round(statistics.stdev(stdev_category_array), 3)
+    for category in category_array:
+        category_values_array = []
+        for league_team_data in team_statistics:
+            for team_name in league_team_data.keys():
+                category_values_array.append(
+                    float(league_team_data[team_name][category])
+                )
+
+        stdev[category] = round(statistics.stdev(category_values_array), 3)
 
     return jsonify(stdev)
 
@@ -146,5 +148,5 @@ def get_category():
 
 
 @FullData.route("/week", methods=["GET"])
-def get_week_total():
+def get_current_week():
     return str(lg.current_week())

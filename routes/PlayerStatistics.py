@@ -1,23 +1,22 @@
+import logging
 from flask import Blueprint
 from flask_cors import CORS
 from bs4 import BeautifulSoup
-from HelperMethods.helper import dataCatReset
+from HelperMethods.helper import get_data_category_map
 from statistics import stdev
 import requests
 import scipy.stats as stats
 
-PlayerStatisticsBlueprint = Blueprint("PlayerStatistics", __name__)
-cors = CORS(PlayerStatisticsBlueprint)
+PlayerStatistics = Blueprint("PlayerStatistics", __name__)
+cors = CORS(PlayerStatistics)
 
 
-@PlayerStatisticsBlueprint.route("/player_zscore", methods=["GET"])
+@PlayerStatistics.route("/player-zscore", methods=["GET"])
 def player_zscore():
 
     url = "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html"
 
     response = requests.get(url)
-
-    html = response.text
 
     soup = BeautifulSoup(response.content, "lxml")
 
@@ -26,12 +25,11 @@ def player_zscore():
 
     rows = x.findChildren(["tr"])
 
-    counter = 0
     for row in rows:
         j = row.get_text(separator=",", strip=True)
         player_array = j.split(",")
 
-        data_category_dict = dataCatReset()
+        data_category_dict = get_data_category_map()
 
         if player_array[0] != "Rk":
 
@@ -47,26 +45,28 @@ def player_zscore():
                 str(player_array[1] + "-" + player_array[4])
             ] = data_category_dict
 
-    totals = dataCatReset()
+    totals = get_data_category_map()
     for x in totals:
         totals[x] = 0.0
     for x in full_player_data_bbref:
         for z, y in zip(totals, full_player_data_bbref[x]):
             try:
                 totals[z] += float(full_player_data_bbref[x][y])
-            except:
+            except Exception as e:
+                logging.exception(e.__class__.__name__)
                 continue
 
     for x in totals:
         try:
             totals[x] /= len(full_player_data_bbref)
-        except:
+        except Exception as e:
+            logging.exception(e.__class__.__name__)
             continue
 
     league_average = totals
 
-    standard_dev = dataCatReset()
-    z_score = dataCatReset()
+    standard_dev = get_data_category_map()
+    z_score = get_data_category_map()
 
     for x in standard_dev:
         standard_dev[x] = []
@@ -75,7 +75,8 @@ def player_zscore():
         for z, y in zip(standard_dev, full_player_data_bbref[x]):
             try:
                 standard_dev[z].append(float(full_player_data_bbref[x][y]))
-            except:
+            except Exception as e:
+                logging.exception(e.__class__.__name__)
                 continue
 
     for x in standard_dev:
@@ -83,10 +84,11 @@ def player_zscore():
             standard_deviation = stdev(standard_dev[x])
             z_score[x] = stats.zscore(standard_dev[x])
             standard_dev[x] = standard_deviation
-        except:
+        except Exception as e:
+            logging.exception(e.__class__.__name__)
             continue
 
-    def ZScore(val, mean, stdev):
+    def calculate_zscore(val, mean, stdev):
         return round((val - mean) / stdev, 2)
 
     relevant_cat = [
@@ -108,12 +110,13 @@ def player_zscore():
                 z_score_data[x][y] = ""
                 continue
             try:
-                z_score_data[x][y] = ZScore(
+                z_score_data[x][y] = calculate_zscore(
                     float(full_player_data_bbref[x][y]),
                     float(league_average[y]),
                     float(standard_dev[y]),
                 )
-            except:
+            except Exception as e:
+                logging.exception(e.__class__.__name__)
                 continue
 
     z_score_data["league_average"] = league_average

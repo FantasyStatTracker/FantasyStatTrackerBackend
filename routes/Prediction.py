@@ -1,24 +1,22 @@
+import logging
 from flask import Blueprint, jsonify, request
 from routes.RelevantData import get_last_week_roster
-from Variables.Schedule2021 import *
 from flask_cors import CORS
 from Variables.TokenRefresh import oauth, lg
-from pytz import timezone
 import datetime
 import json
-from sqlalchemy import text
-from HelperMethods.helper import getFGFT, getTeamMap
-
-Prediction_Blueprint = Blueprint("Prediction", __name__)
-cors = CORS(Prediction_Blueprint)
-
+from HelperMethods.helper import get_FG_FT, get_team_map
 from Model.variable import Variable, PredictionHistory, db
+
+Prediction = Blueprint("Prediction", __name__)
+cors = CORS(Prediction)
+
 
 TEAM_MAP = []
 PLAYER_LIST = []
 
 
-@Prediction_Blueprint.route("/prediction-fast", methods=["GET"])  # prediction
+@Prediction.route("/prediction-fast", methods=["GET"])  # prediction
 def get_prediction_fast():
     """
     Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
@@ -63,7 +61,7 @@ def predict():
             .variable_data
         )
 
-    FGFT = getFGFT()
+    FGFT = get_FG_FT()
 
     # Populate Data
     for team in teams:
@@ -86,13 +84,15 @@ def predict():
                     if player["status"] == "INJ":
                         continue
                     prediction_data[x] += player[x]
-                except:
+                except Exception as e:
+                    logging.exception(e.__class__.__name__)
                     continue
 
             try:
                 prediction_data["FG%"] = float(FGFT[team][0])
                 prediction_data["FT%"] = float(FGFT[team][1])
-            except:
+            except Exception as e:
+                logging.exception(e.__class__.__name__)
                 continue
 
         stat_prediction[team] = prediction_data
@@ -143,8 +143,8 @@ def predict():
         item.variable_data = json.dumps(return_prediction)
         item.updated_at = datetime.datetime.now()
         db.session.commit()
-    except:
-        print("Entry already exists")
+    except Exception as e:
+        logging.exception("Entry already exists: {e}".format(e=e.__class__.__name__))
 
     prediction_item = PredictionHistory(
         prediction_week=lg.current_week(),
@@ -154,8 +154,8 @@ def predict():
     try:
         db.session.add(prediction_item)
         db.session.commit()
-    except:
-        print("Entry already Exists")
+    except Exception as e:
+        logging.exception("Entry already exists: {e}".format(e=e.__class__.__name__))
 
     return jsonify(return_prediction)
 
@@ -163,8 +163,8 @@ def predict():
 # Returns Team FG% and FT% for the week
 
 
-# returns top performers per team by category lead
-@Prediction_Blueprint.route("/TopPerformers", methods=["POST"])
+# returns top performers per team by category lead, currently not used
+@Prediction.route("/top-performers", methods=["POST"])
 def get_top_performers():
 
     global TEAM_MAP
@@ -180,7 +180,7 @@ def get_top_performers():
         TEAM_MAP = Variable.query.filter_by(variable_name="TeamMap").first()
 
     if data not in TEAM_MAP.variable_data.values():
-        new_team_map = getTeamMap()
+        new_team_map = get_team_map()
         TEAM_MAP = Variable.query.filter_by(variable_name="TeamMap").first()
         TEAM_MAP.variable_data = json.dumps(new_team_map)
         db.session.commit()
@@ -237,4 +237,3 @@ def get_top_performers():
         del maximum_category[deletion_key]
 
     return jsonify(maximum_category)
-

@@ -2,26 +2,25 @@ from Model.variable import MatchupHistory, db
 from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
 import json
-from Variables.TokenRefresh import lg, apiKey
-from .FullData import test
+from Variables.TokenRefresh import api_key
+from .FullData import get_current_week, test
 from .WinningMatchup import winning, get_wins
 from .RelevantData import get_last_week_roster
-from HelperMethods.helper import getMatchups
+from HelperMethods.helper import get_league_matchups
 from .Prediction import predict
 
-Admin_Blueprint = Blueprint("Admin", __name__)
+Admin = Blueprint("Admin", __name__)
 
 
-@Admin_Blueprint.route("/update-previous-week", methods=["GET"])  # winning
+@Admin.route("/update-previous-week", methods=["GET"])  # winning
 @cross_origin()
 def update_roster_stats():
     headers = request.headers
     auth = headers.get("X-Api-Key")
 
-    if auth == apiKey:
+    if auth == api_key:
 
-        previous_week = 23
-
+        previous_week = get_current_week() - 1
         previous_week_data = test(previous_week).get_data()
 
         previous_winning_matchups = (
@@ -40,7 +39,7 @@ def update_roster_stats():
         db.session.add(matchup_record)
         db.session.commit()
 
-        getMatchups()
+        get_league_matchups()
         get_last_week_roster()
 
         predict()

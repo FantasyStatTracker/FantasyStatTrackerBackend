@@ -1,26 +1,14 @@
-from collections import namedtuple
-from tokenize import Name
-from typing import Match
-from flask import Blueprint, request, jsonify
-from flask.signals import request_tearing_down
+import logging
+from flask import Blueprint
 from flask_cors import cross_origin
-import json
-import requests
-from HelperMethods.helper import getTeamMap
-from Variables.TokenRefresh import lg, apiKey
-from .FullData import test
-from .WinningMatchup import winning, get_wins
-from .RelevantData import get_last_week_roster
-from HelperMethods.helper import getMatchups
-from .Prediction import TeamMap, predict
+from HelperMethods.helper import get_team_map
+from Variables.TokenRefresh import lg
+from Model.variable import MatchupHistory
 
-
-Api_Blueprint = Blueprint("Api", __name__)
-
-from Model.variable import MatchupHistory, db
+Api = Blueprint("Api", __name__)
 
 # todo: Needs a lot of work
-@Api_Blueprint.route("/streak", methods=["GET"])  # winning
+@Api.route("/streak", methods=["GET"])  # winning
 @cross_origin()
 def update_roster_stats():
 
@@ -28,6 +16,7 @@ def update_roster_stats():
     if not skipAll:
 
         def edit_team_name(name) -> str:
+
             if name == "Badedayo" or name == "More Dead":
                 return "Dead"
             elif name == "Bandemic P":
@@ -227,9 +216,9 @@ def update_roster_stats():
             },
         }
 
-        teamKey = getTeamMap()
+        teamKey = get_team_map()
 
-        for team in getTeamMap():
+        for team in get_team_map():
             Matchup[13][teamKey[team]] = teamKey[lg.to_team(team).matchup(13)]
 
         Streak = {}
@@ -293,7 +282,8 @@ def update_roster_stats():
                                 Streak[team]["L"] = 0
                                 found = True
                                 break
-                    except:
+                    except Exception as e:
+                        logging.exception(e.__class__.__name__)
                         break
                 if not found:
                     team = edit_team_name(team)
@@ -316,4 +306,3 @@ def update_roster_stats():
     }
 
     return Streak
-
