@@ -1,5556 +1,1532 @@
 Sched = {
     "April": {
         "2022-04-01": [
-            [
-                "TOR",
-                "ORL"
-            ],
-            [
-                "DAL",
-                "WAS"
-            ],
-            [
-                "IND",
-                "BOS"
-            ],
-            [
-                "SAC",
-                "HOU"
-            ],
-            [
-                "PHX",
-                "MEM"
-            ],
-            [
-                "LAC",
-                "MIL"
-            ],
-            [
-                "DET",
-                "OKC"
-            ],
-            [
-                "POR",
-                "SAS"
-            ],
-            [
-                "MIN",
-                "DEN"
-            ],
-            [
-                "NOP",
-                "LAL"
-            ]
+            ["TOR", "ORL"],
+            ["DAL", "WAS"],
+            ["IND", "BOS"],
+            ["SAC", "HOU"],
+            ["PHX", "MEM"],
+            ["LAC", "MIL"],
+            ["DET", "OKC"],
+            ["POR", "SAS"],
+            ["MIN", "DEN"],
+            ["NOP", "LAL"],
         ],
         "2022-04-02": [
-            [
-                "CHA",
-                "PHI"
-            ],
-            [
-                "CLE",
-                "NYK"
-            ],
-            [
-                "BKN",
-                "ATL"
-            ],
-            [
-                "MIA",
-                "CHI"
-            ],
-            [
-                "UTA",
-                "GSW"
-            ]
+            ["CHA", "PHI"],
+            ["CLE", "NYK"],
+            ["BKN", "ATL"],
+            ["MIA", "CHI"],
+            ["UTA", "GSW"],
         ],
         "2022-04-03": [
-            [
-                "WAS",
-                "BOS"
-            ],
-            [
-                "DAL",
-                "MIL"
-            ],
-            [
-                "DEN",
-                "LAL"
-            ],
-            [
-                "DET",
-                "IND"
-            ],
-            [
-                "PHI",
-                "CLE"
-            ],
-            [
-                "NYK",
-                "ORL"
-            ],
-            [
-                "MIA",
-                "TOR"
-            ],
-            [
-                "MIN",
-                "HOU"
-            ],
-            [
-                "PHX",
-                "OKC"
-            ],
-            [
-                "POR",
-                "SAS"
-            ],
-            [
-                "GSW",
-                "SAC"
-            ],
-            [
-                "NOP",
-                "LAC"
-            ]
+            ["WAS", "BOS"],
+            ["DAL", "MIL"],
+            ["DEN", "LAL"],
+            ["DET", "IND"],
+            ["PHI", "CLE"],
+            ["NYK", "ORL"],
+            ["MIA", "TOR"],
+            ["MIN", "HOU"],
+            ["PHX", "OKC"],
+            ["POR", "SAS"],
+            ["GSW", "SAC"],
+            ["NOP", "LAC"],
         ],
         "2022-04-05": [
-            [
-                "PHI",
-                "IND"
-            ],
-            [
-                "CLE",
-                "ORL"
-            ],
-            [
-                "HOU",
-                "BKN"
-            ],
-            [
-                "CHA",
-                "MIA"
-            ],
-            [
-                "ATL",
-                "TOR"
-            ],
-            [
-                "MIL",
-                "CHI"
-            ],
-            [
-                "WAS",
-                "MIN"
-            ],
-            [
-                "POR",
-                "OKC"
-            ],
-            [
-                "SAS",
-                "DEN"
-            ],
-            [
-                "MEM",
-                "UTA"
-            ],
-            [
-                "NOP",
-                "SAC"
-            ],
-            [
-                "LAL",
-                "PHX"
-            ]
+            ["PHI", "IND"],
+            ["CLE", "ORL"],
+            ["HOU", "BKN"],
+            ["CHA", "MIA"],
+            ["ATL", "TOR"],
+            ["MIL", "CHI"],
+            ["WAS", "MIN"],
+            ["POR", "OKC"],
+            ["SAS", "DEN"],
+            ["MEM", "UTA"],
+            ["NOP", "SAC"],
+            ["LAL", "PHX"],
         ],
         "2022-04-06": [
-            [
-                "DAL",
-                "DET"
-            ],
-            [
-                "BKN",
-                "NYK"
-            ],
-            [
-                "WAS",
-                "ATL"
-            ],
-            [
-                "BOS",
-                "CHI"
-            ],
-            [
-                "OKC",
-                "UTA"
-            ],
-            [
-                "PHX",
-                "LAC"
-            ]
+            ["DAL", "DET"],
+            ["BKN", "NYK"],
+            ["WAS", "ATL"],
+            ["BOS", "CHI"],
+            ["OKC", "UTA"],
+            ["PHX", "LAC"],
         ],
         "2022-04-07": [
-            [
-                "ORL",
-                "CHA"
-            ],
-            [
-                "PHI",
-                "TOR"
-            ],
-            [
-                "BOS",
-                "MIL"
-            ],
-            [
-                "SAS",
-                "MIN"
-            ],
-            [
-                "POR",
-                "NOP"
-            ],
-            [
-                "MEM",
-                "DEN"
-            ],
-            [
-                "LAL",
-                "GSW"
-            ]
+            ["ORL", "CHA"],
+            ["PHI", "TOR"],
+            ["BOS", "MIL"],
+            ["SAS", "MIN"],
+            ["POR", "NOP"],
+            ["MEM", "DEN"],
+            ["LAL", "GSW"],
         ],
         "2022-04-08": [
-            [
-                "MIL",
-                "DET"
-            ],
-            [
-                "NYK",
-                "WAS"
-            ],
-            [
-                "CLE",
-                "BKN"
-            ],
-            [
-                "HOU",
-                "TOR"
-            ],
-            [
-                "ATL",
-                "MIA"
-            ],
-            [
-                "CHA",
-                "CHI"
-            ],
-            [
-                "POR",
-                "DAL"
-            ],
-            [
-                "PHX",
-                "UTA"
-            ],
-            [
-                "OKC",
-                "LAL"
-            ]
+            ["MIL", "DET"],
+            ["NYK", "WAS"],
+            ["CLE", "BKN"],
+            ["HOU", "TOR"],
+            ["ATL", "MIA"],
+            ["CHA", "CHI"],
+            ["POR", "DAL"],
+            ["PHX", "UTA"],
+            ["OKC", "LAL"],
         ],
-        "2022-04-09": [
-            [
-                "SAC",
-                "LAC"
-            ],
-            [
-                "NOP",
-                "MEM"
-            ],
-            [
-                "IND",
-                "PHI"
-            ],
-            [
-                "GSW",
-                "SAS"
-            ]
-        ],
+        "2022-04-09": [["SAC", "LAC"], ["NOP", "MEM"], ["IND", "PHI"], ["GSW", "SAS"]],
         "2022-04-10": [
-            [
-                "IND",
-                "BKN"
-            ],
-            [
-                "WAS",
-                "CHA"
-            ],
-            [
-                "MIL",
-                "CLE"
-            ],
-            [
-                "SAS",
-                "DAL"
-            ],
-            [
-                "LAL",
-                "DEN"
-            ],
-            [
-                "ATL",
-                "HOU"
-            ],
-            [
-                "OKC",
-                "LAC"
-            ],
-            [
-                "BOS",
-                "MEM"
-            ],
-            [
-                "CHI",
-                "MIN"
-            ],
-            [
-                "GSW",
-                "NOP"
-            ],
-            [
-                "TOR",
-                "NYK"
-            ],
-            [
-                "MIA",
-                "ORL"
-            ],
-            [
-                "DET",
-                "PHI"
-            ],
-            [
-                "SAC",
-                "PHX"
-            ],
-            [
-                "UTA",
-                "POR"
-            ]
-        ]
+            ["IND", "BKN"],
+            ["WAS", "CHA"],
+            ["MIL", "CLE"],
+            ["SAS", "DAL"],
+            ["LAL", "DEN"],
+            ["ATL", "HOU"],
+            ["OKC", "LAC"],
+            ["BOS", "MEM"],
+            ["CHI", "MIN"],
+            ["GSW", "NOP"],
+            ["TOR", "NYK"],
+            ["MIA", "ORL"],
+            ["DET", "PHI"],
+            ["SAC", "PHX"],
+            ["UTA", "POR"],
+        ],
     },
     "December": {
         "2021-12-01": [
-            [
-                "ATL",
-                "IND"
-            ],
-            [
-                "DEN",
-                "ORL"
-            ],
-            [
-                "MIN",
-                "WAS"
-            ],
-            [
-                "PHI",
-                "BOS"
-            ],
-            [
-                "CLE",
-                "MIA"
-            ],
-            [
-                "CHA",
-                "MIL"
-            ],
-            [
-                "DAL",
-                "NOP"
-            ],
-            [
-                "HOU",
-                "OKC"
-            ],
-            [
-                "SAC",
-                "LAC"
-            ]
+            ["ATL", "IND"],
+            ["DEN", "ORL"],
+            ["MIN", "WAS"],
+            ["PHI", "BOS"],
+            ["CLE", "MIA"],
+            ["CHA", "MIL"],
+            ["DAL", "NOP"],
+            ["HOU", "OKC"],
+            ["SAC", "LAC"],
         ],
         "2021-12-02": [
-            [
-                "CHI",
-                "NYK"
-            ],
-            [
-                "MIL",
-                "TOR"
-            ],
-            [
-                "OKC",
-                "MEM"
-            ],
-            [
-                "DET",
-                "PHX"
-            ],
-            [
-                "SAS",
-                "POR"
-            ]
+            ["CHI", "NYK"],
+            ["MIL", "TOR"],
+            ["OKC", "MEM"],
+            ["DET", "PHX"],
+            ["SAS", "POR"],
         ],
         "2021-12-03": [
-            [
-                "MIA",
-                "IND"
-            ],
-            [
-                "CLE",
-                "WAS"
-            ],
-            [
-                "PHI",
-                "ATL"
-            ],
-            [
-                "MIN",
-                "BKN"
-            ],
-            [
-                "ORL",
-                "HOU"
-            ],
-            [
-                "NOP",
-                "DAL"
-            ],
-            [
-                "BOS",
-                "UTA"
-            ],
-            [
-                "PHX",
-                "GSW"
-            ],
-            [
-                "LAC",
-                "LAL"
-            ]
+            ["MIA", "IND"],
+            ["CLE", "WAS"],
+            ["PHI", "ATL"],
+            ["MIN", "BKN"],
+            ["ORL", "HOU"],
+            ["NOP", "DAL"],
+            ["BOS", "UTA"],
+            ["PHX", "GSW"],
+            ["LAC", "LAL"],
         ],
         "2021-12-04": [
-            [
-                "DEN",
-                "NYK"
-            ],
-            [
-                "CHI",
-                "BKN"
-            ],
-            [
-                "MIA",
-                "MIL"
-            ],
-            [
-                "MEM",
-                "DAL"
-            ],
-            [
-                "SAS",
-                "GSW"
-            ],
-            [
-                "BOS",
-                "POR"
-            ],
-            [
-                "LAC",
-                "SAC"
-            ]
+            ["DEN", "NYK"],
+            ["CHI", "BKN"],
+            ["MIA", "MIL"],
+            ["MEM", "DAL"],
+            ["SAS", "GSW"],
+            ["BOS", "POR"],
+            ["LAC", "SAC"],
         ],
-        "2021-12-05": [
-            [
-                "UTA",
-                "CLE"
-            ],
-            [
-                "CHA",
-                "ATL"
-            ],
-            [
-                "WAS",
-                "TOR"
-            ],
-            [
-                "NOP",
-                "HOU"
-            ]
-        ],
+        "2021-12-05": [["UTA", "CLE"], ["CHA", "ATL"], ["WAS", "TOR"], ["NOP", "HOU"]],
         "2021-12-06": [
-            [
-                "PHI",
-                "CHA"
-            ],
-            [
-                "OKC",
-                "DET"
-            ],
-            [
-                "WAS",
-                "IND"
-            ],
-            [
-                "MEM",
-                "MIA"
-            ],
-            [
-                "DEN",
-                "CHI"
-            ],
-            [
-                "CLE",
-                "MIL"
-            ],
-            [
-                "ATL",
-                "MIN"
-            ],
-            [
-                "SAS",
-                "PHX"
-            ],
-            [
-                "ORL",
-                "GSW"
-            ],
-            [
-                "LAC",
-                "POR"
-            ]
+            ["PHI", "CHA"],
+            ["OKC", "DET"],
+            ["WAS", "IND"],
+            ["MEM", "MIA"],
+            ["DEN", "CHI"],
+            ["CLE", "MIL"],
+            ["ATL", "MIN"],
+            ["SAS", "PHX"],
+            ["ORL", "GSW"],
+            ["LAC", "POR"],
         ],
-        "2021-12-07": [
-            [
-                "BKN",
-                "DAL"
-            ],
-            [
-                "NYK",
-                "SAS"
-            ],
-            [
-                "BOS",
-                "LAL"
-            ]
-        ],
+        "2021-12-07": [["BKN", "DAL"], ["NYK", "SAS"], ["BOS", "LAL"]],
         "2021-12-08": [
-            [
-                "PHI",
-                "CHA"
-            ],
-            [
-                "CHI",
-                "CLE"
-            ],
-            [
-                "WAS",
-                "DET"
-            ],
-            [
-                "NYK",
-                "IND"
-            ],
-            [
-                "MIL",
-                "MIA"
-            ],
-            [
-                "OKC",
-                "TOR"
-            ],
-            [
-                "BKN",
-                "HOU"
-            ],
-            [
-                "DAL",
-                "MEM"
-            ],
-            [
-                "UTA",
-                "MIN"
-            ],
-            [
-                "DEN",
-                "NOP"
-            ],
-            [
-                "POR",
-                "GSW"
-            ],
-            [
-                "ORL",
-                "SAC"
-            ],
-            [
-                "BOS",
-                "LAC"
-            ]
+            ["PHI", "CHA"],
+            ["CHI", "CLE"],
+            ["WAS", "DET"],
+            ["NYK", "IND"],
+            ["MIL", "MIA"],
+            ["OKC", "TOR"],
+            ["BKN", "HOU"],
+            ["DAL", "MEM"],
+            ["UTA", "MIN"],
+            ["DEN", "NOP"],
+            ["POR", "GSW"],
+            ["ORL", "SAC"],
+            ["BOS", "LAC"],
         ],
-        "2021-12-09": [
-            [
-                "UTA",
-                "PHI"
-            ],
-            [
-                "LAL",
-                "MEM"
-            ],
-            [
-                "DEN",
-                "SAS"
-            ]
-        ],
+        "2021-12-09": [["UTA", "PHI"], ["LAL", "MEM"], ["DEN", "SAS"]],
         "2021-12-10": [
-            [
-                "SAC",
-                "CHA"
-            ],
-            [
-                "DAL",
-                "IND"
-            ],
-            [
-                "BKN",
-                "ATL"
-            ],
-            [
-                "NYK",
-                "TOR"
-            ],
-            [
-                "MIL",
-                "HOU"
-            ],
-            [
-                "CLE",
-                "MIN"
-            ],
-            [
-                "DET",
-                "NOP"
-            ],
-            [
-                "LAL",
-                "OKC"
-            ],
-            [
-                "BOS",
-                "PHX"
-            ]
+            ["SAC", "CHA"],
+            ["DAL", "IND"],
+            ["BKN", "ATL"],
+            ["NYK", "TOR"],
+            ["MIL", "HOU"],
+            ["CLE", "MIN"],
+            ["DET", "NOP"],
+            ["LAL", "OKC"],
+            ["BOS", "PHX"],
         ],
         "2021-12-11": [
-            [
-                "ORL",
-                "LAC"
-            ],
-            [
-                "UTA",
-                "WAS"
-            ],
-            [
-                "SAC",
-                "CLE"
-            ],
-            [
-                "CHI",
-                "MIA"
-            ],
-            [
-                "HOU",
-                "MEM"
-            ],
-            [
-                "GSW",
-                "PHI"
-            ],
-            [
-                "DEN",
-                "SAS"
-            ]
+            ["ORL", "LAC"],
+            ["UTA", "WAS"],
+            ["SAC", "CLE"],
+            ["CHI", "MIA"],
+            ["HOU", "MEM"],
+            ["GSW", "PHI"],
+            ["DEN", "SAS"],
         ],
         "2021-12-12": [
-            [
-                "MIL",
-                "NYK"
-            ],
-            [
-                "BKN",
-                "DET"
-            ],
-            [
-                "DAL",
-                "OKC"
-            ],
-            [
-                "NOP",
-                "SAS"
-            ],
-            [
-                "MIN",
-                "POR"
-            ],
-            [
-                "ORL",
-                "LAL"
-            ]
+            ["MIL", "NYK"],
+            ["BKN", "DET"],
+            ["DAL", "OKC"],
+            ["NOP", "SAS"],
+            ["MIN", "POR"],
+            ["ORL", "LAL"],
         ],
         "2021-12-13": [
-            [
-                "MIA",
-                "CLE"
-            ],
-            [
-                "GSW",
-                "IND"
-            ],
-            [
-                "SAC",
-                "TOR"
-            ],
-            [
-                "HOU",
-                "ATL"
-            ],
-            [
-                "MIL",
-                "BOS"
-            ],
-            [
-                "PHI",
-                "MEM"
-            ],
-            [
-                "CHA",
-                "DAL"
-            ],
-            [
-                "WAS",
-                "DEN"
-            ],
-            [
-                "PHX",
-                "LAC"
-            ]
+            ["MIA", "CLE"],
+            ["GSW", "IND"],
+            ["SAC", "TOR"],
+            ["HOU", "ATL"],
+            ["MIL", "BOS"],
+            ["PHI", "MEM"],
+            ["CHA", "DAL"],
+            ["WAS", "DEN"],
+            ["PHX", "LAC"],
         ],
-        "2021-12-14": [
-            [
-                "TOR",
-                "BKN"
-            ],
-            [
-                "GSW",
-                "NYK"
-            ],
-            [
-                "DET",
-                "CHI"
-            ],
-            [
-                "PHX",
-                "POR"
-            ]
-        ],
+        "2021-12-14": [["TOR", "BKN"], ["GSW", "NYK"], ["DET", "CHI"], ["PHX", "POR"]],
         "2021-12-15": [
-            [
-                "HOU",
-                "CLE"
-            ],
-            [
-                "ATL",
-                "ORL"
-            ],
-            [
-                "MIA",
-                "PHI"
-            ],
-            [
-                "LAL",
-                "DAL"
-            ],
-            [
-                "IND",
-                "MIL"
-            ],
-            [
-                "NOP",
-                "OKC"
-            ],
-            [
-                "CHA",
-                "SAS"
-            ],
-            [
-                "MIN",
-                "DEN"
-            ],
-            [
-                "LAC",
-                "UTA"
-            ],
-            [
-                "MEM",
-                "POR"
-            ],
-            [
-                "WAS",
-                "SAC"
-            ]
+            ["HOU", "CLE"],
+            ["ATL", "ORL"],
+            ["MIA", "PHI"],
+            ["LAL", "DAL"],
+            ["IND", "MIL"],
+            ["NOP", "OKC"],
+            ["CHA", "SAS"],
+            ["MIN", "DEN"],
+            ["LAC", "UTA"],
+            ["MEM", "POR"],
+            ["WAS", "SAC"],
         ],
         "2021-12-16": [
-            [
-                "DET",
-                "IND"
-            ],
-            [
-                "PHI",
-                "BKN"
-            ],
-            [
-                "CHI",
-                "TOR"
-            ],
-            [
-                "NYK",
-                "HOU"
-            ],
-            [
-                "WAS",
-                "PHX"
-            ]
+            ["DET", "IND"],
+            ["PHI", "BKN"],
+            ["CHI", "TOR"],
+            ["NYK", "HOU"],
+            ["WAS", "PHX"],
         ],
         "2021-12-17": [
-            [
-                "MIA",
-                "ORL"
-            ],
-            [
-                "DEN",
-                "ATL"
-            ],
-            [
-                "GSW",
-                "BOS"
-            ],
-            [
-                "LAL",
-                "MIN"
-            ],
-            [
-                "SAS",
-                "UTA"
-            ],
-            [
-                "MIL",
-                "NOP"
-            ],
-            [
-                "CHA",
-                "POR"
-            ],
-            [
-                "MEM",
-                "SAC"
-            ]
+            ["MIA", "ORL"],
+            ["DEN", "ATL"],
+            ["GSW", "BOS"],
+            ["LAL", "MIN"],
+            ["SAS", "UTA"],
+            ["MIL", "NOP"],
+            ["CHA", "POR"],
+            ["MEM", "SAC"],
         ],
         "2021-12-18": [
-            [
-                "HOU",
-                "DET"
-            ],
-            [
-                "ORL",
-                "BKN"
-            ],
-            [
-                "GSW",
-                "TOR"
-            ],
-            [
-                "LAC",
-                "OKC"
-            ],
-            [
-                "NYK",
-                "BOS"
-            ],
-            [
-                "CLE",
-                "MIL"
-            ],
-            [
-                "WAS",
-                "UTA"
-            ]
+            ["HOU", "DET"],
+            ["ORL", "BKN"],
+            ["GSW", "TOR"],
+            ["LAC", "OKC"],
+            ["NYK", "BOS"],
+            ["CLE", "MIL"],
+            ["WAS", "UTA"],
         ],
         "2021-12-19": [
-            [
-                "LAL",
-                "CHI"
-            ],
-            [
-                "MIA",
-                "DET"
-            ],
-            [
-                "POR",
-                "MEM"
-            ],
-            [
-                "SAS",
-                "SAC"
-            ],
-            [
-                "CLE",
-                "ATL"
-            ],
-            [
-                "DEN",
-                "BKN"
-            ],
-            [
-                "NOP",
-                "PHI"
-            ],
-            [
-                "DAL",
-                "MIN"
-            ],
-            [
-                "CHA",
-                "PHX"
-            ]
+            ["LAL", "CHI"],
+            ["MIA", "DET"],
+            ["POR", "MEM"],
+            ["SAS", "SAC"],
+            ["CLE", "ATL"],
+            ["DEN", "BKN"],
+            ["NOP", "PHI"],
+            ["DAL", "MIN"],
+            ["CHA", "PHX"],
         ],
         "2021-12-20": [
-            [
-                "PHI",
-                "BOS"
-            ],
-            [
-                "ORL",
-                "TOR"
-            ],
-            [
-                "HOU",
-                "CHI"
-            ],
-            [
-                "OKC",
-                "MEM"
-            ],
-            [
-                "CHA",
-                "UTA"
-            ],
-            [
-                "SAC",
-                "GSW"
-            ],
-            [
-                "SAS",
-                "LAC"
-            ]
+            ["PHI", "BOS"],
+            ["ORL", "TOR"],
+            ["HOU", "CHI"],
+            ["OKC", "MEM"],
+            ["CHA", "UTA"],
+            ["SAC", "GSW"],
+            ["SAS", "LAC"],
         ],
         "2021-12-21": [
-            [
-                "WAS",
-                "BKN"
-            ],
-            [
-                "IND",
-                "MIA"
-            ],
-            [
-                "DET",
-                "NYK"
-            ],
-            [
-                "POR",
-                "NOP"
-            ],
-            [
-                "MIN",
-                "DAL"
-            ],
-            [
-                "PHX",
-                "LAL"
-            ]
+            ["WAS", "BKN"],
+            ["IND", "MIA"],
+            ["DET", "NYK"],
+            ["POR", "NOP"],
+            ["MIN", "DAL"],
+            ["PHX", "LAL"],
         ],
         "2021-12-22": [
-            [
-                "ORL",
-                "ATL"
-            ],
-            [
-                "CLE",
-                "BOS"
-            ],
-            [
-                "TOR",
-                "CHI"
-            ],
-            [
-                "HOU",
-                "MIL"
-            ],
-            [
-                "DEN",
-                "OKC"
-            ],
-            [
-                "LAC",
-                "SAC"
-            ]
+            ["ORL", "ATL"],
+            ["CLE", "BOS"],
+            ["TOR", "CHI"],
+            ["HOU", "MIL"],
+            ["DEN", "OKC"],
+            ["LAC", "SAC"],
         ],
         "2021-12-23": [
-            [
-                "HOU",
-                "IND"
-            ],
-            [
-                "NOP",
-                "ORL"
-            ],
-            [
-                "ATL",
-                "PHI"
-            ],
-            [
-                "DET",
-                "MIA"
-            ],
-            [
-                "WAS",
-                "NYK"
-            ],
-            [
-                "MIL",
-                "DAL"
-            ],
-            [
-                "CHA",
-                "DEN"
-            ],
-            [
-                "OKC",
-                "PHX"
-            ],
-            [
-                "MIN",
-                "UTA"
-            ],
-            [
-                "MEM",
-                "GSW"
-            ],
-            [
-                "BKN",
-                "POR"
-            ],
-            [
-                "SAS",
-                "LAL"
-            ]
+            ["HOU", "IND"],
+            ["NOP", "ORL"],
+            ["ATL", "PHI"],
+            ["DET", "MIA"],
+            ["WAS", "NYK"],
+            ["MIL", "DAL"],
+            ["CHA", "DEN"],
+            ["OKC", "PHX"],
+            ["MIN", "UTA"],
+            ["MEM", "GSW"],
+            ["BKN", "POR"],
+            ["SAS", "LAL"],
         ],
         "2021-12-25": [
-            [
-                "ATL",
-                "NYK"
-            ],
-            [
-                "BOS",
-                "MIL"
-            ],
-            [
-                "GSW",
-                "PHX"
-            ],
-            [
-                "BKN",
-                "LAL"
-            ],
-            [
-                "DAL",
-                "UTA"
-            ]
+            ["ATL", "NYK"],
+            ["BOS", "MIL"],
+            ["GSW", "PHX"],
+            ["BKN", "LAL"],
+            ["DAL", "UTA"],
         ],
         "2021-12-26": [
-            [
-                "ORL",
-                "MIA"
-            ],
-            [
-                "TOR",
-                "CLE"
-            ],
-            [
-                "PHI",
-                "WAS"
-            ],
-            [
-                "MEM",
-                "SAC"
-            ],
-            [
-                "NOP",
-                "OKC"
-            ],
-            [
-                "DET",
-                "SAS"
-            ],
-            [
-                "IND",
-                "CHI"
-            ],
-            [
-                "DEN",
-                "LAC"
-            ]
+            ["ORL", "MIA"],
+            ["TOR", "CLE"],
+            ["PHI", "WAS"],
+            ["MEM", "SAC"],
+            ["NOP", "OKC"],
+            ["DET", "SAS"],
+            ["IND", "CHI"],
+            ["DEN", "LAC"],
         ],
         "2021-12-27": [
-            [
-                "HOU",
-                "CHA"
-            ],
-            [
-                "CHI",
-                "ATL"
-            ],
-            [
-                "BOS",
-                "MIN"
-            ],
-            [
-                "UTA",
-                "SAS"
-            ],
-            [
-                "MEM",
-                "PHX"
-            ],
-            [
-                "DAL",
-                "POR"
-            ],
-            [
-                "BKN",
-                "LAC"
-            ]
+            ["HOU", "CHA"],
+            ["CHI", "ATL"],
+            ["BOS", "MIN"],
+            ["UTA", "SAS"],
+            ["MEM", "PHX"],
+            ["DAL", "POR"],
+            ["BKN", "LAC"],
         ],
         "2021-12-28": [
-            [
-                "MIL",
-                "ORL"
-            ],
-            [
-                "WAS",
-                "MIA"
-            ],
-            [
-                "PHI",
-                "TOR"
-            ],
-            [
-                "LAL",
-                "HOU"
-            ],
-            [
-                "NYK",
-                "MIN"
-            ],
-            [
-                "CLE",
-                "NOP"
-            ],
-            [
-                "DEN",
-                "GSW"
-            ],
-            [
-                "OKC",
-                "SAC"
-            ]
+            ["MIL", "ORL"],
+            ["WAS", "MIA"],
+            ["PHI", "TOR"],
+            ["LAL", "HOU"],
+            ["NYK", "MIN"],
+            ["CLE", "NOP"],
+            ["DEN", "GSW"],
+            ["OKC", "SAC"],
         ],
         "2021-12-29": [
-            [
-                "NYK",
-                "DET"
-            ],
-            [
-                "CHA",
-                "IND"
-            ],
-            [
-                "LAC",
-                "BOS"
-            ],
-            [
-                "ATL",
-                "CHI"
-            ],
-            [
-                "LAL",
-                "MEM"
-            ],
-            [
-                "MIA",
-                "SAS"
-            ],
-            [
-                "OKC",
-                "PHX"
-            ],
-            [
-                "UTA",
-                "POR"
-            ],
-            [
-                "DAL",
-                "SAC"
-            ]
+            ["NYK", "DET"],
+            ["CHA", "IND"],
+            ["LAC", "BOS"],
+            ["ATL", "CHI"],
+            ["LAL", "MEM"],
+            ["MIA", "SAS"],
+            ["OKC", "PHX"],
+            ["UTA", "POR"],
+            ["DAL", "SAC"],
         ],
-        "2021-12-30": [
-            [
-                "PHI",
-                "BKN"
-            ],
-            [
-                "MIL",
-                "ORL"
-            ],
-            [
-                "CLE",
-                "WAS"
-            ],
-            [
-                "GSW",
-                "DEN"
-            ]
-        ],
+        "2021-12-30": [["PHI", "BKN"], ["MIL", "ORL"], ["CLE", "WAS"], ["GSW", "DEN"]],
         "2021-12-31": [
-            [
-                "PHX",
-                "BOS"
-            ],
-            [
-                "CHI",
-                "IND"
-            ],
-            [
-                "DAL",
-                "SAC"
-            ],
-            [
-                "MIA",
-                "HOU"
-            ],
-            [
-                "ATL",
-                "CLE"
-            ],
-            [
-                "LAC",
-                "TOR"
-            ],
-            [
-                "SAS",
-                "MEM"
-            ],
-            [
-                "NYK",
-                "OKC"
-            ],
-            [
-                "MIN",
-                "UTA"
-            ],
-            [
-                "POR",
-                "LAL"
-            ]
-        ]
+            ["PHX", "BOS"],
+            ["CHI", "IND"],
+            ["DAL", "SAC"],
+            ["MIA", "HOU"],
+            ["ATL", "CLE"],
+            ["LAC", "TOR"],
+            ["SAS", "MEM"],
+            ["NYK", "OKC"],
+            ["MIN", "UTA"],
+            ["POR", "LAL"],
+        ],
     },
     "February": {
         "2022-02-01": [
-            [
-                "NOP",
-                "DET"
-            ],
-            [
-                "TOR",
-                "ATL"
-            ],
-            [
-                "WAS",
-                "MIL"
-            ],
-            [
-                "ORL",
-                "CHI"
-            ],
-            [
-                "DEN",
-                "MIN"
-            ],
-            [
-                "GSW",
-                "SAS"
-            ],
-            [
-                "BKN",
-                "PHX"
-            ]
+            ["NOP", "DET"],
+            ["TOR", "ATL"],
+            ["WAS", "MIL"],
+            ["ORL", "CHI"],
+            ["DEN", "MIN"],
+            ["GSW", "SAS"],
+            ["BKN", "PHX"],
         ],
         "2022-02-02": [
-            [
-                "ORL",
-                "IND"
-            ],
-            [
-                "WAS",
-                "PHI"
-            ],
-            [
-                "CHA",
-                "BOS"
-            ],
-            [
-                "MEM",
-                "NYK"
-            ],
-            [
-                "CLE",
-                "HOU"
-            ],
-            [
-                "OKC",
-                "DAL"
-            ],
-            [
-                "DEN",
-                "UTA"
-            ],
-            [
-                "BKN",
-                "SAC"
-            ],
-            [
-                "POR",
-                "LAL"
-            ]
+            ["ORL", "IND"],
+            ["WAS", "PHI"],
+            ["CHA", "BOS"],
+            ["MEM", "NYK"],
+            ["CLE", "HOU"],
+            ["OKC", "DAL"],
+            ["DEN", "UTA"],
+            ["BKN", "SAC"],
+            ["POR", "LAL"],
         ],
         "2022-02-03": [
-            [
-                "MIN",
-                "DET"
-            ],
-            [
-                "PHX",
-                "ATL"
-            ],
-            [
-                "MIA",
-                "TOR"
-            ],
-            [
-                "SAC",
-                "GSW"
-            ],
-            [
-                "LAL",
-                "LAC"
-            ]
+            ["MIN", "DET"],
+            ["PHX", "ATL"],
+            ["MIA", "TOR"],
+            ["SAC", "GSW"],
+            ["LAL", "LAC"],
         ],
         "2022-02-04": [
-            [
-                "CLE",
-                "CHA"
-            ],
-            [
-                "BOS",
-                "DET"
-            ],
-            [
-                "CHI",
-                "IND"
-            ],
-            [
-                "ATL",
-                "TOR"
-            ],
-            [
-                "PHI",
-                "DAL"
-            ],
-            [
-                "HOU",
-                "SAS"
-            ],
-            [
-                "BKN",
-                "UTA"
-            ],
-            [
-                "NOP",
-                "DEN"
-            ],
-            [
-                "OKC",
-                "POR"
-            ]
+            ["CLE", "CHA"],
+            ["BOS", "DET"],
+            ["CHI", "IND"],
+            ["ATL", "TOR"],
+            ["PHI", "DAL"],
+            ["HOU", "SAS"],
+            ["BKN", "UTA"],
+            ["NOP", "DEN"],
+            ["OKC", "POR"],
         ],
         "2022-02-05": [
-            [
-                "MEM",
-                "ORL"
-            ],
-            [
-                "MIA",
-                "CHA"
-            ],
-            [
-                "PHX",
-                "WAS"
-            ],
-            [
-                "NYK",
-                "LAL"
-            ],
-            [
-                "MIL",
-                "POR"
-            ],
-            [
-                "OKC",
-                "SAC"
-            ]
+            ["MEM", "ORL"],
+            ["MIA", "CHA"],
+            ["PHX", "WAS"],
+            ["NYK", "LAL"],
+            ["MIL", "POR"],
+            ["OKC", "SAC"],
         ],
         "2022-02-06": [
-            [
-                "PHI",
-                "CHI"
-            ],
-            [
-                "DET",
-                "MIN"
-            ],
-            [
-                "BKN",
-                "DEN"
-            ],
-            [
-                "IND",
-                "CLE"
-            ],
-            [
-                "BOS",
-                "ORL"
-            ],
-            [
-                "ATL",
-                "DAL"
-            ],
-            [
-                "NOP",
-                "HOU"
-            ],
-            [
-                "MIL",
-                "LAC"
-            ]
+            ["PHI", "CHI"],
+            ["DET", "MIN"],
+            ["BKN", "DEN"],
+            ["IND", "CLE"],
+            ["BOS", "ORL"],
+            ["ATL", "DAL"],
+            ["NOP", "HOU"],
+            ["MIL", "LAC"],
         ],
         "2022-02-07": [
-            [
-                "TOR",
-                "CHA"
-            ],
-            [
-                "MIA",
-                "WAS"
-            ],
-            [
-                "PHX",
-                "CHI"
-            ],
-            [
-                "GSW",
-                "OKC"
-            ],
-            [
-                "NYK",
-                "UTA"
-            ]
+            ["TOR", "CHA"],
+            ["MIA", "WAS"],
+            ["PHX", "CHI"],
+            ["GSW", "OKC"],
+            ["NYK", "UTA"],
         ],
         "2022-02-08": [
-            [
-                "PHX",
-                "PHI"
-            ],
-            [
-                "IND",
-                "ATL"
-            ],
-            [
-                "BOS",
-                "BKN"
-            ],
-            [
-                "LAC",
-                "MEM"
-            ],
-            [
-                "HOU",
-                "NOP"
-            ],
-            [
-                "DET",
-                "DAL"
-            ],
-            [
-                "NYK",
-                "DEN"
-            ],
-            [
-                "MIL",
-                "LAL"
-            ],
-            [
-                "ORL",
-                "POR"
-            ],
-            [
-                "MIN",
-                "SAC"
-            ]
+            ["PHX", "PHI"],
+            ["IND", "ATL"],
+            ["BOS", "BKN"],
+            ["LAC", "MEM"],
+            ["HOU", "NOP"],
+            ["DET", "DAL"],
+            ["NYK", "DEN"],
+            ["MIL", "LAL"],
+            ["ORL", "POR"],
+            ["MIN", "SAC"],
         ],
         "2022-02-09": [
-            [
-                "SAS",
-                "CLE"
-            ],
-            [
-                "CHI",
-                "CHA"
-            ],
-            [
-                "TOR",
-                "OKC"
-            ],
-            [
-                "GSW",
-                "UTA"
-            ],
-            [
-                "LAL",
-                "POR"
-            ],
-            [
-                "MIN",
-                "SAC"
-            ]
+            ["SAS", "CLE"],
+            ["CHI", "CHA"],
+            ["TOR", "OKC"],
+            ["GSW", "UTA"],
+            ["LAL", "POR"],
+            ["MIN", "SAC"],
         ],
         "2022-02-10": [
-            [
-                "MEM",
-                "DET"
-            ],
-            [
-                "BKN",
-                "WAS"
-            ],
-            [
-                "MIA",
-                "NOP"
-            ],
-            [
-                "TOR",
-                "HOU"
-            ],
-            [
-                "LAC",
-                "DAL"
-            ],
-            [
-                "MIL",
-                "PHX"
-            ],
-            [
-                "NYK",
-                "GSW"
-            ]
+            ["MEM", "DET"],
+            ["BKN", "WAS"],
+            ["MIA", "NOP"],
+            ["TOR", "HOU"],
+            ["LAC", "DAL"],
+            ["MIL", "PHX"],
+            ["NYK", "GSW"],
         ],
         "2022-02-11": [
-            [
-                "CHA",
-                "DET"
-            ],
-            [
-                "CLE",
-                "IND"
-            ],
-            [
-                "OKC",
-                "PHI"
-            ],
-            [
-                "SAS",
-                "ATL"
-            ],
-            [
-                "DEN",
-                "BOS"
-            ],
-            [
-                "MIN",
-                "CHI"
-            ],
-            [
-                "ORL",
-                "UTA"
-            ]
+            ["CHA", "DET"],
+            ["CLE", "IND"],
+            ["OKC", "PHI"],
+            ["SAS", "ATL"],
+            ["DEN", "BOS"],
+            ["MIN", "CHI"],
+            ["ORL", "UTA"],
         ],
         "2022-02-12": [
-            [
-                "NYK",
-                "POR"
-            ],
-            [
-                "MEM",
-                "CHA"
-            ],
-            [
-                "SAC",
-                "WAS"
-            ],
-            [
-                "SAS",
-                "NOP"
-            ],
-            [
-                "CLE",
-                "PHI"
-            ],
-            [
-                "DEN",
-                "TOR"
-            ],
-            [
-                "BKN",
-                "MIA"
-            ],
-            [
-                "OKC",
-                "CHI"
-            ],
-            [
-                "LAC",
-                "DAL"
-            ],
-            [
-                "LAL",
-                "GSW"
-            ],
-            [
-                "ORL",
-                "PHX"
-            ]
+            ["NYK", "POR"],
+            ["MEM", "CHA"],
+            ["SAC", "WAS"],
+            ["SAS", "NOP"],
+            ["CLE", "PHI"],
+            ["DEN", "TOR"],
+            ["BKN", "MIA"],
+            ["OKC", "CHI"],
+            ["LAC", "DAL"],
+            ["LAL", "GSW"],
+            ["ORL", "PHX"],
         ],
-        "2022-02-13": [
-            [
-                "ATL",
-                "BOS"
-            ],
-            [
-                "MIN",
-                "IND"
-            ]
-        ],
+        "2022-02-13": [["ATL", "BOS"], ["MIN", "IND"]],
         "2022-02-14": [
-            [
-                "DET",
-                "WAS"
-            ],
-            [
-                "SAC",
-                "BKN"
-            ],
-            [
-                "OKC",
-                "NYK"
-            ],
-            [
-                "SAS",
-                "CHI"
-            ],
-            [
-                "POR",
-                "MIL"
-            ],
-            [
-                "TOR",
-                "NOP"
-            ],
-            [
-                "ORL",
-                "DEN"
-            ],
-            [
-                "HOU",
-                "UTA"
-            ],
-            [
-                "GSW",
-                "LAC"
-            ]
+            ["DET", "WAS"],
+            ["SAC", "BKN"],
+            ["OKC", "NYK"],
+            ["SAS", "CHI"],
+            ["POR", "MIL"],
+            ["TOR", "NOP"],
+            ["ORL", "DEN"],
+            ["HOU", "UTA"],
+            ["GSW", "LAC"],
         ],
         "2022-02-15": [
-            [
-                "CLE",
-                "ATL"
-            ],
-            [
-                "DAL",
-                "MIA"
-            ],
-            [
-                "BOS",
-                "PHI"
-            ],
-            [
-                "IND",
-                "MIL"
-            ],
-            [
-                "CHA",
-                "MIN"
-            ],
-            [
-                "MEM",
-                "NOP"
-            ],
-            [
-                "LAC",
-                "PHX"
-            ]
+            ["CLE", "ATL"],
+            ["DAL", "MIA"],
+            ["BOS", "PHI"],
+            ["IND", "MIL"],
+            ["CHA", "MIN"],
+            ["MEM", "NOP"],
+            ["LAC", "PHX"],
         ],
         "2022-02-16": [
-            [
-                "ATL",
-                "ORL"
-            ],
-            [
-                "DET",
-                "BOS"
-            ],
-            [
-                "WAS",
-                "IND"
-            ],
-            [
-                "BKN",
-                "NYK"
-            ],
-            [
-                "SAC",
-                "CHI"
-            ],
-            [
-                "POR",
-                "MEM"
-            ],
-            [
-                "TOR",
-                "MIN"
-            ],
-            [
-                "SAS",
-                "OKC"
-            ],
-            [
-                "HOU",
-                "PHX"
-            ],
-            [
-                "DEN",
-                "GSW"
-            ],
-            [
-                "UTA",
-                "LAL"
-            ]
+            ["ATL", "ORL"],
+            ["DET", "BOS"],
+            ["WAS", "IND"],
+            ["BKN", "NYK"],
+            ["SAC", "CHI"],
+            ["POR", "MEM"],
+            ["TOR", "MIN"],
+            ["SAS", "OKC"],
+            ["HOU", "PHX"],
+            ["DEN", "GSW"],
+            ["UTA", "LAL"],
         ],
-        "2022-02-17": [
-            [
-                "MIA",
-                "CHA"
-            ],
-            [
-                "DAL",
-                "NOP"
-            ],
-            [
-                "PHI",
-                "MIL"
-            ],
-            [
-                "HOU",
-                "LAC"
-            ]
-        ],
+        "2022-02-17": [["MIA", "CHA"], ["DAL", "NOP"], ["PHI", "MIL"], ["HOU", "LAC"]],
         "2022-02-24": [
-            [
-                "CLE",
-                "DET"
-            ],
-            [
-                "BOS",
-                "BKN"
-            ],
-            [
-                "ATL",
-                "CHI"
-            ],
-            [
-                "MEM",
-                "MIN"
-            ],
-            [
-                "PHX",
-                "OKC"
-            ],
-            [
-                "GSW",
-                "POR"
-            ],
-            [
-                "DEN",
-                "SAC"
-            ]
+            ["CLE", "DET"],
+            ["BOS", "BKN"],
+            ["ATL", "CHI"],
+            ["MEM", "MIN"],
+            ["PHX", "OKC"],
+            ["GSW", "POR"],
+            ["DEN", "SAC"],
         ],
         "2022-02-25": [
-            [
-                "TOR",
-                "CHA"
-            ],
-            [
-                "OKC",
-                "IND"
-            ],
-            [
-                "HOU",
-                "ORL"
-            ],
-            [
-                "SAS",
-                "WAS"
-            ],
-            [
-                "MIA",
-                "NYK"
-            ],
-            [
-                "PHI",
-                "MIN"
-            ],
-            [
-                "NOP",
-                "PHX"
-            ],
-            [
-                "DAL",
-                "UTA"
-            ],
-            [
-                "LAC",
-                "LAL"
-            ]
+            ["TOR", "CHA"],
+            ["OKC", "IND"],
+            ["HOU", "ORL"],
+            ["SAS", "WAS"],
+            ["MIA", "NYK"],
+            ["PHI", "MIN"],
+            ["NOP", "PHX"],
+            ["DAL", "UTA"],
+            ["LAC", "LAL"],
         ],
         "2022-02-26": [
-            [
-                "BOS",
-                "DET"
-            ],
-            [
-                "TOR",
-                "ATL"
-            ],
-            [
-                "WAS",
-                "CLE"
-            ],
-            [
-                "SAS",
-                "MIA"
-            ],
-            [
-                "MEM",
-                "CHI"
-            ],
-            [
-                "BKN",
-                "MIL"
-            ],
-            [
-                "SAC",
-                "DEN"
-            ]
+            ["BOS", "DET"],
+            ["TOR", "ATL"],
+            ["WAS", "CLE"],
+            ["SAS", "MIA"],
+            ["MEM", "CHI"],
+            ["BKN", "MIL"],
+            ["SAC", "DEN"],
         ],
         "2022-02-27": [
-            [
-                "PHI",
-                "NYK"
-            ],
-            [
-                "UTA",
-                "PHX"
-            ],
-            [
-                "BOS",
-                "IND"
-            ],
-            [
-                "DET",
-                "CHA"
-            ],
-            [
-                "LAC",
-                "HOU"
-            ],
-            [
-                "DAL",
-                "GSW"
-            ],
-            [
-                "DEN",
-                "POR"
-            ],
-            [
-                "NOP",
-                "LAL"
-            ]
+            ["PHI", "NYK"],
+            ["UTA", "PHX"],
+            ["BOS", "IND"],
+            ["DET", "CHA"],
+            ["LAC", "HOU"],
+            ["DAL", "GSW"],
+            ["DEN", "POR"],
+            ["NOP", "LAL"],
         ],
         "2022-02-28": [
-            [
-                "MIN",
-                "CLE"
-            ],
-            [
-                "IND",
-                "ORL"
-            ],
-            [
-                "CHI",
-                "MIA"
-            ],
-            [
-                "SAS",
-                "MEM"
-            ],
-            [
-                "CHA",
-                "MIL"
-            ],
-            [
-                "SAC",
-                "OKC"
-            ]
-        ]
+            ["MIN", "CLE"],
+            ["IND", "ORL"],
+            ["CHI", "MIA"],
+            ["SAS", "MEM"],
+            ["CHA", "MIL"],
+            ["SAC", "OKC"],
+        ],
     },
     "January": {
         "2022-01-01": [
-            [
-                "NOP",
-                "MIL"
-            ],
-            [
-                "SAS",
-                "DET"
-            ],
-            [
-                "CHI",
-                "WAS"
-            ],
-            [
-                "LAC",
-                "BKN"
-            ],
-            [
-                "DEN",
-                "HOU"
-            ],
-            [
-                "GSW",
-                "UTA"
-            ]
+            ["NOP", "MIL"],
+            ["SAS", "DET"],
+            ["CHI", "WAS"],
+            ["LAC", "BKN"],
+            ["DEN", "HOU"],
+            ["GSW", "UTA"],
         ],
         "2022-01-02": [
-            [
-                "NYK",
-                "TOR"
-            ],
-            [
-                "ORL",
-                "BOS"
-            ],
-            [
-                "IND",
-                "CLE"
-            ],
-            [
-                "MIA",
-                "SAC"
-            ],
-            [
-                "PHX",
-                "CHA"
-            ],
-            [
-                "DAL",
-                "OKC"
-            ],
-            [
-                "MIN",
-                "LAL"
-            ]
+            ["NYK", "TOR"],
+            ["ORL", "BOS"],
+            ["IND", "CLE"],
+            ["MIA", "SAC"],
+            ["PHX", "CHA"],
+            ["DAL", "OKC"],
+            ["MIN", "LAL"],
         ],
         "2022-01-03": [
-            [
-                "HOU",
-                "PHI"
-            ],
-            [
-                "CHA",
-                "WAS"
-            ],
-            [
-                "MEM",
-                "BKN"
-            ],
-            [
-                "ORL",
-                "CHI"
-            ],
-            [
-                "DET",
-                "MIL"
-            ],
-            [
-                "UTA",
-                "NOP"
-            ],
-            [
-                "DEN",
-                "DAL"
-            ],
-            [
-                "MIA",
-                "GSW"
-            ],
-            [
-                "ATL",
-                "POR"
-            ],
-            [
-                "MIN",
-                "LAC"
-            ]
+            ["HOU", "PHI"],
+            ["CHA", "WAS"],
+            ["MEM", "BKN"],
+            ["ORL", "CHI"],
+            ["DET", "MIL"],
+            ["UTA", "NOP"],
+            ["DEN", "DAL"],
+            ["MIA", "GSW"],
+            ["ATL", "POR"],
+            ["MIN", "LAC"],
         ],
         "2022-01-04": [
-            [
-                "MEM",
-                "CLE"
-            ],
-            [
-                "SAS",
-                "TOR"
-            ],
-            [
-                "IND",
-                "NYK"
-            ],
-            [
-                "PHX",
-                "NOP"
-            ],
-            [
-                "SAC",
-                "LAL"
-            ]
+            ["MEM", "CLE"],
+            ["SAS", "TOR"],
+            ["IND", "NYK"],
+            ["PHX", "NOP"],
+            ["SAC", "LAL"],
         ],
         "2022-01-05": [
-            [
-                "DET",
-                "CHA"
-            ],
-            [
-                "PHI",
-                "ORL"
-            ],
-            [
-                "HOU",
-                "WAS"
-            ],
-            [
-                "SAS",
-                "BOS"
-            ],
-            [
-                "BKN",
-                "IND"
-            ],
-            [
-                "GSW",
-                "DAL"
-            ],
-            [
-                "TOR",
-                "MIL"
-            ],
-            [
-                "OKC",
-                "MIN"
-            ],
-            [
-                "UTA",
-                "DEN"
-            ],
-            [
-                "MIA",
-                "POR"
-            ],
-            [
-                "ATL",
-                "SAC"
-            ]
+            ["DET", "CHA"],
+            ["PHI", "ORL"],
+            ["HOU", "WAS"],
+            ["SAS", "BOS"],
+            ["BKN", "IND"],
+            ["GSW", "DAL"],
+            ["TOR", "MIL"],
+            ["OKC", "MIN"],
+            ["UTA", "DEN"],
+            ["MIA", "POR"],
+            ["ATL", "SAC"],
         ],
-        "2022-01-06": [
-            [
-                "BOS",
-                "NYK"
-            ],
-            [
-                "DET",
-                "MEM"
-            ],
-            [
-                "GSW",
-                "NOP"
-            ],
-            [
-                "LAC",
-                "PHX"
-            ]
-        ],
+        "2022-01-06": [["BOS", "NYK"], ["DET", "MEM"], ["GSW", "NOP"], ["LAC", "PHX"]],
         "2022-01-07": [
-            [
-                "SAS",
-                "PHI"
-            ],
-            [
-                "MIL",
-                "BKN"
-            ],
-            [
-                "UTA",
-                "TOR"
-            ],
-            [
-                "WAS",
-                "CHI"
-            ],
-            [
-                "DAL",
-                "HOU"
-            ],
-            [
-                "MIN",
-                "OKC"
-            ],
-            [
-                "SAC",
-                "DEN"
-            ],
-            [
-                "ATL",
-                "LAL"
-            ],
-            [
-                "CLE",
-                "POR"
-            ]
+            ["SAS", "PHI"],
+            ["MIL", "BKN"],
+            ["UTA", "TOR"],
+            ["WAS", "CHI"],
+            ["DAL", "HOU"],
+            ["MIN", "OKC"],
+            ["SAC", "DEN"],
+            ["ATL", "LAL"],
+            ["CLE", "POR"],
         ],
         "2022-01-08": [
-            [
-                "MEM",
-                "LAC"
-            ],
-            [
-                "MIL",
-                "CHA"
-            ],
-            [
-                "ORL",
-                "DET"
-            ],
-            [
-                "UTA",
-                "IND"
-            ],
-            [
-                "NYK",
-                "BOS"
-            ],
-            [
-                "MIA",
-                "PHX"
-            ]
+            ["MEM", "LAC"],
+            ["MIL", "CHA"],
+            ["ORL", "DET"],
+            ["UTA", "IND"],
+            ["NYK", "BOS"],
+            ["MIA", "PHX"],
         ],
         "2022-01-09": [
-            [
-                "ATL",
-                "LAC"
-            ],
-            [
-                "WAS",
-                "ORL"
-            ],
-            [
-                "NOP",
-                "TOR"
-            ],
-            [
-                "MIN",
-                "HOU"
-            ],
-            [
-                "DEN",
-                "OKC"
-            ],
-            [
-                "SAS",
-                "BKN"
-            ],
-            [
-                "CHI",
-                "DAL"
-            ],
-            [
-                "CLE",
-                "GSW"
-            ],
-            [
-                "SAC",
-                "POR"
-            ],
-            [
-                "MEM",
-                "LAL"
-            ]
+            ["ATL", "LAC"],
+            ["WAS", "ORL"],
+            ["NOP", "TOR"],
+            ["MIN", "HOU"],
+            ["DEN", "OKC"],
+            ["SAS", "BKN"],
+            ["CHI", "DAL"],
+            ["CLE", "GSW"],
+            ["SAC", "POR"],
+            ["MEM", "LAL"],
         ],
         "2022-01-10": [
-            [
-                "MIL",
-                "CHA"
-            ],
-            [
-                "UTA",
-                "DET"
-            ],
-            [
-                "IND",
-                "BOS"
-            ],
-            [
-                "SAS",
-                "NYK"
-            ],
-            [
-                "CLE",
-                "SAC"
-            ]
+            ["MIL", "CHA"],
+            ["UTA", "DET"],
+            ["IND", "BOS"],
+            ["SAS", "NYK"],
+            ["CLE", "SAC"],
         ],
         "2022-01-11": [
-            [
-                "OKC",
-                "WAS"
-            ],
-            [
-                "PHX",
-                "TOR"
-            ],
-            [
-                "GSW",
-                "MEM"
-            ],
-            [
-                "MIN",
-                "NOP"
-            ],
-            [
-                "DEN",
-                "LAC"
-            ]
+            ["OKC", "WAS"],
+            ["PHX", "TOR"],
+            ["GSW", "MEM"],
+            ["MIN", "NOP"],
+            ["DEN", "LAC"],
         ],
         "2022-01-12": [
-            [
-                "PHX",
-                "DET"
-            ],
-            [
-                "BOS",
-                "IND"
-            ],
-            [
-                "CHA",
-                "PHI"
-            ],
-            [
-                "ORL",
-                "WAS"
-            ],
-            [
-                "MIA",
-                "ATL"
-            ],
-            [
-                "DAL",
-                "NYK"
-            ],
-            [
-                "HOU",
-                "SAS"
-            ],
-            [
-                "CLE",
-                "UTA"
-            ],
-            [
-                "BKN",
-                "CHI"
-            ],
-            [
-                "LAL",
-                "SAC"
-            ]
+            ["PHX", "DET"],
+            ["BOS", "IND"],
+            ["CHA", "PHI"],
+            ["ORL", "WAS"],
+            ["MIA", "ATL"],
+            ["DAL", "NYK"],
+            ["HOU", "SAS"],
+            ["CLE", "UTA"],
+            ["BKN", "CHI"],
+            ["LAL", "SAC"],
         ],
         "2022-01-13": [
-            [
-                "GSW",
-                "MIL"
-            ],
-            [
-                "MIN",
-                "MEM"
-            ],
-            [
-                "LAC",
-                "NOP"
-            ],
-            [
-                "OKC",
-                "BKN"
-            ],
-            [
-                "POR",
-                "DEN"
-            ]
+            ["GSW", "MIL"],
+            ["MIN", "MEM"],
+            ["LAC", "NOP"],
+            ["OKC", "BKN"],
+            ["POR", "DEN"],
         ],
         "2022-01-14": [
-            [
-                "ORL",
-                "CHA"
-            ],
-            [
-                "TOR",
-                "DET"
-            ],
-            [
-                "PHX",
-                "IND"
-            ],
-            [
-                "BOS",
-                "PHI"
-            ],
-            [
-                "ATL",
-                "MIA"
-            ],
-            [
-                "GSW",
-                "CHI"
-            ],
-            [
-                "CLE",
-                "SAS"
-            ],
-            [
-                "DAL",
-                "MEM"
-            ],
-            [
-                "HOU",
-                "SAC"
-            ]
+            ["ORL", "CHA"],
+            ["TOR", "DET"],
+            ["PHX", "IND"],
+            ["BOS", "PHI"],
+            ["ATL", "MIA"],
+            ["GSW", "CHI"],
+            ["CLE", "SAS"],
+            ["DAL", "MEM"],
+            ["HOU", "SAC"],
         ],
         "2022-01-15": [
-            [
-                "TOR",
-                "MIL"
-            ],
-            [
-                "POR",
-                "WAS"
-            ],
-            [
-                "NYK",
-                "ATL"
-            ],
-            [
-                "NOP",
-                "BKN"
-            ],
-            [
-                "PHI",
-                "MIA"
-            ],
-            [
-                "CLE",
-                "OKC"
-            ],
-            [
-                "CHI",
-                "BOS"
-            ],
-            [
-                "LAC",
-                "SAS"
-            ],
-            [
-                "LAL",
-                "DEN"
-            ],
-            [
-                "ORL",
-                "DAL"
-            ]
+            ["TOR", "MIL"],
+            ["POR", "WAS"],
+            ["NYK", "ATL"],
+            ["NOP", "BKN"],
+            ["PHI", "MIA"],
+            ["CLE", "OKC"],
+            ["CHI", "BOS"],
+            ["LAC", "SAS"],
+            ["LAL", "DEN"],
+            ["ORL", "DAL"],
         ],
-        "2022-01-16": [
-            [
-                "HOU",
-                "SAC"
-            ],
-            [
-                "GSW",
-                "MIN"
-            ],
-            [
-                "UTA",
-                "DEN"
-            ]
-        ],
+        "2022-01-16": [["HOU", "SAC"], ["GSW", "MIN"], ["UTA", "DEN"]],
         "2022-01-17": [
-            [
-                "NOP",
-                "BOS"
-            ],
-            [
-                "CHA",
-                "NYK"
-            ],
-            [
-                "PHI",
-                "WAS"
-            ],
-            [
-                "BKN",
-                "CLE"
-            ],
-            [
-                "CHI",
-                "MEM"
-            ],
-            [
-                "IND",
-                "LAC"
-            ],
-            [
-                "MIL",
-                "ATL"
-            ],
-            [
-                "POR",
-                "ORL"
-            ],
-            [
-                "TOR",
-                "MIA"
-            ],
-            [
-                "OKC",
-                "DAL"
-            ],
-            [
-                "PHX",
-                "SAS"
-            ],
-            [
-                "UTA",
-                "LAL"
-            ]
+            ["NOP", "BOS"],
+            ["CHA", "NYK"],
+            ["PHI", "WAS"],
+            ["BKN", "CLE"],
+            ["CHI", "MEM"],
+            ["IND", "LAC"],
+            ["MIL", "ATL"],
+            ["POR", "ORL"],
+            ["TOR", "MIA"],
+            ["OKC", "DAL"],
+            ["PHX", "SAS"],
+            ["UTA", "LAL"],
         ],
-        "2022-01-18": [
-            [
-                "MIN",
-                "NYK"
-            ],
-            [
-                "DET",
-                "GSW"
-            ]
-        ],
+        "2022-01-18": [["MIN", "NYK"], ["DET", "GSW"]],
         "2022-01-19": [
-            [
-                "ORL",
-                "PHI"
-            ],
-            [
-                "BKN",
-                "WAS"
-            ],
-            [
-                "MIN",
-                "ATL"
-            ],
-            [
-                "CHA",
-                "BOS"
-            ],
-            [
-                "POR",
-                "MIA"
-            ],
-            [
-                "CLE",
-                "CHI"
-            ],
-            [
-                "MEM",
-                "MIL"
-            ],
-            [
-                "TOR",
-                "DAL"
-            ],
-            [
-                "OKC",
-                "SAS"
-            ],
-            [
-                "HOU",
-                "UTA"
-            ],
-            [
-                "LAC",
-                "DEN"
-            ],
-            [
-                "DET",
-                "SAC"
-            ],
-            [
-                "IND",
-                "LAL"
-            ]
+            ["ORL", "PHI"],
+            ["BKN", "WAS"],
+            ["MIN", "ATL"],
+            ["CHA", "BOS"],
+            ["POR", "MIA"],
+            ["CLE", "CHI"],
+            ["MEM", "MIL"],
+            ["TOR", "DAL"],
+            ["OKC", "SAS"],
+            ["HOU", "UTA"],
+            ["LAC", "DEN"],
+            ["DET", "SAC"],
+            ["IND", "LAL"],
         ],
-        "2022-01-20": [
-            [
-                "NOP",
-                "NYK"
-            ],
-            [
-                "PHX",
-                "DAL"
-            ],
-            [
-                "IND",
-                "GSW"
-            ]
-        ],
+        "2022-01-20": [["NOP", "NYK"], ["PHX", "DAL"], ["IND", "GSW"]],
         "2022-01-21": [
-            [
-                "OKC",
-                "CHA"
-            ],
-            [
-                "LAL",
-                "ORL"
-            ],
-            [
-                "LAC",
-                "PHI"
-            ],
-            [
-                "MIA",
-                "ATL"
-            ],
-            [
-                "POR",
-                "BOS"
-            ],
-            [
-                "TOR",
-                "WAS"
-            ],
-            [
-                "CHI",
-                "MIL"
-            ],
-            [
-                "BKN",
-                "SAS"
-            ],
-            [
-                "MEM",
-                "DEN"
-            ],
-            [
-                "DET",
-                "UTA"
-            ],
-            [
-                "HOU",
-                "GSW"
-            ]
+            ["OKC", "CHA"],
+            ["LAL", "ORL"],
+            ["LAC", "PHI"],
+            ["MIA", "ATL"],
+            ["POR", "BOS"],
+            ["TOR", "WAS"],
+            ["CHI", "MIL"],
+            ["BKN", "SAS"],
+            ["MEM", "DEN"],
+            ["DET", "UTA"],
+            ["HOU", "GSW"],
         ],
-        "2022-01-22": [
-            [
-                "OKC",
-                "CLE"
-            ],
-            [
-                "SAC",
-                "MIL"
-            ],
-            [
-                "IND",
-                "PHX"
-            ]
-        ],
+        "2022-01-22": [["OKC", "CLE"], ["SAC", "MIL"], ["IND", "PHX"]],
         "2022-01-23": [
-            [
-                "LAC",
-                "NYK"
-            ],
-            [
-                "BOS",
-                "WAS"
-            ],
-            [
-                "LAL",
-                "MIA"
-            ],
-            [
-                "CHI",
-                "ORL"
-            ],
-            [
-                "POR",
-                "TOR"
-            ],
-            [
-                "ATL",
-                "CHA"
-            ],
-            [
-                "PHI",
-                "SAS"
-            ],
-            [
-                "MEM",
-                "DAL"
-            ],
-            [
-                "BKN",
-                "MIN"
-            ],
-            [
-                "DET",
-                "DEN"
-            ],
-            [
-                "UTA",
-                "GSW"
-            ]
+            ["LAC", "NYK"],
+            ["BOS", "WAS"],
+            ["LAL", "MIA"],
+            ["CHI", "ORL"],
+            ["POR", "TOR"],
+            ["ATL", "CHA"],
+            ["PHI", "SAS"],
+            ["MEM", "DAL"],
+            ["BKN", "MIN"],
+            ["DET", "DEN"],
+            ["UTA", "GSW"],
         ],
         "2022-01-24": [
-            [
-                "NYK",
-                "CLE"
-            ],
-            [
-                "CHI",
-                "ATL"
-            ],
-            [
-                "PHI",
-                "HOU"
-            ],
-            [
-                "IND",
-                "NOP"
-            ],
-            [
-                "UTA",
-                "PHX"
-            ]
+            ["NYK", "CLE"],
+            ["CHI", "ATL"],
+            ["PHI", "HOU"],
+            ["IND", "NOP"],
+            ["UTA", "PHX"],
         ],
         "2022-01-25": [
-            [
-                "DEN",
-                "DET"
-            ],
-            [
-                "CHA",
-                "TOR"
-            ],
-            [
-                "LAC",
-                "WAS"
-            ],
-            [
-                "SAC",
-                "BOS"
-            ],
-            [
-                "LAL",
-                "BKN"
-            ],
-            [
-                "SAS",
-                "HOU"
-            ],
-            [
-                "DAL",
-                "GSW"
-            ],
-            [
-                "MIN",
-                "POR"
-            ]
+            ["DEN", "DET"],
+            ["CHA", "TOR"],
+            ["LAC", "WAS"],
+            ["SAC", "BOS"],
+            ["LAL", "BKN"],
+            ["SAS", "HOU"],
+            ["DAL", "GSW"],
+            ["MIN", "POR"],
         ],
         "2022-01-26": [
-            [
-                "MIL",
-                "CLE"
-            ],
-            [
-                "CHA",
-                "IND"
-            ],
-            [
-                "LAC",
-                "ORL"
-            ],
-            [
-                "SAC",
-                "ATL"
-            ],
-            [
-                "TOR",
-                "BKN"
-            ],
-            [
-                "NYK",
-                "MIA"
-            ],
-            [
-                "MEM",
-                "SAS"
-            ],
-            [
-                "DEN",
-                "NOP"
-            ],
-            [
-                "CHI",
-                "OKC"
-            ],
-            [
-                "PHX",
-                "UTA"
-            ],
-            [
-                "DAL",
-                "POR"
-            ]
+            ["MIL", "CLE"],
+            ["CHA", "IND"],
+            ["LAC", "ORL"],
+            ["SAC", "ATL"],
+            ["TOR", "BKN"],
+            ["NYK", "MIA"],
+            ["MEM", "SAS"],
+            ["DEN", "NOP"],
+            ["CHI", "OKC"],
+            ["PHX", "UTA"],
+            ["DAL", "POR"],
         ],
-        "2022-01-27": [
-            [
-                "LAL",
-                "PHI"
-            ],
-            [
-                "MIN",
-                "GSW"
-            ]
-        ],
+        "2022-01-27": [["LAL", "PHI"], ["MIN", "GSW"]],
         "2022-01-28": [
-            [
-                "LAL",
-                "CHA"
-            ],
-            [
-                "DET",
-                "ORL"
-            ],
-            [
-                "BOS",
-                "ATL"
-            ],
-            [
-                "LAC",
-                "MIA"
-            ],
-            [
-                "POR",
-                "HOU"
-            ],
-            [
-                "UTA",
-                "MEM"
-            ],
-            [
-                "IND",
-                "OKC"
-            ],
-            [
-                "CHI",
-                "SAS"
-            ],
-            [
-                "MIN",
-                "PHX"
-            ],
-            [
-                "NYK",
-                "MIL"
-            ]
+            ["LAL", "CHA"],
+            ["DET", "ORL"],
+            ["BOS", "ATL"],
+            ["LAC", "MIA"],
+            ["POR", "HOU"],
+            ["UTA", "MEM"],
+            ["IND", "OKC"],
+            ["CHI", "SAS"],
+            ["MIN", "PHX"],
+            ["NYK", "MIL"],
         ],
         "2022-01-29": [
-            [
-                "BOS",
-                "NOP"
-            ],
-            [
-                "IND",
-                "DAL"
-            ],
-            [
-                "SAC",
-                "PHI"
-            ],
-            [
-                "TOR",
-                "MIA"
-            ],
-            [
-                "WAS",
-                "MEM"
-            ],
-            [
-                "BKN",
-                "GSW"
-            ]
+            ["BOS", "NOP"],
+            ["IND", "DAL"],
+            ["SAC", "PHI"],
+            ["TOR", "MIA"],
+            ["WAS", "MEM"],
+            ["BKN", "GSW"],
         ],
         "2022-01-30": [
-            [
-                "LAL",
-                "ATL"
-            ],
-            [
-                "LAC",
-                "CHA"
-            ],
-            [
-                "POR",
-                "CHI"
-            ],
-            [
-                "CLE",
-                "DET"
-            ],
-            [
-                "DAL",
-                "ORL"
-            ],
-            [
-                "DEN",
-                "MIL"
-            ],
-            [
-                "UTA",
-                "MIN"
-            ],
-            [
-                "SAS",
-                "PHX"
-            ]
+            ["LAL", "ATL"],
+            ["LAC", "CHA"],
+            ["POR", "CHI"],
+            ["CLE", "DET"],
+            ["DAL", "ORL"],
+            ["DEN", "MIL"],
+            ["UTA", "MIN"],
+            ["SAS", "PHX"],
         ],
         "2022-01-31": [
-            [
-                "NOP",
-                "CLE"
-            ],
-            [
-                "LAC",
-                "IND"
-            ],
-            [
-                "MEM",
-                "PHI"
-            ],
-            [
-                "MIA",
-                "BOS"
-            ],
-            [
-                "SAC",
-                "NYK"
-            ],
-            [
-                "GSW",
-                "HOU"
-            ],
-            [
-                "POR",
-                "OKC"
-            ]
-        ]
+            ["NOP", "CLE"],
+            ["LAC", "IND"],
+            ["MEM", "PHI"],
+            ["MIA", "BOS"],
+            ["SAC", "NYK"],
+            ["GSW", "HOU"],
+            ["POR", "OKC"],
+        ],
     },
     "March": {
         "2022-03-01": [
-            [
-                "DET",
-                "WAS"
-            ],
-            [
-                "ATL",
-                "BOS"
-            ],
-            [
-                "BKN",
-                "TOR"
-            ],
-            [
-                "LAC",
-                "HOU"
-            ],
-            [
-                "GSW",
-                "MIN"
-            ],
-            [
-                "DAL",
-                "LAL"
-            ]
+            ["DET", "WAS"],
+            ["ATL", "BOS"],
+            ["BKN", "TOR"],
+            ["LAC", "HOU"],
+            ["GSW", "MIN"],
+            ["DAL", "LAL"],
         ],
         "2022-03-02": [
-            [
-                "CHA",
-                "CLE"
-            ],
-            [
-                "IND",
-                "ORL"
-            ],
-            [
-                "NYK",
-                "PHI"
-            ],
-            [
-                "UTA",
-                "HOU"
-            ],
-            [
-                "MIA",
-                "MIL"
-            ],
-            [
-                "SAC",
-                "NOP"
-            ],
-            [
-                "OKC",
-                "DEN"
-            ],
-            [
-                "POR",
-                "PHX"
-            ]
+            ["CHA", "CLE"],
+            ["IND", "ORL"],
+            ["NYK", "PHI"],
+            ["UTA", "HOU"],
+            ["MIA", "MIL"],
+            ["SAC", "NOP"],
+            ["OKC", "DEN"],
+            ["POR", "PHX"],
         ],
         "2022-03-03": [
-            [
-                "MEM",
-                "BOS"
-            ],
-            [
-                "MIA",
-                "BKN"
-            ],
-            [
-                "DET",
-                "TOR"
-            ],
-            [
-                "GSW",
-                "DAL"
-            ],
-            [
-                "SAC",
-                "SAS"
-            ],
-            [
-                "LAL",
-                "LAC"
-            ]
+            ["MEM", "BOS"],
+            ["MIA", "BKN"],
+            ["DET", "TOR"],
+            ["GSW", "DAL"],
+            ["SAC", "SAS"],
+            ["LAL", "LAC"],
         ],
         "2022-03-04": [
-            [
-                "IND",
-                "DET"
-            ],
-            [
-                "CLE",
-                "PHI"
-            ],
-            [
-                "ATL",
-                "WAS"
-            ],
-            [
-                "MIL",
-                "CHI"
-            ],
-            [
-                "UTA",
-                "NOP"
-            ],
-            [
-                "MIN",
-                "OKC"
-            ],
-            [
-                "HOU",
-                "DEN"
-            ],
-            [
-                "NYK",
-                "PHX"
-            ]
+            ["IND", "DET"],
+            ["CLE", "PHI"],
+            ["ATL", "WAS"],
+            ["MIL", "CHI"],
+            ["UTA", "NOP"],
+            ["MIN", "OKC"],
+            ["HOU", "DEN"],
+            ["NYK", "PHX"],
         ],
         "2022-03-05": [
-            [
-                "SAC",
-                "DAL"
-            ],
-            [
-                "SAS",
-                "CHA"
-            ],
-            [
-                "PHI",
-                "MIA"
-            ],
-            [
-                "ORL",
-                "MEM"
-            ],
-            [
-                "POR",
-                "MIN"
-            ],
-            [
-                "GSW",
-                "LAL"
-            ]
+            ["SAC", "DAL"],
+            ["SAS", "CHA"],
+            ["PHI", "MIA"],
+            ["ORL", "MEM"],
+            ["POR", "MIN"],
+            ["GSW", "LAL"],
         ],
         "2022-03-06": [
-            [
-                "BKN",
-                "BOS"
-            ],
-            [
-                "PHX",
-                "MIL"
-            ],
-            [
-                "TOR",
-                "CLE"
-            ],
-            [
-                "IND",
-                "WAS"
-            ],
-            [
-                "MEM",
-                "HOU"
-            ],
-            [
-                "UTA",
-                "OKC"
-            ],
-            [
-                "NYK",
-                "LAC"
-            ],
-            [
-                "NOP",
-                "DEN"
-            ]
+            ["BKN", "BOS"],
+            ["PHX", "MIL"],
+            ["TOR", "CLE"],
+            ["IND", "WAS"],
+            ["MEM", "HOU"],
+            ["UTA", "OKC"],
+            ["NYK", "LAC"],
+            ["NOP", "DEN"],
         ],
         "2022-03-07": [
-            [
-                "ATL",
-                "DET"
-            ],
-            [
-                "CHI",
-                "PHI"
-            ],
-            [
-                "HOU",
-                "MIA"
-            ],
-            [
-                "POR",
-                "MIN"
-            ],
-            [
-                "UTA",
-                "DAL"
-            ],
-            [
-                "LAL",
-                "SAS"
-            ],
-            [
-                "NYK",
-                "SAC"
-            ]
+            ["ATL", "DET"],
+            ["CHI", "PHI"],
+            ["HOU", "MIA"],
+            ["POR", "MIN"],
+            ["UTA", "DAL"],
+            ["LAL", "SAS"],
+            ["NYK", "SAC"],
         ],
         "2022-03-08": [
-            [
-                "BKN",
-                "CHA"
-            ],
-            [
-                "CLE",
-                "IND"
-            ],
-            [
-                "PHX",
-                "ORL"
-            ],
-            [
-                "NOP",
-                "MEM"
-            ],
-            [
-                "MIL",
-                "OKC"
-            ],
-            [
-                "LAC",
-                "GSW"
-            ]
+            ["BKN", "CHA"],
+            ["CLE", "IND"],
+            ["PHX", "ORL"],
+            ["NOP", "MEM"],
+            ["MIL", "OKC"],
+            ["LAC", "GSW"],
         ],
         "2022-03-09": [
-            [
-                "BOS",
-                "CHA"
-            ],
-            [
-                "CHI",
-                "DET"
-            ],
-            [
-                "PHX",
-                "MIA"
-            ],
-            [
-                "ATL",
-                "MIL"
-            ],
-            [
-                "LAL",
-                "HOU"
-            ],
-            [
-                "OKC",
-                "MIN"
-            ],
-            [
-                "ORL",
-                "NOP"
-            ],
-            [
-                "NYK",
-                "DAL"
-            ],
-            [
-                "TOR",
-                "SAS"
-            ],
-            [
-                "POR",
-                "UTA"
-            ],
-            [
-                "DEN",
-                "SAC"
-            ],
-            [
-                "WAS",
-                "LAC"
-            ]
+            ["BOS", "CHA"],
+            ["CHI", "DET"],
+            ["PHX", "MIA"],
+            ["ATL", "MIL"],
+            ["LAL", "HOU"],
+            ["OKC", "MIN"],
+            ["ORL", "NOP"],
+            ["NYK", "DAL"],
+            ["TOR", "SAS"],
+            ["POR", "UTA"],
+            ["DEN", "SAC"],
+            ["WAS", "LAC"],
         ],
-        "2022-03-10": [
-            [
-                "BKN",
-                "PHI"
-            ],
-            [
-                "GSW",
-                "DEN"
-            ]
-        ],
+        "2022-03-10": [["BKN", "PHI"], ["GSW", "DEN"]],
         "2022-03-11": [
-            [
-                "MIN",
-                "ORL"
-            ],
-            [
-                "LAC",
-                "ATL"
-            ],
-            [
-                "DET",
-                "BOS"
-            ],
-            [
-                "CLE",
-                "MIA"
-            ],
-            [
-                "DAL",
-                "HOU"
-            ],
-            [
-                "NYK",
-                "MEM"
-            ],
-            [
-                "CHA",
-                "NOP"
-            ],
-            [
-                "UTA",
-                "SAS"
-            ],
-            [
-                "TOR",
-                "PHX"
-            ],
-            [
-                "WAS",
-                "LAL"
-            ]
+            ["MIN", "ORL"],
+            ["LAC", "ATL"],
+            ["DET", "BOS"],
+            ["CLE", "MIA"],
+            ["DAL", "HOU"],
+            ["NYK", "MEM"],
+            ["CHA", "NOP"],
+            ["UTA", "SAS"],
+            ["TOR", "PHX"],
+            ["WAS", "LAL"],
         ],
         "2022-03-12": [
-            [
-                "MIN",
-                "MIA"
-            ],
-            [
-                "CLE",
-                "CHI"
-            ],
-            [
-                "IND",
-                "SAS"
-            ],
-            [
-                "MIL",
-                "GSW"
-            ],
-            [
-                "TOR",
-                "DEN"
-            ],
-            [
-                "SAC",
-                "UTA"
-            ],
-            [
-                "WAS",
-                "POR"
-            ]
+            ["MIN", "MIA"],
+            ["CLE", "CHI"],
+            ["IND", "SAS"],
+            ["MIL", "GSW"],
+            ["TOR", "DEN"],
+            ["SAC", "UTA"],
+            ["WAS", "POR"],
         ],
         "2022-03-13": [
-            [
-                "NYK",
-                "BKN"
-            ],
-            [
-                "LAC",
-                "DET"
-            ],
-            [
-                "DAL",
-                "BOS"
-            ],
-            [
-                "PHI",
-                "ORL"
-            ],
-            [
-                "IND",
-                "ATL"
-            ],
-            [
-                "HOU",
-                "NOP"
-            ],
-            [
-                "MEM",
-                "OKC"
-            ],
-            [
-                "LAL",
-                "PHX"
-            ]
+            ["NYK", "BKN"],
+            ["LAC", "DET"],
+            ["DAL", "BOS"],
+            ["PHI", "ORL"],
+            ["IND", "ATL"],
+            ["HOU", "NOP"],
+            ["MEM", "OKC"],
+            ["LAL", "PHX"],
         ],
         "2022-03-14": [
-            [
-                "LAC",
-                "CLE"
-            ],
-            [
-                "POR",
-                "ATL"
-            ],
-            [
-                "DEN",
-                "PHI"
-            ],
-            [
-                "CHA",
-                "OKC"
-            ],
-            [
-                "MIN",
-                "SAS"
-            ],
-            [
-                "WAS",
-                "GSW"
-            ],
-            [
-                "CHI",
-                "SAC"
-            ],
-            [
-                "MIL",
-                "UTA"
-            ],
-            [
-                "TOR",
-                "LAL"
-            ]
+            ["LAC", "CLE"],
+            ["POR", "ATL"],
+            ["DEN", "PHI"],
+            ["CHA", "OKC"],
+            ["MIN", "SAS"],
+            ["WAS", "GSW"],
+            ["CHI", "SAC"],
+            ["MIL", "UTA"],
+            ["TOR", "LAL"],
         ],
-        "2022-03-15": [
-            [
-                "MEM",
-                "IND"
-            ],
-            [
-                "BKN",
-                "ORL"
-            ],
-            [
-                "DET",
-                "MIA"
-            ],
-            [
-                "PHX",
-                "NOP"
-            ]
-        ],
+        "2022-03-15": [["MEM", "IND"], ["BKN", "ORL"], ["DET", "MIA"], ["PHX", "NOP"]],
         "2022-03-16": [
-            [
-                "ATL",
-                "CHA"
-            ],
-            [
-                "PHI",
-                "CLE"
-            ],
-            [
-                "DEN",
-                "WAS"
-            ],
-            [
-                "DAL",
-                "BKN"
-            ],
-            [
-                "POR",
-                "NYK"
-            ],
-            [
-                "PHX",
-                "HOU"
-            ],
-            [
-                "LAL",
-                "MIN"
-            ],
-            [
-                "OKC",
-                "SAS"
-            ],
-            [
-                "CHI",
-                "UTA"
-            ],
-            [
-                "BOS",
-                "GSW"
-            ],
-            [
-                "MIL",
-                "SAC"
-            ],
-            [
-                "TOR",
-                "LAC"
-            ]
+            ["ATL", "CHA"],
+            ["PHI", "CLE"],
+            ["DEN", "WAS"],
+            ["DAL", "BKN"],
+            ["POR", "NYK"],
+            ["PHX", "HOU"],
+            ["LAL", "MIN"],
+            ["OKC", "SAS"],
+            ["CHI", "UTA"],
+            ["BOS", "GSW"],
+            ["MIL", "SAC"],
+            ["TOR", "LAC"],
         ],
-        "2022-03-17": [
-            [
-                "DET",
-                "ORL"
-            ]
-        ],
+        "2022-03-17": [["DET", "ORL"]],
         "2022-03-18": [
-            [
-                "DAL",
-                "PHI"
-            ],
-            [
-                "MEM",
-                "ATL"
-            ],
-            [
-                "POR",
-                "BKN"
-            ],
-            [
-                "DEN",
-                "CLE"
-            ],
-            [
-                "WAS",
-                "NYK"
-            ],
-            [
-                "LAL",
-                "TOR"
-            ],
-            [
-                "OKC",
-                "MIA"
-            ],
-            [
-                "IND",
-                "HOU"
-            ],
-            [
-                "NOP",
-                "SAS"
-            ],
-            [
-                "LAC",
-                "UTA"
-            ],
-            [
-                "CHI",
-                "PHX"
-            ],
-            [
-                "BOS",
-                "SAC"
-            ]
+            ["DAL", "PHI"],
+            ["MEM", "ATL"],
+            ["POR", "BKN"],
+            ["DEN", "CLE"],
+            ["WAS", "NYK"],
+            ["LAL", "TOR"],
+            ["OKC", "MIA"],
+            ["IND", "HOU"],
+            ["NOP", "SAS"],
+            ["LAC", "UTA"],
+            ["CHI", "PHX"],
+            ["BOS", "SAC"],
         ],
-        "2022-03-19": [
-            [
-                "MIL",
-                "MIN"
-            ],
-            [
-                "DAL",
-                "CHA"
-            ],
-            [
-                "DET",
-                "CLE"
-            ],
-            [
-                "LAL",
-                "WAS"
-            ]
-        ],
+        "2022-03-19": [["MIL", "MIN"], ["DAL", "CHA"], ["DET", "CLE"], ["LAL", "WAS"]],
         "2022-03-20": [
-            [
-                "POR",
-                "IND"
-            ],
-            [
-                "MEM",
-                "HOU"
-            ],
-            [
-                "NOP",
-                "ATL"
-            ],
-            [
-                "OKC",
-                "ORL"
-            ],
-            [
-                "PHX",
-                "SAC"
-            ],
-            [
-                "UTA",
-                "NYK"
-            ],
-            [
-                "BOS",
-                "DEN"
-            ],
-            [
-                "TOR",
-                "PHI"
-            ],
-            [
-                "SAS",
-                "GSW"
-            ]
+            ["POR", "IND"],
+            ["MEM", "HOU"],
+            ["NOP", "ATL"],
+            ["OKC", "ORL"],
+            ["PHX", "SAC"],
+            ["UTA", "NYK"],
+            ["BOS", "DEN"],
+            ["TOR", "PHI"],
+            ["SAS", "GSW"],
         ],
         "2022-03-21": [
-            [
-                "NOP",
-                "CHA"
-            ],
-            [
-                "LAL",
-                "CLE"
-            ],
-            [
-                "POR",
-                "DET"
-            ],
-            [
-                "MIA",
-                "PHI"
-            ],
-            [
-                "UTA",
-                "BKN"
-            ],
-            [
-                "TOR",
-                "CHI"
-            ],
-            [
-                "WAS",
-                "HOU"
-            ],
-            [
-                "BOS",
-                "OKC"
-            ],
-            [
-                "MIN",
-                "DAL"
-            ]
+            ["NOP", "CHA"],
+            ["LAL", "CLE"],
+            ["POR", "DET"],
+            ["MIA", "PHI"],
+            ["UTA", "BKN"],
+            ["TOR", "CHI"],
+            ["WAS", "HOU"],
+            ["BOS", "OKC"],
+            ["MIN", "DAL"],
         ],
-        "2022-03-22": [
-            [
-                "GSW",
-                "ORL"
-            ],
-            [
-                "ATL",
-                "NYK"
-            ],
-            [
-                "CHI",
-                "MIL"
-            ],
-            [
-                "LAC",
-                "DEN"
-            ]
-        ],
+        "2022-03-22": [["GSW", "ORL"], ["ATL", "NYK"], ["CHI", "MIL"], ["LAC", "DEN"]],
         "2022-03-23": [
-            [
-                "NYK",
-                "CHA"
-            ],
-            [
-                "ATL",
-                "DET"
-            ],
-            [
-                "SAC",
-                "IND"
-            ],
-            [
-                "UTA",
-                "BOS"
-            ],
-            [
-                "GSW",
-                "MIA"
-            ],
-            [
-                "BKN",
-                "MEM"
-            ],
-            [
-                "PHX",
-                "MIN"
-            ],
-            [
-                "ORL",
-                "OKC"
-            ],
-            [
-                "HOU",
-                "DAL"
-            ],
-            [
-                "PHI",
-                "LAL"
-            ],
-            [
-                "SAS",
-                "POR"
-            ]
+            ["NYK", "CHA"],
+            ["ATL", "DET"],
+            ["SAC", "IND"],
+            ["UTA", "BOS"],
+            ["GSW", "MIA"],
+            ["BKN", "MEM"],
+            ["PHX", "MIN"],
+            ["ORL", "OKC"],
+            ["HOU", "DAL"],
+            ["PHI", "LAL"],
+            ["SAS", "POR"],
         ],
         "2022-03-24": [
-            [
-                "CLE",
-                "TOR"
-            ],
-            [
-                "IND",
-                "MEM"
-            ],
-            [
-                "WAS",
-                "MIL"
-            ],
-            [
-                "CHI",
-                "NOP"
-            ],
-            [
-                "PHX",
-                "DEN"
-            ]
+            ["CLE", "TOR"],
+            ["IND", "MEM"],
+            ["WAS", "MIL"],
+            ["CHI", "NOP"],
+            ["PHX", "DEN"],
         ],
         "2022-03-25": [
-            [
-                "UTA",
-                "CHA"
-            ],
-            [
-                "WAS",
-                "DET"
-            ],
-            [
-                "GSW",
-                "ATL"
-            ],
-            [
-                "NYK",
-                "MIA"
-            ],
-            [
-                "DAL",
-                "MIN"
-            ],
-            [
-                "HOU",
-                "POR"
-            ],
-            [
-                "PHI",
-                "LAC"
-            ]
+            ["UTA", "CHA"],
+            ["WAS", "DET"],
+            ["GSW", "ATL"],
+            ["NYK", "MIA"],
+            ["DAL", "MIN"],
+            ["HOU", "POR"],
+            ["PHI", "LAC"],
         ],
         "2022-03-26": [
-            [
-                "SAS",
-                "NOP"
-            ],
-            [
-                "SAC",
-                "ORL"
-            ],
-            [
-                "IND",
-                "TOR"
-            ],
-            [
-                "CHI",
-                "CLE"
-            ],
-            [
-                "BKN",
-                "MIA"
-            ],
-            [
-                "MIL",
-                "MEM"
-            ],
-            [
-                "OKC",
-                "DEN"
-            ],
-            [
-                "HOU",
-                "POR"
-            ]
+            ["SAS", "NOP"],
+            ["SAC", "ORL"],
+            ["IND", "TOR"],
+            ["CHI", "CLE"],
+            ["BKN", "MIA"],
+            ["MIL", "MEM"],
+            ["OKC", "DEN"],
+            ["HOU", "POR"],
         ],
         "2022-03-27": [
-            [
-                "NYK",
-                "DET"
-            ],
-            [
-                "MIN",
-                "BOS"
-            ],
-            [
-                "GSW",
-                "WAS"
-            ],
-            [
-                "PHI",
-                "PHX"
-            ],
-            [
-                "LAL",
-                "NOP"
-            ],
-            [
-                "CHA",
-                "BKN"
-            ],
-            [
-                "UTA",
-                "DAL"
-            ]
+            ["NYK", "DET"],
+            ["MIN", "BOS"],
+            ["GSW", "WAS"],
+            ["PHI", "PHX"],
+            ["LAL", "NOP"],
+            ["CHA", "BKN"],
+            ["UTA", "DAL"],
         ],
         "2022-03-28": [
-            [
-                "DEN",
-                "CHA"
-            ],
-            [
-                "ORL",
-                "CLE"
-            ],
-            [
-                "ATL",
-                "IND"
-            ],
-            [
-                "SAC",
-                "MIA"
-            ],
-            [
-                "CHI",
-                "NYK"
-            ],
-            [
-                "BOS",
-                "TOR"
-            ],
-            [
-                "SAS",
-                "HOU"
-            ],
-            [
-                "GSW",
-                "MEM"
-            ],
-            [
-                "OKC",
-                "POR"
-            ]
+            ["DEN", "CHA"],
+            ["ORL", "CLE"],
+            ["ATL", "IND"],
+            ["SAC", "MIA"],
+            ["CHI", "NYK"],
+            ["BOS", "TOR"],
+            ["SAS", "HOU"],
+            ["GSW", "MEM"],
+            ["OKC", "POR"],
         ],
         "2022-03-29": [
-            [
-                "MIL",
-                "PHI"
-            ],
-            [
-                "CHI",
-                "WAS"
-            ],
-            [
-                "DET",
-                "BKN"
-            ],
-            [
-                "LAL",
-                "DAL"
-            ],
-            [
-                "UTA",
-                "LAC"
-            ]
+            ["MIL", "PHI"],
+            ["CHI", "WAS"],
+            ["DET", "BKN"],
+            ["LAL", "DAL"],
+            ["UTA", "LAC"],
         ],
         "2022-03-30": [
-            [
-                "DAL",
-                "CLE"
-            ],
-            [
-                "DEN",
-                "IND"
-            ],
-            [
-                "ORL",
-                "WAS"
-            ],
-            [
-                "MIA",
-                "BOS"
-            ],
-            [
-                "CHA",
-                "NYK"
-            ],
-            [
-                "MIN",
-                "TOR"
-            ],
-            [
-                "SAC",
-                "HOU"
-            ],
-            [
-                "ATL",
-                "OKC"
-            ],
-            [
-                "MEM",
-                "SAS"
-            ],
-            [
-                "PHX",
-                "GSW"
-            ],
-            [
-                "NOP",
-                "POR"
-            ]
+            ["DAL", "CLE"],
+            ["DEN", "IND"],
+            ["ORL", "WAS"],
+            ["MIA", "BOS"],
+            ["CHA", "NYK"],
+            ["MIN", "TOR"],
+            ["SAC", "HOU"],
+            ["ATL", "OKC"],
+            ["MEM", "SAS"],
+            ["PHX", "GSW"],
+            ["NOP", "POR"],
         ],
-        "2022-03-31": [
-            [
-                "PHI",
-                "DET"
-            ],
-            [
-                "MIL",
-                "BKN"
-            ],
-            [
-                "LAC",
-                "CHI"
-            ],
-            [
-                "LAL",
-                "UTA"
-            ]
-        ]
+        "2022-03-31": [["PHI", "DET"], ["MIL", "BKN"], ["LAC", "CHI"], ["LAL", "UTA"]],
     },
     "November": {
         "2021-11-01": [
-            [
-                "CLE",
-                "CHA"
-            ],
-            [
-                "SAS",
-                "IND"
-            ],
-            [
-                "POR",
-                "PHI"
-            ],
-            [
-                "WAS",
-                "ATL"
-            ],
-            [
-                "CHI",
-                "BOS"
-            ],
-            [
-                "TOR",
-                "NYK"
-            ],
-            [
-                "DEN",
-                "MEM"
-            ],
-            [
-                "ORL",
-                "MIN"
-            ],
-            [
-                "OKC",
-                "LAC"
-            ]
+            ["CLE", "CHA"],
+            ["SAS", "IND"],
+            ["POR", "PHI"],
+            ["WAS", "ATL"],
+            ["CHI", "BOS"],
+            ["TOR", "NYK"],
+            ["DEN", "MEM"],
+            ["ORL", "MIN"],
+            ["OKC", "LAC"],
         ],
         "2021-11-02": [
-            [
-                "MIL",
-                "DET"
-            ],
-            [
-                "MIA",
-                "DAL"
-            ],
-            [
-                "SAC",
-                "UTA"
-            ],
-            [
-                "NOP",
-                "PHX"
-            ],
-            [
-                "HOU",
-                "LAL"
-            ]
+            ["MIL", "DET"],
+            ["MIA", "DAL"],
+            ["SAC", "UTA"],
+            ["NOP", "PHX"],
+            ["HOU", "LAL"],
         ],
         "2021-11-03": [
-            [
-                "POR",
-                "CLE"
-            ],
-            [
-                "NYK",
-                "IND"
-            ],
-            [
-                "BOS",
-                "ORL"
-            ],
-            [
-                "CHI",
-                "PHI"
-            ],
-            [
-                "TOR",
-                "WAS"
-            ],
-            [
-                "ATL",
-                "BKN"
-            ],
-            [
-                "DEN",
-                "MEM"
-            ],
-            [
-                "LAC",
-                "MIN"
-            ],
-            [
-                "DAL",
-                "SAS"
-            ],
-            [
-                "CHA",
-                "GSW"
-            ],
-            [
-                "NOP",
-                "SAC"
-            ]
+            ["POR", "CLE"],
+            ["NYK", "IND"],
+            ["BOS", "ORL"],
+            ["CHI", "PHI"],
+            ["TOR", "WAS"],
+            ["ATL", "BKN"],
+            ["DEN", "MEM"],
+            ["LAC", "MIN"],
+            ["DAL", "SAS"],
+            ["CHA", "GSW"],
+            ["NOP", "SAC"],
         ],
         "2021-11-04": [
-            [
-                "PHI",
-                "DET"
-            ],
-            [
-                "UTA",
-                "ATL"
-            ],
-            [
-                "BOS",
-                "MIA"
-            ],
-            [
-                "HOU",
-                "PHX"
-            ],
-            [
-                "OKC",
-                "LAL"
-            ]
+            ["PHI", "DET"],
+            ["UTA", "ATL"],
+            ["BOS", "MIA"],
+            ["HOU", "PHX"],
+            ["OKC", "LAL"],
         ],
         "2021-11-05": [
-            [
-                "BKN",
-                "DET"
-            ],
-            [
-                "SAS",
-                "ORL"
-            ],
-            [
-                "MEM",
-                "WAS"
-            ],
-            [
-                "CLE",
-                "TOR"
-            ],
-            [
-                "NYK",
-                "MIL"
-            ],
-            [
-                "LAC",
-                "MIN"
-            ],
-            [
-                "NOP",
-                "GSW"
-            ],
-            [
-                "IND",
-                "POR"
-            ],
-            [
-                "CHA",
-                "SAC"
-            ]
+            ["BKN", "DET"],
+            ["SAS", "ORL"],
+            ["MEM", "WAS"],
+            ["CLE", "TOR"],
+            ["NYK", "MIL"],
+            ["LAC", "MIN"],
+            ["NOP", "GSW"],
+            ["IND", "POR"],
+            ["CHA", "SAC"],
         ],
         "2021-11-06": [
-            [
-                "HOU",
-                "DEN"
-            ],
-            [
-                "UTA",
-                "MIA"
-            ],
-            [
-                "PHI",
-                "CHI"
-            ],
-            [
-                "BOS",
-                "DAL"
-            ],
-            [
-                "ATL",
-                "PHX"
-            ],
-            [
-                "LAL",
-                "POR"
-            ]
+            ["HOU", "DEN"],
+            ["UTA", "MIA"],
+            ["PHI", "CHI"],
+            ["BOS", "DAL"],
+            ["ATL", "PHX"],
+            ["LAL", "POR"],
         ],
         "2021-11-07": [
-            [
-                "BKN",
-                "TOR"
-            ],
-            [
-                "CLE",
-                "NYK"
-            ],
-            [
-                "UTA",
-                "ORL"
-            ],
-            [
-                "MIL",
-                "WAS"
-            ],
-            [
-                "IND",
-                "SAC"
-            ],
-            [
-                "SAS",
-                "OKC"
-            ],
-            [
-                "HOU",
-                "GSW"
-            ],
-            [
-                "CHA",
-                "LAC"
-            ]
+            ["BKN", "TOR"],
+            ["CLE", "NYK"],
+            ["UTA", "ORL"],
+            ["MIL", "WAS"],
+            ["IND", "SAC"],
+            ["SAS", "OKC"],
+            ["HOU", "GSW"],
+            ["CHA", "LAC"],
         ],
         "2021-11-08": [
-            [
-                "NYK",
-                "PHI"
-            ],
-            [
-                "BKN",
-                "CHI"
-            ],
-            [
-                "MIN",
-                "MEM"
-            ],
-            [
-                "NOP",
-                "DAL"
-            ],
-            [
-                "MIA",
-                "DEN"
-            ],
-            [
-                "ATL",
-                "GSW"
-            ],
-            [
-                "PHX",
-                "SAC"
-            ],
-            [
-                "CHA",
-                "LAL"
-            ]
+            ["NYK", "PHI"],
+            ["BKN", "CHI"],
+            ["MIN", "MEM"],
+            ["NOP", "DAL"],
+            ["MIA", "DEN"],
+            ["ATL", "GSW"],
+            ["PHX", "SAC"],
+            ["CHA", "LAL"],
         ],
-        "2021-11-09": [
-            [
-                "MIL",
-                "PHI"
-            ],
-            [
-                "ATL",
-                "UTA"
-            ],
-            [
-                "POR",
-                "LAC"
-            ]
-        ],
+        "2021-11-09": [["MIL", "PHI"], ["ATL", "UTA"], ["POR", "LAC"]],
         "2021-11-10": [
-            [
-                "WAS",
-                "CLE"
-            ],
-            [
-                "BKN",
-                "ORL"
-            ],
-            [
-                "TOR",
-                "BOS"
-            ],
-            [
-                "MIL",
-                "NYK"
-            ],
-            [
-                "DET",
-                "HOU"
-            ],
-            [
-                "DAL",
-                "CHI"
-            ],
-            [
-                "CHA",
-                "MEM"
-            ],
-            [
-                "OKC",
-                "NOP"
-            ],
-            [
-                "SAC",
-                "SAS"
-            ],
-            [
-                "IND",
-                "DEN"
-            ],
-            [
-                "POR",
-                "PHX"
-            ],
-            [
-                "MIN",
-                "GSW"
-            ],
-            [
-                "MIA",
-                "LAL"
-            ]
+            ["WAS", "CLE"],
+            ["BKN", "ORL"],
+            ["TOR", "BOS"],
+            ["MIL", "NYK"],
+            ["DET", "HOU"],
+            ["DAL", "CHI"],
+            ["CHA", "MEM"],
+            ["OKC", "NOP"],
+            ["SAC", "SAS"],
+            ["IND", "DEN"],
+            ["POR", "PHX"],
+            ["MIN", "GSW"],
+            ["MIA", "LAL"],
         ],
-        "2021-11-11": [
-            [
-                "TOR",
-                "PHI"
-            ],
-            [
-                "IND",
-                "UTA"
-            ],
-            [
-                "MIA",
-                "LAC"
-            ]
-        ],
+        "2021-11-11": [["TOR", "PHI"], ["IND", "UTA"], ["MIA", "LAC"]],
         "2021-11-12": [
-            [
-                "NYK",
-                "CHA"
-            ],
-            [
-                "MIL",
-                "BOS"
-            ],
-            [
-                "DET",
-                "CLE"
-            ],
-            [
-                "POR",
-                "HOU"
-            ],
-            [
-                "PHX",
-                "MEM"
-            ],
-            [
-                "BKN",
-                "NOP"
-            ],
-            [
-                "SAC",
-                "OKC"
-            ],
-            [
-                "DAL",
-                "SAS"
-            ],
-            [
-                "ATL",
-                "DEN"
-            ],
-            [
-                "CHI",
-                "GSW"
-            ],
-            [
-                "MIN",
-                "LAL"
-            ]
+            ["NYK", "CHA"],
+            ["MIL", "BOS"],
+            ["DET", "CLE"],
+            ["POR", "HOU"],
+            ["PHX", "MEM"],
+            ["BKN", "NOP"],
+            ["SAC", "OKC"],
+            ["DAL", "SAS"],
+            ["ATL", "DEN"],
+            ["CHI", "GSW"],
+            ["MIN", "LAL"],
         ],
         "2021-11-13": [
-            [
-                "MIA",
-                "UTA"
-            ],
-            [
-                "PHI",
-                "IND"
-            ],
-            [
-                "WAS",
-                "ORL"
-            ],
-            [
-                "MEM",
-                "NOP"
-            ],
-            [
-                "DET",
-                "TOR"
-            ],
-            [
-                "BOS",
-                "CLE"
-            ],
-            [
-                "MIN",
-                "LAC"
-            ]
+            ["MIA", "UTA"],
+            ["PHI", "IND"],
+            ["WAS", "ORL"],
+            ["MEM", "NOP"],
+            ["DET", "TOR"],
+            ["BOS", "CLE"],
+            ["MIN", "LAC"],
         ],
         "2021-11-14": [
-            [
-                "SAS",
-                "LAL"
-            ],
-            [
-                "MIL",
-                "ATL"
-            ],
-            [
-                "GSW",
-                "CHA"
-            ],
-            [
-                "PHX",
-                "HOU"
-            ],
-            [
-                "BKN",
-                "OKC"
-            ],
-            [
-                "POR",
-                "DEN"
-            ],
-            [
-                "CHI",
-                "LAC"
-            ]
+            ["SAS", "LAL"],
+            ["MIL", "ATL"],
+            ["GSW", "CHA"],
+            ["PHX", "HOU"],
+            ["BKN", "OKC"],
+            ["POR", "DEN"],
+            ["CHI", "LAC"],
         ],
         "2021-11-15": [
-            [
-                "BOS",
-                "CLE"
-            ],
-            [
-                "SAC",
-                "DET"
-            ],
-            [
-                "NOP",
-                "WAS"
-            ],
-            [
-                "ORL",
-                "ATL"
-            ],
-            [
-                "IND",
-                "NYK"
-            ],
-            [
-                "DEN",
-                "DAL"
-            ],
-            [
-                "HOU",
-                "MEM"
-            ],
-            [
-                "PHX",
-                "MIN"
-            ],
-            [
-                "MIA",
-                "OKC"
-            ],
-            [
-                "TOR",
-                "POR"
-            ],
-            [
-                "CHI",
-                "LAL"
-            ]
+            ["BOS", "CLE"],
+            ["SAC", "DET"],
+            ["NOP", "WAS"],
+            ["ORL", "ATL"],
+            ["IND", "NYK"],
+            ["DEN", "DAL"],
+            ["HOU", "MEM"],
+            ["PHX", "MIN"],
+            ["MIA", "OKC"],
+            ["TOR", "POR"],
+            ["CHI", "LAL"],
         ],
-        "2021-11-16": [
-            [
-                "GSW",
-                "BKN"
-            ],
-            [
-                "PHI",
-                "UTA"
-            ],
-            [
-                "SAS",
-                "LAC"
-            ]
-        ],
+        "2021-11-16": [["GSW", "BKN"], ["PHI", "UTA"], ["SAS", "LAC"]],
         "2021-11-17": [
-            [
-                "WAS",
-                "CHA"
-            ],
-            [
-                "IND",
-                "DET"
-            ],
-            [
-                "BOS",
-                "ATL"
-            ],
-            [
-                "CLE",
-                "BKN"
-            ],
-            [
-                "NOP",
-                "MIA"
-            ],
-            [
-                "ORL",
-                "NYK"
-            ],
-            [
-                "LAL",
-                "MIL"
-            ],
-            [
-                "SAC",
-                "MIN"
-            ],
-            [
-                "HOU",
-                "OKC"
-            ],
-            [
-                "DAL",
-                "PHX"
-            ],
-            [
-                "CHI",
-                "POR"
-            ]
+            ["WAS", "CHA"],
+            ["IND", "DET"],
+            ["BOS", "ATL"],
+            ["CLE", "BKN"],
+            ["NOP", "MIA"],
+            ["ORL", "NYK"],
+            ["LAL", "MIL"],
+            ["SAC", "MIN"],
+            ["HOU", "OKC"],
+            ["DAL", "PHX"],
+            ["CHI", "POR"],
         ],
         "2021-11-18": [
-            [
-                "GSW",
-                "CLE"
-            ],
-            [
-                "WAS",
-                "MIA"
-            ],
-            [
-                "LAC",
-                "MEM"
-            ],
-            [
-                "SAS",
-                "MIN"
-            ],
-            [
-                "PHI",
-                "DEN"
-            ],
-            [
-                "TOR",
-                "UTA"
-            ]
+            ["GSW", "CLE"],
+            ["WAS", "MIA"],
+            ["LAC", "MEM"],
+            ["SAS", "MIN"],
+            ["PHI", "DEN"],
+            ["TOR", "UTA"],
         ],
         "2021-11-19": [
-            [
-                "IND",
-                "CHA"
-            ],
-            [
-                "GSW",
-                "DET"
-            ],
-            [
-                "LAL",
-                "BOS"
-            ],
-            [
-                "ORL",
-                "BKN"
-            ],
-            [
-                "OKC",
-                "MIL"
-            ],
-            [
-                "LAC",
-                "NOP"
-            ],
-            [
-                "CHI",
-                "DEN"
-            ],
-            [
-                "DAL",
-                "PHX"
-            ],
-            [
-                "TOR",
-                "SAC"
-            ]
+            ["IND", "CHA"],
+            ["GSW", "DET"],
+            ["LAL", "BOS"],
+            ["ORL", "BKN"],
+            ["OKC", "MIL"],
+            ["LAC", "NOP"],
+            ["CHI", "DEN"],
+            ["DAL", "PHX"],
+            ["TOR", "SAC"],
         ],
         "2021-11-20": [
-            [
-                "HOU",
-                "NYK"
-            ],
-            [
-                "NOP",
-                "IND"
-            ],
-            [
-                "MIA",
-                "WAS"
-            ],
-            [
-                "CHA",
-                "ATL"
-            ],
-            [
-                "OKC",
-                "BOS"
-            ],
-            [
-                "ORL",
-                "MIL"
-            ],
-            [
-                "MEM",
-                "MIN"
-            ],
-            [
-                "PHI",
-                "POR"
-            ],
-            [
-                "UTA",
-                "SAC"
-            ]
+            ["HOU", "NYK"],
+            ["NOP", "IND"],
+            ["MIA", "WAS"],
+            ["CHA", "ATL"],
+            ["OKC", "BOS"],
+            ["ORL", "MIL"],
+            ["MEM", "MIN"],
+            ["PHI", "POR"],
+            ["UTA", "SAC"],
         ],
         "2021-11-21": [
-            [
-                "DAL",
-                "LAC"
-            ],
-            [
-                "LAL",
-                "DET"
-            ],
-            [
-                "NYK",
-                "CHI"
-            ],
-            [
-                "DEN",
-                "PHX"
-            ],
-            [
-                "TOR",
-                "GSW"
-            ]
+            ["DAL", "LAC"],
+            ["LAL", "DET"],
+            ["NYK", "CHI"],
+            ["DEN", "PHX"],
+            ["TOR", "GSW"],
         ],
         "2021-11-22": [
-            [
-                "BKN",
-                "CLE"
-            ],
-            [
-                "CHA",
-                "WAS"
-            ],
-            [
-                "OKC",
-                "ATL"
-            ],
-            [
-                "HOU",
-                "BOS"
-            ],
-            [
-                "IND",
-                "CHI"
-            ],
-            [
-                "ORL",
-                "MIL"
-            ],
-            [
-                "MIN",
-                "NOP"
-            ],
-            [
-                "PHX",
-                "SAS"
-            ],
-            [
-                "MEM",
-                "UTA"
-            ],
-            [
-                "PHI",
-                "SAC"
-            ]
+            ["BKN", "CLE"],
+            ["CHA", "WAS"],
+            ["OKC", "ATL"],
+            ["HOU", "BOS"],
+            ["IND", "CHI"],
+            ["ORL", "MIL"],
+            ["MIN", "NOP"],
+            ["PHX", "SAS"],
+            ["MEM", "UTA"],
+            ["PHI", "SAC"],
         ],
-        "2021-11-23": [
-            [
-                "MIA",
-                "DET"
-            ],
-            [
-                "LAL",
-                "NYK"
-            ],
-            [
-                "DEN",
-                "POR"
-            ],
-            [
-                "DAL",
-                "LAC"
-            ]
-        ],
+        "2021-11-23": [["MIA", "DET"], ["LAL", "NYK"], ["DEN", "POR"], ["DAL", "LAC"]],
         "2021-11-24": [
-            [
-                "PHX",
-                "CLE"
-            ],
-            [
-                "LAL",
-                "IND"
-            ],
-            [
-                "CHA",
-                "ORL"
-            ],
-            [
-                "BKN",
-                "BOS"
-            ],
-            [
-                "CHI",
-                "HOU"
-            ],
-            [
-                "TOR",
-                "MEM"
-            ],
-            [
-                "DET",
-                "MIL"
-            ],
-            [
-                "MIA",
-                "MIN"
-            ],
-            [
-                "WAS",
-                "NOP"
-            ],
-            [
-                "UTA",
-                "OKC"
-            ],
-            [
-                "ATL",
-                "SAS"
-            ],
-            [
-                "PHI",
-                "GSW"
-            ],
-            [
-                "POR",
-                "SAC"
-            ]
+            ["PHX", "CLE"],
+            ["LAL", "IND"],
+            ["CHA", "ORL"],
+            ["BKN", "BOS"],
+            ["CHI", "HOU"],
+            ["TOR", "MEM"],
+            ["DET", "MIL"],
+            ["MIA", "MIN"],
+            ["WAS", "NOP"],
+            ["UTA", "OKC"],
+            ["ATL", "SAS"],
+            ["PHI", "GSW"],
+            ["POR", "SAC"],
         ],
         "2021-11-26": [
-            [
-                "DET",
-                "LAC"
-            ],
-            [
-                "MIN",
-                "CHA"
-            ],
-            [
-                "PHX",
-                "NYK"
-            ],
-            [
-                "CHI",
-                "ORL"
-            ],
-            [
-                "TOR",
-                "IND"
-            ],
-            [
-                "ATL",
-                "MEM"
-            ],
-            [
-                "WAS",
-                "OKC"
-            ],
-            [
-                "BOS",
-                "SAS"
-            ],
-            [
-                "MIL",
-                "DEN"
-            ],
-            [
-                "NOP",
-                "UTA"
-            ],
-            [
-                "POR",
-                "GSW"
-            ],
-            [
-                "SAC",
-                "LAL"
-            ]
+            ["DET", "LAC"],
+            ["MIN", "CHA"],
+            ["PHX", "NYK"],
+            ["CHI", "ORL"],
+            ["TOR", "IND"],
+            ["ATL", "MEM"],
+            ["WAS", "OKC"],
+            ["BOS", "SAS"],
+            ["MIL", "DEN"],
+            ["NOP", "UTA"],
+            ["POR", "GSW"],
+            ["SAC", "LAL"],
         ],
         "2021-11-27": [
-            [
-                "MIN",
-                "PHI"
-            ],
-            [
-                "NYK",
-                "ATL"
-            ],
-            [
-                "PHX",
-                "BKN"
-            ],
-            [
-                "ORL",
-                "CLE"
-            ],
-            [
-                "MIA",
-                "CHI"
-            ],
-            [
-                "CHA",
-                "HOU"
-            ],
-            [
-                "WAS",
-                "DAL"
-            ],
-            [
-                "NOP",
-                "UTA"
-            ]
+            ["MIN", "PHI"],
+            ["NYK", "ATL"],
+            ["PHX", "BKN"],
+            ["ORL", "CLE"],
+            ["MIA", "CHI"],
+            ["CHA", "HOU"],
+            ["WAS", "DAL"],
+            ["NOP", "UTA"],
         ],
         "2021-11-28": [
-            [
-                "GSW",
-                "LAC"
-            ],
-            [
-                "MIL",
-                "IND"
-            ],
-            [
-                "BOS",
-                "TOR"
-            ],
-            [
-                "SAC",
-                "MEM"
-            ],
-            [
-                "DET",
-                "LAL"
-            ]
+            ["GSW", "LAC"],
+            ["MIL", "IND"],
+            ["BOS", "TOR"],
+            ["SAC", "MEM"],
+            ["DET", "LAL"],
         ],
         "2021-11-29": [
-            [
-                "ORL",
-                "PHI"
-            ],
-            [
-                "DEN",
-                "MIA"
-            ],
-            [
-                "CHA",
-                "CHI"
-            ],
-            [
-                "OKC",
-                "HOU"
-            ],
-            [
-                "IND",
-                "MIN"
-            ],
-            [
-                "CLE",
-                "DAL"
-            ],
-            [
-                "WAS",
-                "SAS"
-            ],
-            [
-                "POR",
-                "UTA"
-            ],
-            [
-                "NOP",
-                "LAC"
-            ]
+            ["ORL", "PHI"],
+            ["DEN", "MIA"],
+            ["CHA", "CHI"],
+            ["OKC", "HOU"],
+            ["IND", "MIN"],
+            ["CLE", "DAL"],
+            ["WAS", "SAS"],
+            ["POR", "UTA"],
+            ["NOP", "LAC"],
         ],
         "2021-11-30": [
-            [
-                "NYK",
-                "BKN"
-            ],
-            [
-                "MEM",
-                "TOR"
-            ],
-            [
-                "GSW",
-                "PHX"
-            ],
-            [
-                "DET",
-                "POR"
-            ],
-            [
-                "LAL",
-                "SAC"
-            ]
-        ]
+            ["NYK", "BKN"],
+            ["MEM", "TOR"],
+            ["GSW", "PHX"],
+            ["DET", "POR"],
+            ["LAL", "SAC"],
+        ],
     },
     "October": {
-        "2021-10-03": [
-            [
-                "BKN",
-                "LAL"
-            ]
-        ],
+        "2021-10-03": [["BKN", "LAL"]],
         "2021-10-04": [
-            [
-                "PHI",
-                "TOR"
-            ],
-            [
-                "ORL",
-                "BOS"
-            ],
-            [
-                "ATL",
-                "MIA"
-            ],
-            [
-                "NOP",
-                "MIN"
-            ],
-            [
-                "CHA",
-                "OKC"
-            ],
-            [
-                "UTA",
-                "SAS"
-            ],
-            [
-                "GSW",
-                "POR"
-            ],
-            [
-                "PHX",
-                "SAC"
-            ],
-            [
-                "DEN",
-                "LAC"
-            ]
+            ["PHI", "TOR"],
+            ["ORL", "BOS"],
+            ["ATL", "MIA"],
+            ["NOP", "MIN"],
+            ["CHA", "OKC"],
+            ["UTA", "SAS"],
+            ["GSW", "POR"],
+            ["PHX", "SAC"],
+            ["DEN", "LAC"],
         ],
-        "2021-10-05": [
-            [
-                "IND",
-                "NYK"
-            ],
-            [
-                "CLE",
-                "CHI"
-            ],
-            [
-                "WAS",
-                "HOU"
-            ],
-            [
-                "MIL",
-                "MEM"
-            ]
-        ],
+        "2021-10-05": [["IND", "NYK"], ["CLE", "CHI"], ["WAS", "HOU"], ["MIL", "MEM"]],
         "2021-10-06": [
-            [
-                "LAL",
-                "PHX"
-            ],
-            [
-                "SAS",
-                "DET"
-            ],
-            [
-                "CLE",
-                "ATL"
-            ],
-            [
-                "ORL",
-                "NOP"
-            ],
-            [
-                "UTA",
-                "DAL"
-            ],
-            [
-                "DEN",
-                "GSW"
-            ],
-            [
-                "SAC",
-                "LAC"
-            ]
+            ["LAL", "PHX"],
+            ["SAS", "DET"],
+            ["CLE", "ATL"],
+            ["ORL", "NOP"],
+            ["UTA", "DAL"],
+            ["DEN", "GSW"],
+            ["SAC", "LAC"],
         ],
-        "2021-10-07": [
-            [
-                "MEM",
-                "CHA"
-            ],
-            [
-                "TOR",
-                "PHI"
-            ],
-            [
-                "MIA",
-                "HOU"
-            ]
-        ],
+        "2021-10-07": [["MEM", "CHA"], ["TOR", "PHI"], ["MIA", "HOU"]],
         "2021-10-08": [
-            [
-                "IND",
-                "CLE"
-            ],
-            [
-                "MIL",
-                "BKN"
-            ],
-            [
-                "NOP",
-                "CHI"
-            ],
-            [
-                "LAC",
-                "DAL"
-            ],
-            [
-                "MIA",
-                "SAS"
-            ],
-            [
-                "MIN",
-                "DEN"
-            ],
-            [
-                "LAL",
-                "GSW"
-            ]
+            ["IND", "CLE"],
+            ["MIL", "BKN"],
+            ["NOP", "CHI"],
+            ["LAC", "DAL"],
+            ["MIA", "SAS"],
+            ["MIN", "DEN"],
+            ["LAL", "GSW"],
         ],
-        "2021-10-09": [
-            [
-                "TOR",
-                "BOS"
-            ],
-            [
-                "NYK",
-                "WAS"
-            ],
-            [
-                "ATL",
-                "MEM"
-            ]
-        ],
-        "2021-10-10": [
-            [
-                "SAS",
-                "ORL"
-            ],
-            [
-                "CHI",
-                "CLE"
-            ],
-            [
-                "OKC",
-                "MIL"
-            ],
-            [
-                "PHX",
-                "LAL"
-            ]
-        ],
+        "2021-10-09": [["TOR", "BOS"], ["NYK", "WAS"], ["ATL", "MEM"]],
+        "2021-10-10": [["SAS", "ORL"], ["CHI", "CLE"], ["OKC", "MIL"], ["PHX", "LAL"]],
         "2021-10-11": [
-            [
-                "HOU",
-                "TOR"
-            ],
-            [
-                "CHA",
-                "MIA"
-            ],
-            [
-                "BKN",
-                "PHI"
-            ],
-            [
-                "DET",
-                "MEM"
-            ],
-            [
-                "NOP",
-                "UTA"
-            ],
-            [
-                "SAC",
-                "POR"
-            ],
-            [
-                "MIN",
-                "LAC"
-            ]
+            ["HOU", "TOR"],
+            ["CHA", "MIA"],
+            ["BKN", "PHI"],
+            ["DET", "MEM"],
+            ["NOP", "UTA"],
+            ["SAC", "POR"],
+            ["MIN", "LAC"],
         ],
-        "2021-10-12": [
-            [
-                "TOR",
-                "WAS"
-            ],
-            [
-                "GSW",
-                "LAL"
-            ]
-        ],
+        "2021-10-12": [["TOR", "WAS"], ["GSW", "LAL"]],
         "2021-10-13": [
-            [
-                "POR",
-                "PHX"
-            ],
-            [
-                "DAL",
-                "CHA"
-            ],
-            [
-                "MEM",
-                "IND"
-            ],
-            [
-                "BOS",
-                "ORL"
-            ],
-            [
-                "DET",
-                "NYK"
-            ],
-            [
-                "DEN",
-                "OKC"
-            ],
-            [
-                "MIL",
-                "UTA"
-            ]
+            ["POR", "PHX"],
+            ["DAL", "CHA"],
+            ["MEM", "IND"],
+            ["BOS", "ORL"],
+            ["DET", "NYK"],
+            ["DEN", "OKC"],
+            ["MIL", "UTA"],
         ],
-        "2021-10-14": [
-            [
-                "MIA",
-                "ATL"
-            ],
-            [
-                "MIN",
-                "BKN"
-            ],
-            [
-                "DEN",
-                "OKC"
-            ],
-            [
-                "LAL",
-                "SAC"
-            ]
-        ],
+        "2021-10-14": [["MIA", "ATL"], ["MIN", "BKN"], ["DEN", "OKC"], ["LAL", "SAC"]],
         "2021-10-15": [
-            [
-                "BOS",
-                "MIA"
-            ],
-            [
-                "PHI",
-                "DET"
-            ],
-            [
-                "CLE",
-                "IND"
-            ],
-            [
-                "WAS",
-                "NYK"
-            ],
-            [
-                "MEM",
-                "CHI"
-            ],
-            [
-                "DAL",
-                "MIL"
-            ],
-            [
-                "HOU",
-                "SAS"
-            ],
-            [
-                "POR",
-                "GSW"
-            ]
+            ["BOS", "MIA"],
+            ["PHI", "DET"],
+            ["CLE", "IND"],
+            ["WAS", "NYK"],
+            ["MEM", "CHI"],
+            ["DAL", "MIL"],
+            ["HOU", "SAS"],
+            ["POR", "GSW"],
         ],
-        "2021-10-19": [
-            [
-                "BKN",
-                "MIL"
-            ],
-            [
-                "GSW",
-                "LAL"
-            ]
-        ],
+        "2021-10-19": [["BKN", "MIL"], ["GSW", "LAL"]],
         "2021-10-20": [
-            [
-                "IND",
-                "CHA"
-            ],
-            [
-                "CHI",
-                "DET"
-            ],
-            [
-                "BOS",
-                "NYK"
-            ],
-            [
-                "WAS",
-                "TOR"
-            ],
-            [
-                "CLE",
-                "MEM"
-            ],
-            [
-                "HOU",
-                "MIN"
-            ],
-            [
-                "PHI",
-                "NOP"
-            ],
-            [
-                "ORL",
-                "SAS"
-            ],
-            [
-                "OKC",
-                "UTA"
-            ],
-            [
-                "DEN",
-                "PHX"
-            ],
-            [
-                "SAC",
-                "POR"
-            ]
+            ["IND", "CHA"],
+            ["CHI", "DET"],
+            ["BOS", "NYK"],
+            ["WAS", "TOR"],
+            ["CLE", "MEM"],
+            ["HOU", "MIN"],
+            ["PHI", "NOP"],
+            ["ORL", "SAS"],
+            ["OKC", "UTA"],
+            ["DEN", "PHX"],
+            ["SAC", "POR"],
         ],
-        "2021-10-21": [
-            [
-                "DAL",
-                "ATL"
-            ],
-            [
-                "MIL",
-                "MIA"
-            ],
-            [
-                "LAC",
-                "GSW"
-            ]
-        ],
+        "2021-10-21": [["DAL", "ATL"], ["MIL", "MIA"], ["LAC", "GSW"]],
         "2021-10-22": [
-            [
-                "CHA",
-                "CLE"
-            ],
-            [
-                "NYK",
-                "ORL"
-            ],
-            [
-                "IND",
-                "WAS"
-            ],
-            [
-                "TOR",
-                "BOS"
-            ],
-            [
-                "BKN",
-                "PHI"
-            ],
-            [
-                "NOP",
-                "CHI"
-            ],
-            [
-                "OKC",
-                "HOU"
-            ],
-            [
-                "SAS",
-                "DEN"
-            ],
-            [
-                "PHX",
-                "LAL"
-            ],
-            [
-                "UTA",
-                "SAC"
-            ]
+            ["CHA", "CLE"],
+            ["NYK", "ORL"],
+            ["IND", "WAS"],
+            ["TOR", "BOS"],
+            ["BKN", "PHI"],
+            ["NOP", "CHI"],
+            ["OKC", "HOU"],
+            ["SAS", "DEN"],
+            ["PHX", "LAL"],
+            ["UTA", "SAC"],
         ],
         "2021-10-23": [
-            [
-                "ATL",
-                "CLE"
-            ],
-            [
-                "MIA",
-                "IND"
-            ],
-            [
-                "DAL",
-                "TOR"
-            ],
-            [
-                "DET",
-                "CHI"
-            ],
-            [
-                "NOP",
-                "MIN"
-            ],
-            [
-                "MIL",
-                "SAS"
-            ],
-            [
-                "PHX",
-                "POR"
-            ],
-            [
-                "MEM",
-                "LAC"
-            ]
+            ["ATL", "CLE"],
+            ["MIA", "IND"],
+            ["DAL", "TOR"],
+            ["DET", "CHI"],
+            ["NOP", "MIN"],
+            ["MIL", "SAS"],
+            ["PHX", "POR"],
+            ["MEM", "LAC"],
         ],
         "2021-10-24": [
-            [
-                "CHA",
-                "BKN"
-            ],
-            [
-                "ORL",
-                "NYK"
-            ],
-            [
-                "BOS",
-                "HOU"
-            ],
-            [
-                "PHI",
-                "OKC"
-            ],
-            [
-                "GSW",
-                "SAC"
-            ],
-            [
-                "MEM",
-                "LAL"
-            ]
+            ["CHA", "BKN"],
+            ["ORL", "NYK"],
+            ["BOS", "HOU"],
+            ["PHI", "OKC"],
+            ["GSW", "SAC"],
+            ["MEM", "LAL"],
         ],
         "2021-10-25": [
-            [
-                "BOS",
-                "CHA"
-            ],
-            [
-                "MIL",
-                "IND"
-            ],
-            [
-                "DET",
-                "ATL"
-            ],
-            [
-                "WAS",
-                "BKN"
-            ],
-            [
-                "ORL",
-                "MIA"
-            ],
-            [
-                "CHI",
-                "TOR"
-            ],
-            [
-                "NOP",
-                "MIN"
-            ],
-            [
-                "CLE",
-                "DEN"
-            ],
-            [
-                "POR",
-                "LAC"
-            ]
+            ["BOS", "CHA"],
+            ["MIL", "IND"],
+            ["DET", "ATL"],
+            ["WAS", "BKN"],
+            ["ORL", "MIA"],
+            ["CHI", "TOR"],
+            ["NOP", "MIN"],
+            ["CLE", "DEN"],
+            ["POR", "LAC"],
         ],
         "2021-10-26": [
-            [
-                "PHI",
-                "NYK"
-            ],
-            [
-                "GSW",
-                "OKC"
-            ],
-            [
-                "HOU",
-                "DAL"
-            ],
-            [
-                "LAL",
-                "SAS"
-            ],
-            [
-                "DEN",
-                "UTA"
-            ]
+            ["PHI", "NYK"],
+            ["GSW", "OKC"],
+            ["HOU", "DAL"],
+            ["LAL", "SAS"],
+            ["DEN", "UTA"],
         ],
         "2021-10-27": [
-            [
-                "CHA",
-                "ORL"
-            ],
-            [
-                "WAS",
-                "BOS"
-            ],
-            [
-                "MIA",
-                "BKN"
-            ],
-            [
-                "IND",
-                "TOR"
-            ],
-            [
-                "ATL",
-                "NOP"
-            ],
-            [
-                "MIN",
-                "MIL"
-            ],
-            [
-                "LAL",
-                "OKC"
-            ],
-            [
-                "SAC",
-                "PHX"
-            ],
-            [
-                "MEM",
-                "POR"
-            ],
-            [
-                "CLE",
-                "LAC"
-            ]
+            ["CHA", "ORL"],
+            ["WAS", "BOS"],
+            ["MIA", "BKN"],
+            ["IND", "TOR"],
+            ["ATL", "NOP"],
+            ["MIN", "MIL"],
+            ["LAL", "OKC"],
+            ["SAC", "PHX"],
+            ["MEM", "POR"],
+            ["CLE", "LAC"],
         ],
         "2021-10-28": [
-            [
-                "DET",
-                "PHI"
-            ],
-            [
-                "ATL",
-                "WAS"
-            ],
-            [
-                "NYK",
-                "CHI"
-            ],
-            [
-                "UTA",
-                "HOU"
-            ],
-            [
-                "SAS",
-                "DAL"
-            ],
-            [
-                "MEM",
-                "GSW"
-            ]
+            ["DET", "PHI"],
+            ["ATL", "WAS"],
+            ["NYK", "CHI"],
+            ["UTA", "HOU"],
+            ["SAS", "DAL"],
+            ["MEM", "GSW"],
         ],
         "2021-10-29": [
-            [
-                "ORL",
-                "TOR"
-            ],
-            [
-                "IND",
-                "BKN"
-            ],
-            [
-                "CHA",
-                "MIA"
-            ],
-            [
-                "SAC",
-                "NOP"
-            ],
-            [
-                "DAL",
-                "DEN"
-            ],
-            [
-                "LAC",
-                "POR"
-            ],
-            [
-                "CLE",
-                "LAL"
-            ]
+            ["ORL", "TOR"],
+            ["IND", "BKN"],
+            ["CHA", "MIA"],
+            ["SAC", "NOP"],
+            ["DAL", "DEN"],
+            ["LAC", "POR"],
+            ["CLE", "LAL"],
         ],
         "2021-10-30": [
-            [
-                "BOS",
-                "WAS"
-            ],
-            [
-                "ORL",
-                "DET"
-            ],
-            [
-                "NYK",
-                "NOP"
-            ],
-            [
-                "TOR",
-                "IND"
-            ],
-            [
-                "ATL",
-                "PHI"
-            ],
-            [
-                "UTA",
-                "CHI"
-            ],
-            [
-                "MIA",
-                "MEM"
-            ],
-            [
-                "SAS",
-                "MIL"
-            ],
-            [
-                "OKC",
-                "GSW"
-            ],
-            [
-                "DEN",
-                "MIN"
-            ],
-            [
-                "CLE",
-                "PHX"
-            ]
+            ["BOS", "WAS"],
+            ["ORL", "DET"],
+            ["NYK", "NOP"],
+            ["TOR", "IND"],
+            ["ATL", "PHI"],
+            ["UTA", "CHI"],
+            ["MIA", "MEM"],
+            ["SAS", "MIL"],
+            ["OKC", "GSW"],
+            ["DEN", "MIN"],
+            ["CLE", "PHX"],
         ],
         "2021-10-31": [
-            [
-                "SAC",
-                "DAL"
-            ],
-            [
-                "POR",
-                "CHA"
-            ],
-            [
-                "UTA",
-                "MIL"
-            ],
-            [
-                "DET",
-                "BKN"
-            ],
-            [
-                "HOU",
-                "LAL"
-            ]
-        ]
-    }
+            ["SAC", "DAL"],
+            ["POR", "CHA"],
+            ["UTA", "MIL"],
+            ["DET", "BKN"],
+            ["HOU", "LAL"],
+        ],
+    },
 }

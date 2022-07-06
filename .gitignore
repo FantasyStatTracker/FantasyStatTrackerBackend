@@ -171,6 +171,6 @@ dbkey.py
 ./FantasyFrontend
 
 oauth2.json
-apiKey.json
+api_key.json
 
 ./react-flask-fantasy
