@@ -57,7 +57,6 @@ def winning(*args):
     if dataset is None:
         team_statistics_data = json.loads(request.form.get("data"))
     else:
-        print("dataset:", json.loads(dataset))
         team_statistics_data = [json.loads(dataset)["team_data"]]
 
     current_wins = {}

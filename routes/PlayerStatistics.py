@@ -17,7 +17,6 @@ def player_zscore():
 
     url = os.environ.get("URL")
 
-    print(url)
     response = requests.get(url)
 
     soup = BeautifulSoup(response.content, "lxml")
@@ -48,8 +47,6 @@ def player_zscore():
             full_player_data_bbref[
                 str(player_array[1] + "-" + player_array[4])
             ] = data_category_dict
-
-    print(full_player_data_bbref)
 
     totals = get_data_category_map()
     for x in totals:

@@ -113,8 +113,6 @@ def get_stat_average():
         for category in average_per_category
     }
 
-    print(get_team_map())
-
     return jsonify(average_per_category)
 
 
