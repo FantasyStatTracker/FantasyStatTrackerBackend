@@ -1,0 +1,2 @@
+INSERT INTO variable(variable_name, variable_data)
+VALUES ("TeamMap", '{"418.l.25891.t.1": "Day-to-Davis", "418.l.25891.t.3": "gae young", "418.l.25891.t.2": "Tanking4Wemby", "418.l.25891.t.4": "JKimothy", "418.l.25891.t.5": "Kentucky Jr.", "418.l.25891.t.7": "Liam"s Squad of Goofy Goobers", "418.l.25891.t.6": "Last Place Projected", "418.l.25891.t.8": "Loserbowl nominee", "418.l.25891.t.9": "Protocols P", "418.l.25891.t.11": "Team Goon Cena", "418.l.25891.t.10": "Sufyan"s Superb Team", "418.l.25891.t.12": "The L Charity"}');

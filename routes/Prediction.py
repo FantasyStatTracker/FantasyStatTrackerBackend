@@ -1,6 +1,5 @@
 import logging
 from flask import Blueprint, jsonify, request
-from routes.RelevantData import get_last_week_roster
 from flask_cors import CORS
 from Variables.TokenRefresh import oauth, lg
 import datetime
@@ -158,82 +157,3 @@ def predict():
         logging.exception("Entry already exists: {e}".format(e=e.__class__.__name__))
 
     return jsonify(return_prediction)
-
-
-# Returns Team FG% and FT% for the week
-
-
-# returns top performers per team by category lead, currently not used
-@Prediction.route("/top-performers", methods=["POST"])
-def get_top_performers():
-
-    global TEAM_MAP
-    global PLAYER_LIST
-
-    data = json.loads(request.form.get("team"))
-    category_ranking = json.loads(request.form.get("categoryRanking"))
-    team_to_fetch = ""
-
-    if isinstance(
-        TEAM_MAP, list
-    ):  # update team mapping iff there was a change (10x faster)
-        TEAM_MAP = Variable.query.filter_by(variable_name="TeamMap").first()
-
-    if data not in TEAM_MAP.variable_data.values():
-        new_team_map = get_team_map()
-        TEAM_MAP = Variable.query.filter_by(variable_name="TeamMap").first()
-        TEAM_MAP.variable_data = json.dumps(new_team_map)
-        db.session.commit()
-
-    if isinstance(PLAYER_LIST, list):
-
-        PLAYER_LIST = Variable.query.filter_by(variable_name="CurrentRoster").first()
-
-    if (abs(PLAYER_LIST.updated_at - datetime.datetime.now()).total_seconds()) > 1800:
-
-        new_roster = get_last_week_roster()
-        PLAYER_LIST.variable_data = json.dumps(new_roster)
-        PLAYER_LIST.updated_at = datetime.datetime.now()
-        db.session.commit()
-
-        PLAYER_LIST = Variable.query.filter_by(variable_name="CurrentRoster").first()
-
-    for x in TEAM_MAP.variable_data:
-        if TEAM_MAP.variable_data[x] == data:
-            team_to_fetch = x
-            break
-
-    maximum_category = {}
-
-    maximum_category = dict.fromkeys(
-        category_ranking, {"Value": 0.0, "PlayerFirst": "", "PlayerLast": ""}
-    )
-    for Player in PLAYER_LIST.variable_data[team_to_fetch]:
-
-        for individual_category in category_ranking:
-
-            if Player[individual_category] == "-":
-                Player[individual_category] = 0.0
-
-            if maximum_category[individual_category]["Value"] <= float(
-                Player[individual_category]
-            ):
-                Name = Player["name"].split()
-                if Name[0] == "Robert" and Name[1] == "Williams":
-                    Name[1] = "Williams III"
-
-                maximum_category[individual_category] = {
-                    "Value": float(Player[individual_category]),
-                    "PlayerFirst": Name[0],
-                    "PlayerLast": " ".join(Name[x] for x in range(1, len(Name))),
-                }
-
-    delete = []
-    for key in maximum_category:
-        if maximum_category[key]["PlayerFirst"] == "":
-            delete.append(key)
-
-    for deletion_key in delete:
-        del maximum_category[deletion_key]
-
-    return jsonify(maximum_category)

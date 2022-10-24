@@ -5,11 +5,25 @@ import json
 from Variables.TokenRefresh import api_key
 from .FullData import get_current_week, test
 from .WinningMatchup import winning, get_wins
-from .RelevantData import get_last_week_roster
 from HelperMethods.helper import get_league_matchups
 from .Prediction import predict
 
 Admin = Blueprint("Admin", __name__)
+
+
+@Admin.route("/initialize-new-season", methods=["GET"])
+@cross_origin()
+def initialize_season():
+    headers = request.headers
+    auth = headers.get("X-Api-Key")
+
+    if auth == api_key:
+        get_league_matchups()
+
+    else:
+        return jsonify({"message": "ERROR: unauthorized"}), 401
+
+    return "nothing"
 
 
 @Admin.route("/update-previous-week", methods=["GET"])  # winning
@@ -20,15 +34,18 @@ def update_roster_stats():
 
     if auth == api_key:
 
-        previous_week = get_current_week() - 1
+        previous_week = int(get_current_week()) - 1
+        if previous_week == 0:
+            return "Nothing to predict for week 1"
         previous_week_data = test(previous_week).get_data()
-
+        print(previous_week_data)
         previous_winning_matchups = (
             winning(previous_week_data).get_data().decode("utf-8")
         )
         previous_leaders = get_wins(previous_week_data).get_data().decode("utf-8")
         previous_week_data = previous_week_data.decode("utf-8")
-        previous_week_data = json.loads(previous_week_data)["TeamData"]
+        print("egg:", previous_week_data)
+        previous_week_data = json.loads(previous_week_data)["team_data"]
 
         matchup_record = MatchupHistory(
             matchup_week=previous_week,
@@ -40,9 +57,8 @@ def update_roster_stats():
         db.session.commit()
 
         get_league_matchups()
-        get_last_week_roster()
 
-        predict()
+        # predict()
 
     else:
         return jsonify({"message": "ERROR: unauthorized"}), 401

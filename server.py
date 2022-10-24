@@ -4,7 +4,6 @@ from flask_cors import CORS
 
 
 from Model.variable import db
-from dbkey import key
 from routes.RelevantData import RelevantData
 from routes.Prediction import Prediction
 from routes.FullData import FullData
@@ -16,7 +15,7 @@ from routes.PlayerStatistics import PlayerStatistics
 app = Flask(__name__)
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = key
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("KEY")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 cors = CORS(app)
 

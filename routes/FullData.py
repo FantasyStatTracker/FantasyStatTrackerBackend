@@ -1,4 +1,5 @@
 import logging
+from HelperMethods.helper import get_team_map
 from Model.variable import MatchupHistory
 from flask import Blueprint, jsonify, request
 import flask
@@ -111,6 +112,8 @@ def get_stat_average():
         category: round(average_per_category[category] / (number_of_teams), 3)
         for category in average_per_category
     }
+
+    print(get_team_map())
 
     return jsonify(average_per_category)
 

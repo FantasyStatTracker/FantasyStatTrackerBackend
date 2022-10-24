@@ -176,3 +176,9 @@ def get_data_category_map():
         "PTS": None,
     }
     return data_category_map
+
+
+# gm is a yfa Game
+def get_team_id(gm):
+
+    return gm.league_ids()
