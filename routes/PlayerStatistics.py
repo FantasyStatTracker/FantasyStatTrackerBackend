@@ -26,6 +26,8 @@ def player_zscore():
 
     rows = x.findChildren(["tr"])
 
+    print(rows)
+
     for row in rows:
         j = row.get_text(separator=",", strip=True)
         player_array = j.split(",")
