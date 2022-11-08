@@ -44,7 +44,6 @@ def update_roster_stats():
         )
         previous_leaders = get_wins(previous_week_data).get_data().decode("utf-8")
         previous_week_data = previous_week_data.decode("utf-8")
-        print("egg:", previous_week_data)
         previous_week_data = json.loads(previous_week_data)["team_data"]
 
         matchup_record = MatchupHistory(

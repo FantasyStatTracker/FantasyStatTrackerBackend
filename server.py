@@ -11,6 +11,7 @@ from routes.WinningMatchup import WinningMatchup
 from routes.Admin import Admin
 from routes.NewApi import Api
 from routes.PlayerStatistics import PlayerStatistics
+from routes.TeamInformtion import TeamInformation
 
 app = Flask(__name__)
 
@@ -29,7 +30,7 @@ app.register_blueprint(WinningMatchup)
 app.register_blueprint(Admin)
 app.register_blueprint(Api)
 app.register_blueprint(PlayerStatistics)
-
+app.register_blueprint(TeamInformation)
 
 if __name__ == "__main__":
     dev = True
