@@ -37,7 +37,6 @@ def update_roster_stats():
         if previous_week == 0:
             return "Nothing to predict for week 1"
         previous_week_data = test(previous_week).get_data()
-        print(previous_week_data)
         previous_winning_matchups = (
             winning(previous_week_data).get_data().decode("utf-8")
         )

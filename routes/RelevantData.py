@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 import requests
 from flask_cors import cross_origin
 from Variables.TokenRefresh import api_key
+from cache import cache
 import os
 
 RelevantData = Blueprint("RelevantData", __name__)
@@ -14,6 +15,7 @@ PLAYERLIST = []
 
 
 @RelevantData.route("/full-player-data", methods=["GET"])  # run once per year
+@cache.cached()
 @cross_origin()
 def get_full_player_data():
     headers = request.headers
