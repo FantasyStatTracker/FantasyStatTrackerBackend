@@ -33,13 +33,11 @@ def get_waiver_pickup():
         res[team] = {}
 
     for team in r:
-        print(team)
 
         league_add_drop_information = lg.transactions("add", "")
         for transaction in league_add_drop_information:
 
             transaction_type = transaction["type"]
-            print(transaction_type)
             player_name = ""
             transaction_team_id = ""
             transaction_executed_on_player = ""
@@ -97,16 +95,12 @@ def get_waiver_pickup_v2():
         res[team] = {}
 
     for team in r:
-        print(team)
 
         league_add_drop_information = lg.transactions("add", "")
 
         for transaction in league_add_drop_information:
-
             transaction_type = transaction["type"]
-            print("checking transaction type", transaction_type == "add/drop")
             timestamp = transaction["timestamp"]
-            print(transaction_type)
             player_name = ""
             transaction_team_id = ""
             transaction_executed_on_player = ""
@@ -161,8 +155,7 @@ def get_waiver_pickup_v2():
             }
 
     for x in res:
-        ra = res[x]
-        ra = collections.OrderedDict(sorted(res[x].items(), reverse=True))
+        collections.OrderedDict(sorted(res[x].items(), reverse=True))
 
     return jsonify(res)
 

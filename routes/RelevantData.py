@@ -1,20 +1,18 @@
 from flask import Blueprint, jsonify, request
 import requests
 from flask_cors import cross_origin
-from Variables.TokenRefresh import oauth, lg, api_key
-from pytz import timezone
-import json
-import datetime
-from Model.variable import Variable, db
-
+from Variables.TokenRefresh import api_key
+import os
 
 RelevantData = Blueprint("RelevantData", __name__)
 
 
-year = "2021"
+year = os.environ.get("YEAR")
 PLAYERLIST = []
 
 # Get all data for current season
+
+
 @RelevantData.route("/full-player-data", methods=["GET"])  # run once per year
 @cross_origin()
 def get_full_player_data():

@@ -1,10 +1,10 @@
 import logging
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify
 from flask_cors import CORS
 from Variables.TokenRefresh import oauth, lg
 import datetime
 import json
-from HelperMethods.helper import get_FG_FT, get_team_map
+from HelperMethods.helper import get_FG_FT
 from Model.variable import Variable, PredictionHistory, db
 
 Prediction = Blueprint("Prediction", __name__)
