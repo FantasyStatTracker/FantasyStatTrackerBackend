@@ -33,12 +33,12 @@ app.register_blueprint(PlayerStatistics)
 app.register_blueprint(TeamInformation)
 
 if __name__ == "__main__":
-    dev = True
-    portVar = ""
+    dev = False
+    port = ""
     if dev:
-        portVar = 8000
+        port = 8000
         with app.app_context():
             pass
     else:
-        portVar = os.environ.get("PORT", 80)
-    app.run(host="localhost", port=portVar, debug=dev)
+        port = os.environ.get("PORT", 80)
+    app.run(host="localhost", port=port, debug=dev)
