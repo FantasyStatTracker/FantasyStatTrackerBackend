@@ -1,6 +1,5 @@
 import collections
 from flask import Blueprint, jsonify
-from flask_caching import Cache
 from flask_cors import CORS
 from HelperMethods.helper import get_team_map
 from Variables.TokenRefresh import lg
