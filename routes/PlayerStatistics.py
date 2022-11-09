@@ -4,7 +4,8 @@ from flask_cors import CORS
 from bs4 import BeautifulSoup
 from HelperMethods.helper import get_data_category_map
 from statistics import stdev
-import requests, os
+import requests
+import os
 import scipy.stats as stats
 
 PlayerStatistics = Blueprint("PlayerStatistics", __name__)

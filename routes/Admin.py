@@ -6,7 +6,6 @@ from Variables.TokenRefresh import api_key
 from .FullData import get_current_week, test
 from .WinningMatchup import winning, get_wins
 from HelperMethods.helper import get_league_matchups
-from .Prediction import predict
 
 Admin = Blueprint("Admin", __name__)
 
