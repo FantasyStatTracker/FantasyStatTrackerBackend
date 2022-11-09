@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_caching import Cache
 from flask_cors import CORS
 
 
@@ -12,14 +13,18 @@ from routes.Admin import Admin
 from routes.NewApi import Api
 from routes.PlayerStatistics import PlayerStatistics
 from routes.TeamInformtion import TeamInformation
+from cache import cache
 
+config = {"DEBUG": True, "CACHE_TYPE": "SimpleCache", "CACHE_DEFAULT_TIMEOUT": 300}
 app = Flask(__name__)
 
+app.config.from_mapping(config)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("KEY")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 cors = CORS(app)
 
+cache.init_app(app)
 db.init_app(app)
 
 # app.register_blueprint(test_blueprint)
@@ -33,12 +38,12 @@ app.register_blueprint(PlayerStatistics)
 app.register_blueprint(TeamInformation)
 
 if __name__ == "__main__":
-    dev = False
     port = ""
-    if dev:
+    environment = False
+    if environment:
         port = 8000
         with app.app_context():
             pass
     else:
         port = os.environ.get("PORT", 80)
-    app.run(host="localhost", port=port, debug=dev)
+    app.run(host="localhost", port=port, debug=environment)

@@ -4,6 +4,7 @@ from flask_cors import CORS
 from bs4 import BeautifulSoup
 from HelperMethods.helper import get_data_category_map
 from statistics import stdev
+from cache import cache
 import requests
 import os
 import scipy.stats as stats
@@ -14,6 +15,7 @@ year = os.environ.get("YEAR")
 
 
 @PlayerStatistics.route("/player-zscore", methods=["GET"])
+@cache.cached()
 def player_zscore():
 
     url = os.environ.get("URL")
@@ -26,8 +28,6 @@ def player_zscore():
     full_player_data_bbref = {}
 
     rows = x.findChildren(["tr"])
-
-    print(rows)
 
     for row in rows:
         j = row.get_text(separator=",", strip=True)

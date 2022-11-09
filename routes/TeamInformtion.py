@@ -1,14 +1,17 @@
 import collections
 from flask import Blueprint, jsonify
+from flask_caching import Cache
 from flask_cors import CORS
 from HelperMethods.helper import get_team_map
 from Variables.TokenRefresh import lg
+from cache import cache
 
 TeamInformation = Blueprint("TeamInformation", __name__)
 cors = CORS(TeamInformation)
 
 
 @TeamInformation.route("/team-injury", methods=["GET"])
+@cache.cached()
 def get_team_injury_data():
     r = get_team_map()
     res = {}
@@ -88,6 +91,7 @@ def get_waiver_pickup():
 
 
 @TeamInformation.route("/v2/transactions", methods=["GET"])
+@cache.cached()
 def get_waiver_pickup_v2():
     res = {}
     r = get_team_map()
