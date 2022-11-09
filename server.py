@@ -33,7 +33,7 @@ app.register_blueprint(PlayerStatistics)
 app.register_blueprint(TeamInformation)
 
 if __name__ == "__main__":
-    dev = False
+    dev = True
     portVar = ""
     if dev:
         portVar = 8000
