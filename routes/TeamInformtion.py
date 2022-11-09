@@ -1,14 +1,8 @@
 import collections
-from flask import Blueprint, jsonify, request
-import requests
+from flask import Blueprint, jsonify
 from flask_cors import CORS
 from HelperMethods.helper import get_team_map
-from Variables.TokenRefresh import oauth, lg
-from pytz import timezone
-import json
-import datetime
-from Model.variable import Variable, db
-from Variables.TokenRefresh import oauth, lg
+from Variables.TokenRefresh import lg
 
 TeamInformation = Blueprint("TeamInformation", __name__)
 cors = CORS(TeamInformation)
