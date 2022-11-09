@@ -111,6 +111,7 @@ celerybeat.pid
 # Environments
 # .env
 .env/
+.env
 .venv/
 env/
 venv/
@@ -156,7 +157,7 @@ logs
 
 node_modules
 bower_components
-
+*.sql
 *.sublime*
 
 psd
@@ -171,6 +172,6 @@ dbkey.py
 ./FantasyFrontend
 
 oauth2.json
-api_key.json
 
 ./react-flask-fantasy
+*.pgsql

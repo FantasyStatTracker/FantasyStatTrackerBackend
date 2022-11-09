@@ -4,7 +4,6 @@ from flask_cors import CORS
 
 
 from Model.variable import db
-from dbkey import key
 from routes.RelevantData import RelevantData
 from routes.Prediction import Prediction
 from routes.FullData import FullData
@@ -12,11 +11,12 @@ from routes.WinningMatchup import WinningMatchup
 from routes.Admin import Admin
 from routes.NewApi import Api
 from routes.PlayerStatistics import PlayerStatistics
+from routes.TeamInformtion import TeamInformation
 
 app = Flask(__name__)
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = key
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("KEY")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 cors = CORS(app)
 
@@ -30,7 +30,7 @@ app.register_blueprint(WinningMatchup)
 app.register_blueprint(Admin)
 app.register_blueprint(Api)
 app.register_blueprint(PlayerStatistics)
-
+app.register_blueprint(TeamInformation)
 
 if __name__ == "__main__":
     dev = True
