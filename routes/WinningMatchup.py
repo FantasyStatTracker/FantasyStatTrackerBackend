@@ -25,7 +25,7 @@ def get_wins(*args):
     if dataset is None:
         team_statistics_data = json.loads(request.form.get("data"))
     else:
-        team_statistics_data = [json.loads(dataset)["TeamData"]]
+        team_statistics_data = [json.loads(dataset)["team_data"]]
 
     category_array = json.loads(get_category().data)
     category_max = {category: {} for category in category_array}
@@ -57,7 +57,7 @@ def winning(*args):
     if dataset is None:
         team_statistics_data = json.loads(request.form.get("data"))
     else:
-        team_statistics_data = [json.loads(dataset)["TeamData"]]
+        team_statistics_data = [json.loads(dataset)["team_data"]]
 
     current_wins = {}
 

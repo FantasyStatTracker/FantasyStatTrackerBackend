@@ -1,10 +1,11 @@
 Flask==1.1.2
 yahoo_oauth==1.1
-yahoo_fantasy_api==2.4.1
+yahoo_fantasy_api==2.6.0
 gunicorn==20.0.4
 flask-cors==3.0.10
 psycopg2==2.8.4
 Flask-SQLAlchemy==2.4.1
 Flask-Migrate==2.5.2
 bs4==0.0.1
-scipy @ file:///opt/concourse/worker/volumes/live/7f5e51f8-abf3-4409-4c56-a4fb14cc9869/volume/scipy_1593104185999/work
+lxml==4.9.1
+scipy==1.5.4

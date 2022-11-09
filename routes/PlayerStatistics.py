@@ -4,17 +4,18 @@ from flask_cors import CORS
 from bs4 import BeautifulSoup
 from HelperMethods.helper import get_data_category_map
 from statistics import stdev
-import requests
+import requests, os
 import scipy.stats as stats
 
 PlayerStatistics = Blueprint("PlayerStatistics", __name__)
 cors = CORS(PlayerStatistics)
+year = os.environ.get("YEAR")
 
 
 @PlayerStatistics.route("/player-zscore", methods=["GET"])
 def player_zscore():
 
-    url = "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html"
+    url = os.environ.get("URL")
 
     response = requests.get(url)
 
@@ -24,6 +25,8 @@ def player_zscore():
     full_player_data_bbref = {}
 
     rows = x.findChildren(["tr"])
+
+    print(rows)
 
     for row in rows:
         j = row.get_text(separator=",", strip=True)
@@ -39,8 +42,10 @@ def player_zscore():
 
                 data_category_dict[y] = x
 
+            """
             if int(data_category_dict["G"]) < 37:
                 continue
+            """
             full_player_data_bbref[
                 str(player_array[1] + "-" + player_array[4])
             ] = data_category_dict
