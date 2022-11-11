@@ -1,6 +1,9 @@
 import collections
+import datetime
+import json
 from flask import Blueprint, jsonify
 from flask_cors import CORS
+from Model.variable import Variable, db
 from HelperMethods.helper import get_team_map
 from Variables.TokenRefresh import lg
 from cache import cache
@@ -166,3 +169,12 @@ def get_waiver_pickup_v2():
 @TeamInformation.route("/v2", methods=["GET"])
 def test():
     return jsonify(lg.transactions("add", ""))
+
+
+@TeamInformation.route("/league/streak", methods=["GET"])
+def get_team_streak():
+
+    streak_response = json.loads(
+        Variable.query.filter_by(variable_name="Streak").first().variable_data
+    )
+    return jsonify(streak_response)

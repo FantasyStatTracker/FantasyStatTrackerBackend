@@ -23,3 +23,4 @@ class MatchupHistory(db.Model):
     all_data = db.Column(db.String(900))  # json
     winning_matchup = db.Column(db.String(900))  # json
     leader = db.Column(db.String(900))  # json
+

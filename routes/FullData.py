@@ -85,7 +85,6 @@ def test(*args):
                             (stat_map[stat_information["stat"]["stat_id"]])
                         ] = stat_information["stat"]["value"]
                 except Exception as e:
-                    logging.exception(e.__class__.__name__)
                     continue
 
     return {"team_data": teams, "team_photo": team_photo_url}
