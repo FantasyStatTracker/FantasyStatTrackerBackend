@@ -66,7 +66,7 @@ def update_roster_stats():
 
 
 def update_streak():
-    team_map = get_team_map()
+
     item = Variable.query.filter_by(variable_name="Streak").first()
 
     current_streak_data = json.loads(item.variable_data)
@@ -87,27 +87,28 @@ def update_streak():
             continue
 
     for team_id in winner:  # update team win streaks
-        streak = current_streak_data[team_map[team_id]]["streak"]
+        streak = current_streak_data[team_id]["streak"]
         if streak < 0:
             streak = 1
         else:
             streak += 1
 
-        current_streak_data[team_map[team_id]]["streak"] = streak
+        current_streak_data[team_id]["streak"] = streak
 
     loser = list(set(all_team_keys) - set(winner))
 
     for team_id in loser:  # update team losing streaks
-        streak = current_streak_data[team_map[team_id]]["streak"]
+        streak = current_streak_data[team_id]["streak"]
         if streak > 0:
             streak = -1
         else:
             streak -= 1
 
-        current_streak_data[team_map[team_id]]["streak"] = streak
+        current_streak_data[team_id]["streak"] = streak
 
     item.variable_data = json.dumps(current_streak_data)
     item.update_at = datetime.datetime.now()
     db.session.commit()
 
     return current_streak_data
+
