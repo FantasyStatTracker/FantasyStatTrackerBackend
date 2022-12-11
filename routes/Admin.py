@@ -1,8 +1,9 @@
-from Model.variable import MatchupHistory, db
+import datetime
+from Model.variable import MatchupHistory, Variable, db
 from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
 import json
-from Variables.TokenRefresh import api_key
+from Variables.TokenRefresh import api_key, lg
 from .FullData import get_current_week, test
 from .WinningMatchup import winning, get_wins
 from HelperMethods.helper import get_league_matchups
@@ -54,6 +55,7 @@ def update_roster_stats():
         db.session.commit()
 
         get_league_matchups()
+        update_streak()
 
         # predict()
 
@@ -61,3 +63,51 @@ def update_roster_stats():
         return jsonify({"message": "ERROR: unauthorized"}), 401
 
     return "Update Complete"
+
+
+def update_streak():
+
+    item = Variable.query.filter_by(variable_name="Streak").first()
+
+    current_streak_data = json.loads(item.variable_data)
+
+    winner = []
+    all_team_keys = lg.teams().keys()
+    matchup_list_dict = lg.matchups(lg.current_week() - 1)["fantasy_content"]["league"][
+        1
+    ]["scoreboard"]["0"]["matchups"]
+
+    for matchup_index in matchup_list_dict:  # determine winners
+        try:
+            matchup_winner = matchup_list_dict[str(matchup_index)]["matchup"][
+                "winner_team_key"
+            ]
+            winner.append(matchup_winner)
+        except:  # skip count key error
+            continue
+
+    for team_id in winner:  # update team win streaks
+        streak = current_streak_data[team_id]["streak"]
+        if streak < 0:
+            streak = 1
+        else:
+            streak += 1
+
+        current_streak_data[team_id]["streak"] = streak
+
+    loser = list(set(all_team_keys) - set(winner))
+
+    for team_id in loser:  # update team losing streaks
+        streak = current_streak_data[team_id]["streak"]
+        if streak > 0:
+            streak = -1
+        else:
+            streak -= 1
+
+        current_streak_data[team_id]["streak"] = streak
+
+    item.variable_data = json.dumps(current_streak_data)
+    item.update_at = datetime.datetime.now()
+    db.session.commit()
+
+    return current_streak_data
