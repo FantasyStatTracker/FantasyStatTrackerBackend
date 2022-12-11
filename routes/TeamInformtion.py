@@ -1,9 +1,8 @@
 import collections
-import datetime
 import json
 from flask import Blueprint, jsonify
 from flask_cors import CORS
-from Model.variable import Variable, db
+from Model.variable import Variable
 from HelperMethods.helper import get_team_map
 from Variables.TokenRefresh import lg
 from cache import cache

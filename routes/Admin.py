@@ -6,7 +6,7 @@ import json
 from Variables.TokenRefresh import api_key, lg
 from .FullData import get_current_week, test
 from .WinningMatchup import winning, get_wins
-from HelperMethods.helper import get_league_matchups, get_team_map
+from HelperMethods.helper import get_league_matchups
 
 Admin = Blueprint("Admin", __name__)
 
@@ -111,4 +111,3 @@ def update_streak():
     db.session.commit()
 
     return current_streak_data
-
