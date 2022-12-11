@@ -37,7 +37,7 @@ app.register_blueprint(TeamInformation)
 
 if __name__ == "__main__":
     port = ""
-    environment = True
+    environment = False
     if environment:
         port = 8000
         with app.app_context():
