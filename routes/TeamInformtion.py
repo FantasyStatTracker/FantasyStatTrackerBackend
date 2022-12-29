@@ -101,7 +101,7 @@ def get_waiver_pickup_v2():
 
     for team in r:
 
-        league_add_drop_information = lg.transactions("add", "")
+        league_add_drop_information = lg.transactions("add", "10")
 
         for transaction in league_add_drop_information:
             transaction_type = transaction["type"]
