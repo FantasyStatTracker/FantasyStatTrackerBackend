@@ -1,9 +1,11 @@
 import logging
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
 import json
 from Variables.TokenRefresh import oauth
+from HelperMethods.helper import get_team_map, get_name_to_team_id
 from .FullData import get_category
+
 
 WinningMatchup = Blueprint("WinningMatchup", __name__)
 
@@ -107,4 +109,13 @@ def winning(*args):
                             {selected_team_2: category_wins}
                         )
 
-    return current_wins  # json object with Team { Wins { Categorieswon
+    team_name_to_team_id_map = get_name_to_team_id()
+
+    """
+    for team_name in team_name_to_team_id_map:
+        current_wins[team_name_to_team_id_map[team_name]] = current_wins[team_name]
+        del current_wins[team_name]
+    """
+
+    return current_wins  # json object with Team_id { Wins { Categorieswon
+

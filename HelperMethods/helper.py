@@ -85,6 +85,14 @@ def get_team_map():
     return team_map
 
 
+def get_name_to_team_id():
+    s = get_team_map()
+
+    inv_map = {v: k for k, v in s.items()}
+
+    return inv_map
+
+
 def get_schedule():
     year = "2021"
     r = requests.get(
