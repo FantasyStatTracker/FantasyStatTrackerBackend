@@ -5,6 +5,7 @@ from flask_cors import CORS
 from Model.variable import Variable
 from HelperMethods.helper import get_team_map
 from Variables.TokenRefresh import lg
+from Model.variable import MatchupHistory
 from cache import cache
 
 TeamInformation = Blueprint("TeamInformation", __name__)
@@ -168,6 +169,45 @@ def get_waiver_pickup_v2():
 @TeamInformation.route("/v2", methods=["GET"])
 def test():
     return jsonify(lg.transactions("add", ""))
+
+
+@TeamInformation.route("/strength", methods=["GET"])
+def get_team_strength():
+    f = get_team_map()
+    print(f)
+    # total all stats so far for all teams
+    # calculate averages
+    # return structure like this
+    data_array = []
+    for x in range(1, 10):
+        s = MatchupHistory.query.filter_by(matchup_week=x).first().all_data
+        data_array.append(s)
+
+    return_data = data_array[0]
+    for x in data_array[1:]:
+        for team in x:
+            try:
+                for cat in x[team]:
+                    cat1 = float(return_data[team][cat])
+                    cat2 = float(x[team][cat])
+                    return_data[cat] = cat1 + cat2
+            except:
+                print(team)
+
+    return return_data
+    """
+    {
+        team_id: {
+            above_average: {
+                stat: value,
+            },
+            below_average: {
+                stat: value,
+            }
+        }
+    }
+    """
+    return jsonify(s)
 
 
 @TeamInformation.route("/league/streak", methods=["GET"])

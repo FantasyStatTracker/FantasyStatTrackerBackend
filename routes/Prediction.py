@@ -31,6 +31,8 @@ def get_prediction_fast():
 
     Prediction = Variable.query.filter_by(variable_name="CurrentPrediction").first()
 
+    predict()
+
     return jsonify(Prediction.variable_data)
 
 
@@ -141,7 +143,7 @@ def predict():
         item = Variable.query.filter_by(variable_name="CurrentPrediction").first()
         item.variable_data = json.dumps(return_prediction)
         item.updated_at = datetime.datetime.now()
-        db.session.commit()
+        # db.session.commit()
     except Exception as e:
         logging.exception("Entry already exists: {e}".format(e=e.__class__.__name__))
 
@@ -152,7 +154,7 @@ def predict():
     )
     try:
         db.session.add(prediction_item)
-        db.session.commit()
+        # db.session.commit()
     except Exception as e:
         logging.exception("Entry already exists: {e}".format(e=e.__class__.__name__))
 
