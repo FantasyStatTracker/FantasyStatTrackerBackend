@@ -1,5 +1,5 @@
 import logging
-from Model.variable import MatchupHistory
+from Model.variable import MatchupHistory, db
 from flask import Blueprint, jsonify, request
 import flask
 import json
@@ -7,6 +7,7 @@ from collections import OrderedDict
 from flask_cors import CORS, cross_origin
 from Variables.TokenRefresh import oauth, lg
 from Variables.LeagueInformation import stat_map
+from HelperMethods.helper import get_team_map
 import statistics
 
 FullData = Blueprint("FullData", __name__)
