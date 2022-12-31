@@ -14,6 +14,8 @@ WinningMatchup = Blueprint("WinningMatchup", __name__)
 @cross_origin()
 def get_wins(*args):
 
+    s = get_name_to_team_id()
+
     dataset = None
     try:
         dataset = args[0]
@@ -34,6 +36,7 @@ def get_wins(*args):
 
     for team_statistics in team_statistics_data:
         for team in team_statistics.keys():  # team stats
+            team = s[team]
             for category in category_array:
                 try:
                     category_max[category][team] = float(
