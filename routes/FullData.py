@@ -1,5 +1,5 @@
 import logging
-from Model.variable import MatchupHistory, db
+from Model.variable import MatchupHistory, Variable, db
 from flask import Blueprint, jsonify, request
 import flask
 import json
@@ -9,6 +9,7 @@ from Variables.TokenRefresh import oauth, lg
 from Variables.LeagueInformation import stat_map
 from HelperMethods.helper import get_team_map
 import statistics
+import copy
 
 FullData = Blueprint("FullData", __name__)
 
@@ -151,3 +152,63 @@ def get_category():
 @FullData.route("/week", methods=["GET"])
 def get_current_week():
     return str(lg.current_week())
+
+
+@FullData.route("/strength", methods=["GET"])
+def get_stength():
+    total = MatchupHistory.query.filter_by(matchup_week=1).first().all_data
+    for x in range(2, 11):
+        s = MatchupHistory.query.filter_by(matchup_week=x).first().all_data
+
+        for key1 in total:
+            for y in total[key1]:
+                total[key1][y] = float(total[key1][y]) + float(s[key1][y])
+
+    for x in total:
+        total[x]["FG%"] /= int(get_current_week()) - 1
+        total[x]["FG%"] = round(total[x]["FG%"], 2)
+
+        total[x]["FT%"] /= int(get_current_week()) - 1
+        total[x]["FT%"] = round(total[x]["FT%"], 3)
+
+    average = copy.deepcopy(total)
+
+    for team in average:
+        for cat in average[team]:
+            if cat == "FG%" or cat == "FT%":
+                continue
+            average[team][cat] = float(average[team][cat]) / (
+                float(get_current_week()) - 1
+            )
+
+    print(len(json.dumps(total)))
+    total_week = Variable(variable_name="Average", variable_data=json.dumps(average))
+    db.session.add(total_week)
+    db.session.commit()
+
+    return jsonify([total, average])
+
+
+@FullData.route("/overall-strength", methods=["GET"])
+def get_thing():
+    total = json.loads(
+        Variable.query.filter_by(variable_name="Total").first().variable_data
+    )
+    total_cat = {}
+    for x in total:
+        for y in total[x].keys():
+            total_cat[y] = 0.0
+        break
+
+    for x in total:
+        for y in total[x]:
+            total_cat[y] += total[x][y]
+
+    for x in total_cat:
+        total_cat[x] /= len(get_team_map())
+        if x != "FG%" or x != "FT%":
+            total_cat[x] /= float(get_current_week()) - 1
+            total_cat[x] = round(total_cat[x], 3)
+
+    return jsonify(total_cat)
+
