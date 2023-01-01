@@ -3,7 +3,7 @@ import json
 from flask import Blueprint, jsonify
 from flask_cors import CORS
 from Model.variable import Variable
-from HelperMethods.helper import get_team_map
+from HelperMethods.helper import get_team_map, get_team_id_to_name_map
 from Variables.TokenRefresh import lg
 from cache import cache
 
@@ -203,3 +203,8 @@ def get_league_overall_average():
 
     return jsonify(league_overall_average)
 
+
+@TeamInformation.route("/team-map", methods=["GET"])
+def get_team_map_inv():
+
+    return jsonify(get_team_map())
