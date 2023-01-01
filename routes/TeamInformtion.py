@@ -101,7 +101,7 @@ def get_waiver_pickup_v2():
 
     for team in r:
 
-        league_add_drop_information = lg.transactions("add", "")
+        league_add_drop_information = lg.transactions("add", "10")
 
         for transaction in league_add_drop_information:
             transaction_type = transaction["type"]
@@ -184,3 +184,22 @@ def get_team_streak():
         del streak_response[x]
 
     return jsonify(streak_response)
+
+
+@TeamInformation.route("/league/average", methods=["GET"])
+def get_league_average():
+    league_average = json.loads(
+        Variable.query.filter_by(variable_name="Average").first().variable_data
+    )
+
+    return jsonify(league_average)
+
+
+@TeamInformation.route("/league/overall/average", methods=["GET"])
+def get_league_overall_average():
+    league_overall_average = json.loads(
+        Variable.query.filter_by(variable_name="League_Average").first().variable_data
+    )
+
+    return jsonify(league_overall_average)
+
