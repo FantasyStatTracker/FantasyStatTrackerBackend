@@ -154,22 +154,36 @@ def get_current_week():
     return str(lg.current_week())
 
 
-@FullData.route("/strength", methods=["GET"])
-def get_stength():
-    total = MatchupHistory.query.filter_by(matchup_week=1).first().all_data
-    for x in range(2, 11):
-        s = MatchupHistory.query.filter_by(matchup_week=x).first().all_data
+def update_team_average():
+    total = json.loads(
+        Variable.query.filter_by(variable_name="Total").first().variable_data
+    )
 
-        for key1 in total:
-            for y in total[key1]:
-                total[key1][y] = float(total[key1][y]) + float(s[key1][y])
+    previous_week_team_stats = (
+        MatchupHistory.query.filter_by(matchup_week=(int(get_current_week()) - 1))
+        .first()
+        .all_data
+    )
 
-    for x in total:
-        total[x]["FG%"] /= int(get_current_week()) - 1
-        total[x]["FG%"] = round(total[x]["FG%"], 2)
+    for team_id in total:
+        print(team_id)
+        for category in total[team_id]:
+            total[team_id][category] = float(total[team_id][category]) + float(
+                previous_week_team_stats[team_id][category]
+            )
 
-        total[x]["FT%"] /= int(get_current_week()) - 1
-        total[x]["FT%"] = round(total[x]["FT%"], 3)
+    for team_id in total:
+        total[team_id]["FG%"] = total[team_id]["FG%"] + (
+            (float(previous_week_team_stats[team_id]["FG%"]) - total[team_id]["FG%"])
+            / (float(get_current_week()) - 1)
+        )
+        total[team_id]["FG%"] = round(total[team_id]["FG%"], 2)
+
+        total[team_id]["FT%"] = total[team_id]["FT%"] + (
+            (float(previous_week_team_stats[team_id]["FT%"]) - total[team_id]["FT%"])
+            / (float(get_current_week()) - 1)
+        )
+        total[team_id]["FT%"] = round(total[team_id]["FT%"], 3)
 
     average = copy.deepcopy(total)
 
@@ -181,34 +195,37 @@ def get_stength():
                 float(get_current_week()) - 1
             )
 
-    print(len(json.dumps(total)))
-    total_week = Variable(variable_name="Average", variable_data=json.dumps(average))
-    db.session.add(total_week)
-    db.session.commit()
+    Variable.query.filter_by(
+        variable_name="Average"
+    ).first().variable_data = json.dumps(average)
+    # db.session.commit()
 
-    return jsonify([total, average])
+    return jsonify(average)
 
 
-@FullData.route("/overall-strength", methods=["GET"])
-def get_thing():
+# TODO: make frontend and add function call to update api endpoint
+
+
+def update_league_average():
     total = json.loads(
         Variable.query.filter_by(variable_name="Total").first().variable_data
     )
-    total_cat = {}
-    for x in total:
-        for y in total[x].keys():
-            total_cat[y] = 0.0
-        break
+    league_average = {}
+    for category in json.loads(get_category().data):
+        league_average[category] = 0.0
 
-    for x in total:
-        for y in total[x]:
-            total_cat[y] += total[x][y]
+    for team_id in total:
+        for category in total[team_id]:
+            league_average[category] += total[team_id][category]
 
-    for x in total_cat:
-        total_cat[x] /= len(get_team_map())
-        if x != "FG%" or x != "FT%":
-            total_cat[x] /= float(get_current_week()) - 1
-            total_cat[x] = round(total_cat[x], 3)
+    for category in league_average:
+        league_average[category] /= len(get_team_map())
+        if category != "FG%" and category != "FT%":
+            league_average[category] /= float(get_current_week()) - 1
+        league_average[category] = round(league_average[category], 3)
 
-    return jsonify(total_cat)
+    Variable.query.filter_by(
+        variable_name="League_Average"
+    ).first().variable_data = json.dumps(league_average)
+    db.session.commit()
 
