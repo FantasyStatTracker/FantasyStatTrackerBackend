@@ -1,5 +1,5 @@
 import logging
-from Model.variable import MatchupHistory, db
+from Model.variable import MatchupHistory, Variable, db
 from flask import Blueprint, jsonify, request
 import flask
 import json
@@ -9,6 +9,7 @@ from Variables.TokenRefresh import oauth, lg
 from Variables.LeagueInformation import stat_map
 from HelperMethods.helper import get_team_map
 import statistics
+import copy
 
 FullData = Blueprint("FullData", __name__)
 
@@ -151,3 +152,5 @@ def get_category():
 @FullData.route("/week", methods=["GET"])
 def get_current_week():
     return str(lg.current_week())
+
+
