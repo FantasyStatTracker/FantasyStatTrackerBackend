@@ -154,3 +154,5 @@ def get_current_week():
     return str(lg.current_week())
 
 
+def get_current_week_int():
+    return lg.current_week()

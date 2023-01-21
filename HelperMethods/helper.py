@@ -188,3 +188,13 @@ def get_data_category_map():
 def get_team_id(gm):
 
     return gm.league_ids()
+
+
+def convert_previous_week_data(previous_week_data):
+    team_map = get_team_id_to_name_map()
+
+    for x in list(previous_week_data.keys()):
+        previous_week_data[team_map[x]] = previous_week_data[x]
+        del previous_week_data[x]
+
+    return previous_week_data

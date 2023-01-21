@@ -189,7 +189,7 @@ def get_team_streak():
 @TeamInformation.route("/league/average", methods=["GET"])
 def get_league_average():
     league_average = json.loads(
-        Variable.query.filter_by(variable_name="Average").first().variable_data
+        Variable.query.filter_by(variable_name="League_Average").first().variable_data
     )
 
     return jsonify(league_average)

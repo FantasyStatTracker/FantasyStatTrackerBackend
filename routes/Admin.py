@@ -5,9 +5,13 @@ from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
 import json
 from Variables.TokenRefresh import api_key, lg
-from .FullData import get_current_week, test
+from .FullData import get_current_week, test, get_current_week_int
 from .WinningMatchup import winning, get_wins
-from HelperMethods.helper import get_league_matchups, get_team_map
+from HelperMethods.helper import (
+    get_league_matchups,
+    get_team_map,
+    convert_previous_week_data,
+)
 from .FullData import get_category
 
 Admin = Blueprint("Admin", __name__)
@@ -47,6 +51,7 @@ def update_roster_stats():
         previous_week_data = previous_week_data.decode("utf-8")
         previous_week_data = json.loads(previous_week_data)["team_data"]
 
+        previous_week_data = convert_previous_week_data(previous_week_data)
         matchup_record = MatchupHistory(
             matchup_week=previous_week,
             all_data=json.dumps(previous_week_data),
@@ -59,6 +64,7 @@ def update_roster_stats():
         get_league_matchups()
         update_streak()
         update_total_average_league_average()
+        get_average_last_three_weeks()
 
         # predict()
 
@@ -133,8 +139,10 @@ def update_total_average_league_average():
     # Update totals, for FG% and FT% use % difference calc
     for team_id in total:
         for category in total[team_id]:
-            total[team_id][category] = float(total[team_id][category]) + float(
-                previous_week_team_stats[team_id][category]
+            total[team_id][category] = round(
+                float(total[team_id][category])
+                + float(previous_week_team_stats[team_id][category]),
+                3,
             )
             if category == "FG%":
                 total[team_id]["FG%"] = total[team_id]["FG%"] + (
@@ -161,23 +169,6 @@ def update_total_average_league_average():
     )
     db.session.commit()
 
-    # Copy new total and calculate averages
-    average = copy.deepcopy(total)
-
-    for team in average:
-        for cat in average[team]:
-            if cat == "FG%" or cat == "FT%":
-                continue
-            average[team][cat] = float(average[team][cat]) / (
-                float(get_current_week()) - 1
-            )
-
-    # Commit new average
-    Variable.query.filter_by(
-        variable_name="Average"
-    ).first().variable_data = json.dumps(average)
-    db.session.commit()
-
     ##########################
 
     # Calculate new league wide average
@@ -196,8 +187,88 @@ def update_total_average_league_average():
         league_average[category] = round(league_average[category], 3)
 
     Variable.query.filter_by(
-        variable_name="League_Average"
+        variable_name="Average"
     ).first().variable_data = json.dumps(league_average)
     db.session.commit()
 
     return jsonify(total)
+
+
+# Working
+
+
+def get_average_last_three_weeks():
+    last_three_weeks = []
+    for week_number in range(get_current_week_int() - 3, get_current_week_int()):
+        week_stats = (
+            MatchupHistory.query.filter_by(matchup_week=week_number).first().all_data
+        )
+        last_three_weeks.append(week_stats)
+
+    average_last_three_weeks = sum_three_weeks(last_three_weeks)
+
+    Variable.query.filter_by(
+        variable_name="League_Average"
+    ).first().variable_data = json.dumps(average_last_three_weeks)
+    db.session.commit()
+
+    return jsonify(average_last_three_weeks)
+
+
+def sum_three_weeks(week_stats: list):
+    print(len(week_stats))
+    total = week_stats[0]
+    for team_id in total:
+        for category in total[team_id]:
+            total[team_id][category] = round(
+                (
+                    float(total[team_id][category])
+                    + float(week_stats[1][team_id][category])
+                    + float(week_stats[2][team_id][category])
+                ),
+                3,
+            )
+
+            total[team_id][category] = round(total[team_id][category] / 3, 2)
+
+    return total
+
+
+def sum_weeks(week_stats: list):
+    print(len(week_stats))
+    total = week_stats[0]
+    for team_id in total:
+        for category in total[team_id]:
+            total[team_id][category] = round(
+                (sum_category(category, team_id, week_stats)), 3,
+            )
+
+    return total
+
+
+def get_average_all_weeks():
+    all_weeks = []
+    for week_number in range(1, get_current_week_int()):
+        week_stats = (
+            MatchupHistory.query.filter_by(matchup_week=week_number).first().all_data
+        )
+        all_weeks.append(week_stats)
+
+    average_all_weeks = sum_weeks(all_weeks)
+
+    Variable.query.filter_by(variable_name="Total").first().variable_data = json.dumps(
+        average_all_weeks
+    )
+    db.session.commit()
+
+    return jsonify(average_all_weeks)
+
+
+def sum_category(category: str, team_id: str, week_stats: list):
+    total = 0
+    for x in range(0, len(week_stats)):
+        total += float(week_stats[x][team_id][category])
+
+    if category == "FG%" or category == "FT%":
+        return total / (get_current_week_int() - 1)
+    return total
