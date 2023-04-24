@@ -43,5 +43,5 @@ if __name__ == "__main__":
         with app.app_context():
             pass
     else:
-        port = os.environ.get("PORT", 80)
+        port = os.getenv("PORT", 80)
     app.run(host="localhost", port=port, debug=environment)

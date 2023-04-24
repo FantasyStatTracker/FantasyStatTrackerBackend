@@ -11,14 +11,14 @@ import scipy.stats as stats
 
 PlayerStatistics = Blueprint("PlayerStatistics", __name__)
 cors = CORS(PlayerStatistics)
-year = os.environ.get("YEAR")
+year = os.getenv("YEAR")
 
 
 @PlayerStatistics.route("/player-zscore", methods=["GET"])
 @cache.cached()
 def player_zscore():
 
-    url = os.environ.get("URL")
+    url = os.getenv("URL")
 
     response = requests.get(url)
 

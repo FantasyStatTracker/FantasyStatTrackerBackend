@@ -8,7 +8,7 @@ import os
 RelevantData = Blueprint("RelevantData", __name__)
 
 
-year = os.environ.get("YEAR")
+year = os.getenv("YEAR")
 PLAYERLIST = []
 
 # Get all data for current season
