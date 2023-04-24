@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 app.config.from_mapping(config)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = "Error: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set."
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 cors = CORS(app)
 
