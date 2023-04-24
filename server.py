@@ -18,8 +18,8 @@ app = Flask(__name__)
 
 app.config.from_mapping(config)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("KEY")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("KEY")
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 cors = CORS(app)
 
 cache.init_app(app)
