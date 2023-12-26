@@ -12,6 +12,9 @@ from routes.NewApi import Api
 from routes.PlayerStatistics import PlayerStatistics
 from routes.TeamInformtion import TeamInformation
 from cache import cache
+from Variables.TokenRefresh import lg, oauth, gm
+from yahoo_oauth import OAuth2
+import yahoo_fantasy_api as yfa
 
 config = {"DEBUG": True, "CACHE_TYPE": "SimpleCache", "CACHE_DEFAULT_TIMEOUT": 300}
 app = Flask(__name__)
@@ -34,6 +37,7 @@ app.register_blueprint(Admin)
 app.register_blueprint(Api)
 app.register_blueprint(PlayerStatistics)
 app.register_blueprint(TeamInformation)
+
 
 if __name__ == "__main__":
     port = ""
