@@ -5,24 +5,21 @@ import flask
 import json
 from collections import OrderedDict
 from flask_cors import CORS, cross_origin
-from Variables.TokenRefresh import oauth, lg
+from Variables.TokenRefresh import oauth, lg, gm, test2
 from Variables.LeagueInformation import stat_map
 from HelperMethods.helper import get_team_map
+from yahoo_oauth import OAuth2
+import yahoo_fantasy_api as yfa
 import statistics
 import copy
+import os 
 
 FullData = Blueprint("FullData", __name__)
-
 cors = CORS(FullData)
-
-# GET Returns current week team stats by category
-# POST Returns week by week number passed
-
 
 @FullData.route("/full-team-data", methods=["GET", "POST"])
 @cross_origin()
 def test(*args):
-
     team_photo_url = {}
     full_matchup_information = None
     if flask.request.method == "POST":  # if requesting a previous week
@@ -47,7 +44,7 @@ def test(*args):
     except Exception as e:
         logging.exception(e.__class__.__name__)
         pass
-
+    
     full_matchup_information = lg.matchups(week=week_number)["fantasy_content"][
         "league"
     ][1]["scoreboard"]["0"]["matchups"]
