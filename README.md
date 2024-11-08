@@ -1,8 +1,8 @@
 ### `python server.py`
 
-1. Heroku login
-2. Moves files into react-flask-fantasy directory
-3. git add . git commit -m 
-4. git push heroku master
+
+1. source .venv/bin/activate
+2. pip -r install requirements.txt
+3. gunicorn --bind 0.0.0.0:8000 wsgi:app
 
 todo: Create jenkins script or Travis to automate this

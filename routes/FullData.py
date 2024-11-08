@@ -1,5 +1,5 @@
 import logging
-from Model.variable import MatchupHistory, Variable, db
+#from Model.variable import MatchupHistory, Variable, db
 from flask import Blueprint, jsonify, request
 import flask
 import json

@@ -2,7 +2,7 @@ import logging
 from Variables.TokenRefresh import lg
 import json
 import requests
-from Model.variable import Variable, db
+#from Model.variable import Variable, db
 
 
 def get_FG_FT():
@@ -113,39 +113,39 @@ def get_schedule():
     return Game
 
 
-def get_league_matchups():  # predict
+# def get_league_matchups():  # predict
 
-    matchup_information = lg.matchups()
-    data = matchup_information["fantasy_content"]["league"][1]["scoreboard"]["0"][
-        "matchups"
-    ]
-    matchup_key = list(data.keys())
-    matchup_key = matchup_key[:-1]
+#     matchup_information = lg.matchups()
+#     data = matchup_information["fantasy_content"]["league"][1]["scoreboard"]["0"][
+#         "matchups"
+#     ]
+#     matchup_key = list(data.keys())
+#     matchup_key = matchup_key[:-1]
 
-    P1 = ""
-    Matchup = {}
-    for matchup_index in matchup_key:
-        # matchup will always have two people
-        for matchup_team in range(0, 2):
-            for _, team_data in enumerate(
-                data[matchup_index]["matchup"]["0"]["teams"][str(matchup_team)]["team"]
-            ):
+#     P1 = ""
+#     Matchup = {}
+#     for matchup_index in matchup_key:
+#         # matchup will always have two people
+#         for matchup_team in range(0, 2):
+#             for _, team_data in enumerate(
+#                 data[matchup_index]["matchup"]["0"]["teams"][str(matchup_team)]["team"]
+#             ):
 
-                try:
+#                 try:
 
-                    if matchup_team == 0:
-                        P1 = team_data[0]["team_key"]
-                    else:
-                        Matchup[P1] = team_data[0]["team_key"]
-                except Exception as e:
-                    logging.info(e.__class__.__name__)
-                    continue
+#                     if matchup_team == 0:
+#                         P1 = team_data[0]["team_key"]
+#                     else:
+#                         Matchup[P1] = team_data[0]["team_key"]
+#                 except Exception as e:
+#                     logging.info(e.__class__.__name__)
+#                     continue
 
-    Prediction = Variable.query.filter_by(variable_name="WeekMatchup").first()
-    Prediction.variable_data = json.dumps(Matchup)
-    db.session.commit()
+#     Prediction = Variable.query.filter_by(variable_name="WeekMatchup").first()
+#     Prediction.variable_data = json.dumps(Matchup)
+#     db.session.commit()
 
-    return Matchup
+#     return Matchup
 
 
 def get_data_category_map():
