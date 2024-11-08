@@ -172,6 +172,7 @@ dbkey.py
 ./FantasyFrontend
 
 oauth2.json
+secrets.json
 
 ./react-flask-fantasy
 *.pgsql
